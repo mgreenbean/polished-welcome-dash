@@ -40,7 +40,6 @@ const Header = ({ userName }: HeaderProps) => {
               >
                 Dashboard
               </Link>
-              <a href="#" className="text-blue-500 hover:text-blue-900 pb-4 font-medium">My Listings</a>
               <Link 
                 to="/analytics" 
                 className={`pb-4 font-medium ${
