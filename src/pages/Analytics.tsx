@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import SeatlyHelper from "@/components/SeatlyHelper";
 import { userData } from "@/data/ticketData";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -48,29 +48,10 @@ const Analytics = () => {
     }
   };
 
-  // Sales performance by event type
-  const salesData = [
-    { type: "Sports", tickets: 145, revenue: 38500 },
-    { type: "Concerts", tickets: 89, revenue: 24600 },
-    { type: "Theater", tickets: 67, revenue: 18900 },
-    { type: "Comedy", tickets: 34, revenue: 9800 }
-  ];
-
-  // Market share data
-  const marketData = [
-    { name: "Premium", value: 45, color: "#3b82f6" },
-    { name: "Standard", value: 35, color: "#10b981" },
-    { name: "Budget", value: 20, color: "#f59e0b" }
-  ];
-
   const chartConfig = {
     revenue: {
       label: "Revenue ($)",
       color: "#3b82f6"
-    },
-    tickets: {
-      label: "Tickets Sold",
-      color: "#10b981"
     }
   };
 
@@ -191,55 +172,6 @@ const Analytics = () => {
             </ChartContainer>
           </CardContent>
         </Card>
-
-        {/* Charts Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Sales by Event Type */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Sales by Event Type</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ChartContainer config={chartConfig} className="h-[300px]">
-                <BarChart data={salesData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="type" />
-                  <YAxis />
-                  <ChartTooltip content={<ChartTooltipContent />} />
-                  <Bar dataKey="tickets" fill="#10b981" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ChartContainer>
-            </CardContent>
-          </Card>
-
-          {/* Market Share */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Ticket Price Categories</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex justify-center">
-                <ChartContainer config={chartConfig} className="h-[300px] w-[300px]">
-                  <PieChart>
-                    <Pie
-                      data={marketData}
-                      cx="50%"
-                      cy="50%"
-                      outerRadius={100}
-                      dataKey="value"
-                      label={({ name, value }) => `${name}: ${value}%`}
-                    >
-                      {marketData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.color} />
-                      ))}
-                    </Pie>
-                    <ChartTooltip content={<ChartTooltipContent />} />
-                  </PieChart>
-                </ChartContainer>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
 
       <SeatlyHelper />
