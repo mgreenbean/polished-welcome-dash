@@ -1,5 +1,5 @@
 
-import { Search, Bell, User, Calendar } from "lucide-react";
+import { Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
@@ -29,19 +29,6 @@ const Header = ({ userName }: HeaderProps) => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <div className="relative hidden sm:block">
-              <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400" />
-              <input 
-                type="text" 
-                placeholder="Search events, venues..."
-                className="pl-10 pr-4 py-2 border border-blue-300 rounded-lg text-sm w-64 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/70"
-              />
-            </div>
-            <div className="flex items-center space-x-2 bg-blue-50 px-3 py-2 rounded-lg border border-blue-200">
-              <Calendar className="h-4 w-4 text-blue-600" />
-              <span className="text-sm font-semibold text-blue-900">This Month</span>
-              <span className="text-xs text-blue-600">earnings period</span>
-            </div>
             <div className="relative">
               <Button variant="ghost" size="sm" className="relative hover:bg-blue-100/50 transition-all duration-200 hover:scale-105">
                 <Bell className="h-4 w-4" />
