@@ -1,28 +1,54 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from "recharts";
 import { TrendingUp, TrendingDown, DollarSign, Users, Calendar, Target } from "lucide-react";
 import Header from "@/components/Header";
 import { ticketData, userData } from "@/data/ticketData";
+import { useState } from "react";
 
 const Analytics = () => {
+  const [chartPeriod, setChartPeriod] = useState<"weekly" | "monthly" | "yearly">("monthly");
+
   // Calculate real metrics from ticket data
   const totalRevenue = ticketData.sold.reduce((sum, ticket) => sum + (ticket.soldPrice * ticket.qty), 0);
   const totalTicketsSold = ticketData.sold.reduce((sum, ticket) => sum + ticket.qty, 0);
   const averageSalePrice = totalTicketsSold > 0 ? Math.round(totalRevenue / totalTicketsSold) : 0;
   const activeListings = ticketData.pending.length + ticketData.live.length;
 
-  // Generate monthly data based on actual sales (projecting backwards for demo)
-  const currentMonthRevenue = totalRevenue;
-  const monthlySales = [
-    { month: "Jul", revenue: 0, tickets: 0 },
-    { month: "Aug", revenue: 0, tickets: 0 },
-    { month: "Sep", revenue: 0, tickets: 0 },
-    { month: "Oct", revenue: 0, tickets: 0 },
-    { month: "Nov", revenue: currentMonthRevenue, tickets: totalTicketsSold },
-    { month: "Dec", revenue: 0, tickets: 0 },
-  ];
+  // Generate chart data based on selected period
+  const getChartData = () => {
+    const currentRevenue = totalRevenue;
+    const currentTickets = totalTicketsSold;
+
+    switch (chartPeriod) {
+      case "weekly":
+        return [
+          { period: "Week 1", revenue: 0, tickets: 0 },
+          { period: "Week 2", revenue: 0, tickets: 0 },
+          { period: "Week 3", revenue: currentRevenue, tickets: currentTickets },
+          { period: "Week 4", revenue: 0, tickets: 0 },
+        ];
+      case "yearly":
+        return [
+          { period: "2022", revenue: 0, tickets: 0 },
+          { period: "2023", revenue: 0, tickets: 0 },
+          { period: "2024", revenue: currentRevenue, tickets: currentTickets },
+        ];
+      default: // monthly
+        return [
+          { month: "Jul", revenue: 0, tickets: 0 },
+          { month: "Aug", revenue: 0, tickets: 0 },
+          { month: "Sep", revenue: 0, tickets: 0 },
+          { month: "Oct", revenue: 0, tickets: 0 },
+          { month: "Nov", revenue: currentRevenue, tickets: totalTicketsSold },
+          { month: "Dec", revenue: 0, tickets: 0 },
+        ];
+    }
+  };
+
+  const chartData = getChartData();
 
   // Event categories based on actual tickets
   const eventCategories = [
@@ -63,7 +89,19 @@ const Analytics = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-blue-900 mb-2">Analytics Dashboard</h1>
+          <div className="flex justify-between items-center mb-2">
+            <h1 className="text-3xl font-bold text-blue-900">Analytics Dashboard</h1>
+            <Select value={chartPeriod} onValueChange={(value: "weekly" | "monthly" | "yearly") => setChartPeriod(value)}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select period" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="weekly">Weekly View</SelectItem>
+                <SelectItem value="monthly">Monthly View</SelectItem>
+                <SelectItem value="yearly">Yearly View</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
           <p className="text-blue-600">Track your ticket sales performance and market insights</p>
         </div>
 
@@ -146,14 +184,16 @@ const Analytics = () => {
               {/* Revenue Chart */}
               <Card className="bg-white/80 backdrop-blur-sm border-blue-200/70 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-blue-900">Monthly Revenue</CardTitle>
+                  <CardTitle className="text-blue-900">
+                    {chartPeriod === "weekly" ? "Weekly" : chartPeriod === "yearly" ? "Yearly" : "Monthly"} Revenue
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ChartContainer config={chartConfig} className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={monthlySales}>
+                      <BarChart data={chartData}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="month" />
+                        <XAxis dataKey="period" />
                         <YAxis />
                         <ChartTooltip content={<ChartTooltipContent />} />
                         <Bar dataKey="revenue" fill="var(--color-revenue)" />
@@ -171,9 +211,9 @@ const Analytics = () => {
                 <CardContent>
                   <ChartContainer config={chartConfig} className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={monthlySales}>
+                      <LineChart data={chartData}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="month" />
+                        <XAxis dataKey="period" />
                         <YAxis />
                         <ChartTooltip content={<ChartTooltipContent />} />
                         <Line type="monotone" dataKey="tickets" stroke="var(--color-tickets)" strokeWidth={2} />
