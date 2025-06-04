@@ -1,7 +1,5 @@
-
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
-import StatsCards from "@/components/StatsCards";
 import InstantTransfer from "@/components/InstantTransfer";
 import TicketPortfolio from "@/components/TicketPortfolio";
 import Sidebar from "@/components/Sidebar";
@@ -150,8 +148,6 @@ const Index = () => {
         </div>
 
         <InstantTransfer />
-        
-        <StatsCards />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
