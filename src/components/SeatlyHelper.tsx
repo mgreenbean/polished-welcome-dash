@@ -1,17 +1,30 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X, Send, Minimize2, Maximize2 } from "lucide-react";
 
+const SeatlyFallbackIcon = ({ className }: { className?: string }) => (
+  <div className={`${className} bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg`}>
+    <svg viewBox="0 0 24 24" className="w-8 h-8 text-white" fill="currentColor">
+      <circle cx="12" cy="8" r="3"/>
+      <path d="M12 14c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z"/>
+      <circle cx="8" cy="6" r="1" fill="orange"/>
+      <circle cx="16" cy="6" r="1" fill="orange"/>
+    </svg>
+  </div>
+);
+
 const SeatlyHelper = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [message, setMessage] = useState("");
+  const [imageError, setImageError] = useState(false);
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi Dean! I'm Seatly. How can I assist you today?",
+      text: "Hi! I'm Seatly. How can I assist you today?",
       isBot: true,
       timestamp: new Date()
     }
@@ -54,7 +67,7 @@ const SeatlyHelper = () => {
         <div className="relative">
           {/* Speech bubble */}
           <div className="absolute bottom-16 right-0 mb-2 bg-blue-600 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap shadow-lg">
-            Need help? Click me.
+            Need help? Click me!
             <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-blue-600"></div>
           </div>
           
@@ -62,11 +75,16 @@ const SeatlyHelper = () => {
             onClick={() => setIsOpen(true)}
             className="rounded-full h-14 w-14 bg-transparent hover:bg-gray-100 shadow-lg transition-all hover:scale-105 p-0 border-0"
           >
-            <img 
-              src="/lovable-uploads/seatly-mascot.png" 
-              alt="Seatly" 
-              className="h-14 w-14 object-contain"
-            />
+            {!imageError ? (
+              <img 
+                src="/lovable-uploads/seatly-mascot.png" 
+                alt="Seatly" 
+                className="h-14 w-14 object-contain"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <SeatlyFallbackIcon className="h-14 w-14" />
+            )}
           </Button>
         </div>
       </div>
@@ -78,11 +96,16 @@ const SeatlyHelper = () => {
       <Card className={`w-80 shadow-xl transition-all ${isMinimized ? 'h-auto' : 'h-96'}`}>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 bg-blue-600 text-white rounded-t-lg">
           <div className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/seatly-mascot.png" 
-              alt="Seatly" 
-              className="h-5 w-5 object-contain"
-            />
+            {!imageError ? (
+              <img 
+                src="/lovable-uploads/seatly-mascot.png" 
+                alt="Seatly" 
+                className="h-5 w-5 object-contain"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <SeatlyFallbackIcon className="h-5 w-5" />
+            )}
             <CardTitle className="text-sm font-medium">Seatly</CardTitle>
           </div>
           <div className="flex space-x-1">
