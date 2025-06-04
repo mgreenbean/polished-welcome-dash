@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -23,7 +22,7 @@ const InstantTransfer = () => {
       <CardContent className="p-6">
         <div className="flex items-start space-x-4 mb-6">
           <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
-            <Send className="h-6 w-6 text-white" />
+            <Send className="h-6 w-6 text-white transform translate-x-0.5" />
           </div>
           <div className="flex-1">
             <h2 className="text-2xl font-bold text-slate-900 mb-2">Instant Ticket Transfer</h2>
