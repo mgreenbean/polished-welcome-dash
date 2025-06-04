@@ -54,12 +54,12 @@ const SeatlyHelper = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           onClick={() => setIsOpen(true)}
-          className="rounded-full h-14 w-14 bg-blue-600 hover:bg-blue-700 shadow-lg transition-all hover:scale-105 p-0"
+          className="rounded-full h-14 w-14 bg-transparent hover:bg-gray-100 shadow-lg transition-all hover:scale-105 p-0 border-0"
         >
           <img 
-            src="/lovable-uploads/163c63ef-b0dc-48ae-8600-1bf8ec475a31.png" 
+            src="/lovable-uploads/seatly-mascot.png" 
             alt="Seatly" 
-            className="h-10 w-10 object-contain"
+            className="h-14 w-14 object-contain"
           />
         </Button>
       </div>
@@ -72,7 +72,7 @@ const SeatlyHelper = () => {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 bg-blue-600 text-white rounded-t-lg">
           <div className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/163c63ef-b0dc-48ae-8600-1bf8ec475a31.png" 
+              src="/lovable-uploads/seatly-mascot.png" 
               alt="Seatly" 
               className="h-5 w-5 object-contain"
             />
