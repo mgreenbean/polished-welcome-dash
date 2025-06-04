@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Ticket, Calendar } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Ticket, Calendar, Search, Filter, CheckSquare, Square } from "lucide-react";
 
 interface TicketData {
   pending: any[];
@@ -17,8 +18,35 @@ interface TicketPortfolioProps {
 
 const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
   const [activeFilter, setActiveFilter] = useState<'pending' | 'live' | 'sold'>('pending');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTickets, setSelectedTickets] = useState<number[]>([]);
+  const [showFilters, setShowFilters] = useState(false);
+
+  const filteredTickets = ticketData[activeFilter].filter(ticket =>
+    ticket.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    ticket.venue.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    ticket.location.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const toggleTicketSelection = (ticketId: number) => {
+    setSelectedTickets(prev => 
+      prev.includes(ticketId) 
+        ? prev.filter(id => id !== ticketId)
+        : [...prev, ticketId]
+    );
+  };
+
+  const selectAllTickets = () => {
+    if (selectedTickets.length === filteredTickets.length) {
+      setSelectedTickets([]);
+    } else {
+      setSelectedTickets(filteredTickets.map(ticket => ticket.id));
+    }
+  };
 
   const renderTicketCard = (ticket: any) => {
+    const isSelected = selectedTickets.includes(ticket.id);
+    
     const getStatusBadgeClass = (color: string) => {
       const baseClass = "px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide";
       switch (color) {
@@ -47,24 +75,33 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
     };
 
     return (
-      <div key={ticket.id} className="relative bg-white/90 backdrop-blur-sm border-2 border-slate-200/50 rounded-lg p-6 mb-4 shadow-xl">
+      <div key={ticket.id} className={`relative bg-white/90 backdrop-blur-sm border-2 rounded-lg p-6 mb-4 shadow-xl ${isSelected ? 'border-blue-400 bg-blue-50/50' : 'border-slate-200/50'}`}>
         <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-200"></div>
         <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-200"></div>
         
         <div className="flex items-center justify-between">
-          <div className="flex-1">
-            <div className="flex items-center space-x-2 mb-2">
-              <Badge className={getStatusBadgeClass(ticket.statusColor)}>{ticket.status}</Badge>
-              {ticket.expiresIn && <span className="text-sm text-slate-500 font-medium">Expires in {ticket.expiresIn}</span>}
-              {ticket.views && <span className="text-sm text-slate-500 font-medium">{ticket.views}</span>}
-              {ticket.soldDate && <span className="text-sm text-slate-500 font-medium">Sold on {ticket.soldDate}</span>}
-            </div>
-            <h3 className="text-lg font-semibold text-slate-900 mb-1">{ticket.title}</h3>
-            <p className="text-sm text-slate-600 mb-2 font-medium">{ticket.venue}</p>
-            <p className="text-sm text-slate-500 font-medium">{ticket.location}</p>
-            <div className="flex items-center space-x-1 text-sm text-slate-500 mt-2">
-              <Calendar className="h-4 w-4" />
-              <span className="font-medium">{ticket.date}</span>
+          <div className="flex items-start space-x-3">
+            <button
+              onClick={() => toggleTicketSelection(ticket.id)}
+              className="mt-1 text-slate-600 hover:text-blue-600 transition-colors"
+            >
+              {isSelected ? <CheckSquare className="h-5 w-5" /> : <Square className="h-5 w-5" />}
+            </button>
+            
+            <div className="flex-1">
+              <div className="flex items-center space-x-2 mb-2">
+                <Badge className={getStatusBadgeClass(ticket.statusColor)}>{ticket.status}</Badge>
+                {ticket.expiresIn && <span className="text-sm text-slate-500 font-medium">Expires in {ticket.expiresIn}</span>}
+                {ticket.views && <span className="text-sm text-slate-500 font-medium">{ticket.views}</span>}
+                {ticket.soldDate && <span className="text-sm text-slate-500 font-medium">Sold on {ticket.soldDate}</span>}
+              </div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-1">{ticket.title}</h3>
+              <p className="text-sm text-slate-600 mb-2 font-medium">{ticket.venue}</p>
+              <p className="text-sm text-slate-500 font-medium">{ticket.location}</p>
+              <div className="flex items-center space-x-1 text-sm text-slate-500 mt-2">
+                <Calendar className="h-4 w-4" />
+                <span className="font-medium">{ticket.date}</span>
+              </div>
             </div>
           </div>
           
@@ -115,7 +152,55 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
             <Ticket className="h-5 w-5" />
             <span className="font-bold">Your Ticket Portfolio</span>
           </CardTitle>
+          <div className="flex items-center space-x-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setShowFilters(!showFilters)}
+              className="flex items-center space-x-2"
+            >
+              <Filter className="h-4 w-4" />
+              <span>Filters</span>
+            </Button>
+            {selectedTickets.length > 0 && (
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-slate-600 font-medium">
+                  {selectedTickets.length} selected
+                </span>
+                <Button variant="outline" size="sm">
+                  Bulk Edit
+                </Button>
+                <Button variant="outline" size="sm">
+                  Delete Selected
+                </Button>
+              </div>
+            )}
+          </div>
         </div>
+
+        {showFilters && (
+          <div className="flex items-center space-x-4 pt-4 border-t border-slate-200">
+            <div className="relative flex-1">
+              <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
+              <Input
+                placeholder="Search tickets, venues, locations..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={selectAllTickets}
+              className="flex items-center space-x-2"
+            >
+              {selectedTickets.length === filteredTickets.length ? <CheckSquare className="h-4 w-4" /> : <Square className="h-4 w-4" />}
+              <span>Select All</span>
+            </Button>
+          </div>
+        )}
+        
         <div className="grid grid-cols-3 gap-0 text-sm w-full">
           <button 
             onClick={() => setActiveFilter('pending')}
@@ -127,7 +212,7 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
           >
             <span className="font-medium">Pending Review</span>
             <span className="bg-amber-400 text-amber-900 px-2 py-1 rounded-full text-xs font-bold">
-              1
+              {ticketData.pending.length}
             </span>
           </button>
           <button 
@@ -140,7 +225,7 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
           >
             <span className="font-medium">Live Listings</span>
             <span className="bg-emerald-400 text-emerald-900 px-2 py-1 rounded-full text-xs font-bold">
-              2
+              {ticketData.live.length}
             </span>
           </button>
           <button 
@@ -153,13 +238,21 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
           >
             <span className="font-medium">Sold Tickets</span>
             <span className="bg-blue-400 text-blue-900 px-2 py-1 rounded-full text-xs font-bold">
-              47
+              {ticketData.sold.length}
             </span>
           </button>
         </div>
       </CardHeader>
       <CardContent>
-        {ticketData[activeFilter].map(ticket => renderTicketCard(ticket))}
+        {filteredTickets.length > 0 ? (
+          filteredTickets.map(ticket => renderTicketCard(ticket))
+        ) : (
+          <div className="text-center py-8 text-slate-500">
+            <Ticket className="h-12 w-12 mx-auto mb-4 opacity-50" />
+            <p className="font-medium">No tickets found</p>
+            <p className="text-sm">Try adjusting your search or filter criteria</p>
+          </div>
+        )}
       </CardContent>
     </Card>
   );

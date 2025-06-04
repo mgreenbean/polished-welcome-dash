@@ -41,10 +41,12 @@ const Header = ({ userName }: HeaderProps) => {
               <Plus className="h-4 w-4 mr-2" />
               List Tickets
             </Button>
-            <Button variant="ghost" size="sm" className="relative hover:bg-slate-100/50 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg">
-              <Bell className="h-4 w-4" />
-              <span className="absolute -top-1 -right-1 text-xs bg-amber-500 text-white rounded-full px-1 min-w-[16px] h-4 flex items-center justify-center font-semibold">3</span>
-            </Button>
+            <div className="relative">
+              <Button variant="ghost" size="sm" className="relative hover:bg-slate-100/50 transition-all duration-200 hover:scale-105">
+                <Bell className="h-4 w-4" />
+                <span className="absolute -top-1 -right-1 text-xs bg-amber-500 text-white rounded-full px-1 min-w-[16px] h-4 flex items-center justify-center font-semibold">3</span>
+              </Button>
+            </div>
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-br from-slate-200 to-slate-300 rounded-full flex items-center justify-center">
                 <User className="h-4 w-4 text-slate-600" />
