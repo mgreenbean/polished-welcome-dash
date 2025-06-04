@@ -41,18 +41,13 @@ const InstantTransfer = () => {
             />
             <Button 
               variant="outline" 
-              className="border-slate-400 text-slate-700 hover:bg-slate-100 px-6 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 relative font-medium"
+              className="border-slate-400 text-slate-700 hover:bg-slate-100 px-6 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-medium"
               onClick={handleCopyEmail}
               onMouseEnter={() => setIsHoveringCopy(true)}
               onMouseLeave={() => setIsHoveringCopy(false)}
             >
               <Copy className={`h-4 w-4 mr-2 transition-transform duration-200 ${justCopied ? 'scale-125 text-green-600' : ''}`} />
               {justCopied ? 'Copied!' : isHoveringCopy ? 'Copy' : 'Copy'}
-              {justCopied && (
-                <div className="absolute -top-2 -right-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
-                </div>
-              )}
             </Button>
           </div>
         </div>
