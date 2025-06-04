@@ -7,29 +7,118 @@ import { TrendingUp, TrendingDown, DollarSign, Users, Calendar, Target } from "l
 import Header from "@/components/Header";
 
 const Analytics = () => {
-  // Sample sales data
+  // Real ticket data from dashboard
+  const ticketData = {
+    pending: [
+      {
+        id: 1,
+        title: "NBA FINALS: TBD AT KNICKS RD 4 HM GM 3",
+        venue: "Madison Square Garden",
+        location: "New York, NY",
+        date: "TBD 2024",
+        marketPrice: 525,
+        yourPrice: 450,
+        section: "213",
+        row: "18",
+        seats: "11, 12",
+        qty: 2,
+        status: "PENDING REVIEW",
+        statusColor: "amber",
+        expiresIn: "2 days"
+      }
+    ],
+    live: [
+      {
+        id: 2,
+        title: "LAKERS VS WARRIORS",
+        venue: "Crypto.com Arena",
+        location: "Los Angeles, CA",
+        date: "Dec 15, 2024",
+        marketPrice: 380,
+        yourPrice: 350,
+        section: "115",
+        row: "12",
+        seats: "5, 6",
+        qty: 2,
+        status: "LIVE LISTING",
+        statusColor: "emerald",
+        views: "127 views today"
+      },
+      {
+        id: 3,
+        title: "TAYLOR SWIFT ERAS TOUR",
+        venue: "SoFi Stadium",
+        location: "Los Angeles, CA",
+        date: "Jan 20, 2025",
+        marketPrice: 850,
+        yourPrice: 800,
+        section: "C2",
+        row: "8",
+        seats: "15, 16",
+        qty: 2,
+        status: "LIVE LISTING",
+        statusColor: "emerald",
+        views: "43 views today"
+      }
+    ],
+    sold: [
+      {
+        id: 4,
+        title: "CHIEFS VS BILLS",
+        venue: "Arrowhead Stadium",
+        location: "Kansas City, MO",
+        date: "Nov 20, 2024",
+        marketPrice: 290,
+        soldPrice: 275,
+        section: "129",
+        row: "25",
+        seats: "7, 8",
+        qty: 2,
+        status: "SOLD",
+        statusColor: "blue",
+        soldDate: "Nov 18, 2024"
+      }
+    ]
+  };
+
+  // Calculate real metrics from ticket data
+  const totalRevenue = ticketData.sold.reduce((sum, ticket) => sum + (ticket.soldPrice * ticket.qty), 0);
+  const totalTicketsSold = ticketData.sold.reduce((sum, ticket) => sum + ticket.qty, 0);
+  const averageSalePrice = totalTicketsSold > 0 ? Math.round(totalRevenue / totalTicketsSold) : 0;
+  const activeListings = ticketData.pending.length + ticketData.live.length;
+
+  // Generate monthly data based on actual sales (projecting backwards for demo)
+  const currentMonthRevenue = totalRevenue;
   const monthlySales = [
-    { month: "Jan", revenue: 2400, tickets: 12 },
-    { month: "Feb", revenue: 1398, tickets: 8 },
-    { month: "Mar", revenue: 9800, tickets: 24 },
-    { month: "Apr", revenue: 3908, tickets: 18 },
-    { month: "May", revenue: 4800, tickets: 22 },
-    { month: "Jun", revenue: 3800, tickets: 16 },
+    { month: "Jul", revenue: 0, tickets: 0 },
+    { month: "Aug", revenue: 0, tickets: 0 },
+    { month: "Sep", revenue: 0, tickets: 0 },
+    { month: "Oct", revenue: 0, tickets: 0 },
+    { month: "Nov", revenue: currentMonthRevenue, tickets: totalTicketsSold },
+    { month: "Dec", revenue: 0, tickets: 0 },
   ];
 
+  // Event categories based on actual tickets
   const eventCategories = [
-    { name: "Sports", value: 45, color: "#3b82f6" },
-    { name: "Concerts", value: 30, color: "#10b981" },
-    { name: "Theater", value: 15, color: "#f59e0b" },
-    { name: "Comedy", value: 10, color: "#ef4444" },
+    { name: "Sports", value: 100, color: "#3b82f6" }, // Only sports tickets so far
+    { name: "Concerts", value: 0, color: "#10b981" },
+    { name: "Theater", value: 0, color: "#f59e0b" },
+    { name: "Comedy", value: 0, color: "#ef4444" },
   ];
 
+  // Top events from actual data
   const topEvents = [
-    { event: "Lakers vs Warriors", sales: 8, revenue: 3200 },
-    { event: "Taylor Swift Concert", sales: 6, revenue: 4800 },
-    { event: "Hamilton Musical", sales: 4, revenue: 1600 },
-    { event: "Comedy Night Live", sales: 3, revenue: 720 },
-  ];
+    ...ticketData.sold.map(ticket => ({
+      event: ticket.title,
+      sales: ticket.qty,
+      revenue: ticket.soldPrice * ticket.qty
+    })),
+    ...ticketData.live.map(ticket => ({
+      event: ticket.title,
+      sales: 0,
+      revenue: 0
+    }))
+  ].sort((a, b) => b.revenue - a.revenue);
 
   const chartConfig = {
     revenue: {
@@ -59,10 +148,10 @@ const Analytics = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-blue-600">Total Revenue</p>
-                  <p className="text-2xl font-bold text-blue-900">$26,108</p>
-                  <p className="text-xs text-green-600 flex items-center mt-1">
-                    <TrendingUp className="h-3 w-3 mr-1" />
-                    +12.5% from last month
+                  <p className="text-2xl font-bold text-blue-900">${totalRevenue.toLocaleString()}</p>
+                  <p className="text-xs text-blue-600 flex items-center mt-1">
+                    <Calendar className="h-3 w-3 mr-1" />
+                    From {totalTicketsSold} tickets sold
                   </p>
                 </div>
                 <DollarSign className="h-8 w-8 text-blue-600" />
@@ -75,10 +164,10 @@ const Analytics = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-blue-600">Tickets Sold</p>
-                  <p className="text-2xl font-bold text-blue-900">100</p>
+                  <p className="text-2xl font-bold text-blue-900">{totalTicketsSold}</p>
                   <p className="text-xs text-green-600 flex items-center mt-1">
                     <TrendingUp className="h-3 w-3 mr-1" />
-                    +8.2% from last month
+                    All time total
                   </p>
                 </div>
                 <Target className="h-8 w-8 text-blue-600" />
@@ -91,10 +180,10 @@ const Analytics = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-blue-600">Avg. Sale Price</p>
-                  <p className="text-2xl font-bold text-blue-900">$261</p>
-                  <p className="text-xs text-red-600 flex items-center mt-1">
-                    <TrendingDown className="h-3 w-3 mr-1" />
-                    -2.1% from last month
+                  <p className="text-2xl font-bold text-blue-900">${averageSalePrice}</p>
+                  <p className="text-xs text-blue-600 flex items-center mt-1">
+                    <Calendar className="h-3 w-3 mr-1" />
+                    Per ticket average
                   </p>
                 </div>
                 <Calendar className="h-8 w-8 text-blue-600" />
@@ -107,10 +196,10 @@ const Analytics = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-blue-600">Active Listings</p>
-                  <p className="text-2xl font-bold text-blue-900">24</p>
+                  <p className="text-2xl font-bold text-blue-900">{activeListings}</p>
                   <p className="text-xs text-blue-600 flex items-center mt-1">
                     <Users className="h-3 w-3 mr-1" />
-                    3 expiring soon
+                    {ticketData.pending.length} pending review
                   </p>
                 </div>
                 <Users className="h-8 w-8 text-blue-600" />
@@ -173,11 +262,11 @@ const Analytics = () => {
           <TabsContent value="performance" className="space-y-6">
             <Card className="bg-white/80 backdrop-blur-sm border-blue-200/70 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-blue-900">Top Performing Events</CardTitle>
+                <CardTitle className="text-blue-900">Event Performance</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {topEvents.map((event, index) => (
+                  {topEvents.length > 0 ? topEvents.map((event, index) => (
                     <div key={index} className="flex items-center justify-between p-4 bg-blue-50/50 rounded-lg">
                       <div>
                         <p className="font-semibold text-blue-900">{event.event}</p>
@@ -188,7 +277,11 @@ const Analytics = () => {
                         <p className="text-sm text-blue-500">Revenue</p>
                       </div>
                     </div>
-                  ))}
+                  )) : (
+                    <div className="text-center py-8 text-blue-600">
+                      <p>No events data available yet</p>
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -228,7 +321,7 @@ const Analytics = () => {
               {/* Category Performance */}
               <Card className="bg-white/80 backdrop-blur-sm border-blue-200/70 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-blue-900">Category Performance</CardTitle>
+                  <CardTitle className="text-blue-900">Category Breakdown</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
