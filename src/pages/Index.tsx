@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Search, Bell, User, BarChart3, Ticket, Calendar, Copy, Clock, Filter, RefreshCw, TrendingUp, DollarSign, TrendingDown } from "lucide-react";
+import { Plus, Search, Bell, User, BarChart3, Ticket, Calendar, Copy, Clock, Filter, RefreshCw, TrendingUp, DollarSign, TrendingDown, Mail, Eye, CheckCircle } from "lucide-react";
 import SeatlyHelper from "@/components/SeatlyHelper";
 
 const Index = () => {
@@ -172,9 +172,9 @@ const Index = () => {
               {ticket.views && <span className="text-sm text-slate-500 font-medium">{ticket.views}</span>}
               {ticket.soldDate && <span className="text-sm text-slate-500 font-medium">Sold on {ticket.soldDate}</span>}
             </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-1">{ticket.title}</h3>
+            <h3 className="text-lg font-semibold text-slate-900 mb-1">{ticket.title}</h3>
             <p className="text-sm text-slate-600 mb-2 font-medium">{ticket.venue}</p>
-            <p className="text-sm text-slate-500">{ticket.location}</p>
+            <p className="text-sm text-slate-500 font-medium">{ticket.location}</p>
             <div className="flex items-center space-x-1 text-sm text-slate-500 mt-2">
               <Calendar className="h-4 w-4" />
               <span className="font-medium">{ticket.date}</span>
@@ -293,12 +293,12 @@ const Index = () => {
               </div>
               <div className="flex-1">
                 <h2 className="text-2xl font-bold text-slate-900 mb-2">Instant Ticket Transfer</h2>
-                <p className="text-slate-600">Send your tickets to our secure email for automatic processing and instant listing across all major marketplaces</p>
+                <p className="text-slate-600 font-medium">Send your tickets to our secure email for automatic processing and instant listing across all major marketplaces</p>
               </div>
             </div>
 
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-slate-700 mb-3">Transfer Email Address</label>
+            <div className="mb-6">
+              <label className="block text-sm font-semibold text-slate-700 mb-3">Transfer Email Address</label>
               <div className="flex space-x-3">
                 <input 
                   type="email" 
@@ -323,6 +323,40 @@ const Index = () => {
                 </Button>
               </div>
             </div>
+
+            {/* How It Works Section */}
+            <div className="border-t border-slate-200 pt-6">
+              <h3 className="text-lg font-semibold text-slate-900 mb-4">How It Works</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-4 w-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900 mb-1">1. Forward Email</h4>
+                    <p className="text-sm text-slate-600 font-medium">Forward your ticket confirmation email to the address above</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Eye className="h-4 w-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900 mb-1">2. Auto Processing</h4>
+                    <p className="text-sm text-slate-600 font-medium">Our system automatically extracts ticket details and pricing</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="h-4 w-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900 mb-1">3. Instant Listing</h4>
+                    <p className="text-sm text-slate-600 font-medium">Your tickets appear in your dashboard for review and go live instantly</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </CardContent>
         </Card>
 
@@ -334,13 +368,12 @@ const Index = () => {
                 <div>
                   <p className="text-sm font-semibold text-amber-800 mb-1">PENDING REVIEW</p>
                   <p className="text-2xl font-bold text-amber-900">1</p>
-                  <p className="text-xs text-amber-600">Awaiting approval</p>
+                  <p className="text-xs text-amber-600 font-medium">Awaiting approval</p>
                 </div>
                 <div className="w-10 h-10 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center shadow-lg">
                   <Clock className="h-5 w-5 text-amber-600" />
                 </div>
               </div>
-              <div className="mt-2 text-xs text-amber-600 font-medium">↗ 12%</div>
             </CardContent>
           </Card>
 
@@ -350,13 +383,12 @@ const Index = () => {
                 <div>
                   <p className="text-sm font-semibold text-emerald-800 mb-1">ACTIVE LISTINGS</p>
                   <p className="text-2xl font-bold text-emerald-900">2</p>
-                  <p className="text-xs text-emerald-600">Currently live</p>
+                  <p className="text-xs text-emerald-600 font-medium">Currently live</p>
                 </div>
                 <div className="w-10 h-10 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full flex items-center justify-center shadow-lg">
                   <BarChart3 className="h-5 w-5 text-emerald-600" />
                 </div>
               </div>
-              <div className="mt-2 text-xs text-emerald-600 font-medium">↗ 8%</div>
             </CardContent>
           </Card>
 
@@ -366,13 +398,12 @@ const Index = () => {
                 <div>
                   <p className="text-sm font-semibold text-blue-800 mb-1">TOTAL SALES</p>
                   <p className="text-2xl font-bold text-blue-900">47</p>
-                  <p className="text-xs text-blue-600">Tickets sold</p>
+                  <p className="text-xs text-blue-600 font-medium">Tickets sold</p>
                 </div>
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center shadow-lg">
                   <Ticket className="h-5 w-5 text-blue-600" />
                 </div>
               </div>
-              <div className="mt-2 text-xs text-blue-600 font-medium">↗ 15%</div>
             </CardContent>
           </Card>
 
@@ -382,13 +413,12 @@ const Index = () => {
                 <div>
                   <p className="text-sm font-semibold text-slate-700 mb-1">REVENUE</p>
                   <p className="text-2xl font-bold text-slate-900">$12,450</p>
-                  <p className="text-xs text-slate-600">This month</p>
+                  <p className="text-xs text-slate-600 font-medium">This month</p>
                 </div>
                 <div className="w-10 h-10 bg-gradient-to-br from-slate-200 to-slate-300 rounded-full flex items-center justify-center shadow-lg">
                   <DollarSign className="h-5 w-5 text-slate-600" />
                 </div>
               </div>
-              <div className="mt-2 text-xs text-slate-600 font-medium">↗ 23%</div>
             </CardContent>
           </Card>
         </div>
@@ -427,7 +457,7 @@ const Index = () => {
                         : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
                     } px-3 py-2 rounded-lg`}
                   >
-                    <span className="text-slate-600 font-medium">Pending Review</span>
+                    <span className="text-slate-600 font-semibold">Pending Review</span>
                     <span className="bg-amber-300 text-amber-900 px-2 py-1 rounded-full text-xs font-semibold">
                       1
                     </span>
@@ -440,7 +470,7 @@ const Index = () => {
                         : 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
                     } px-3 py-2 rounded-lg`}
                   >
-                    <span className="text-slate-600 font-medium">Live Listings</span>
+                    <span className="text-slate-600 font-semibold">Live Listings</span>
                     <span className="bg-emerald-300 text-emerald-900 px-2 py-1 rounded-full text-xs font-semibold">
                       2
                     </span>
@@ -453,7 +483,7 @@ const Index = () => {
                         : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
                     } px-3 py-2 rounded-lg`}
                   >
-                    <span className="text-slate-600 font-medium">Sold Tickets</span>
+                    <span className="text-slate-600 font-semibold">Sold Tickets</span>
                     <span className="bg-blue-300 text-blue-900 px-2 py-1 rounded-full text-xs font-semibold">
                       47
                     </span>
