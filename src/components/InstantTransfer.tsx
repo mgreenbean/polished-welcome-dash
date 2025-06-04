@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Ticket, Copy } from "lucide-react";
+import { Send, Copy } from "lucide-react";
 
 const InstantTransfer = () => {
   const [isHoveringCopy, setIsHoveringCopy] = useState(false);
@@ -22,8 +22,8 @@ const InstantTransfer = () => {
     <Card className="mb-8 bg-white/80 backdrop-blur-sm border-slate-300/50 shadow-xl">
       <CardContent className="p-6">
         <div className="flex items-start space-x-4 mb-6">
-          <div className="w-12 h-12 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
-            <Ticket className="h-6 w-6 text-white" />
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+            <Send className="h-6 w-6 text-white" />
           </div>
           <div className="flex-1">
             <h2 className="text-2xl font-bold text-slate-900 mb-2">Instant Ticket Transfer</h2>
