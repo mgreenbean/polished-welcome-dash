@@ -1,6 +1,7 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TrendingUp, TrendingDown, Clock, DollarSign, Eye, Ticket } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface MarketInsight {
   category: string;
@@ -70,7 +71,17 @@ interface SidebarProps {
 
 const Sidebar = ({ marketInsights, marketInsightIndex, ticketData }: SidebarProps) => {
   const [isMonthlyView, setIsMonthlyView] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState(new Date());
   
+  // Update timestamp every 30 seconds to simulate live data
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLastUpdated(new Date());
+    }, 30000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   // Calculate stats from ticket data
   const pendingCount = ticketData?.pending.length || 0;
   const liveCount = ticketData?.live.length || 0;
@@ -80,6 +91,14 @@ const Sidebar = ({ marketInsights, marketInsightIndex, ticketData }: SidebarProp
   const weeklyRevenue = Math.floor(totalRevenue * 0.75);
   const displayRevenue = isMonthlyView ? totalRevenue : weeklyRevenue;
   const revenueLabel = isMonthlyView ? "Monthly Revenue" : "Weekly Revenue";
+
+  const formatTime = (date: Date) => {
+    return date.toLocaleTimeString('en-US', { 
+      hour: '2-digit', 
+      minute: '2-digit',
+      hour12: true 
+    });
+  };
 
   return (
     <div className="lg:col-span-1 space-y-6">
@@ -127,9 +146,15 @@ const Sidebar = ({ marketInsights, marketInsightIndex, ticketData }: SidebarProp
         <CardHeader>
           <CardTitle className="text-lg flex items-center justify-between font-bold text-blue-900">
             Market Insights
-            <span className="text-xs text-blue-500 font-medium">Live Data</span>
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              <span className="text-xs text-blue-500 font-medium">Live Data</span>
+            </div>
           </CardTitle>
-          <p className="text-sm text-blue-600 font-semibold">{marketInsights[marketInsightIndex].category}</p>
+          <div className="flex items-center justify-between">
+            <p className="text-sm text-blue-600 font-semibold">{marketInsights[marketInsightIndex].category}</p>
+            <p className="text-xs text-slate-500">Updated {formatTime(lastUpdated)}</p>
+          </div>
         </CardHeader>
         <CardContent className="space-y-4">
           {marketInsights[marketInsightIndex].items.map((item, index) => (

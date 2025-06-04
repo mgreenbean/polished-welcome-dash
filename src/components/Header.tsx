@@ -5,9 +5,10 @@ import { Link, useLocation } from "react-router-dom";
 
 interface HeaderProps {
   userName: string;
+  notificationCount?: number;
 }
 
-const Header = ({ userName }: HeaderProps) => {
+const Header = ({ userName, notificationCount = 0 }: HeaderProps) => {
   const location = useLocation();
 
   const isActive = (path: string) => {
@@ -58,7 +59,11 @@ const Header = ({ userName }: HeaderProps) => {
             <div className="relative">
               <Button variant="ghost" size="sm" className="relative hover:bg-blue-100/50 transition-all duration-200 hover:scale-105">
                 <Bell className="h-4 w-4" />
-                <span className="absolute -top-1 -right-1 text-xs bg-red-500 text-white rounded-full px-1 min-w-[16px] h-4 flex items-center justify-center font-semibold">3</span>
+                {notificationCount > 0 && (
+                  <span className="absolute -top-1 -right-1 text-xs bg-red-500 text-white rounded-full px-1 min-w-[16px] h-4 flex items-center justify-center font-semibold">
+                    {notificationCount}
+                  </span>
+                )}
               </Button>
             </div>
             <div className="flex items-center space-x-3">

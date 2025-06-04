@@ -18,6 +18,9 @@ const Index = () => {
     return "Good evening";
   };
 
+  // Calculate notification count based on pending tickets and other alerts
+  const notificationCount = ticketData.pending.length;
+
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
@@ -32,7 +35,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-100">
-      <Header userName={userData.name} />
+      <Header userName={userData.name} notificationCount={notificationCount} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="mb-5">
