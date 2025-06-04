@@ -131,6 +131,13 @@ const Index = () => {
     }
   };
 
+  const getGreeting = () => {
+    const hour = currentTime.getHours();
+    if (hour < 12) return "Good morning";
+    if (hour < 17) return "Good afternoon";
+    return "Good evening";
+  };
+
   const renderTicketCard = (ticket: any) => {
     const getStatusBadgeClass = (color: string) => {
       const baseClass = "px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide";
@@ -284,6 +291,12 @@ const Index = () => {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Personalized Greeting */}
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold text-slate-900">{getGreeting()}, Dean</h1>
+          <p className="text-slate-600 font-medium">Here's your ticket selling dashboard overview</p>
+        </div>
+
         {/* Instant Ticket Transfer Section */}
         <Card className="mb-8 bg-white/80 backdrop-blur-sm border-slate-300/50 shadow-xl">
           <CardContent className="p-6">
@@ -326,7 +339,7 @@ const Index = () => {
 
             {/* How It Works Section */}
             <div className="border-t border-slate-200 pt-6">
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">How to Use This Dashboard</h3>
+              <h3 className="text-lg font-semibold text-slate-900 mb-4">How It Works</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start space-x-3">
                   <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
@@ -437,40 +450,40 @@ const Index = () => {
                 <div className="grid grid-cols-3 gap-0 text-sm w-full">
                   <button 
                     onClick={() => setActiveFilter('pending')}
-                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
+                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
                       activeFilter === 'pending' 
-                        ? 'bg-amber-200 text-amber-900 ring-2 ring-amber-300' 
-                        : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-                    } px-4 py-3 rounded-l-lg`}
+                        ? 'bg-white border-2 border-amber-300 text-slate-700' 
+                        : 'bg-white border border-slate-300 text-slate-600 hover:border-amber-200'
+                    } px-3 py-2 rounded-l-lg`}
                   >
-                    <span className="text-slate-600 font-semibold">Pending Review</span>
-                    <span className="bg-amber-300 text-amber-900 px-2 py-1 rounded-full text-xs font-semibold">
+                    <span className="font-medium">Pending Review</span>
+                    <span className="bg-amber-400 text-amber-900 px-2 py-1 rounded-full text-xs font-bold">
                       1
                     </span>
                   </button>
                   <button 
                     onClick={() => setActiveFilter('live')}
-                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
+                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
                       activeFilter === 'live' 
-                        ? 'bg-emerald-200 text-emerald-900 ring-2 ring-emerald-300' 
-                        : 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
-                    } px-4 py-3`}
+                        ? 'bg-white border-2 border-emerald-300 text-slate-700' 
+                        : 'bg-white border border-slate-300 text-slate-600 hover:border-emerald-200'
+                    } px-3 py-2 border-l-0`}
                   >
-                    <span className="text-slate-600 font-semibold">Live Listings</span>
-                    <span className="bg-emerald-300 text-emerald-900 px-2 py-1 rounded-full text-xs font-semibold">
+                    <span className="font-medium">Live Listings</span>
+                    <span className="bg-emerald-400 text-emerald-900 px-2 py-1 rounded-full text-xs font-bold">
                       2
                     </span>
                   </button>
                   <button 
                     onClick={() => setActiveFilter('sold')}
-                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
+                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
                       activeFilter === 'sold' 
-                        ? 'bg-blue-200 text-blue-900 ring-2 ring-blue-300' 
-                        : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
-                    } px-4 py-3 rounded-r-lg`}
+                        ? 'bg-white border-2 border-blue-300 text-slate-700' 
+                        : 'bg-white border border-slate-300 text-slate-600 hover:border-blue-200'
+                    } px-3 py-2 rounded-r-lg border-l-0`}
                   >
-                    <span className="text-slate-600 font-semibold">Sold Tickets</span>
-                    <span className="bg-blue-300 text-blue-900 px-2 py-1 rounded-full text-xs font-semibold">
+                    <span className="font-medium">Sold Tickets</span>
+                    <span className="bg-blue-400 text-blue-900 px-2 py-1 rounded-full text-xs font-bold">
                       47
                     </span>
                   </button>
