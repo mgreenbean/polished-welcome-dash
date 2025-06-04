@@ -1,6 +1,7 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TrendingUp, TrendingDown, Clock, DollarSign, Eye, Ticket } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { useState } from "react";
 
 interface MarketInsight {
   category: string;
@@ -69,10 +70,17 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ marketInsights, marketInsightIndex, ticketData }: SidebarProps) => {
+  const [isMonthlyView, setIsMonthlyView] = useState(true);
+  
   // Calculate stats from ticket data
   const pendingCount = ticketData?.pending.length || 0;
   const liveCount = ticketData?.live.length || 0;
   const totalRevenue = ticketData?.sold.reduce((sum, ticket) => sum + ticket.soldPrice, 0) || 0;
+  
+  // Calculate weekly revenue (assuming 75% of total for demo)
+  const weeklyRevenue = Math.floor(totalRevenue * 0.75);
+  const displayRevenue = isMonthlyView ? totalRevenue : weeklyRevenue;
+  const revenueLabel = isMonthlyView ? "Monthly Revenue" : "Weekly Revenue";
 
   return (
     <div className="lg:col-span-1 space-y-6">
@@ -101,9 +109,20 @@ const Sidebar = ({ marketInsights, marketInsightIndex, ticketData }: SidebarProp
           <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
             <div className="flex items-center space-x-2">
               <DollarSign className="h-4 w-4 text-blue-600" />
-              <span className="text-sm font-medium text-blue-900">Total Revenue</span>
+              <div className="flex flex-col">
+                <span className="text-sm font-medium text-blue-900">{revenueLabel}</span>
+                <div className="flex items-center space-x-2 mt-1">
+                  <span className="text-xs text-blue-700">Weekly</span>
+                  <Switch 
+                    checked={isMonthlyView} 
+                    onCheckedChange={setIsMonthlyView}
+                    className="h-4 w-7"
+                  />
+                  <span className="text-xs text-blue-700">Monthly</span>
+                </div>
+              </div>
             </div>
-            <span className="text-sm text-blue-600 font-semibold">${totalRevenue.toLocaleString()}</span>
+            <span className="text-sm text-blue-600 font-semibold">${displayRevenue.toLocaleString()}</span>
           </div>
         </CardContent>
       </Card>
