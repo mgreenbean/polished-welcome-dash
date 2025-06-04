@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TrendingUp, TrendingDown, Clock, DollarSign, Eye, Ticket } from "lucide-react";
-import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
 
 interface MarketInsight {
@@ -111,15 +110,12 @@ const Sidebar = ({ marketInsights, marketInsightIndex, ticketData }: SidebarProp
               <DollarSign className="h-4 w-4 text-blue-600" />
               <div className="flex flex-col">
                 <span className="text-sm font-medium text-blue-900">{revenueLabel}</span>
-                <div className="flex items-center space-x-2 mt-1">
-                  <span className="text-xs text-blue-700">Weekly</span>
-                  <Switch 
-                    checked={isMonthlyView} 
-                    onCheckedChange={setIsMonthlyView}
-                    className="h-4 w-7"
-                  />
-                  <span className="text-xs text-blue-700">Monthly</span>
-                </div>
+                <button 
+                  onClick={() => setIsMonthlyView(!isMonthlyView)}
+                  className="text-xs text-blue-600 hover:text-blue-800 underline text-left mt-1 cursor-pointer"
+                >
+                  Switch to {isMonthlyView ? 'Weekly' : 'Monthly'}
+                </button>
               </div>
             </div>
             <span className="text-sm text-blue-600 font-semibold">${displayRevenue.toLocaleString()}</span>
