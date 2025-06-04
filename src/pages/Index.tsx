@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -64,42 +63,47 @@ const Index = () => {
       <header className="bg-white shadow-sm border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
+            {/* Left side - Logo and Navigation */}
             <div className="flex items-center space-x-8">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-rose-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">S</span>
                 </div>
-                <span className="text-xl font-bold text-slate-900">SellMySeats</span>
-                <span className="text-sm text-slate-500">SELL YOUR TICKETS</span>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold text-slate-900">SellMySeats</span>
+                  <span className="text-xs text-slate-500 -mt-1">SELL YOUR TICKETS</span>
+                </div>
               </div>
-              <nav className="flex space-x-8">
-                <a href="#" className="text-slate-900 font-medium">Dashboard</a>
-                <a href="#" className="text-slate-500 hover:text-slate-900">My Listings</a>
-                <a href="#" className="text-slate-500 hover:text-slate-900">Analytics</a>
+              <nav className="hidden md:flex space-x-8">
+                <a href="#" className="text-slate-900 font-medium border-b-2 border-rose-600 pb-4">Dashboard</a>
+                <a href="#" className="text-slate-500 hover:text-slate-900 pb-4">My Listings</a>
+                <a href="#" className="text-slate-500 hover:text-slate-900 pb-4">Analytics</a>
               </nav>
             </div>
+
+            {/* Right side - Search, Actions, and User */}
             <div className="flex items-center space-x-4">
-              <div className="relative">
+              <div className="relative hidden sm:block">
                 <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
                 <input 
                   type="text" 
-                  placeholder="Search events, venues, or artists..."
-                  className="pl-10 pr-4 py-2 border border-slate-300 rounded-md text-sm w-64 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                  placeholder="Search events, venues..."
+                  className="pl-10 pr-4 py-2 border border-slate-300 rounded-lg text-sm w-64 focus:ring-2 focus:ring-rose-500 focus:border-rose-500"
                 />
               </div>
-              <Button className="bg-emerald-600 hover:bg-emerald-700">
+              <Button className="bg-rose-600 hover:bg-rose-700 text-white">
                 <Plus className="h-4 w-4 mr-2" />
                 List Tickets
               </Button>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="relative">
                 <Bell className="h-4 w-4" />
-                <span className="ml-1 text-xs bg-rose-500 text-white rounded-full px-1">3</span>
+                <span className="absolute -top-1 -right-1 text-xs bg-amber-500 text-white rounded-full px-1 min-w-[16px] h-4 flex items-center justify-center">3</span>
               </Button>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-slate-300 rounded-full flex items-center justify-center">
-                  <User className="h-5 w-5 text-slate-600" />
+                  <User className="h-4 w-4 text-slate-600" />
                 </div>
-                <span className="text-sm font-medium text-slate-700">{userName}</span>
+                <span className="text-sm font-medium text-slate-700 hidden sm:block">{userName}</span>
               </div>
             </div>
           </div>
@@ -108,28 +112,28 @@ const Index = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Instant Ticket Transfer Section */}
-        <Card className="mb-8 bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200">
+        <Card className="mb-8 bg-white border-slate-200">
           <CardContent className="p-6">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center">
+            <div className="flex items-start space-x-4 mb-6">
+              <div className="w-12 h-12 bg-rose-600 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Ticket className="h-6 w-6 text-white" />
               </div>
-              <div>
-                <h2 className="text-xl font-semibold text-slate-900">Instant Ticket Transfer</h2>
-                <p className="text-slate-600">Send your tickets to our secure email for automatic processing and instant listing</p>
+              <div className="flex-1">
+                <h2 className="text-2xl font-bold text-slate-900 mb-2">Instant Ticket Transfer</h2>
+                <p className="text-slate-600">Send your tickets to our secure email for automatic processing and instant listing across all major marketplaces</p>
               </div>
             </div>
 
             <div className="mb-6">
-              <label className="block text-sm font-medium text-slate-700 mb-2">Transfer Email Address</label>
-              <div className="flex space-x-2">
+              <label className="block text-sm font-medium text-slate-700 mb-3">Transfer Email Address</label>
+              <div className="flex space-x-3">
                 <input 
                   type="email" 
                   value="greenbay31@bestfan.com"
                   readOnly
-                  className="flex-1 px-3 py-2 border border-slate-300 rounded-md bg-white text-slate-900"
+                  className="flex-1 px-4 py-3 border border-slate-300 rounded-lg bg-slate-50 text-slate-900 font-mono text-sm"
                 />
-                <Button variant="outline" className="border-emerald-300 text-emerald-700 hover:bg-emerald-50">
+                <Button variant="outline" className="border-rose-300 text-rose-700 hover:bg-rose-50 px-6">
                   <Copy className="h-4 w-4 mr-2" />
                   Copy
                 </Button>
@@ -137,38 +141,18 @@ const Index = () => {
             </div>
 
             {/* Compact Trust Features */}
-            <div className="bg-white/70 rounded-lg p-4 mb-4">
-              <div className="flex items-center justify-center space-x-8">
-                <div className="flex items-center space-x-2">
-                  <Shield className="h-5 w-5 text-emerald-600" />
-                  <span className="text-sm font-medium text-slate-700">Secure Processing</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Zap className="h-5 w-5 text-amber-600" />
-                  <span className="text-sm font-medium text-slate-700">Instant Listing</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="h-5 w-5 text-indigo-600" />
-                  <span className="text-sm font-medium text-slate-700">24/7 Monitoring</span>
-                </div>
+            <div className="flex items-center justify-center space-x-8 py-4 bg-slate-50 rounded-lg">
+              <div className="flex items-center space-x-2">
+                <Shield className="h-4 w-4 text-teal-600" />
+                <span className="text-sm font-medium text-slate-700">Secure Processing</span>
               </div>
-            </div>
-
-            <div className="bg-emerald-100 rounded-lg p-4">
-              <h4 className="font-semibold text-slate-900 mb-2">How it works:</h4>
-              <div className="space-y-2 text-sm text-slate-700">
-                <div className="flex items-center space-x-2">
-                  <div className="w-5 h-5 bg-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-bold">1</div>
-                  <span>Forward your ticket confirmation email to the address above</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-5 h-5 bg-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-bold">2</div>
-                  <span>Our system automatically extracts ticket details and pricing</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-5 h-5 bg-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-bold">3</div>
-                  <span>Your tickets appear in your dashboard for review and go live instantly</span>
-                </div>
+              <div className="flex items-center space-x-2">
+                <Zap className="h-4 w-4 text-amber-600" />
+                <span className="text-sm font-medium text-slate-700">Instant Listing</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Clock className="h-4 w-4 text-indigo-600" />
+                <span className="text-sm font-medium text-slate-700">24/7 Monitoring</span>
               </div>
             </div>
           </CardContent>
