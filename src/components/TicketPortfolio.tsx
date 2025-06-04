@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Ticket, Calendar, Search, Filter } from "lucide-react";
+import { Ticket, Calendar, Search } from "lucide-react";
 
 interface TicketData {
   pending: any[];
@@ -19,7 +19,6 @@ interface TicketPortfolioProps {
 const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
   const [activeFilter, setActiveFilter] = useState<'pending' | 'live' | 'sold'>('pending');
   const [searchTerm, setSearchTerm] = useState('');
-  const [showFilters, setShowFilters] = useState(false);
 
   const filteredTickets = ticketData[activeFilter].filter(ticket =>
     ticket.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -69,10 +68,10 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
                 {ticket.views && <span className="text-sm text-slate-500 font-medium">{ticket.views}</span>}
                 {ticket.soldDate && <span className="text-sm text-slate-500 font-medium">Sold on {ticket.soldDate}</span>}
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-1">{ticket.title}</h3>
-              <p className="text-sm text-slate-600 mb-2 font-medium">{ticket.venue}</p>
-              <p className="text-sm text-slate-500 font-medium">{ticket.location}</p>
-              <div className="flex items-center space-x-1 text-sm text-slate-500 mt-2">
+              <h3 className="text-lg font-semibold text-blue-900 mb-1">{ticket.title}</h3>
+              <p className="text-sm text-blue-600 mb-2 font-medium">{ticket.venue}</p>
+              <p className="text-sm text-blue-500 font-medium">{ticket.location}</p>
+              <div className="flex items-center space-x-1 text-sm text-blue-500 mt-2">
                 <Calendar className="h-4 w-4" />
                 <span className="font-medium">{ticket.date}</span>
               </div>
@@ -80,7 +79,7 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
           </div>
           
           <div className="text-center border-l border-dashed border-slate-300 pl-6 ml-6">
-            <div className="text-2xl font-bold text-slate-900 mb-1">
+            <div className="text-2xl font-bold text-blue-900 mb-1">
               ${ticket.marketPrice}
             </div>
             <p className="text-sm text-slate-500 mb-1 font-medium">market price</p>
@@ -91,19 +90,19 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
             <div className="grid grid-cols-4 gap-4 text-center text-sm mb-4">
               <div>
                 <p className="text-slate-500 font-medium">SECTION</p>
-                <p className="font-semibold">{ticket.section}</p>
+                <p className="font-semibold text-blue-700">{ticket.section}</p>
               </div>
               <div>
                 <p className="text-slate-500 font-medium">ROW</p>
-                <p className="font-semibold">{ticket.row}</p>
+                <p className="font-semibold text-blue-700">{ticket.row}</p>
               </div>
               <div>
                 <p className="text-slate-500 font-medium">SEATS</p>
-                <p className="font-semibold">{ticket.seats}</p>
+                <p className="font-semibold text-blue-700">{ticket.seats}</p>
               </div>
               <div>
                 <p className="text-slate-500 font-medium">QTY</p>
-                <p className="font-semibold">{ticket.qty}</p>
+                <p className="font-semibold text-blue-700">{ticket.qty}</p>
               </div>
             </div>
             
@@ -126,25 +125,14 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
             <Ticket className="h-5 w-5" />
             <span className="font-bold">Your Ticket Portfolio</span>
           </CardTitle>
-          <div className="flex items-center space-x-2">
-            <div className="relative">
-              <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
-              <Input
-                placeholder="Search tickets, venues, locations..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 w-64"
-              />
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center space-x-2"
-            >
-              <Filter className="h-4 w-4" />
-              <span>Filters</span>
-            </Button>
+          <div className="relative flex-1 max-w-md ml-8">
+            <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
+            <Input
+              placeholder="Search tickets, venues, locations..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10 w-full"
+            />
           </div>
         </div>
         
@@ -153,8 +141,8 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
             onClick={() => setActiveFilter('pending')}
             className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
               activeFilter === 'pending' 
-                ? 'bg-white border-2 border-amber-300 text-slate-700' 
-                : 'bg-white border border-slate-300 text-slate-600 hover:border-amber-200'
+                ? 'bg-white border-2 border-amber-300 text-blue-700' 
+                : 'bg-white border border-slate-300 text-blue-600 hover:border-amber-200'
             } px-3 py-2 rounded-l-lg`}
           >
             <span className="font-medium">Pending Review</span>
@@ -166,8 +154,8 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
             onClick={() => setActiveFilter('live')}
             className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
               activeFilter === 'live' 
-                ? 'bg-white border-2 border-emerald-300 text-slate-700' 
-                : 'bg-white border border-slate-300 text-slate-600 hover:border-emerald-200'
+                ? 'bg-white border-2 border-emerald-300 text-blue-700' 
+                : 'bg-white border border-slate-300 text-blue-600 hover:border-emerald-200'
             } px-3 py-2 border-l-0`}
           >
             <span className="font-medium">Live Listings</span>
@@ -179,8 +167,8 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
             onClick={() => setActiveFilter('sold')}
             className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
               activeFilter === 'sold' 
-                ? 'bg-white border-2 border-blue-300 text-slate-700' 
-                : 'bg-white border border-slate-300 text-slate-600 hover:border-blue-200'
+                ? 'bg-white border-2 border-blue-300 text-blue-700' 
+                : 'bg-white border border-slate-300 text-blue-600 hover:border-blue-200'
             } px-3 py-2 rounded-r-lg border-l-0`}
           >
             <span className="font-medium">Sold Tickets</span>

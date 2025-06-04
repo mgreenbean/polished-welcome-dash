@@ -1,5 +1,5 @@
 
-import { Search, Bell, User, TrendingUp } from "lucide-react";
+import { Search, Bell, User, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
@@ -38,9 +38,9 @@ const Header = ({ userName }: HeaderProps) => {
               />
             </div>
             <div className="flex items-center space-x-2 bg-blue-50 px-3 py-2 rounded-lg border border-blue-200">
-              <TrendingUp className="h-4 w-4 text-blue-600" />
-              <span className="text-sm font-semibold text-blue-900">$2,847</span>
-              <span className="text-xs text-blue-600">total earnings</span>
+              <Calendar className="h-4 w-4 text-blue-600" />
+              <span className="text-sm font-semibold text-blue-900">This Month</span>
+              <span className="text-xs text-blue-600">earnings period</span>
             </div>
             <div className="relative">
               <Button variant="ghost" size="sm" className="relative hover:bg-blue-100/50 transition-all duration-200 hover:scale-105">
