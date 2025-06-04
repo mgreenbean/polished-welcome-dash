@@ -434,14 +434,14 @@ const Index = () => {
                     <span className="font-bold">Your Ticket Portfolio</span>
                   </CardTitle>
                 </div>
-                <div className="flex space-x-4 text-sm w-full">
+                <div className="grid grid-cols-3 gap-0 text-sm w-full">
                   <button 
                     onClick={() => setActiveFilter('pending')}
-                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer flex-1 ${
+                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
                       activeFilter === 'pending' 
                         ? 'bg-amber-200 text-amber-900 ring-2 ring-amber-300' 
                         : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-                    } px-4 py-3 rounded-lg`}
+                    } px-4 py-3 rounded-l-lg`}
                   >
                     <span className="text-slate-600 font-semibold">Pending Review</span>
                     <span className="bg-amber-300 text-amber-900 px-2 py-1 rounded-full text-xs font-semibold">
@@ -450,11 +450,11 @@ const Index = () => {
                   </button>
                   <button 
                     onClick={() => setActiveFilter('live')}
-                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer flex-1 ${
+                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
                       activeFilter === 'live' 
                         ? 'bg-emerald-200 text-emerald-900 ring-2 ring-emerald-300' 
                         : 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
-                    } px-4 py-3 rounded-lg`}
+                    } px-4 py-3`}
                   >
                     <span className="text-slate-600 font-semibold">Live Listings</span>
                     <span className="bg-emerald-300 text-emerald-900 px-2 py-1 rounded-full text-xs font-semibold">
@@ -463,11 +463,11 @@ const Index = () => {
                   </button>
                   <button 
                     onClick={() => setActiveFilter('sold')}
-                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer flex-1 ${
+                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
                       activeFilter === 'sold' 
                         ? 'bg-blue-200 text-blue-900 ring-2 ring-blue-300' 
                         : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
-                    } px-4 py-3 rounded-lg`}
+                    } px-4 py-3 rounded-r-lg`}
                   >
                     <span className="text-slate-600 font-semibold">Sold Tickets</span>
                     <span className="bg-blue-300 text-blue-900 px-2 py-1 rounded-full text-xs font-semibold">
