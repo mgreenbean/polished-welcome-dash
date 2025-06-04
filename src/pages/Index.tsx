@@ -154,7 +154,11 @@ const Index = () => {
             <TicketPortfolio ticketData={ticketData} />
           </div>
 
-          <Sidebar marketInsights={marketInsights} marketInsightIndex={marketInsightIndex} />
+          <Sidebar 
+            marketInsights={marketInsights} 
+            marketInsightIndex={marketInsightIndex}
+            ticketData={ticketData}
+          />
         </div>
       </div>
 
