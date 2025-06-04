@@ -1,6 +1,7 @@
 
 import Header from "@/components/Header";
 import SeatlyHelper from "@/components/SeatlyHelper";
+import StatsCards from "@/components/StatsCards";
 import { userData } from "@/data/ticketData";
 
 const Analytics = () => {
@@ -18,8 +19,11 @@ const Analytics = () => {
           <p className="text-blue-600 font-medium mt-1">Track your ticket selling performance</p>
         </div>
 
+        <StatsCards />
+
         <div className="bg-white rounded-lg shadow-md p-6">
-          <p className="text-gray-600">Analytics dashboard coming soon...</p>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Performance Overview</h2>
+          <p className="text-gray-600">Your ticket selling metrics are displayed above. Track your monthly revenue, average sale prices, listing views, and average time to sell tickets.</p>
         </div>
       </div>
 
