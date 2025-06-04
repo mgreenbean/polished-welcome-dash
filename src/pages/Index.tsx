@@ -11,6 +11,7 @@ const Index = () => {
   const [marketInsightIndex, setMarketInsightIndex] = useState(0);
   const [isHoveringCopy, setIsHoveringCopy] = useState(false);
   const [justCopied, setJustCopied] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<'pending' | 'live' | 'sold'>('pending');
   const userName = "Michael Chen";
 
   const marketInsights = [
@@ -262,15 +263,42 @@ const Index = () => {
                 <div className="flex space-x-6 text-sm">
                   <div className="flex items-center space-x-2">
                     <span className="text-slate-600">Pending Review</span>
-                    <Badge variant="secondary" className="bg-amber-100 text-amber-800">1</Badge>
+                    <button 
+                      onClick={() => setActiveFilter('pending')}
+                      className={`transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg ${
+                        activeFilter === 'pending' 
+                          ? 'bg-amber-200 text-amber-900 ring-2 ring-amber-300' 
+                          : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
+                      } px-2 py-1 rounded-full text-xs font-medium`}
+                    >
+                      1
+                    </button>
                   </div>
                   <div className="flex items-center space-x-2">
                     <span className="text-slate-600">Live Listings</span>
-                    <Badge variant="secondary" className="bg-emerald-100 text-emerald-800">2</Badge>
+                    <button 
+                      onClick={() => setActiveFilter('live')}
+                      className={`transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg ${
+                        activeFilter === 'live' 
+                          ? 'bg-emerald-200 text-emerald-900 ring-2 ring-emerald-300' 
+                          : 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
+                      } px-2 py-1 rounded-full text-xs font-medium`}
+                    >
+                      2
+                    </button>
                   </div>
                   <div className="flex items-center space-x-2">
                     <span className="text-slate-600">Sold Tickets</span>
-                    <Badge variant="secondary" className="bg-blue-100 text-blue-800">47</Badge>
+                    <button 
+                      onClick={() => setActiveFilter('sold')}
+                      className={`transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg ${
+                        activeFilter === 'sold' 
+                          ? 'bg-blue-200 text-blue-900 ring-2 ring-blue-300' 
+                          : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+                      } px-2 py-1 rounded-full text-xs font-medium`}
+                    >
+                      47
+                    </button>
                   </div>
                 </div>
               </CardHeader>
@@ -297,8 +325,9 @@ const Index = () => {
                     </div>
                     
                     <div className="text-center border-l border-dashed border-slate-300 pl-6 ml-6">
-                      <div className="text-2xl font-bold text-slate-900 mb-1">$450</div>
-                      <p className="text-sm text-slate-500 mb-4">each</p>
+                      <div className="text-2xl font-bold text-slate-900 mb-1">$525</div>
+                      <p className="text-sm text-slate-500 mb-1">market price</p>
+                      <p className="text-xs text-slate-400 mb-4">your price: $450</p>
                       
                       <div className="grid grid-cols-4 gap-4 text-center text-sm mb-4">
                         <div>
