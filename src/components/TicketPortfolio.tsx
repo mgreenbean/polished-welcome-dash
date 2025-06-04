@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -82,10 +81,7 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
             <div className="text-2xl font-bold text-blue-900 mb-1">
               ${ticket.marketPrice}
             </div>
-            <p className="text-sm text-slate-500 mb-1 font-medium">market price</p>
-            {ticket.yourPrice && (
-              <p className="text-xs text-slate-400 mb-4 font-medium">your price: ${ticket.yourPrice}</p>
-            )}
+            <p className="text-sm text-slate-500 mb-4 font-medium">market price</p>
             
             <div className="grid grid-cols-4 gap-4 text-center text-sm mb-4">
               <div>
