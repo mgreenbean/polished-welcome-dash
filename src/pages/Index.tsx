@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -326,33 +327,33 @@ const Index = () => {
 
             {/* How It Works Section */}
             <div className="border-t border-slate-200 pt-6">
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">How It Works</h3>
+              <h3 className="text-lg font-semibold text-slate-900 mb-4">How to Use This Dashboard</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start space-x-3">
                   <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-4 w-4 text-white" />
+                    <span className="text-white font-bold text-sm">1</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">1. Forward Email</h4>
-                    <p className="text-sm text-slate-600 font-medium">Forward your ticket confirmation email to the address above</p>
+                    <h4 className="font-semibold text-slate-900 mb-1">Forward your ticket confirmation email</h4>
+                    <p className="text-sm text-slate-600 font-medium">Send your ticket email to the address above</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Eye className="h-4 w-4 text-white" />
+                    <span className="text-white font-bold text-sm">2</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">2. Auto Processing</h4>
-                    <p className="text-sm text-slate-600 font-medium">Our system automatically extracts ticket details and pricing</p>
+                    <h4 className="font-semibold text-slate-900 mb-1">Our system automatically extracts ticket details and pricing</h4>
+                    <p className="text-sm text-slate-600 font-medium">AI processes your tickets instantly</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="h-4 w-4 text-white" />
+                    <span className="text-white font-bold text-sm">3</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">3. Instant Listing</h4>
-                    <p className="text-sm text-slate-600 font-medium">Your tickets appear in your dashboard for review and go live instantly</p>
+                    <h4 className="font-semibold text-slate-900 mb-1">Your tickets appear in your dashboard for review and go live instantly</h4>
+                    <p className="text-sm text-slate-600 font-medium">Review and approve for instant listing</p>
                   </div>
                 </div>
               </div>
