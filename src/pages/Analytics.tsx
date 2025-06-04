@@ -7,7 +7,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { DollarSign, TrendingUp, Users, BarChart3 } from "lucide-react";
+import { DollarSign, TrendingUp, BarChart3 } from "lucide-react";
 
 const Analytics = () => {
   const [timeFrame, setTimeFrame] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
@@ -70,7 +70,7 @@ const Analytics = () => {
         </div>
 
         {/* Key Metrics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <Card className="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200/50">
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
@@ -106,19 +106,6 @@ const Analytics = () => {
                   <p className="text-xs text-purple-600">Per ticket</p>
                 </div>
                 <TrendingUp className="h-8 w-8 text-purple-600" />
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200/50">
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-semibold text-orange-800 mb-1">ACTIVE BUYERS</p>
-                  <p className="text-2xl font-bold text-orange-900">127</p>
-                  <p className="text-xs text-orange-600">This month</p>
-                </div>
-                <Users className="h-8 w-8 text-orange-600" />
               </div>
             </CardContent>
           </Card>
