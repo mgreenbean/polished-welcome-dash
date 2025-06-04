@@ -1,3 +1,4 @@
+
 import { Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
@@ -29,10 +30,10 @@ const Header = ({ userName }: HeaderProps) => {
                 <span className="text-xs text-blue-500 -mt-1 font-medium">SELL YOUR TICKETS</span>
               </div>
             </Link>
-            <nav className="hidden md:flex space-x-8">
+            <nav className="hidden md:flex space-x-8 items-center">
               <Link 
                 to="/" 
-                className={`pb-4 font-medium ${
+                className={`py-4 font-medium ${
                   isActive("/") 
                     ? "text-blue-900 font-semibold border-b-2 border-blue-600" 
                     : "text-blue-500 hover:text-blue-900"
@@ -42,7 +43,7 @@ const Header = ({ userName }: HeaderProps) => {
               </Link>
               <Link 
                 to="/analytics" 
-                className={`pb-4 font-medium ${
+                className={`py-4 font-medium ${
                   isActive("/analytics") 
                     ? "text-blue-900 font-semibold border-b-2 border-blue-600" 
                     : "text-blue-500 hover:text-blue-900"
