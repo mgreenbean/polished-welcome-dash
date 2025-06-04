@@ -133,7 +133,7 @@ const Index = () => {
 
   const renderTicketCard = (ticket: any) => {
     const getStatusBadgeClass = (color: string) => {
-      const baseClass = "px-3 py-1 rounded-full text-xs font-black uppercase tracking-wide";
+      const baseClass = "px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide";
       switch (color) {
         case 'amber':
           return `${baseClass} bg-amber-100 text-amber-800`;
@@ -149,13 +149,13 @@ const Index = () => {
     const getButtonClass = (color: string) => {
       switch (color) {
         case 'amber':
-          return "w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-black";
+          return "w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-semibold";
         case 'emerald':
-          return "w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-black";
+          return "w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-semibold";
         case 'blue':
-          return "w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-black";
+          return "w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-semibold";
         default:
-          return "w-full bg-gradient-to-r from-slate-500 to-slate-600 hover:from-slate-600 hover:to-slate-700 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-black";
+          return "w-full bg-gradient-to-r from-slate-500 to-slate-600 hover:from-slate-600 hover:to-slate-700 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-semibold";
       }
     };
 
@@ -168,46 +168,44 @@ const Index = () => {
           <div className="flex-1">
             <div className="flex items-center space-x-2 mb-2">
               <Badge className={getStatusBadgeClass(ticket.statusColor)}>{ticket.status}</Badge>
-              {ticket.expiresIn && <span className="text-sm text-slate-500 font-black">Expires in {ticket.expiresIn}</span>}
-              {ticket.views && <span className="text-sm text-slate-500 font-black">{ticket.views}</span>}
-              {ticket.soldDate && <span className="text-sm text-slate-500 font-black">Sold on {ticket.soldDate}</span>}
+              {ticket.expiresIn && <span className="text-sm text-slate-500 font-medium">Expires in {ticket.expiresIn}</span>}
+              {ticket.views && <span className="text-sm text-slate-500 font-medium">{ticket.views}</span>}
+              {ticket.soldDate && <span className="text-sm text-slate-500 font-medium">Sold on {ticket.soldDate}</span>}
             </div>
-            <h3 className="text-lg font-black text-slate-900 mb-1">{ticket.title}</h3>
-            <p className="text-sm text-slate-600 mb-2 font-black">{ticket.venue}</p>
-            <p className="text-sm text-slate-500 font-black">{ticket.location}</p>
+            <h3 className="text-lg font-bold text-slate-900 mb-1">{ticket.title}</h3>
+            <p className="text-sm text-slate-600 mb-2 font-medium">{ticket.venue}</p>
+            <p className="text-sm text-slate-500">{ticket.location}</p>
             <div className="flex items-center space-x-1 text-sm text-slate-500 mt-2">
               <Calendar className="h-4 w-4" />
-              <span className="font-black">{ticket.date}</span>
+              <span className="font-medium">{ticket.date}</span>
             </div>
           </div>
           
           <div className="text-center border-l border-dashed border-slate-300 pl-6 ml-6">
-            <div className="text-2xl font-black text-slate-900 mb-1">
-              ${ticket.soldPrice || ticket.marketPrice}
+            <div className="text-2xl font-bold text-slate-900 mb-1">
+              ${ticket.marketPrice}
             </div>
-            <p className="text-sm text-slate-500 mb-1 font-black">
-              {ticket.soldPrice ? 'sold price' : 'market price'}
-            </p>
+            <p className="text-sm text-slate-500 mb-1 font-medium">market price</p>
             {ticket.yourPrice && (
-              <p className="text-xs text-slate-400 mb-4 font-black">your price: ${ticket.yourPrice}</p>
+              <p className="text-xs text-slate-400 mb-4 font-medium">your price: ${ticket.yourPrice}</p>
             )}
             
             <div className="grid grid-cols-4 gap-4 text-center text-sm mb-4">
               <div>
-                <p className="text-slate-500 font-black">SECTION</p>
-                <p className="font-black">{ticket.section}</p>
+                <p className="text-slate-500 font-medium">SECTION</p>
+                <p className="font-semibold">{ticket.section}</p>
               </div>
               <div>
-                <p className="text-slate-500 font-black">ROW</p>
-                <p className="font-black">{ticket.row}</p>
+                <p className="text-slate-500 font-medium">ROW</p>
+                <p className="font-semibold">{ticket.row}</p>
               </div>
               <div>
-                <p className="text-slate-500 font-black">SEATS</p>
-                <p className="font-black">{ticket.seats}</p>
+                <p className="text-slate-500 font-medium">SEATS</p>
+                <p className="font-semibold">{ticket.seats}</p>
               </div>
               <div>
-                <p className="text-slate-500 font-black">QTY</p>
-                <p className="font-black">{ticket.qty}</p>
+                <p className="text-slate-500 font-medium">QTY</p>
+                <p className="font-semibold">{ticket.qty}</p>
               </div>
             </div>
             
@@ -243,17 +241,17 @@ const Index = () => {
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-gradient-to-br from-slate-600 to-slate-700 rounded-lg flex items-center justify-center shadow-lg">
-                  <span className="text-white font-black text-sm">S</span>
+                  <span className="text-white font-bold text-sm">S</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xl font-black text-slate-900">SellMySeats</span>
-                  <span className="text-xs text-slate-500 -mt-1 font-black">SELL YOUR TICKETS</span>
+                  <span className="text-xl font-bold text-slate-900">SellMySeats</span>
+                  <span className="text-xs text-slate-500 -mt-1 font-medium">SELL YOUR TICKETS</span>
                 </div>
               </div>
               <nav className="hidden md:flex space-x-8">
-                <a href="#" className="text-slate-900 font-black border-b-2 border-slate-600 pb-4">Dashboard</a>
-                <a href="#" className="text-slate-500 hover:text-slate-900 pb-4 font-black">My Listings</a>
-                <a href="#" className="text-slate-500 hover:text-slate-900 pb-4 font-black">Analytics</a>
+                <a href="#" className="text-slate-900 font-semibold border-b-2 border-slate-600 pb-4">Dashboard</a>
+                <a href="#" className="text-slate-500 hover:text-slate-900 pb-4 font-medium">My Listings</a>
+                <a href="#" className="text-slate-500 hover:text-slate-900 pb-4 font-medium">Analytics</a>
               </nav>
             </div>
 
@@ -263,22 +261,22 @@ const Index = () => {
                 <input 
                   type="text" 
                   placeholder="Search events, venues..."
-                  className="pl-10 pr-4 py-2 border border-slate-300 rounded-lg text-sm w-64 focus:ring-2 focus:ring-slate-500 focus:border-slate-500 bg-white/70 font-black"
+                  className="pl-10 pr-4 py-2 border border-slate-300 rounded-lg text-sm w-64 focus:ring-2 focus:ring-slate-500 focus:border-slate-500 bg-white/70"
                 />
               </div>
-              <Button className="bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-black">
+              <Button className="bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-semibold">
                 <Plus className="h-4 w-4 mr-2" />
                 List Tickets
               </Button>
               <Button variant="ghost" size="sm" className="relative hover:bg-slate-100/50 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg">
                 <Bell className="h-4 w-4" />
-                <span className="absolute -top-1 -right-1 text-xs bg-amber-500 text-white rounded-full px-1 min-w-[16px] h-4 flex items-center justify-center font-black">3</span>
+                <span className="absolute -top-1 -right-1 text-xs bg-amber-500 text-white rounded-full px-1 min-w-[16px] h-4 flex items-center justify-center font-semibold">3</span>
               </Button>
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-gradient-to-br from-slate-200 to-slate-300 rounded-full flex items-center justify-center">
                   <User className="h-4 w-4 text-slate-600" />
                 </div>
-                <span className="text-sm font-black text-slate-700 hidden sm:block">{userName}</span>
+                <span className="text-sm font-medium text-slate-700 hidden sm:block">{userName}</span>
               </div>
             </div>
           </div>
@@ -294,23 +292,23 @@ const Index = () => {
                 <Ticket className="h-6 w-6 text-white" />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl font-black text-slate-900 mb-2">Instant Ticket Transfer</h2>
-                <p className="text-slate-600 font-black">Send your tickets to our secure email for automatic processing and instant listing across all major marketplaces</p>
+                <h2 className="text-2xl font-bold text-slate-900 mb-2">Instant Ticket Transfer</h2>
+                <p className="text-slate-600">Send your tickets to our secure email for automatic processing and instant listing across all major marketplaces</p>
               </div>
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-black text-slate-700 mb-3">Transfer Email Address</label>
+              <label className="block text-sm font-medium text-slate-700 mb-3">Transfer Email Address</label>
               <div className="flex space-x-3">
                 <input 
                   type="email" 
                   value="greenbay31@bestfan.com"
                   readOnly
-                  className="flex-1 px-4 py-3 border border-slate-300 rounded-lg bg-slate-50/70 text-slate-900 font-mono text-sm font-black"
+                  className="flex-1 px-4 py-3 border border-slate-300 rounded-lg bg-slate-50/70 text-slate-900 font-mono text-sm"
                 />
                 <Button 
                   variant="outline" 
-                  className="border-slate-400 text-slate-700 hover:bg-slate-100 px-6 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 relative font-black"
+                  className="border-slate-400 text-slate-700 hover:bg-slate-100 px-6 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 relative font-medium"
                   onClick={handleCopyEmail}
                   onMouseEnter={() => setIsHoveringCopy(true)}
                   onMouseLeave={() => setIsHoveringCopy(false)}
@@ -334,15 +332,15 @@ const Index = () => {
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-black text-amber-800 mb-1">PENDING REVIEW</p>
-                  <p className="text-2xl font-black text-amber-900">1</p>
-                  <p className="text-xs text-amber-600 font-black">Awaiting approval</p>
+                  <p className="text-sm font-semibold text-amber-800 mb-1">PENDING REVIEW</p>
+                  <p className="text-2xl font-bold text-amber-900">1</p>
+                  <p className="text-xs text-amber-600">Awaiting approval</p>
                 </div>
                 <div className="w-10 h-10 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center shadow-lg">
                   <Clock className="h-5 w-5 text-amber-600" />
                 </div>
               </div>
-              <div className="mt-2 text-xs text-amber-600 font-black">↗ 12%</div>
+              <div className="mt-2 text-xs text-amber-600 font-medium">↗ 12%</div>
             </CardContent>
           </Card>
 
@@ -350,15 +348,15 @@ const Index = () => {
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-black text-emerald-800 mb-1">ACTIVE LISTINGS</p>
-                  <p className="text-2xl font-black text-emerald-900">2</p>
-                  <p className="text-xs text-emerald-600 font-black">Currently live</p>
+                  <p className="text-sm font-semibold text-emerald-800 mb-1">ACTIVE LISTINGS</p>
+                  <p className="text-2xl font-bold text-emerald-900">2</p>
+                  <p className="text-xs text-emerald-600">Currently live</p>
                 </div>
                 <div className="w-10 h-10 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full flex items-center justify-center shadow-lg">
                   <BarChart3 className="h-5 w-5 text-emerald-600" />
                 </div>
               </div>
-              <div className="mt-2 text-xs text-emerald-600 font-black">↗ 8%</div>
+              <div className="mt-2 text-xs text-emerald-600 font-medium">↗ 8%</div>
             </CardContent>
           </Card>
 
@@ -366,15 +364,15 @@ const Index = () => {
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-black text-blue-800 mb-1">TOTAL SALES</p>
-                  <p className="text-2xl font-black text-blue-900">47</p>
-                  <p className="text-xs text-blue-600 font-black">Tickets sold</p>
+                  <p className="text-sm font-semibold text-blue-800 mb-1">TOTAL SALES</p>
+                  <p className="text-2xl font-bold text-blue-900">47</p>
+                  <p className="text-xs text-blue-600">Tickets sold</p>
                 </div>
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center shadow-lg">
                   <Ticket className="h-5 w-5 text-blue-600" />
                 </div>
               </div>
-              <div className="mt-2 text-xs text-blue-600 font-black">↗ 15%</div>
+              <div className="mt-2 text-xs text-blue-600 font-medium">↗ 15%</div>
             </CardContent>
           </Card>
 
@@ -382,15 +380,15 @@ const Index = () => {
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-black text-slate-700 mb-1">REVENUE</p>
-                  <p className="text-2xl font-black text-slate-900">$12,450</p>
-                  <p className="text-xs text-slate-600 font-black">This month</p>
+                  <p className="text-sm font-semibold text-slate-700 mb-1">REVENUE</p>
+                  <p className="text-2xl font-bold text-slate-900">$12,450</p>
+                  <p className="text-xs text-slate-600">This month</p>
                 </div>
                 <div className="w-10 h-10 bg-gradient-to-br from-slate-200 to-slate-300 rounded-full flex items-center justify-center shadow-lg">
                   <DollarSign className="h-5 w-5 text-slate-600" />
                 </div>
               </div>
-              <div className="mt-2 text-xs text-slate-600 font-black">↗ 23%</div>
+              <div className="mt-2 text-xs text-slate-600 font-medium">↗ 23%</div>
             </CardContent>
           </Card>
         </div>
@@ -403,18 +401,18 @@ const Index = () => {
                 <div className="flex items-center justify-between">
                   <CardTitle className="flex items-center space-x-2">
                     <Ticket className="h-5 w-5" />
-                    <span className="font-black">Your Ticket Portfolio</span>
+                    <span className="font-bold">Your Ticket Portfolio</span>
                   </CardTitle>
                   <div className="flex space-x-2">
-                    <Button variant="outline" size="sm" className="shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-black">
+                    <Button variant="outline" size="sm" className="shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-medium">
                       <Filter className="h-4 w-4 mr-2" />
                       Filter
                     </Button>
-                    <Button variant="outline" size="sm" className="shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-black">
+                    <Button variant="outline" size="sm" className="shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-medium">
                       <RefreshCw className="h-4 w-4 mr-2" />
                       Refresh
                     </Button>
-                    <Button size="sm" className="bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-black">
+                    <Button size="sm" className="bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-semibold">
                       <Plus className="h-4 w-4 mr-2" />
                       Add Tickets
                     </Button>
@@ -423,40 +421,40 @@ const Index = () => {
                 <div className="flex space-x-6 text-sm">
                   <button 
                     onClick={() => setActiveFilter('pending')}
-                    className={`flex items-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg ${
+                    className={`flex items-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
                       activeFilter === 'pending' 
                         ? 'bg-amber-200 text-amber-900 ring-2 ring-amber-300' 
                         : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
                     } px-3 py-2 rounded-lg`}
                   >
-                    <span className="text-slate-600 font-black">Pending Review</span>
-                    <span className="bg-amber-300 text-amber-900 px-2 py-1 rounded-full text-xs font-black">
+                    <span className="text-slate-600 font-medium">Pending Review</span>
+                    <span className="bg-amber-300 text-amber-900 px-2 py-1 rounded-full text-xs font-semibold">
                       1
                     </span>
                   </button>
                   <button 
                     onClick={() => setActiveFilter('live')}
-                    className={`flex items-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg ${
+                    className={`flex items-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
                       activeFilter === 'live' 
                         ? 'bg-emerald-200 text-emerald-900 ring-2 ring-emerald-300' 
                         : 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
                     } px-3 py-2 rounded-lg`}
                   >
-                    <span className="text-slate-600 font-black">Live Listings</span>
-                    <span className="bg-emerald-300 text-emerald-900 px-2 py-1 rounded-full text-xs font-black">
+                    <span className="text-slate-600 font-medium">Live Listings</span>
+                    <span className="bg-emerald-300 text-emerald-900 px-2 py-1 rounded-full text-xs font-semibold">
                       2
                     </span>
                   </button>
                   <button 
                     onClick={() => setActiveFilter('sold')}
-                    className={`flex items-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg ${
+                    className={`flex items-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
                       activeFilter === 'sold' 
                         ? 'bg-blue-200 text-blue-900 ring-2 ring-blue-300' 
                         : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
                     } px-3 py-2 rounded-lg`}
                   >
-                    <span className="text-slate-600 font-black">Sold Tickets</span>
-                    <span className="bg-blue-300 text-blue-900 px-2 py-1 rounded-full text-xs font-black">
+                    <span className="text-slate-600 font-medium">Sold Tickets</span>
+                    <span className="bg-blue-300 text-blue-900 px-2 py-1 rounded-full text-xs font-semibold">
                       47
                     </span>
                   </button>
@@ -472,14 +470,14 @@ const Index = () => {
           <div className="lg:col-span-1 space-y-6">
             <Card className="bg-white/80 backdrop-blur-sm shadow-xl">
               <CardHeader>
-                <CardTitle className="text-lg font-black">Quick Actions</CardTitle>
+                <CardTitle className="text-lg font-bold">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Button className="w-full bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-black">
+                <Button className="w-full bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-semibold">
                   <Plus className="h-4 w-4 mr-2" />
                   List New Tickets
                 </Button>
-                <Button variant="outline" className="w-full border-slate-400 text-slate-700 hover:bg-slate-100 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-black">
+                <Button variant="outline" className="w-full border-slate-400 text-slate-700 hover:bg-slate-100 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-medium">
                   <BarChart3 className="h-4 w-4 mr-2" />
                   View Analytics
                 </Button>
@@ -488,19 +486,19 @@ const Index = () => {
 
             <Card className="bg-white/80 backdrop-blur-sm shadow-xl">
               <CardHeader>
-                <CardTitle className="text-lg flex items-center justify-between font-black">
+                <CardTitle className="text-lg flex items-center justify-between font-bold">
                   Market Insights
-                  <span className="text-xs text-slate-500 font-black">Live Data</span>
+                  <span className="text-xs text-slate-500 font-medium">Live Data</span>
                 </CardTitle>
-                <p className="text-sm text-slate-600 font-black">{marketInsights[marketInsightIndex].category}</p>
+                <p className="text-sm text-slate-600 font-semibold">{marketInsights[marketInsightIndex].category}</p>
               </CardHeader>
               <CardContent className="space-y-4">
                 {marketInsights[marketInsightIndex].items.map((item, index) => (
                   <div key={index} className="flex items-center justify-between">
-                    <span className="text-sm text-slate-600 font-black">{item.name}</span>
+                    <span className="text-sm text-slate-600 font-medium">{item.name}</span>
                     <div className={`flex items-center space-x-1 ${item.trend === 'up' ? 'text-emerald-600' : 'text-rose-600'}`}>
                       {item.trend === 'up' ? <TrendingUp className="h-4 w-4" /> : <TrendingDown className="h-4 w-4" />}
-                      <span className="text-sm font-black">{item.change}</span>
+                      <span className="text-sm font-semibold">{item.change}</span>
                     </div>
                   </div>
                 ))}
