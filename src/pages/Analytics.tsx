@@ -1,86 +1,12 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from "recharts";
 import { TrendingUp, TrendingDown, DollarSign, Users, Calendar, Target } from "lucide-react";
 import Header from "@/components/Header";
+import { ticketData, userData } from "@/data/ticketData";
 
 const Analytics = () => {
-  // Real ticket data from dashboard
-  const ticketData = {
-    pending: [
-      {
-        id: 1,
-        title: "NBA FINALS: TBD AT KNICKS RD 4 HM GM 3",
-        venue: "Madison Square Garden",
-        location: "New York, NY",
-        date: "TBD 2024",
-        marketPrice: 525,
-        yourPrice: 450,
-        section: "213",
-        row: "18",
-        seats: "11, 12",
-        qty: 2,
-        status: "PENDING REVIEW",
-        statusColor: "amber",
-        expiresIn: "2 days"
-      }
-    ],
-    live: [
-      {
-        id: 2,
-        title: "LAKERS VS WARRIORS",
-        venue: "Crypto.com Arena",
-        location: "Los Angeles, CA",
-        date: "Dec 15, 2024",
-        marketPrice: 380,
-        yourPrice: 350,
-        section: "115",
-        row: "12",
-        seats: "5, 6",
-        qty: 2,
-        status: "LIVE LISTING",
-        statusColor: "emerald",
-        views: "127 views today"
-      },
-      {
-        id: 3,
-        title: "TAYLOR SWIFT ERAS TOUR",
-        venue: "SoFi Stadium",
-        location: "Los Angeles, CA",
-        date: "Jan 20, 2025",
-        marketPrice: 850,
-        yourPrice: 800,
-        section: "C2",
-        row: "8",
-        seats: "15, 16",
-        qty: 2,
-        status: "LIVE LISTING",
-        statusColor: "emerald",
-        views: "43 views today"
-      }
-    ],
-    sold: [
-      {
-        id: 4,
-        title: "CHIEFS VS BILLS",
-        venue: "Arrowhead Stadium",
-        location: "Kansas City, MO",
-        date: "Nov 20, 2024",
-        marketPrice: 290,
-        soldPrice: 275,
-        section: "129",
-        row: "25",
-        seats: "7, 8",
-        qty: 2,
-        status: "SOLD",
-        statusColor: "blue",
-        soldDate: "Nov 18, 2024"
-      }
-    ]
-  };
-
   // Calculate real metrics from ticket data
   const totalRevenue = ticketData.sold.reduce((sum, ticket) => sum + (ticket.soldPrice * ticket.qty), 0);
   const totalTicketsSold = ticketData.sold.reduce((sum, ticket) => sum + ticket.qty, 0);
@@ -133,7 +59,7 @@ const Analytics = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
-      <Header userName="Sarah Chen" />
+      <Header userName={userData.name} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
