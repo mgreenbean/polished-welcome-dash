@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -64,7 +65,6 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
               <div className="flex items-center space-x-2 mb-2">
                 <Badge className={getStatusBadgeClass(ticket.statusColor)}>{ticket.status}</Badge>
                 {ticket.expiresIn && <span className="text-sm text-slate-500 font-medium">Expires in {ticket.expiresIn}</span>}
-                {ticket.views && <span className="text-sm text-slate-500 font-medium">{ticket.views}</span>}
                 {ticket.soldDate && <span className="text-sm text-slate-500 font-medium">Sold on {ticket.soldDate}</span>}
               </div>
               <h3 className="text-lg font-semibold text-blue-900 mb-1">{ticket.title}</h3>
