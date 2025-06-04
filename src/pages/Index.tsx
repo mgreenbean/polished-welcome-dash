@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -434,29 +433,15 @@ const Index = () => {
                     <Ticket className="h-5 w-5" />
                     <span className="font-bold">Your Ticket Portfolio</span>
                   </CardTitle>
-                  <div className="flex space-x-2">
-                    <Button variant="outline" size="sm" className="shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-medium">
-                      <Filter className="h-4 w-4 mr-2" />
-                      Filter
-                    </Button>
-                    <Button variant="outline" size="sm" className="shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-medium">
-                      <RefreshCw className="h-4 w-4 mr-2" />
-                      Refresh
-                    </Button>
-                    <Button size="sm" className="bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-semibold">
-                      <Plus className="h-4 w-4 mr-2" />
-                      Add Tickets
-                    </Button>
-                  </div>
                 </div>
-                <div className="flex space-x-6 text-sm">
+                <div className="flex space-x-4 text-sm w-full">
                   <button 
                     onClick={() => setActiveFilter('pending')}
-                    className={`flex items-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
+                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer flex-1 ${
                       activeFilter === 'pending' 
                         ? 'bg-amber-200 text-amber-900 ring-2 ring-amber-300' 
                         : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-                    } px-3 py-2 rounded-lg`}
+                    } px-4 py-3 rounded-lg`}
                   >
                     <span className="text-slate-600 font-semibold">Pending Review</span>
                     <span className="bg-amber-300 text-amber-900 px-2 py-1 rounded-full text-xs font-semibold">
@@ -465,11 +450,11 @@ const Index = () => {
                   </button>
                   <button 
                     onClick={() => setActiveFilter('live')}
-                    className={`flex items-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
+                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer flex-1 ${
                       activeFilter === 'live' 
                         ? 'bg-emerald-200 text-emerald-900 ring-2 ring-emerald-300' 
                         : 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
-                    } px-3 py-2 rounded-lg`}
+                    } px-4 py-3 rounded-lg`}
                   >
                     <span className="text-slate-600 font-semibold">Live Listings</span>
                     <span className="bg-emerald-300 text-emerald-900 px-2 py-1 rounded-full text-xs font-semibold">
@@ -478,11 +463,11 @@ const Index = () => {
                   </button>
                   <button 
                     onClick={() => setActiveFilter('sold')}
-                    className={`flex items-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer ${
+                    className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg cursor-pointer flex-1 ${
                       activeFilter === 'sold' 
                         ? 'bg-blue-200 text-blue-900 ring-2 ring-blue-300' 
                         : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
-                    } px-3 py-2 rounded-lg`}
+                    } px-4 py-3 rounded-lg`}
                   >
                     <span className="text-slate-600 font-semibold">Sold Tickets</span>
                     <span className="bg-blue-300 text-blue-900 px-2 py-1 rounded-full text-xs font-semibold">
