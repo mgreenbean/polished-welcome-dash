@@ -21,6 +21,15 @@ const Index = () => {
   // Calculate notification count based on pending tickets and other alerts
   const notificationCount = ticketData.pending.length;
 
+  // Create notifications from pending tickets
+  const notifications = ticketData.pending.map((ticket) => ({
+    id: ticket.id,
+    title: "Ticket Pending Review",
+    message: `${ticket.title} at ${ticket.venue} is pending review`,
+    time: ticket.expiresIn || "2h ago",
+    type: "pending" as const
+  }));
+
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
@@ -35,7 +44,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-100">
-      <Header userName={userData.name} notificationCount={notificationCount} />
+      <Header 
+        userName={userData.name} 
+        notificationCount={notificationCount} 
+        notifications={notifications}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="mb-5">

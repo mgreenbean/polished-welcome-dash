@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MessageCircle, X, Send, Minimize2, Maximize2 } from "lucide-react";
+import { X, Send, Minimize2, Maximize2 } from "lucide-react";
 
 const SeatlyHelper = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ const SeatlyHelper = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi Dean! I'm your Seatly Helper. How can I assist you today?",
+      text: "Hi Dean! I'm Seatly. How can I assist you today?",
       isBot: true,
       timestamp: new Date()
     }
@@ -54,9 +54,13 @@ const SeatlyHelper = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           onClick={() => setIsOpen(true)}
-          className="rounded-full h-14 w-14 bg-blue-600 hover:bg-blue-700 shadow-lg transition-all hover:scale-105"
+          className="rounded-full h-14 w-14 bg-blue-600 hover:bg-blue-700 shadow-lg transition-all hover:scale-105 p-0"
         >
-          <MessageCircle className="h-6 w-6 text-white" />
+          <img 
+            src="/lovable-uploads/163c63ef-b0dc-48ae-8600-1bf8ec475a31.png" 
+            alt="Seatly" 
+            className="h-10 w-10 object-contain"
+          />
         </Button>
       </div>
     );
@@ -67,8 +71,12 @@ const SeatlyHelper = () => {
       <Card className={`w-80 shadow-xl transition-all ${isMinimized ? 'h-auto' : 'h-96'}`}>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 bg-blue-600 text-white rounded-t-lg">
           <div className="flex items-center space-x-2">
-            <MessageCircle className="h-5 w-5" />
-            <CardTitle className="text-sm font-medium">Seatly Helper</CardTitle>
+            <img 
+              src="/lovable-uploads/163c63ef-b0dc-48ae-8600-1bf8ec475a31.png" 
+              alt="Seatly" 
+              className="h-5 w-5 object-contain"
+            />
+            <CardTitle className="text-sm font-medium">Seatly</CardTitle>
           </div>
           <div className="flex space-x-1">
             <Button
