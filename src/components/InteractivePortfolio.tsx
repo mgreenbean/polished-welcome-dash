@@ -15,27 +15,27 @@ const InteractivePortfolio = () => {
       profit: "+$120",
       status: "Listed",
       color: "bg-green-100 border-green-300",
-      views: "47 views"
+      views: "73 views today"
     },
     {
-      event: "Taylor Swift Concert",
+      event: "Taylor Swift Eras Tour",
       date: "Jan 20, 2025",
       section: "Floor A",
-      price: "$850",
-      profit: "+$250",
+      price: "$950",
+      profit: "+$380",
       status: "Sold",
       color: "bg-blue-100 border-blue-300",
-      soldDate: "3 days ago"
+      soldDate: "2 hours ago"
     },
     {
-      event: "Broadway Show",
+      event: "Hamilton Broadway",
       date: "Feb 5, 2025",
       section: "Orchestra",
-      price: "$320",
-      profit: "+$80",
+      price: "$285",
+      profit: "+$65",
       status: "Pending",
       color: "bg-amber-100 border-amber-300",
-      expiresIn: "2 days"
+      expiresIn: "18 hours"
     }
   ];
 
@@ -88,8 +88,8 @@ const InteractivePortfolio = () => {
       <div className="bg-gradient-to-r from-blue-100 to-emerald-100 rounded-lg p-4">
         <div className="text-center">
           <p className="text-sm text-slate-600">Total Portfolio Value</p>
-          <p className="text-2xl font-bold text-blue-900">$1,620</p>
-          <p className="text-sm text-emerald-600 font-medium">+$450 profit this month</p>
+          <p className="text-2xl font-bold text-blue-900">$1,685</p>
+          <p className="text-sm text-emerald-600 font-medium">+$565 profit this month</p>
         </div>
       </div>
     </div>

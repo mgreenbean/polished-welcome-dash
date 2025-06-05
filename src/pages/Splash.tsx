@@ -11,8 +11,8 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 const Splash = () => {
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.15,
+      rootMargin: '0px 0px -20px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -23,8 +23,8 @@ const Splash = () => {
       });
     }, observerOptions);
 
-    // Observe all scroll-reveal elements
-    const scrollElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-stagger, .scroll-slide-left, .scroll-slide-right, .scroll-scale');
+    // Observe scroll-reveal elements
+    const scrollElements = document.querySelectorAll('.scroll-reveal, .scroll-fade');
     scrollElements.forEach((el) => observer.observe(el));
 
     return () => {
@@ -39,13 +39,13 @@ const Splash = () => {
       <div className="scroll-reveal">
         <FeaturesSection />
       </div>
-      <div className="scroll-slide-left">
+      <div className="scroll-fade">
         <HowItWorksSection />
       </div>
-      <div className="scroll-scale">
+      <div className="scroll-reveal">
         <PricingSection />
       </div>
-      <div className="scroll-slide-right">
+      <div className="scroll-fade">
         <TestimonialsSection />
       </div>
       <SplashFooter />

@@ -17,7 +17,7 @@ const HeroSection = () => {
           <div className="animate-fade-in">
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Can't make the event?<br />
-              We'll sell your seats - <span className="text-emerald-400 font-extrabold animate-pulse bg-gradient-to-r from-emerald-300 to-emerald-500 bg-clip-text text-transparent">**Fast**</span>.
+              We'll sell your seats - <span className="text-emerald-400 font-extrabold animate-pulse bg-gradient-to-r from-emerald-300 to-emerald-500 bg-clip-text text-transparent">Fast</span>.
             </h1>
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
               Transform your unused tickets into profit with our AI-powered marketplace. 
@@ -41,7 +41,7 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="relative scroll-reveal">
+          <div className="relative">
             <InteractivePortfolio />
           </div>
         </div>
