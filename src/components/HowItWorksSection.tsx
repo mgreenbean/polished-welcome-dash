@@ -43,9 +43,9 @@ const HowItWorksSection = () => {
           {steps.map((step, index) => (
             <Card 
               key={index} 
-              className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white/10 backdrop-blur-sm border-white/20"
+              className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white/10 backdrop-blur-sm border-white/20 opacity-0"
               style={{
-                animation: `fade-in 0.6s ease-out ${index * 0.2}s both`
+                animation: `fade-in 0.8s ease-out ${index * 0.3}s both`
               }}
             >
               <CardContent className="p-8 text-center">
