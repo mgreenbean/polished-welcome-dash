@@ -1,8 +1,6 @@
 
 import Header from "@/components/Header";
-import StatsCards from "@/components/StatsCards";
 import TicketPortfolio from "@/components/TicketPortfolio";
-import ActionNeeded from "@/components/ActionNeeded";
 import InstantTransfer from "@/components/InstantTransfer";
 import { ticketData } from "@/data/ticketData";
 
@@ -12,10 +10,8 @@ const Dashboard = () => {
       <Header />
       
       <div className="container mx-auto py-6">
-        <StatsCards />
-        <TicketPortfolio ticketData={ticketData} />
-        <ActionNeeded />
         <InstantTransfer />
+        <TicketPortfolio ticketData={ticketData} />
       </div>
     </div>
   );
