@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -38,19 +38,28 @@ const InteractivePortfolio = () => {
     }
   ];
 
+  // Auto-cycle through tickets every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelectedTicket((prev) => (prev + 1) % tickets.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [tickets.length]);
+
   return (
     <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-6 border border-blue-200/50 animate-scale-in">
       <div className="mb-4">
         <h3 className="text-lg font-semibold text-blue-900">My Ticket Portfolio</h3>
-        <p className="text-sm text-slate-600">Click on any ticket to see details</p>
+        <p className="text-sm text-slate-600">Auto-cycling through tickets</p>
       </div>
       
       <div className="space-y-3 mb-4">
         {tickets.map((ticket, index) => (
           <Card 
             key={index}
-            className={`cursor-pointer transition-all duration-300 hover:scale-105 ${
-              selectedTicket === index ? ticket.color + ' shadow-lg' : 'hover:bg-blue-50 hover:shadow-md'
+            className={`cursor-pointer transition-all duration-500 hover:scale-105 ${
+              selectedTicket === index ? ticket.color + ' shadow-lg transform scale-105' : 'hover:bg-blue-50 hover:shadow-md opacity-70'
             }`}
             onClick={() => setSelectedTicket(index)}
           >
@@ -60,12 +69,13 @@ const InteractivePortfolio = () => {
                   <h4 className="font-semibold text-blue-900 text-sm">{ticket.event}</h4>
                   <p className="text-xs text-slate-600 mb-1">{ticket.date} • {ticket.section}</p>
                   <p className="text-lg font-bold text-emerald-600">{ticket.price}</p>
-                  {selectedTicket === index && (
-                    <div className="mt-2 text-xs text-slate-600">
-                      {ticket.status === 'Sold' && `Sold ${ticket.soldDate}`}
-                      {ticket.status === 'Pending' && `Expires in ${ticket.expiresIn}`}
-                    </div>
-                  )}
+                  <div className={`mt-2 text-xs text-slate-600 transition-all duration-300 ${
+                    selectedTicket === index ? 'opacity-100 max-h-10' : 'opacity-0 max-h-0 overflow-hidden'
+                  }`}>
+                    {ticket.status === 'Sold' && `Sold ${ticket.soldDate}`}
+                    {ticket.status === 'Pending' && `Expires in ${ticket.expiresIn}`}
+                    {ticket.status === 'Listed' && 'Currently live on 3 platforms'}
+                  </div>
                 </div>
                 <div className="text-right">
                   <Badge variant={
@@ -80,6 +90,18 @@ const InteractivePortfolio = () => {
               </div>
             </CardContent>
           </Card>
+        ))}
+      </div>
+      
+      {/* Progress indicators */}
+      <div className="flex justify-center space-x-2 mb-4">
+        {tickets.map((_, index) => (
+          <div
+            key={index}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              selectedTicket === index ? 'bg-blue-600' : 'bg-slate-300'
+            }`}
+          />
         ))}
       </div>
       
