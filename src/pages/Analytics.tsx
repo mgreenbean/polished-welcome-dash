@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import SeatlyHelper from "@/components/SeatlyHelper";
 import { userData, ticketData } from "@/data/ticketData";
@@ -155,28 +154,37 @@ const Analytics = () => {
                 <h2 className="text-2xl font-bold text-white">Revenue Trends</h2>
                 <p className="text-blue-100 mt-1">Track your earnings over time</p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-3 bg-white/10 p-1 rounded-lg backdrop-blur-sm">
                 <Button 
-                  variant={timeFrame === 'weekly' ? 'default' : 'outline'}
+                  variant={timeFrame === 'weekly' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setTimeFrame('weekly')}
-                  className={timeFrame === 'weekly' ? 'bg-white text-blue-600 hover:bg-gray-100' : 'border-white text-white hover:bg-white/10'}
+                  className={timeFrame === 'weekly' 
+                    ? 'bg-white text-blue-600 hover:bg-gray-100 font-semibold shadow-sm' 
+                    : 'text-white hover:bg-white/20 hover:text-white font-medium'
+                  }
                 >
                   Weekly
                 </Button>
                 <Button 
-                  variant={timeFrame === 'monthly' ? 'default' : 'outline'}
+                  variant={timeFrame === 'monthly' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setTimeFrame('monthly')}
-                  className={timeFrame === 'monthly' ? 'bg-white text-blue-600 hover:bg-gray-100' : 'border-white text-white hover:bg-white/10'}
+                  className={timeFrame === 'monthly' 
+                    ? 'bg-white text-blue-600 hover:bg-gray-100 font-semibold shadow-sm' 
+                    : 'text-white hover:bg-white/20 hover:text-white font-medium'
+                  }
                 >
                   Monthly
                 </Button>
                 <Button 
-                  variant={timeFrame === 'yearly' ? 'default' : 'outline'}
+                  variant={timeFrame === 'yearly' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setTimeFrame('yearly')}
-                  className={timeFrame === 'yearly' ? 'bg-white text-blue-600 hover:bg-gray-100' : 'border-white text-white hover:bg-white/10'}
+                  className={timeFrame === 'yearly' 
+                    ? 'bg-white text-blue-600 hover:bg-gray-100 font-semibold shadow-sm' 
+                    : 'text-white hover:bg-white/20 hover:text-white font-medium'
+                  }
                 >
                   Yearly
                 </Button>
