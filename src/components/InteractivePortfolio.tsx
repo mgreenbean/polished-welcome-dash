@@ -64,7 +64,7 @@ const InteractivePortfolio = () => {
       </div>
       
       {/* Container for tickets */}
-      <div className="h-[280px] mb-6 overflow-hidden">
+      <div className="h-[280px] overflow-hidden">
         <div className="space-y-3">
           {tickets.map((ticket, index) => (
             <Card 
@@ -110,18 +110,6 @@ const InteractivePortfolio = () => {
             </Card>
           ))}
         </div>
-      </div>
-      
-      {/* Progress indicators */}
-      <div className="flex justify-center space-x-2">
-        {tickets.map((_, index) => (
-          <div
-            key={index}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              selectedTicket === index ? 'bg-blue-600' : 'bg-slate-300'
-            }`}
-          />
-        ))}
       </div>
     </div>
   );
