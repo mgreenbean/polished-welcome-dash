@@ -14,8 +14,7 @@ const InteractivePortfolio = () => {
       price: "$450",
       profit: "+$120",
       status: "Listed",
-      color: "bg-green-100 border-green-300",
-      views: "73 views today"
+      color: "bg-green-100 border-green-300"
     },
     {
       event: "Taylor Swift Eras Tour",
@@ -63,7 +62,6 @@ const InteractivePortfolio = () => {
                   <p className="text-lg font-bold text-emerald-600">{ticket.price}</p>
                   {selectedTicket === index && (
                     <div className="mt-2 text-xs text-slate-600">
-                      {ticket.status === 'Listed' && ticket.views}
                       {ticket.status === 'Sold' && `Sold ${ticket.soldDate}`}
                       {ticket.status === 'Pending' && `Expires in ${ticket.expiresIn}`}
                     </div>
