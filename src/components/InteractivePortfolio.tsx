@@ -54,43 +54,53 @@ const InteractivePortfolio = () => {
         <p className="text-sm text-slate-600">Auto-cycling through tickets</p>
       </div>
       
-      <div className="space-y-3 mb-4">
-        {tickets.map((ticket, index) => (
-          <Card 
-            key={index}
-            className={`cursor-pointer transition-all duration-500 hover:scale-105 ${
-              selectedTicket === index ? ticket.color + ' shadow-lg transform scale-105' : 'hover:bg-blue-50 hover:shadow-md opacity-70'
-            }`}
-            onClick={() => setSelectedTicket(index)}
-          >
-            <CardContent className="p-4">
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <h4 className="font-semibold text-blue-900 text-sm">{ticket.event}</h4>
-                  <p className="text-xs text-slate-600 mb-1">{ticket.date} • {ticket.section}</p>
-                  <p className="text-lg font-bold text-emerald-600">{ticket.price}</p>
-                  <div className={`mt-2 text-xs text-slate-600 transition-all duration-300 ${
-                    selectedTicket === index ? 'opacity-100 max-h-10' : 'opacity-0 max-h-0 overflow-hidden'
-                  }`}>
-                    {ticket.status === 'Sold' && `Sold ${ticket.soldDate}`}
-                    {ticket.status === 'Pending' && `Expires in ${ticket.expiresIn}`}
-                    {ticket.status === 'Listed' && 'Currently live on 3 platforms'}
+      {/* Fixed height container to prevent layout shifts */}
+      <div className="h-[280px] mb-4">
+        <div className="space-y-3">
+          {tickets.map((ticket, index) => (
+            <Card 
+              key={index}
+              className={`cursor-pointer transition-all duration-500 hover:scale-[1.02] relative z-10 ${
+                selectedTicket === index ? ticket.color + ' shadow-lg' : 'hover:bg-blue-50 hover:shadow-md opacity-70'
+              }`}
+              style={{
+                transform: selectedTicket === index ? 'scale(1.02)' : 'scale(1)',
+                transformOrigin: 'center'
+              }}
+              onClick={() => setSelectedTicket(index)}
+            >
+              <CardContent className="p-4">
+                <div className="flex justify-between items-start">
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-blue-900 text-sm">{ticket.event}</h4>
+                    <p className="text-xs text-slate-600 mb-1">{ticket.date} • {ticket.section}</p>
+                    <p className="text-lg font-bold text-emerald-600">{ticket.price}</p>
+                    {/* Fixed height container for additional details */}
+                    <div className="h-4 mt-2">
+                      <div className={`text-xs text-slate-600 transition-all duration-300 ${
+                        selectedTicket === index ? 'opacity-100' : 'opacity-0'
+                      }`}>
+                        {ticket.status === 'Sold' && `Sold ${ticket.soldDate}`}
+                        {ticket.status === 'Pending' && `Expires in ${ticket.expiresIn}`}
+                        {ticket.status === 'Listed' && 'Currently live on 3 platforms'}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <Badge variant={
+                      ticket.status === 'Sold' ? 'default' : 
+                      ticket.status === 'Listed' ? 'secondary' : 
+                      'outline'
+                    } className="text-xs">
+                      {ticket.status}
+                    </Badge>
+                    <p className="text-sm text-emerald-600 font-medium mt-1">{ticket.profit}</p>
                   </div>
                 </div>
-                <div className="text-right">
-                  <Badge variant={
-                    ticket.status === 'Sold' ? 'default' : 
-                    ticket.status === 'Listed' ? 'secondary' : 
-                    'outline'
-                  } className="text-xs">
-                    {ticket.status}
-                  </Badge>
-                  <p className="text-sm text-emerald-600 font-medium mt-1">{ticket.profit}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
       
       {/* Progress indicators */}
