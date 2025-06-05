@@ -1,7 +1,6 @@
 
 import { useEffect } from "react";
 import SplashHeader from "@/components/SplashHeader";
-import SplashFooter from "@/components/SplashFooter";
 import HeroSection from "@/components/HeroSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import FeaturesSection from "@/components/FeaturesSection";
@@ -48,7 +47,6 @@ const Splash = () => {
       <div className="scroll-fade">
         <TestimonialsSection />
       </div>
-      <SplashFooter />
     </div>
   );
 };

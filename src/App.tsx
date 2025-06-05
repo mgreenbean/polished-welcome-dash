@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import SeatlyHelper from "./components/SeatlyHelper";
+import SplashFooter from "./components/SplashFooter";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <SplashFooter />
           <SeatlyHelper />
         </BrowserRouter>
       </TooltipProvider>

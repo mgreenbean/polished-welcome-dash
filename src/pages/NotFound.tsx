@@ -1,7 +1,6 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import SeatlyHelper from "@/components/SeatlyHelper";
 
 const NotFound = () => {
   return (
@@ -16,8 +15,6 @@ const NotFound = () => {
           </Button>
         </Link>
       </div>
-      
-      <SeatlyHelper />
     </div>
   );
 };
