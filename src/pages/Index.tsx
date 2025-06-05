@@ -1,76 +1,22 @@
-
-import { useState, useEffect } from "react";
 import Header from "@/components/Header";
-import InstantTransfer from "@/components/InstantTransfer";
+import StatsCards from "@/components/StatsCards";
 import TicketPortfolio from "@/components/TicketPortfolio";
-import Sidebar from "@/components/Sidebar";
+import ActionNeeded from "@/components/ActionNeeded";
+import InstantTransfer from "@/components/InstantTransfer";
 import SeatlyHelper from "@/components/SeatlyHelper";
-import { ticketData, marketInsights, userData } from "@/data/ticketData";
 
 const Index = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
-  const [marketInsightIndex, setMarketInsightIndex] = useState(0);
-
-  const getGreeting = () => {
-    const hour = currentTime.getHours();
-    if (hour < 12) return "Good morning";
-    if (hour < 17) return "Good afternoon";
-    return "Good evening";
-  };
-
-  // Calculate notification count based on pending tickets and other alerts
-  const notificationCount = ticketData.pending.length;
-
-  // Create notifications from pending tickets
-  const notifications = ticketData.pending.map((ticket) => ({
-    id: ticket.id,
-    title: "Ticket Pending Review",
-    message: `${ticket.title} at ${ticket.venue} is pending review`,
-    time: ticket.expiresIn || "2h ago",
-    type: "pending" as const
-  }));
-
-  useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const marketTimer = setInterval(() => {
-      setMarketInsightIndex((prev) => (prev + 1) % marketInsights.length);
-    }, 20000);
-    return () => clearInterval(marketTimer);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-100">
-      <Header 
-        userName={userData.name} 
-        notificationCount={notificationCount} 
-        notifications={notifications}
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="mb-5">
-          <h1 className="text-3xl font-bold text-blue-900">{getGreeting()}, {userData.name.split(' ')[0]}</h1>
-          <p className="text-blue-600 font-medium mt-1">Here's your ticket selling dashboard overview</p>
-        </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
+      <Header />
+      
+      <div className="container mx-auto py-6">
+        <StatsCards />
+        <TicketPortfolio />
+        <ActionNeeded />
         <InstantTransfer />
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2">
-            <TicketPortfolio ticketData={ticketData} />
-          </div>
-
-          <Sidebar 
-            marketInsights={marketInsights} 
-            marketInsightIndex={marketInsightIndex}
-            ticketData={ticketData}
-          />
-        </div>
       </div>
-
+      
       <SeatlyHelper />
     </div>
   );
