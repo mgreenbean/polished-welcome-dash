@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 
 const InteractivePortfolio = () => {
   const [selectedTicket, setSelectedTicket] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const tickets = [
     {
@@ -38,24 +39,32 @@ const InteractivePortfolio = () => {
     }
   ];
 
-  // Auto-cycle through tickets every 3 seconds
+  // Auto-cycle through tickets every 3 seconds, but only if not manually overridden
   useEffect(() => {
+    if (!isAutoPlaying) return;
+    
     const interval = setInterval(() => {
       setSelectedTicket((prev) => (prev + 1) % tickets.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [tickets.length]);
+  }, [tickets.length, isAutoPlaying]);
+
+  const handleTicketClick = (index: number) => {
+    setSelectedTicket(index);
+    setIsAutoPlaying(false);
+    // Resume auto-play after 10 seconds of inactivity
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
 
   return (
     <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-6 border border-blue-200/50 animate-scale-in">
       <div className="mb-4">
         <h3 className="text-lg font-semibold text-blue-900">My Ticket Portfolio</h3>
-        <p className="text-sm text-slate-600">Auto-cycling through tickets</p>
       </div>
       
-      {/* Fixed height container to prevent layout shifts */}
-      <div className="h-[280px] mb-4">
+      {/* Increased height container to prevent layout shifts and show all content */}
+      <div className="h-[320px] mb-4">
         <div className="space-y-3">
           {tickets.map((ticket, index) => (
             <Card 
@@ -67,7 +76,7 @@ const InteractivePortfolio = () => {
                 transform: selectedTicket === index ? 'scale(1.02)' : 'scale(1)',
                 transformOrigin: 'center'
               }}
-              onClick={() => setSelectedTicket(index)}
+              onClick={() => handleTicketClick(index)}
             >
               <CardContent className="p-4">
                 <div className="flex justify-between items-start">
@@ -75,8 +84,8 @@ const InteractivePortfolio = () => {
                     <h4 className="font-semibold text-blue-900 text-sm">{ticket.event}</h4>
                     <p className="text-xs text-slate-600 mb-1">{ticket.date} • {ticket.section}</p>
                     <p className="text-lg font-bold text-emerald-600">{ticket.price}</p>
-                    {/* Fixed height container for additional details */}
-                    <div className="h-4 mt-2">
+                    {/* Increased height container for additional details */}
+                    <div className="h-6 mt-2">
                       <div className={`text-xs text-slate-600 transition-all duration-300 ${
                         selectedTicket === index ? 'opacity-100' : 'opacity-0'
                       }`}>
