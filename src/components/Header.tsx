@@ -67,6 +67,16 @@ const Header = ({ userName, notificationCount = 0, notifications = [] }: HeaderP
               >
                 Analytics
               </Link>
+              <Link 
+                to="/support" 
+                className={`py-4 font-medium ${
+                  isActive("/support") 
+                    ? "text-blue-900 font-semibold border-b-2 border-blue-600" 
+                    : "text-blue-500 hover:text-blue-900"
+                }`}
+              >
+                Support
+              </Link>
             </nav>
           </div>
 
