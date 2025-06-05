@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, forwardRef, useImperativeHandle } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,7 +16,11 @@ const SeatlyFallbackIcon = ({ className }: { className?: string }) => (
   </div>
 );
 
-const SeatlyHelper = () => {
+interface SeatlyHelperRef {
+  openChat: () => void;
+}
+
+const SeatlyHelper = forwardRef<SeatlyHelperRef>((props, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [message, setMessage] = useState("");
@@ -29,6 +33,13 @@ const SeatlyHelper = () => {
       timestamp: new Date()
     }
   ]);
+
+  useImperativeHandle(ref, () => ({
+    openChat: () => {
+      setIsOpen(true);
+      setIsMinimized(false);
+    }
+  }));
 
   const handleSendMessage = () => {
     if (!message.trim()) return;
@@ -166,6 +177,8 @@ const SeatlyHelper = () => {
       </Card>
     </div>
   );
-};
+});
+
+SeatlyHelper.displayName = "SeatlyHelper";
 
 export default SeatlyHelper;

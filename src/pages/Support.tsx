@@ -7,10 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MessageCircle, Mail, Phone, FileText, HelpCircle, Bug } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Support = () => {
-  const [showSeatlyHelper, setShowSeatlyHelper] = useState(false);
+  const seatlyHelperRef = useRef<{ openChat: () => void }>(null);
 
   const supportCategories = [
     {
@@ -18,7 +18,11 @@ const Support = () => {
       title: "Live Chat",
       description: "Get instant help from our AI assistant Seatly",
       action: "Start Chat",
-      onClick: () => setShowSeatlyHelper(true)
+      onClick: () => {
+        if (seatlyHelperRef.current) {
+          seatlyHelperRef.current.openChat();
+        }
+      }
     },
     {
       icon: Phone,
@@ -188,7 +192,7 @@ const Support = () => {
         </Card>
       </div>
       
-      <SeatlyHelper />
+      <SeatlyHelper ref={seatlyHelperRef} />
     </div>
   );
 };
