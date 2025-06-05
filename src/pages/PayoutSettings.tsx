@@ -5,8 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useState } from "react";
-import { toast } from "sonner";
 import { Plus, Trash2, Check } from "lucide-react";
 
 const PayoutSettings = () => {
@@ -15,15 +15,26 @@ const PayoutSettings = () => {
     { id: 2, email: "business@paypal.com", isDefault: false }
   ]);
   const [newEmail, setNewEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState<"success" | "error" | "">("");
+
+  const showMessage = (text: string, type: "success" | "error") => {
+    setMessage(text);
+    setMessageType(type);
+    setTimeout(() => {
+      setMessage("");
+      setMessageType("");
+    }, 5000);
+  };
 
   const addPaypalEmail = () => {
     if (!newEmail || !newEmail.includes("@")) {
-      toast.error("Please enter a valid email address");
+      showMessage("Please enter a valid email address", "error");
       return;
     }
 
     if (paypalEmails.some(item => item.email === newEmail)) {
-      toast.error("This email is already added");
+      showMessage("This email is already added", "error");
       return;
     }
 
@@ -34,18 +45,18 @@ const PayoutSettings = () => {
       isDefault: paypalEmails.length === 0 
     }]);
     setNewEmail("");
-    toast.success("PayPal email added successfully!");
+    showMessage("PayPal email added successfully!", "success");
   };
 
   const removePaypalEmail = (id: number) => {
     const emailToRemove = paypalEmails.find(e => e.id === id);
     if (emailToRemove?.isDefault && paypalEmails.length > 1) {
-      toast.error("Cannot remove default email. Set another email as default first.");
+      showMessage("Cannot remove default email. Set another email as default first.", "error");
       return;
     }
 
     setPaypalEmails(prev => prev.filter(e => e.id !== id));
-    toast.success("PayPal email removed successfully!");
+    showMessage("PayPal email removed successfully!", "success");
   };
 
   const setDefaultEmail = (id: number) => {
@@ -53,7 +64,7 @@ const PayoutSettings = () => {
       ...email,
       isDefault: email.id === id
     })));
-    toast.success("Default PayPal email updated!");
+    showMessage("Default PayPal email updated!", "success");
   };
 
   return (
@@ -69,6 +80,14 @@ const PayoutSettings = () => {
             <CardContent className="space-y-6">
               <div>
                 <h3 className="text-lg font-semibold text-blue-800 mb-4">PayPal Email Addresses</h3>
+                
+                {message && (
+                  <Alert variant={messageType === "error" ? "destructive" : "default"} className={`mb-4 ${messageType === "error" ? "bg-red-50 border-red-200" : "bg-green-50 border-green-200"}`}>
+                    <AlertDescription className={messageType === "error" ? "text-red-700" : "text-green-700"}>
+                      {message}
+                    </AlertDescription>
+                  </Alert>
+                )}
                 
                 <div className="space-y-3">
                   {paypalEmails.map((emailItem) => (
