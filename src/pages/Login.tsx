@@ -19,7 +19,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md shadow-2xl backdrop-blur-sm bg-white/90 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-1">
+      <Card className="w-full max-w-md shadow-2xl backdrop-blur-sm bg-white/90 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500">
         <CardHeader className="text-center pb-8">
           <div className="flex items-center justify-center space-x-3 mb-6">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg relative animate-bounce-once group-hover:scale-110 transition-transform duration-300">

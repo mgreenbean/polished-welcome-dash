@@ -28,7 +28,7 @@ const Register = () => {
         <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-gradient-to-r from-indigo-300/10 to-purple-300/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <Card className="w-full max-w-md shadow-2xl backdrop-blur-sm bg-white/90 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-1">
+      <Card className="w-full max-w-md shadow-2xl backdrop-blur-sm bg-white/90 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500">
         <CardHeader className="text-center pb-8">
           <div className="flex items-center justify-center space-x-3 mb-6">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg relative animate-bounce-once group-hover:scale-110 transition-transform duration-300">
