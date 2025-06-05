@@ -1,132 +1,43 @@
 
 import Header from "@/components/Header";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
-
-const data = [
-  { name: 'Jan', ticketsSold: 4000, revenue: 2400 },
-  { name: 'Feb', ticketsSold: 3000, revenue: 1398 },
-  { name: 'Mar', ticketsSold: 2000, revenue: 9800 },
-  { name: 'Apr', ticketsSold: 2780, revenue: 3908 },
-  { name: 'May', ticketsSold: 1890, revenue: 4800 },
-  { name: 'Jun', ticketsSold: 2390, revenue: 3800 },
-  { name: 'Jul', ticketsSold: 3490, revenue: 4300 },
-  { name: 'Aug', ticketsSold: 3000, revenue: 1398 },
-  { name: 'Sep', ticketsSold: 2000, revenue: 9800 },
-  { name: 'Oct', ticketsSold: 2780, revenue: 3908 },
-  { name: 'Nov', ticketsSold: 1890, revenue: 4800 },
-  { name: 'Dec', ticketsSold: 2390, revenue: 3800 },
-];
-
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d'];
-
-const pieData = [
-  { name: 'Category A', value: 400 },
-  { name: 'Category B', value: 300 },
-  { name: 'Category C', value: 300 },
-  { name: 'Category D', value: 200 },
-];
-
-const chartConfig = {
-  ticketsSold: {
-    label: "Tickets Sold",
-    color: "hsl(var(--primary))",
-  },
-  revenue: {
-    label: "Revenue",
-    color: "hsl(var(--secondary))",
-  },
-  "Category A": {
-    label: "Category A",
-    color: COLORS[0],
-  },
-  "Category B": {
-    label: "Category B",
-    color: COLORS[1],
-  },
-   "Category C": {
-    label: "Category C",
-    color: COLORS[2],
-  },
-   "Category D": {
-    label: "Category D",
-    color: COLORS[3],
-  },
-};
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BarChart3, TrendingUp } from "lucide-react";
 
 const Analytics = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
       <Header />
       
-      <div className="container mx-auto py-10">
-        <h1 className="text-3xl font-semibold text-blue-900 mb-8 text-center">Analytics Dashboard</h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Revenue Overview */}
-          <Card className="shadow-md">
-            <CardHeader>
-              <CardTitle className="text-xl">Revenue Overview</CardTitle>
-              <CardDescription>Monthly revenue performance</CardDescription>
+      <div className="container mx-auto py-12 px-4">
+        <div className="max-w-2xl mx-auto text-center">
+          <Card className="bg-white/80 backdrop-blur-sm shadow-xl border-blue-200">
+            <CardHeader className="pb-8">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+                  <BarChart3 className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-900 to-indigo-700 bg-clip-text text-transparent">
+                Analytics Dashboard
+              </CardTitle>
             </CardHeader>
-            <CardContent>
-              <ChartContainer config={chartConfig}>
-                <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <ChartTooltip content={<ChartTooltipContent />} />
-                  <Line type="monotone" dataKey="revenue" stroke="hsl(var(--primary))" activeDot={{ r: 8 }} />
-                </LineChart>
-              </ChartContainer>
-            </CardContent>
-          </Card>
-
-          {/* Tickets Sold */}
-          <Card className="shadow-md">
-            <CardHeader>
-              <CardTitle className="text-xl">Tickets Sold</CardTitle>
-              <CardDescription>Number of tickets sold per month</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ChartContainer config={chartConfig}>
-                <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <ChartTooltip content={<ChartTooltipContent />} />
-                  <Bar dataKey="ticketsSold" fill="hsl(var(--secondary))" />
-                </BarChart>
-              </ChartContainer>
-            </CardContent>
-          </Card>
-
-          {/* Category Distribution */}
-          <Card className="shadow-md">
-            <CardHeader>
-              <CardTitle className="text-xl">Category Distribution</CardTitle>
-              <CardDescription>Distribution of tickets across categories</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ChartContainer config={chartConfig}>
-                <PieChart>
-                  <Pie
-                    dataKey="value"
-                    data={pieData}
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={80}
-                    fill="#8884d8"
-                    label
-                  >
-                    {pieData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <ChartTooltip content={<ChartTooltipContent />} />
-                </PieChart>
-              </ChartContainer>
+            <CardContent className="space-y-6">
+              <div className="flex justify-center">
+                <TrendingUp className="h-24 w-24 text-blue-300" />
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-blue-900">Coming Soon</h3>
+                <p className="text-slate-600 text-lg leading-relaxed">
+                  We're working hard to bring you detailed analytics about your ticket sales, 
+                  market trends, and performance insights. This feature will be available soon!
+                </p>
+              </div>
+              <div className="pt-4">
+                <div className="inline-flex items-center space-x-2 bg-blue-50 px-4 py-2 rounded-full">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                  <span className="text-blue-700 font-medium text-sm">In Development</span>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
