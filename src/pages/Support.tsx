@@ -1,25 +1,24 @@
 
 import Header from "@/components/Header";
+import SeatlyHelper from "@/components/SeatlyHelper";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MessageCircle, Mail, Phone, FileText, HelpCircle, Bug } from "lucide-react";
+import { useState } from "react";
 
 const Support = () => {
+  const [showSeatlyHelper, setShowSeatlyHelper] = useState(false);
+
   const supportCategories = [
     {
       icon: MessageCircle,
       title: "Live Chat",
-      description: "Get instant help from our support team",
-      action: "Start Chat"
-    },
-    {
-      icon: Mail,
-      title: "Email Support",
-      description: "Send us a detailed message and we'll respond within 24 hours",
-      action: "Send Email"
+      description: "Get instant help from our AI assistant Seatly",
+      action: "Start Chat",
+      onClick: () => setShowSeatlyHelper(true)
     },
     {
       icon: Phone,
@@ -71,7 +70,7 @@ const Support = () => {
         </div>
 
         {/* Contact Options */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {supportCategories.map((category, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="text-center pb-4">
@@ -82,7 +81,10 @@ const Support = () => {
                 <CardDescription>{category.description}</CardDescription>
               </CardHeader>
               <CardContent className="pt-0">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button 
+                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  onClick={category.onClick}
+                >
                   {category.action}
                 </Button>
               </CardContent>
@@ -185,6 +187,8 @@ const Support = () => {
           </CardContent>
         </Card>
       </div>
+      
+      <SeatlyHelper />
     </div>
   );
 };
