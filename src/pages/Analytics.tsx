@@ -1,4 +1,5 @@
 
+
 import Header from "@/components/Header";
 import SeatlyHelper from "@/components/SeatlyHelper";
 import { userData, ticketData } from "@/data/ticketData";
@@ -102,6 +103,14 @@ const Analytics = () => {
       label: "Revenue",
       color: "#3b82f6"
     }
+  };
+
+  // Helper function to format Y-axis values based on revenue range
+  const formatYAxisValue = (value: number) => {
+    if (value >= 1000) {
+      return `$${(value / 1000).toFixed(0)}k`;
+    }
+    return `$${value}`;
   };
 
   return (
@@ -239,7 +248,7 @@ const Analytics = () => {
                     axisLine={false}
                     tickLine={false}
                     tick={{ fill: '#64748b', fontSize: 12, fontWeight: 500 }}
-                    tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+                    tickFormatter={formatYAxisValue}
                   />
                   <ChartTooltip 
                     content={({ active, payload, label }) => {
@@ -278,3 +287,4 @@ const Analytics = () => {
 };
 
 export default Analytics;
+
