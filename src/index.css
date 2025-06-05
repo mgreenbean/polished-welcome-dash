@@ -95,7 +95,8 @@
   }
 
   .animate-bounce-once {
-    animation: bounce-once 0.8s ease-out;
+    animation: bounce-once 0.8s ease-out forwards;
+    animation-fill-mode: forwards;
   }
 
   /* Simplified scroll-driven animations */

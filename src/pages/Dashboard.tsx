@@ -2,6 +2,7 @@
 import Header from "@/components/Header";
 import TicketPortfolio from "@/components/TicketPortfolio";
 import InstantTransfer from "@/components/InstantTransfer";
+import BottomNavigation from "@/components/BottomNavigation";
 import { ticketData } from "@/data/ticketData";
 
 const Dashboard = () => {
@@ -13,6 +14,8 @@ const Dashboard = () => {
         <InstantTransfer />
         <TicketPortfolio ticketData={ticketData} />
       </div>
+      
+      <BottomNavigation />
     </div>
   );
 };

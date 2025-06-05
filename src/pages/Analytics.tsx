@@ -1,5 +1,6 @@
 
 import Header from "@/components/Header";
+import BottomNavigation from "@/components/BottomNavigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart3, TrendingUp } from "lucide-react";
 
@@ -42,6 +43,8 @@ const Analytics = () => {
           </Card>
         </div>
       </div>
+      
+      <BottomNavigation />
     </div>
   );
 };
