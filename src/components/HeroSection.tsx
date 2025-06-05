@@ -17,7 +17,7 @@ const HeroSection = () => {
           <div className="animate-fade-in">
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Can't make the event?<br />
-              We'll sell your seats - <span className="text-green-400 font-extrabold bg-green-400 text-green-900 px-2 py-1 rounded shadow-lg">Fast</span>.
+              We'll sell your seats - <span className="bg-emerald-400 text-emerald-900 px-3 py-1 rounded-lg font-black shadow-lg border-2 border-emerald-300">Fast</span>.
             </h1>
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
               Transform your unused tickets into profit with our AI-powered marketplace. 
