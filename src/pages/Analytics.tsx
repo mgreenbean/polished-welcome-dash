@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import SeatlyHelper from "@/components/SeatlyHelper";
 import { userData, ticketData } from "@/data/ticketData";
@@ -11,18 +12,42 @@ import { DollarSign, TrendingUp, BarChart3 } from "lucide-react";
 const Analytics = () => {
   const [timeFrame, setTimeFrame] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
 
-  // Calculate real metrics from ticket data
+  // Calculate metrics based on timeframe
   const metrics = useMemo(() => {
     const totalRevenue = ticketData.sold.reduce((sum, ticket) => sum + ticket.soldPrice, 0);
     const totalTicketsSold = ticketData.sold.reduce((sum, ticket) => sum + ticket.qty, 0);
-    const avgPrice = totalTicketsSold > 0 ? Math.round(totalRevenue / totalTicketsSold) : 0;
+    
+    let adjustedRevenue: number;
+    let adjustedTickets: number;
+    let periodLabel: string;
+
+    switch (timeFrame) {
+      case 'weekly':
+        adjustedRevenue = Math.round(totalRevenue * 0.25); // 25% of total for weekly
+        adjustedTickets = Math.round(totalTicketsSold * 0.25);
+        periodLabel = "This week";
+        break;
+      case 'yearly':
+        adjustedRevenue = Math.round(totalRevenue * 1.8); // 180% of total for yearly
+        adjustedTickets = Math.round(totalTicketsSold * 1.8);
+        periodLabel = "This year";
+        break;
+      default: // monthly
+        adjustedRevenue = totalRevenue;
+        adjustedTickets = totalTicketsSold;
+        periodLabel = "This month";
+        break;
+    }
+
+    const avgPrice = adjustedTickets > 0 ? Math.round(adjustedRevenue / adjustedTickets) : 0;
     
     return {
-      totalRevenue,
-      totalTicketsSold,
-      avgPrice
+      totalRevenue: adjustedRevenue,
+      totalTicketsSold: adjustedTickets,
+      avgPrice,
+      periodLabel
     };
-  }, []);
+  }, [timeFrame]);
 
   // Generate revenue data based on actual sold tickets with more realistic distributions
   const weeklyData = [
@@ -105,7 +130,7 @@ const Analytics = () => {
                   <p className="text-3xl font-bold text-emerald-900">${metrics.totalRevenue.toLocaleString()}</p>
                   <p className="text-sm text-emerald-600 mt-1 flex items-center">
                     <TrendingUp className="h-3 w-3 mr-1" />
-                    +22% from last period
+                    {metrics.periodLabel}
                   </p>
                 </div>
                 <div className="bg-emerald-200 p-3 rounded-full">
@@ -121,7 +146,7 @@ const Analytics = () => {
                 <div>
                   <p className="text-sm font-bold text-blue-800 mb-2 tracking-wide">TICKETS SOLD</p>
                   <p className="text-3xl font-bold text-blue-900">{metrics.totalTicketsSold}</p>
-                  <p className="text-sm text-blue-600 mt-1">This month</p>
+                  <p className="text-sm text-blue-600 mt-1">{metrics.periodLabel}</p>
                 </div>
                 <div className="bg-blue-200 p-3 rounded-full">
                   <BarChart3 className="h-8 w-8 text-blue-700" />
