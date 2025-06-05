@@ -1,4 +1,3 @@
-
 import { useState, forwardRef, useImperativeHandle, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -56,7 +55,7 @@ const SeatlyHelper = forwardRef<SeatlyHelperRef>((props, ref) => {
     return () => clearTimeout(timer);
   }, [hasBeenClicked]);
 
-  // Bounce animation every 10 seconds
+  // Bounce animation every 5 minutes (300 seconds)
   useEffect(() => {
     const bounceInterval = setInterval(() => {
       const button = document.querySelector('.seatly-button');
@@ -66,7 +65,7 @@ const SeatlyHelper = forwardRef<SeatlyHelperRef>((props, ref) => {
           button.classList.remove('animate-bounce');
         }, 1000);
       }
-    }, 10000);
+    }, 300000);
 
     return () => clearInterval(bounceInterval);
   }, [isOpen]);
