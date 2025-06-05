@@ -32,7 +32,7 @@ const HowItWorksSection = () => {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-900/20 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-16 scroll-reveal">
           <h2 className="text-4xl font-bold mb-4">How It Works</h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
             Three simple steps to turn your unused tickets into profit.
@@ -43,9 +43,9 @@ const HowItWorksSection = () => {
           {steps.map((step, index) => (
             <Card 
               key={index} 
-              className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white/10 backdrop-blur-sm border-white/20 opacity-0"
+              className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white/10 backdrop-blur-sm border-white/20 scroll-reveal"
               style={{
-                animation: `fade-in 0.8s ease-out ${index * 0.3}s both`
+                transitionDelay: `${index * 0.2}s`
               }}
             >
               <CardContent className="p-8 text-center">
