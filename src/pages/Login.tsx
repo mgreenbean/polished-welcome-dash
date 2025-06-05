@@ -5,14 +5,30 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+    
+    // Simple validation example
+    if (!email || !password) {
+      setError("Please fill in all fields.");
+      return;
+    }
+    
+    // Simulate login validation
+    if (password.length < 6) {
+      setError("Sorry, your password was incorrect. Please double-check your password.");
+      return;
+    }
+    
     // For now, just navigate to dashboard
     navigate("/dashboard");
   };
@@ -60,6 +76,26 @@ const Login = () => {
                 className="h-12 px-4 bg-white/80 border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 hover:bg-white"
               />
             </div>
+            
+            {error && (
+              <Alert variant="destructive" className="bg-red-50 border-red-200">
+                <AlertDescription className="text-red-700">
+                  {error}
+                </AlertDescription>
+              </Alert>
+            )}
+            
+            {error && (
+              <div className="text-center">
+                <Link 
+                  to="#" 
+                  className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200"
+                >
+                  Forgot password?
+                </Link>
+              </div>
+            )}
+            
             <Button 
               type="submit" 
               className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"

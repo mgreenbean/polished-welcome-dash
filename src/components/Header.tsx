@@ -1,3 +1,4 @@
+
 import { Bell, User, Settings, CreditCard, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -10,7 +11,6 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { toast } from "sonner";
 
 const Header = () => {
   const location = useLocation();
@@ -26,7 +26,6 @@ const Header = () => {
   const isHomePage = location.pathname === "/";
 
   const handleLogout = () => {
-    toast.success("Successfully logged out");
     navigate("/");
   };
 
