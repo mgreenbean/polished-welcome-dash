@@ -8,11 +8,11 @@ const SplashHeader = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-lg relative">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-lg relative animate-bounce">
               <span className="text-white font-bold text-sm">SMS</span>
               <div className="absolute -top-1 -right-1 w-3 h-2 bg-amber-400 rounded-sm transform rotate-12"></div>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col animate-bounce">
               <span className="text-xl font-bold text-blue-900">SellMySeats</span>
               <span className="text-xs text-blue-500 -mt-1 font-medium">SELL YOUR TICKETS</span>
             </div>

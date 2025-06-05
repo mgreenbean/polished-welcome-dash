@@ -9,7 +9,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
       <Header />
       
-      <div className="container mx-auto py-6">
+      <div className="container mx-auto py-6 transform scale-90 origin-top">
         <InstantTransfer />
         <TicketPortfolio ticketData={ticketData} />
       </div>
