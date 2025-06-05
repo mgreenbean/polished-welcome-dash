@@ -63,7 +63,7 @@ const InteractivePortfolio = () => {
         <h3 className="text-lg font-semibold text-blue-900">My Ticket Portfolio</h3>
       </div>
       
-      {/* Reduced height container and added proper spacing */}
+      {/* Container for tickets */}
       <div className="h-[280px] mb-6 overflow-hidden">
         <div className="space-y-3">
           {tickets.map((ticket, index) => (
@@ -113,7 +113,7 @@ const InteractivePortfolio = () => {
       </div>
       
       {/* Progress indicators */}
-      <div className="flex justify-center space-x-2 mb-4">
+      <div className="flex justify-center space-x-2">
         {tickets.map((_, index) => (
           <div
             key={index}
@@ -122,14 +122,6 @@ const InteractivePortfolio = () => {
             }`}
           />
         ))}
-      </div>
-      
-      <div className="bg-gradient-to-r from-blue-100 to-emerald-100 rounded-lg p-4">
-        <div className="text-center">
-          <p className="text-sm text-slate-600">Total Portfolio Value</p>
-          <p className="text-2xl font-bold text-blue-900">$1,685</p>
-          <p className="text-sm text-emerald-600 font-medium">+$565 profit this month</p>
-        </div>
       </div>
     </div>
   );
