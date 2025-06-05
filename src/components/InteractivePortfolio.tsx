@@ -63,13 +63,13 @@ const InteractivePortfolio = () => {
         <h3 className="text-lg font-semibold text-blue-900">My Ticket Portfolio</h3>
       </div>
       
-      {/* Increased height container to prevent layout shifts and show all content */}
-      <div className="h-[320px] mb-4">
+      {/* Reduced height container and added proper spacing */}
+      <div className="h-[280px] mb-6 overflow-hidden">
         <div className="space-y-3">
           {tickets.map((ticket, index) => (
             <Card 
               key={index}
-              className={`cursor-pointer transition-all duration-500 hover:scale-[1.02] relative z-10 ${
+              className={`cursor-pointer transition-all duration-500 hover:scale-[1.02] relative ${
                 selectedTicket === index ? ticket.color + ' shadow-lg' : 'hover:bg-blue-50 hover:shadow-md opacity-70'
               }`}
               style={{
@@ -84,8 +84,8 @@ const InteractivePortfolio = () => {
                     <h4 className="font-semibold text-blue-900 text-sm">{ticket.event}</h4>
                     <p className="text-xs text-slate-600 mb-1">{ticket.date} • {ticket.section}</p>
                     <p className="text-lg font-bold text-emerald-600">{ticket.price}</p>
-                    {/* Increased height container for additional details */}
-                    <div className="h-6 mt-2">
+                    {/* Container for additional details */}
+                    <div className="h-4 mt-1">
                       <div className={`text-xs text-slate-600 transition-all duration-300 ${
                         selectedTicket === index ? 'opacity-100' : 'opacity-0'
                       }`}>
