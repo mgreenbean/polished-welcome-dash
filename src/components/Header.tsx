@@ -137,7 +137,7 @@ const Header = () => {
                 <DropdownMenuItem asChild className="cursor-pointer">
                   <Link to="/settings">
                     <Settings className="mr-2 h-4 w-4" />
-                    <span>Settings</span>
+                    <span>Profile Settings</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild className="cursor-pointer">
