@@ -1,7 +1,7 @@
 
 import { Bell, User, Settings, CreditCard, LogOut, UserIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useUser } from "@/contexts/UserContext";
 import {
   DropdownMenu,
@@ -11,9 +11,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
+import { toast } from "sonner";
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { userName, notifications, notificationCount } = useUser();
 
   const isActive = (path: string) => {
@@ -23,6 +25,11 @@ const Header = () => {
   };
 
   const isHomePage = location.pathname === "/";
+
+  const handleLogout = () => {
+    toast.success("Successfully logged out");
+    navigate("/");
+  };
 
   return (
     <header className="bg-white/90 backdrop-blur-sm shadow-lg border-b border-blue-200/70">
@@ -128,20 +135,26 @@ const Header = () => {
               <DropdownMenuContent align="end" className="w-56">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer">
-                  <UserIcon className="mr-2 h-4 w-4" />
-                  <span>Profile</span>
+                <DropdownMenuItem asChild className="cursor-pointer">
+                  <Link to="/settings">
+                    <UserIcon className="mr-2 h-4 w-4" />
+                    <span>Profile</span>
+                  </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  <Settings className="mr-2 h-4 w-4" />
-                  <span>Settings</span>
+                <DropdownMenuItem asChild className="cursor-pointer">
+                  <Link to="/settings">
+                    <Settings className="mr-2 h-4 w-4" />
+                    <span>Settings</span>
+                  </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  <CreditCard className="mr-2 h-4 w-4" />
-                  <span>Payout Settings</span>
+                <DropdownMenuItem asChild className="cursor-pointer">
+                  <Link to="/payout-settings">
+                    <CreditCard className="mr-2 h-4 w-4" />
+                    <span>Payout Settings</span>
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer text-red-600">
+                <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600">
                   <LogOut className="mr-2 h-4 w-4" />
                   <span>Log out</span>
                 </DropdownMenuItem>
