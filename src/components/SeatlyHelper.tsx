@@ -104,20 +104,20 @@ const SeatlyHelper = forwardRef<SeatlyHelperRef>((props, ref) => {
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      <Card className={`w-80 shadow-xl transition-all ${isMinimized ? 'h-auto' : 'h-96'}`}>
+      <Card className={`w-96 shadow-xl transition-all ${isMinimized ? 'h-auto' : 'h-[500px]'}`}>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 bg-blue-600 text-white rounded-t-lg">
           <div className="flex items-center space-x-2">
             {!imageError ? (
               <img 
                 src="/lovable-uploads/seatly-mascot.png" 
                 alt="Seatly" 
-                className="h-5 w-5 object-contain"
+                className="h-6 w-6 object-contain"
                 onError={() => setImageError(true)}
               />
             ) : (
-              <SeatlyFallbackIcon className="h-5 w-5" />
+              <SeatlyFallbackIcon className="h-6 w-6" />
             )}
-            <CardTitle className="text-sm font-medium">Seatly</CardTitle>
+            <CardTitle className="text-base font-medium">Seatly Assistant</CardTitle>
           </div>
           <div className="flex space-x-1">
             <Button
@@ -141,7 +141,7 @@ const SeatlyHelper = forwardRef<SeatlyHelperRef>((props, ref) => {
         
         {!isMinimized && (
           <CardContent className="p-0 flex flex-col h-full">
-            <div className="flex-1 p-4 overflow-y-auto max-h-60 space-y-3">
+            <div className="flex-1 p-4 overflow-y-auto max-h-96 space-y-4">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
