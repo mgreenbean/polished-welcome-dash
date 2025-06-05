@@ -5,9 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useState } from "react";
 import { useUser } from "@/contexts/UserContext";
-import { toast } from "sonner";
 
 const Settings = () => {
   const { userName, setUserName } = useUser();
@@ -20,6 +20,14 @@ const Settings = () => {
     state: "CA",
     zipCode: "90210"
   });
+  const [message, setMessage] = useState("");
+
+  const showMessage = (text: string) => {
+    setMessage(text);
+    setTimeout(() => {
+      setMessage("");
+    }, 5000);
+  };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -27,7 +35,7 @@ const Settings = () => {
 
   const handleSave = () => {
     setUserName(formData.name);
-    toast.success("Settings saved successfully!");
+    showMessage("Settings saved successfully!");
   };
 
   return (
@@ -41,6 +49,14 @@ const Settings = () => {
               <CardTitle className="text-2xl font-bold text-blue-900">Profile & Account Settings</CardTitle>
             </CardHeader>
             <CardContent className="space-y-8">
+              {message && (
+                <Alert className="bg-green-50 border-green-200">
+                  <AlertDescription className="text-green-700">
+                    {message}
+                  </AlertDescription>
+                </Alert>
+              )}
+
               {/* Profile Information Section */}
               <div>
                 <h3 className="text-lg font-semibold text-blue-800 mb-4">Profile Information</h3>
