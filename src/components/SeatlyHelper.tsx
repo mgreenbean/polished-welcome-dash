@@ -1,5 +1,5 @@
 
-import { useState, forwardRef, useImperativeHandle } from "react";
+import { useState, forwardRef, useImperativeHandle, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,6 +25,8 @@ const SeatlyHelper = forwardRef<SeatlyHelperRef>((props, ref) => {
   const [isMinimized, setIsMinimized] = useState(false);
   const [message, setMessage] = useState("");
   const [imageError, setImageError] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -38,8 +40,36 @@ const SeatlyHelper = forwardRef<SeatlyHelperRef>((props, ref) => {
     openChat: () => {
       setIsOpen(true);
       setIsMinimized(false);
+      setHasBeenClicked(true);
+      setShowTooltip(false);
     }
   }));
+
+  // Show tooltip after 30 seconds if not clicked
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!hasBeenClicked) {
+        setShowTooltip(true);
+      }
+    }, 30000);
+
+    return () => clearTimeout(timer);
+  }, [hasBeenClicked]);
+
+  // Bounce animation every 10 seconds
+  useEffect(() => {
+    const bounceInterval = setInterval(() => {
+      const button = document.querySelector('.seatly-button');
+      if (button && !isOpen) {
+        button.classList.add('animate-bounce');
+        setTimeout(() => {
+          button.classList.remove('animate-bounce');
+        }, 1000);
+      }
+    }, 10000);
+
+    return () => clearInterval(bounceInterval);
+  }, [isOpen]);
 
   const handleSendMessage = () => {
     if (!message.trim()) return;
@@ -72,19 +102,27 @@ const SeatlyHelper = forwardRef<SeatlyHelperRef>((props, ref) => {
     }
   };
 
+  const handleButtonClick = () => {
+    setIsOpen(true);
+    setHasBeenClicked(true);
+    setShowTooltip(false);
+  };
+
   if (!isOpen) {
     return (
       <div className="fixed bottom-6 right-6 z-50">
         <div className="relative">
           {/* Speech bubble */}
-          <div className="absolute bottom-16 right-0 mb-2 bg-blue-600 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap shadow-lg">
-            Need help? Click me!
-            <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-blue-600"></div>
-          </div>
+          {showTooltip && (
+            <div className="absolute bottom-16 right-0 mb-2 bg-blue-600 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap shadow-lg animate-fade-in">
+              Need help? Click me!
+              <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-blue-600"></div>
+            </div>
+          )}
           
           <Button
-            onClick={() => setIsOpen(true)}
-            className="rounded-full h-14 w-14 bg-transparent hover:bg-gray-100 shadow-lg transition-all hover:scale-105 p-0 border-0"
+            onClick={handleButtonClick}
+            className="seatly-button rounded-full h-14 w-14 bg-transparent hover:bg-gray-100 shadow-lg transition-all hover:scale-105 p-0 border-0"
           >
             {!imageError ? (
               <img 

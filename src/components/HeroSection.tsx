@@ -17,7 +17,7 @@ const HeroSection = () => {
           <div className="animate-fade-in">
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Can't make the event?<br />
-              We'll sell your seats - <span className="text-emerald-400">Fast.</span>
+              We'll sell your seats - <span className="text-emerald-400 font-extrabold">Fast.</span>
             </h1>
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
               Transform your unused tickets into profit with our AI-powered marketplace. 
@@ -30,9 +30,6 @@ const HeroSection = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4">
-                Watch Demo
-              </Button>
             </div>
             <div className="mt-8 flex items-center space-x-6 text-sm text-blue-100">
               <div className="flex items-center space-x-2">
