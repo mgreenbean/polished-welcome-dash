@@ -4,7 +4,6 @@ import StatsCards from "@/components/StatsCards";
 import TicketPortfolio from "@/components/TicketPortfolio";
 import ActionNeeded from "@/components/ActionNeeded";
 import InstantTransfer from "@/components/InstantTransfer";
-import SeatlyHelper from "@/components/SeatlyHelper";
 import { ticketData } from "@/data/ticketData";
 
 const Dashboard = () => {
@@ -18,8 +17,6 @@ const Dashboard = () => {
         <ActionNeeded />
         <InstantTransfer />
       </div>
-      
-      <SeatlyHelper />
     </div>
   );
 };
