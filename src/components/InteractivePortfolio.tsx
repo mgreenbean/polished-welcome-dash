@@ -63,8 +63,8 @@ const InteractivePortfolio = () => {
         <h3 className="text-lg font-semibold text-blue-900">My Ticket Portfolio</h3>
       </div>
       
-      {/* Container for tickets */}
-      <div className="h-[280px] overflow-hidden">
+      {/* Container for tickets - increased height to show all cards */}
+      <div className="h-[380px] overflow-hidden">
         <div className="space-y-3">
           {tickets.map((ticket, index) => (
             <Card 
