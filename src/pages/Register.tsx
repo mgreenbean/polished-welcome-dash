@@ -20,45 +20,57 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md shadow-xl">
-        <CardHeader className="text-center">
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-lg relative">
-              <span className="text-white font-bold text-sm">SMS</span>
-              <div className="absolute -top-1 -right-1 w-3 h-2 bg-amber-400 rounded-sm transform rotate-12"></div>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-32 w-96 h-96 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-32 w-96 h-96 bg-gradient-to-tr from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-gradient-to-r from-indigo-300/10 to-purple-300/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      <Card className="w-full max-w-md shadow-2xl backdrop-blur-sm bg-white/90 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-1">
+        <CardHeader className="text-center pb-8">
+          <div className="flex items-center justify-center space-x-3 mb-6">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg relative animate-bounce-once group-hover:scale-110 transition-transform duration-300">
+              <span className="text-white font-bold text-base">SMS</span>
+              <div className="absolute -top-1 -right-1 w-4 h-3 bg-gradient-to-r from-amber-400 to-orange-400 rounded-sm transform rotate-12 shadow-sm"></div>
             </div>
-            <span className="text-xl font-bold text-blue-900">SellMySeats</span>
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-900 to-indigo-700 bg-clip-text text-transparent">SellMySeats</span>
+              <span className="text-xs text-blue-500 -mt-1 font-medium tracking-wider">SELL YOUR TICKETS</span>
+            </div>
           </div>
-          <CardTitle className="text-2xl font-bold text-blue-900">Get Started</CardTitle>
-          <p className="text-slate-600">Create your account to start selling</p>
+          <CardTitle className="text-3xl font-bold bg-gradient-to-r from-purple-900 to-blue-700 bg-clip-text text-transparent mb-2">Get Started</CardTitle>
+          <p className="text-slate-600 text-lg">Create your account to start selling</p>
         </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <CardContent className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="firstName">First Name</Label>
+              <div className="space-y-2">
+                <Label htmlFor="firstName" className="text-slate-700 font-medium">First Name</Label>
                 <Input
                   id="firstName"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="John"
                   required
+                  className="h-12 px-4 bg-white/80 border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:bg-white"
                 />
               </div>
-              <div>
-                <Label htmlFor="lastName">Last Name</Label>
+              <div className="space-y-2">
+                <Label htmlFor="lastName" className="text-slate-700 font-medium">Last Name</Label>
                 <Input
                   id="lastName"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Doe"
                   required
+                  className="h-12 px-4 bg-white/80 border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:bg-white"
                 />
               </div>
             </div>
-            <div>
-              <Label htmlFor="email">Email</Label>
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-slate-700 font-medium">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -66,10 +78,11 @@ const Register = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="john@example.com"
                 required
+                className="h-12 px-4 bg-white/80 border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:bg-white"
               />
             </div>
-            <div>
-              <Label htmlFor="password">Password</Label>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-slate-700 font-medium">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -77,22 +90,40 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Create a strong password"
                 required
+                className="h-12 px-4 bg-white/80 border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:bg-white"
               />
             </div>
-            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+            <Button 
+              type="submit" 
+              className="w-full h-12 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
+            >
               Create Account
             </Button>
           </form>
-          <div className="mt-6 text-center">
-            <p className="text-slate-600">
-              Already have an account?{" "}
-              <Link to="/login" className="text-blue-600 hover:text-blue-700 font-medium">
-                Sign in
-              </Link>
-            </p>
+          
+          <div className="relative my-8">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-slate-200" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-white px-4 text-slate-500 font-medium">Already have an account?</span>
+            </div>
           </div>
-          <div className="mt-4 text-center">
-            <Link to="/" className="text-slate-500 hover:text-slate-600 text-sm">
+
+          <div className="text-center">
+            <Link 
+              to="/login" 
+              className="inline-flex items-center justify-center w-full h-12 text-purple-600 hover:text-purple-700 font-semibold border-2 border-purple-200 hover:border-purple-300 rounded-md transition-all duration-300 hover:bg-purple-50"
+            >
+              Sign In
+            </Link>
+          </div>
+          
+          <div className="text-center pt-4">
+            <Link 
+              to="/" 
+              className="text-slate-500 hover:text-slate-700 text-sm font-medium transition-colors duration-200 inline-flex items-center"
+            >
               ← Back to home
             </Link>
           </div>
