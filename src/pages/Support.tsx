@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import SeatlyHelper from "@/components/SeatlyHelper";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -25,10 +24,13 @@ const Support = () => {
       }
     },
     {
-      icon: Phone,
-      title: "Phone Support",
-      description: "Call us directly for urgent issues",
-      action: "Call Now"
+      icon: Mail,
+      title: "Send us a Message",
+      description: "Fill out the form below for non-urgent inquiries",
+      action: "Scroll to Form",
+      onClick: () => {
+        document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   ];
 
@@ -53,19 +55,7 @@ const Support = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      <Header 
-        userName="John Doe" 
-        notificationCount={3}
-        notifications={[
-          {
-            id: 1,
-            title: "Ticket Sale",
-            message: "Your Lakers vs Warriors tickets sold!",
-            time: "2 mins ago",
-            type: 'success'
-          }
-        ]}
-      />
+      <Header />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
@@ -98,7 +88,7 @@ const Support = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <Card>
+          <Card id="contact-form">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Mail className="h-5 w-5 text-blue-600" />

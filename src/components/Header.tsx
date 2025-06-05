@@ -2,6 +2,7 @@
 import { Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
+import { useUser } from "@/contexts/UserContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,20 +12,9 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 
-interface HeaderProps {
-  userName: string;
-  notificationCount?: number;
-  notifications?: Array<{
-    id: number;
-    title: string;
-    message: string;
-    time: string;
-    type: 'pending' | 'info' | 'success';
-  }>;
-}
-
-const Header = ({ userName, notificationCount = 0, notifications = [] }: HeaderProps) => {
+const Header = () => {
   const location = useLocation();
+  const { userName, notifications, notificationCount } = useUser();
 
   const isActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
