@@ -35,11 +35,11 @@ const Splash = () => {
     <div className="min-h-screen">
       <SplashHeader />
       <HeroSection />
-      <div className="scroll-reveal">
-        <FeaturesSection />
-      </div>
       <div className="scroll-fade">
         <HowItWorksSection />
+      </div>
+      <div className="scroll-reveal">
+        <FeaturesSection />
       </div>
       <div className="scroll-reveal">
         <PricingSection />

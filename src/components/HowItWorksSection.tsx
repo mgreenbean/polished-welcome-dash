@@ -25,21 +25,21 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+    <section id="how-it-works" className="py-16 sm:py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-900/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-900/20 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16 scroll-reveal">
-          <h2 className="text-4xl font-bold mb-4">How It Works</h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16 scroll-reveal">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">How It Works</h2>
+          <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             Three simple steps to turn your unused tickets into profit.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {steps.map((step, index) => (
             <Card 
               key={index} 
@@ -48,17 +48,17 @@ const HowItWorksSection = () => {
                 transitionDelay: `${index * 0.2}s`
               }}
             >
-              <CardContent className="p-8 text-center">
+              <CardContent className="p-6 sm:p-8 text-center">
                 <div className="relative mb-6">
-                  <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="h-8 w-8 text-white" />
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <step.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-800 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">{step.step}</span>
+                  <div className="absolute -top-2 -right-2 w-7 h-7 sm:w-8 sm:h-8 bg-blue-800 rounded-full flex items-center justify-center shadow-md">
+                    <span className="text-white font-bold text-xs sm:text-sm">{step.step}</span>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-white">{step.title}</h3>
-                <p className="text-blue-100 leading-relaxed">{step.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">{step.title}</h3>
+                <p className="text-blue-100 leading-relaxed text-sm sm:text-base">{step.description}</p>
               </CardContent>
             </Card>
           ))}

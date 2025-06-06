@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { HelpCircle } from "lucide-react";
 
 const InteractivePortfolio = () => {
   const [selectedTicket, setSelectedTicket] = useState(0);
@@ -58,60 +60,88 @@ const InteractivePortfolio = () => {
   };
 
   return (
-    <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-blue-200/50 animate-scale-in w-full max-w-md mx-auto">
-      <div className="p-6">
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold text-blue-900">Your Ticket Portfolio</h3>
-        </div>
-        
-        {/* Container for tickets - increased height and proper spacing */}
-        <div className="space-y-3">
-          {tickets.map((ticket, index) => (
-            <Card 
-              key={index}
-              className={`cursor-pointer transition-all duration-500 hover:scale-[1.02] relative ${
-                selectedTicket === index ? ticket.color + ' shadow-lg' : 'hover:bg-blue-50 hover:shadow-md opacity-70'
-              }`}
-              style={{
-                transform: selectedTicket === index ? 'scale(1.02)' : 'scale(1)',
-                transformOrigin: 'center'
-              }}
-              onClick={() => handleTicketClick(index)}
-            >
-              <CardContent className="p-4">
-                <div className="flex justify-between items-start">
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-blue-900 text-sm">{ticket.event}</h4>
-                    <p className="text-xs text-slate-600 mb-1">{ticket.date} • {ticket.section}</p>
-                    <p className="text-lg font-bold text-emerald-600">{ticket.price}</p>
-                    {/* Container for additional details */}
-                    <div className="h-4 mt-1">
-                      <div className={`text-xs text-slate-600 transition-all duration-300 ${
-                        selectedTicket === index ? 'opacity-100' : 'opacity-0'
-                      }`}>
-                        {ticket.status === 'Sold' && `Sold ${ticket.soldDate}`}
-                        {ticket.status === 'Pending' && `Expires in ${ticket.expiresIn}`}
-                        {ticket.status === 'Listed' && 'Currently live on 3 platforms'}
+    <TooltipProvider>
+      <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-blue-200/50 animate-scale-in w-full max-w-sm sm:max-w-md mx-auto">
+        <div className="p-4 sm:p-6">
+          <div className="mb-4 sm:mb-6">
+            <div className="flex items-center space-x-2">
+              <h3 className="text-lg sm:text-xl font-bold text-blue-900">Your Ticket Portfolio</h3>
+              <Tooltip>
+                <TooltipTrigger>
+                  <HelpCircle className="h-4 w-4 text-blue-600 hover:text-blue-800" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="text-sm">Track all your tickets and their performance in one place</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          </div>
+          
+          {/* Container for tickets with proper spacing */}
+          <div className="space-y-3">
+            {tickets.map((ticket, index) => (
+              <Card 
+                key={index}
+                className={`cursor-pointer transition-all duration-500 hover:scale-[1.02] relative ${
+                  selectedTicket === index ? ticket.color + ' shadow-lg scale-[1.02]' : 'hover:bg-blue-50 hover:shadow-md opacity-70'
+                }`}
+                onClick={() => handleTicketClick(index)}
+              >
+                <CardContent className="p-3 sm:p-4">
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-blue-900 text-sm sm:text-base truncate">{ticket.event}</h4>
+                      <p className="text-xs text-slate-600 mb-1">{ticket.date} • {ticket.section}</p>
+                      <div className="flex items-center space-x-2">
+                        <p className="text-lg font-bold text-emerald-600">{ticket.price}</p>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <HelpCircle className="h-3 w-3 text-slate-400" />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p className="text-xs">Current listing price on marketplace</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </div>
+                      {/* Container for additional details */}
+                      <div className="h-4 mt-2">
+                        <div className={`text-xs text-slate-600 transition-all duration-300 ${
+                          selectedTicket === index ? 'opacity-100' : 'opacity-0'
+                        }`}>
+                          {ticket.status === 'Sold' && `Sold ${ticket.soldDate}`}
+                          {ticket.status === 'Pending' && `Expires in ${ticket.expiresIn}`}
+                          {ticket.status === 'Listed' && 'Currently live on 3 platforms'}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-right flex-shrink-0 ml-3">
+                      <Badge variant={
+                        ticket.status === 'Sold' ? 'default' : 
+                        ticket.status === 'Listed' ? 'secondary' : 
+                        'outline'
+                      } className="text-xs mb-1">
+                        {ticket.status}
+                      </Badge>
+                      <div className="flex items-center space-x-1">
+                        <p className="text-sm text-emerald-600 font-semibold">{ticket.profit}</p>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <HelpCircle className="h-3 w-3 text-slate-400" />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p className="text-xs">Profit above original purchase price</p>
+                          </TooltipContent>
+                        </Tooltip>
                       </div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <Badge variant={
-                      ticket.status === 'Sold' ? 'default' : 
-                      ticket.status === 'Listed' ? 'secondary' : 
-                      'outline'
-                    } className="text-xs">
-                      {ticket.status}
-                    </Badge>
-                    <p className="text-sm text-emerald-600 font-medium mt-1">{ticket.profit}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </TooltipProvider>
   );
 };
 

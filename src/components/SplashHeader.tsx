@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -7,31 +8,31 @@ const SplashHeader = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg relative animate-bounce-once">
-              <span className="text-white font-bold text-base">SMS</span>
-              <div className="absolute -top-1 -right-1 w-4 h-3 bg-gradient-to-r from-amber-400 to-orange-400 rounded-sm transform rotate-12 shadow-sm"></div>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg relative animate-bounce-once">
+              <span className="text-white font-bold text-sm sm:text-base">SMS</span>
+              <div className="absolute -top-1 -right-1 w-3 h-3 sm:w-4 sm:h-3 bg-gradient-to-r from-amber-400 to-orange-400 rounded-sm transform rotate-12 shadow-sm"></div>
             </div>
             <div className="flex flex-col animate-bounce-once">
-              <span className="text-xl font-bold text-blue-900">SellMySeats</span>
-              <span className="text-xs text-blue-500 -mt-1 font-medium">SELL YOUR TICKETS</span>
+              <span className="text-lg sm:text-xl font-bold text-blue-900">SellMySeats</span>
+              <span className="text-xs text-blue-500 -mt-1 font-medium hidden sm:block">SELL YOUR TICKETS</span>
             </div>
           </div>
 
-          <nav className="hidden md:flex space-x-8 items-center">
-            <a href="#features" className="text-blue-600 hover:text-blue-900 font-medium">Features</a>
-            <a href="#how-it-works" className="text-blue-600 hover:text-blue-900 font-medium">How It Works</a>
-            <a href="#pricing" className="text-blue-600 hover:text-blue-900 font-medium">Pricing</a>
-            <a href="#testimonials" className="text-blue-600 hover:text-blue-900 font-medium">Reviews</a>
+          <nav className="hidden md:flex space-x-6 lg:space-x-8 items-center">
+            <a href="#how-it-works" className="text-blue-600 hover:text-blue-900 font-medium text-sm lg:text-base transition-colors">How It Works</a>
+            <a href="#features" className="text-blue-600 hover:text-blue-900 font-medium text-sm lg:text-base transition-colors">Features</a>
+            <a href="#pricing" className="text-blue-600 hover:text-blue-900 font-medium text-sm lg:text-base transition-colors">Pricing</a>
+            <a href="#testimonials" className="text-blue-600 hover:text-blue-900 font-medium text-sm lg:text-base transition-colors">Reviews</a>
           </nav>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <Link to="/login">
-              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold text-sm px-3 py-2 sm:px-4 sm:py-2">
                 Sign In
               </Button>
             </Link>
             <Link to="/register">
-              <Button className="bg-blue-600 hover:bg-blue-700">
+              <Button className="bg-blue-600 hover:bg-blue-700 font-semibold text-sm px-3 py-2 sm:px-4 sm:py-2">
                 Get Started
               </Button>
             </Link>
