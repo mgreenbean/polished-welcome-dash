@@ -6,13 +6,13 @@ import InteractivePortfolio from "./InteractivePortfolio";
 
 const HeroSection = () => {
   return (
-    <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 text-white relative overflow-hidden">
+    <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 min-h-screen flex items-center bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 text-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
       <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-800/10 rounded-full blur-3xl"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="animate-fade-in space-y-6 sm:space-y-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
