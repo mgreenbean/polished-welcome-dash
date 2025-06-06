@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import { ArrowRight, TrendingUp, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import InteractivePortfolio from "./InteractivePortfolio";
 
@@ -23,13 +23,21 @@ const HeroSection = () => {
               Transform your unused tickets into profit with our AI-powered marketplace. 
               Get instant listings across all major platforms with zero hassle.
             </p>
-            <div className="flex flex-col items-start space-y-4">
+            <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4">
               <Link to="/register">
                 <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-all duration-200 text-white font-semibold">
                   Start Selling Now
                   <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
               </Link>
+              <Link to="/dashboard">
+                <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-all duration-200 font-semibold">
+                  Show Demo
+                  <Play className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                </Button>
+              </Link>
+            </div>
+            <div className="mt-6 sm:mt-8">
               <Link to="/login" className="text-white hover:text-blue-100 underline text-sm font-medium">
                 Already a user? Login
               </Link>

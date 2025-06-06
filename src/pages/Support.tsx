@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,28 +11,11 @@ import { useState, useRef } from "react";
 const Support = () => {
   const seatlyHelperRef = useRef<{ openChat: () => void }>(null);
 
-  const supportCategories = [
-    {
-      icon: MessageCircle,
-      title: "Live Chat",
-      description: "Get instant help from our AI assistant Seatly",
-      action: "Start Chat",
-      onClick: () => {
-        if (seatlyHelperRef.current) {
-          seatlyHelperRef.current.openChat();
-        }
-      }
-    },
-    {
-      icon: Mail,
-      title: "Send us a Message",
-      description: "Fill out the form below for non-urgent inquiries",
-      action: "Scroll to Form",
-      onClick: () => {
-        document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
-      }
+  const handleLiveChatClick = () => {
+    if (seatlyHelperRef.current) {
+      seatlyHelperRef.current.openChat();
     }
-  ];
+  };
 
   const faqItems = [
     {
@@ -64,96 +48,119 @@ const Support = () => {
 
         {/* Contact Options */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {supportCategories.map((category, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <category.icon className="h-6 w-6 text-blue-600" />
-                </div>
-                <CardTitle className="text-lg">{category.title}</CardTitle>
-                <CardDescription>{category.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <Button 
-                  className="w-full bg-blue-600 hover:bg-blue-700"
-                  onClick={category.onClick}
-                >
-                  {category.action}
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader className="text-center pb-4">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MessageCircle className="h-6 w-6 text-blue-600" />
+              </div>
+              <CardTitle className="text-lg">Live Chat</CardTitle>
+              <CardDescription>Get instant help from our AI assistant Seatly</CardDescription>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <Button 
+                className="w-full bg-blue-600 hover:bg-blue-700"
+                onClick={handleLiveChatClick}
+              >
+                Start Chat
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader className="text-center pb-4">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Mail className="h-6 w-6 text-blue-600" />
+              </div>
+              <CardTitle className="text-lg">Send us a Message</CardTitle>
+              <CardDescription>Fill out the form below for non-urgent inquiries</CardDescription>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <Button 
+                variant="outline"
+                className="w-full"
+                onClick={() => {
+                  document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Go to Form
+              </Button>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Contact Form */}
-          <Card id="contact-form">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Mail className="h-5 w-5 text-blue-600" />
-                Send us a Message
-              </CardTitle>
-              <CardDescription>
-                Fill out the form below and we'll get back to you as soon as possible.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name</Label>
-                  <Input id="firstName" placeholder="John" />
+          {/* Contact Form - Centered and prominent */}
+          <div className="lg:col-span-2">
+            <Card id="contact-form" className="max-w-2xl mx-auto">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-center justify-center">
+                  <Mail className="h-5 w-5 text-blue-600" />
+                  Send us a Message
+                </CardTitle>
+                <CardDescription className="text-center">
+                  Fill out the form below and we'll get back to you as soon as possible.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName">First Name</Label>
+                    <Input id="firstName" placeholder="John" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName">Last Name</Label>
+                    <Input id="lastName" placeholder="Doe" />
+                  </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name</Label>
-                  <Input id="lastName" placeholder="Doe" />
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" type="email" placeholder="john@example.com" />
                 </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="john@example.com" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="subject">Subject</Label>
-                <Input id="subject" placeholder="How can we help you?" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea 
-                  id="message" 
-                  placeholder="Please describe your issue or question..."
-                  rows={4}
-                />
-              </div>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                Send Message
-              </Button>
-            </CardContent>
-          </Card>
+                <div className="space-y-2">
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input id="subject" placeholder="How can we help you?" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea 
+                    id="message" 
+                    placeholder="Please describe your issue or question..."
+                    rows={4}
+                  />
+                </div>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                  Send Message
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
 
           {/* FAQ Section */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <HelpCircle className="h-5 w-5 text-blue-600" />
-                Frequently Asked Questions
-              </CardTitle>
-              <CardDescription>
-                Quick answers to common questions
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {faqItems.map((faq, index) => (
-                <div key={index} className="border-b border-gray-200 pb-4 last:border-b-0">
-                  <h4 className="font-semibold text-gray-900 mb-2">{faq.question}</h4>
-                  <p className="text-gray-600 text-sm">{faq.answer}</p>
-                </div>
-              ))}
-              <Button variant="outline" className="w-full mt-4">
-                <FileText className="h-4 w-4 mr-2" />
-                View All FAQs
-              </Button>
-            </CardContent>
-          </Card>
+          <div className="lg:col-span-2">
+            <Card className="max-w-4xl mx-auto">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-center justify-center">
+                  <HelpCircle className="h-5 w-5 text-blue-600" />
+                  Frequently Asked Questions
+                </CardTitle>
+                <CardDescription className="text-center">
+                  Quick answers to common questions
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {faqItems.map((faq, index) => (
+                  <div key={index} className="border-b border-gray-200 pb-4 last:border-b-0">
+                    <h4 className="font-semibold text-gray-900 mb-2">{faq.question}</h4>
+                    <p className="text-gray-600 text-sm">{faq.answer}</p>
+                  </div>
+                ))}
+                <Button variant="outline" className="w-full mt-4">
+                  <FileText className="h-4 w-4 mr-2" />
+                  View All FAQs
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Additional Resources */}

@@ -1,9 +1,11 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Ticket, Calendar, Search } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Ticket, Calendar, Search, HelpCircle } from "lucide-react";
 
 interface TicketData {
   pending: any[];
@@ -112,78 +114,88 @@ const TicketPortfolio = ({ ticketData }: TicketPortfolioProps) => {
   };
 
   return (
-    <Card className="border-2 border-dashed border-slate-300/50 bg-white/80 backdrop-blur-sm shadow-xl">
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <CardTitle className="flex items-center space-x-2">
-            <Ticket className="h-5 w-5" />
-            <span className="font-bold">Your Ticket Portfolio</span>
-          </CardTitle>
-          <div className="relative flex-1 max-w-md ml-8">
-            <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
-            <Input
-              placeholder="Search tickets, venues, locations..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 w-full"
-            />
+    <TooltipProvider>
+      <Card className="border-2 border-dashed border-slate-300/50 bg-white/80 backdrop-blur-sm shadow-xl">
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle className="flex items-center space-x-2">
+              <Ticket className="h-5 w-5" />
+              <span className="font-bold">Your Ticket Portfolio</span>
+              <Tooltip>
+                <TooltipTrigger>
+                  <HelpCircle className="h-4 w-4 text-blue-600 hover:text-blue-800" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="text-sm">Manage and track all your ticket listings in one place</p>
+                </TooltipContent>
+              </Tooltip>
+            </CardTitle>
+            <div className="relative flex-1 max-w-md ml-8">
+              <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
+              <Input
+                placeholder="Search tickets, venues, locations..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 w-full"
+              />
+            </div>
           </div>
-        </div>
-        
-        <div className="grid grid-cols-3 gap-0 text-sm w-full">
-          <button 
-            onClick={() => setActiveFilter('pending')}
-            className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
-              activeFilter === 'pending' 
-                ? 'bg-white border-2 border-amber-300 text-blue-700' 
-                : 'bg-white border border-slate-300 text-blue-600 hover:border-amber-200'
-            } px-3 py-2 rounded-l-lg`}
-          >
-            <span className="font-medium">Pending Review</span>
-            <span className="bg-amber-400 text-amber-900 px-2 py-1 rounded-full text-xs font-bold">
-              {ticketData.pending.length}
-            </span>
-          </button>
-          <button 
-            onClick={() => setActiveFilter('live')}
-            className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
-              activeFilter === 'live' 
-                ? 'bg-white border-2 border-emerald-300 text-blue-700' 
-                : 'bg-white border border-slate-300 text-blue-600 hover:border-emerald-200'
-            } px-3 py-2 border-l-0`}
-          >
-            <span className="font-medium">Live Listings</span>
-            <span className="bg-emerald-400 text-emerald-900 px-2 py-1 rounded-full text-xs font-bold">
-              {ticketData.live.length}
-            </span>
-          </button>
-          <button 
-            onClick={() => setActiveFilter('sold')}
-            className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
-              activeFilter === 'sold' 
-                ? 'bg-white border-2 border-blue-300 text-blue-700' 
-                : 'bg-white border border-slate-300 text-blue-600 hover:border-blue-200'
-            } px-3 py-2 rounded-r-lg border-l-0`}
-          >
-            <span className="font-medium">Sold Tickets</span>
-            <span className="bg-blue-400 text-blue-900 px-2 py-1 rounded-full text-xs font-bold">
-              {ticketData.sold.length}
-            </span>
-          </button>
-        </div>
-      </CardHeader>
-      <CardContent>
-        {filteredTickets.length > 0 ? (
-          filteredTickets.map(ticket => renderTicketCard(ticket))
-        ) : (
-          <div className="text-center py-8 text-slate-500">
-            <Ticket className="h-12 w-12 mx-auto mb-4 opacity-50" />
-            <p className="font-medium">No tickets found</p>
-            <p className="text-sm">Try adjusting your search or filter criteria</p>
+          
+          <div className="grid grid-cols-3 gap-0 text-sm w-full">
+            <button 
+              onClick={() => setActiveFilter('pending')}
+              className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
+                activeFilter === 'pending' 
+                  ? 'bg-white border-2 border-amber-300 text-blue-700' 
+                  : 'bg-white border border-slate-300 text-blue-600 hover:border-amber-200'
+              } px-3 py-2 rounded-l-lg`}
+            >
+              <span className="font-medium">Pending Review</span>
+              <span className="bg-amber-400 text-amber-900 px-2 py-1 rounded-full text-xs font-bold">
+                {ticketData.pending.length}
+              </span>
+            </button>
+            <button 
+              onClick={() => setActiveFilter('live')}
+              className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
+                activeFilter === 'live' 
+                  ? 'bg-white border-2 border-emerald-300 text-blue-700' 
+                  : 'bg-white border border-slate-300 text-blue-600 hover:border-emerald-200'
+              } px-3 py-2 border-l-0`}
+            >
+              <span className="font-medium">Live Listings</span>
+              <span className="bg-emerald-400 text-emerald-900 px-2 py-1 rounded-full text-xs font-bold">
+                {ticketData.live.length}
+              </span>
+            </button>
+            <button 
+              onClick={() => setActiveFilter('sold')}
+              className={`flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md cursor-pointer ${
+                activeFilter === 'sold' 
+                  ? 'bg-white border-2 border-blue-300 text-blue-700' 
+                  : 'bg-white border border-slate-300 text-blue-600 hover:border-blue-200'
+              } px-3 py-2 rounded-r-lg border-l-0`}
+            >
+              <span className="font-medium">Sold Tickets</span>
+              <span className="bg-blue-400 text-blue-900 px-2 py-1 rounded-full text-xs font-bold">
+                {ticketData.sold.length}
+              </span>
+            </button>
           </div>
-        )}
-      </CardContent>
-    </Card>
+        </CardHeader>
+        <CardContent>
+          {filteredTickets.length > 0 ? (
+            filteredTickets.map(ticket => renderTicketCard(ticket))
+          ) : (
+            <div className="text-center py-8 text-slate-500">
+              <Ticket className="h-12 w-12 mx-auto mb-4 opacity-50" />
+              <p className="font-medium">No tickets found</p>
+              <p className="text-sm">Try adjusting your search or filter criteria</p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </TooltipProvider>
   );
 };
 

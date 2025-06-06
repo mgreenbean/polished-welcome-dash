@@ -25,16 +25,11 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-16 sm:py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
-      <div className="absolute top-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-900/20 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <section id="how-it-works" className="py-16 sm:py-20 bg-gradient-to-br from-white via-blue-50 to-slate-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16 scroll-reveal">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">How It Works</h2>
-          <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-blue-900">How It Works</h2>
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Three simple steps to turn your unused tickets into profit.
           </p>
         </div>
@@ -43,7 +38,7 @@ const HowItWorksSection = () => {
           {steps.map((step, index) => (
             <Card 
               key={index} 
-              className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white/10 backdrop-blur-sm border-white/20 scroll-reveal"
+              className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-blue-100 bg-white/80 backdrop-blur-sm scroll-reveal"
               style={{
                 transitionDelay: `${index * 0.2}s`
               }}
@@ -57,8 +52,8 @@ const HowItWorksSection = () => {
                     <span className="text-white font-bold text-xs sm:text-sm">{step.step}</span>
                   </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">{step.title}</h3>
-                <p className="text-blue-100 leading-relaxed text-sm sm:text-base">{step.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-blue-900">{step.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{step.description}</p>
               </CardContent>
             </Card>
           ))}
