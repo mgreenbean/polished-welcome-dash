@@ -6,19 +6,19 @@ const HowItWorksSection = () => {
   const steps = [
     {
       icon: Mail,
-      title: "Transfer Tickets",
+      title: "Transfer Your Tickets",
       description: "Forward your ticket confirmation to our unique email address. It's that simple.",
       step: "01"
     },
     {
       icon: CheckCircle,
-      title: "We Approve",
+      title: "Approve Your Listing",
       description: "Our team verifies and approves your tickets for listing across multiple platforms.",
       step: "02"
     },
     {
       icon: DollarSign,
-      title: "Get Paid",
+      title: "Get Paid Upon Sale",
       description: "Receive instant payment when your tickets sell. No waiting, no hassle.",
       step: "03"
     }
@@ -30,7 +30,7 @@ const HowItWorksSection = () => {
         <div className="text-center mb-12 sm:mb-16 scroll-reveal">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-blue-900">How It Works</h2>
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Three simple steps to turn your unused tickets into profit.
+            Three simple steps to get your tickets listed and get paid.
           </p>
         </div>
 

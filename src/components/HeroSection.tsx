@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp, Play, X } from "lucide-react";
+import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import InteractivePortfolio from "./InteractivePortfolio";
@@ -20,12 +20,10 @@ const HeroSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="animate-fade-in space-y-6 sm:space-y-8">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                Can't make the event?<br />
-                We'll sell your seats - <span className="text-green-400 font-bold animate-flash">Fast</span>.
+                Don't just list your tickets, consign them. <span className="text-emerald-400">We handle everything.</span> You get paid.
               </h1>
               <p className="text-lg sm:text-xl text-blue-100 leading-relaxed">
-                Transform your unused tickets into profit with our AI-powered marketplace. 
-                Get instant listings across all major platforms with zero hassle.
+                Your tickets get maximum exposure on the biggest resale sites - all managed by us, for you.
               </p>
               <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4">
                 <Link to="/register">

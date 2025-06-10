@@ -16,7 +16,7 @@ const PricingSection = () => {
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Only pay when you succeed. No hidden fees, no monthly charges.
+            Pay-per-sale: 10% commission fee on successful sales only.
           </p>
         </div>
 
@@ -31,14 +31,14 @@ const PricingSection = () => {
             <CardContent className="space-y-4">
               <div className="space-y-3">
                 {[
-                  "Unlimited ticket listings",
-                  "Portfolio management dashboard",
-                  "Real-time analytics",
-                  "Instant payment processing",
+                  "Unlimited listing capabilities",
+                  "Sales analytics",
+                  "Fraud/ticket protection",
+                  "Real-time visibility",
                   "24/7 customer support",
                   "Multi-platform distribution",
-                  "Fraud protection",
-                  "No monthly fees"
+                  "Instant payment processing",
+                  "Zero monthly fees"
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <Check className="h-5 w-5 text-emerald-400 flex-shrink-0" />

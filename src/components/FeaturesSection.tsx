@@ -7,26 +7,26 @@ const FeaturesSection = () => {
     {
       icon: Zap,
       title: "Portfolio Management",
-      description: "Track all your tickets in one beautiful dashboard. See profits, status, and performance at a glance.",
-      color: "from-blue-500 to-blue-600"
+      description: "Track all your tickets in one beautiful, intuitive dashboard. See profits, status, and performance at a glance.",
+      color: "from-emerald-500 to-emerald-600"
     },
     {
       icon: TrendingUp,
       title: "Instant Transfers",
-      description: "Lightning-fast ticket transfers and instant payments. No more waiting days for your money.",
-      color: "from-emerald-500 to-emerald-600"
+      description: "Lightning-fast ticket transfers and quick payments. No more payout guessing.",
+      color: "from-blue-500 to-blue-600"
     },
     {
       icon: Clock,
       title: "24/7 Support",
-      description: "Our dedicated support team is available around the clock to help you maximize your profits.",
-      color: "from-blue-600 to-blue-700"
+      description: "Real support from our U.S.-based team, available whenever you need help.",
+      color: "from-emerald-600 to-emerald-700"
     },
     {
       icon: Shield,
       title: "Secure & Trusted",
-      description: "Bank-level security and fraud protection. Your tickets and payments are always safe.",
-      color: "from-emerald-600 to-emerald-700"
+      description: "High-level security and fraud protection. Ensuring your tickets and payments are always safe.",
+      color: "from-blue-600 to-blue-700"
     }
   ];
 
