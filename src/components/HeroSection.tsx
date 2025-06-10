@@ -20,7 +20,9 @@ const HeroSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="animate-fade-in space-y-6 sm:space-y-8">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                Selling your tickets shouldn't be a hassle. Let the <span className="text-emerald-400 animate-pulse glow-text">experts</span> do it.
+                Selling your tickets shouldn't be a hassle.
+                <br />
+                Let the <span className="text-emerald-400 animate-pulse glow-text">experts</span> do it.
               </h1>
               <p className="text-lg sm:text-xl text-blue-100 leading-relaxed">
                 Your tickets get maximum exposure on the biggest resale sites - all managed by us, for you.
