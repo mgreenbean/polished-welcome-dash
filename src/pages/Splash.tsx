@@ -6,6 +6,7 @@ import HowItWorksSection from "@/components/HowItWorksSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import PricingSection from "@/components/PricingSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import SplashFooter from "@/components/SplashFooter";
 
 const Splash = () => {
   useEffect(() => {
@@ -47,6 +48,7 @@ const Splash = () => {
       <div className="scroll-fade">
         <TestimonialsSection />
       </div>
+      <SplashFooter />
     </div>
   );
 };
