@@ -1,13 +1,13 @@
 
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Youtube, Twitter } from "lucide-react";
+import { Facebook, Instagram, X } from "lucide-react";
 
 const SplashFooter = () => {
   return (
     <footer className="bg-blue-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="md:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center relative">
                 <span className="text-blue-900 font-bold text-sm">SMS</span>
@@ -18,7 +18,7 @@ const SplashFooter = () => {
             <p className="text-blue-200 mb-6">Making ticket reselling simple and profitable.</p>
             
             <div className="mb-6">
-              <h4 className="font-semibold mb-3">Let's Connect</h4>
+              <h4 className="font-semibold mb-3">Connect with us</h4>
               <div className="flex space-x-4">
                 <a href="#" className="text-blue-200 hover:text-white transition-colors">
                   <Facebook className="h-6 w-6" />
@@ -27,23 +27,8 @@ const SplashFooter = () => {
                   <Instagram className="h-6 w-6" />
                 </a>
                 <a href="#" className="text-blue-200 hover:text-white transition-colors">
-                  <Youtube className="h-6 w-6" />
+                  <X className="h-6 w-6" />
                 </a>
-                <a href="#" className="text-blue-200 hover:text-white transition-colors">
-                  <Twitter className="h-6 w-6" />
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-3">Download Our App</h4>
-              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
-                <div className="bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-lg cursor-pointer transition-colors text-sm">
-                  📱 App Store
-                </div>
-                <div className="bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-lg cursor-pointer transition-colors text-sm">
-                  🤖 Google Play
-                </div>
               </div>
             </div>
           </div>
@@ -55,7 +40,6 @@ const SplashFooter = () => {
               <li><a href="#pricing" className="hover:text-white">Pricing</a></li>
               <li><a href="#how-it-works" className="hover:text-white">How It Works</a></li>
               <li><a href="#testimonials" className="hover:text-white">Reviews</a></li>
-              <li><a href="#" className="hover:text-white">API</a></li>
             </ul>
           </div>
           
@@ -74,10 +58,6 @@ const SplashFooter = () => {
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-blue-200">
               <li><a href="#" className="hover:text-white">About Us</a></li>
-              <li><a href="#" className="hover:text-white">Careers</a></li>
-              <li><a href="#" className="hover:text-white">Press</a></li>
-              <li><a href="#" className="hover:text-white">Blog</a></li>
-              <li><a href="#" className="hover:text-white">Partnerships</a></li>
             </ul>
           </div>
         </div>
