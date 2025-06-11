@@ -2,11 +2,28 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InteractivePortfolio from "./InteractivePortfolio";
 
 const HeroSection = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
+  const [currentTicketType, setCurrentTicketType] = useState(0);
+
+  const ticketTypes = [
+    "Yankees tickets",
+    "Concert tickets", 
+    "MSG tickets",
+    "US Open tickets",
+    "and everything in between"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTicketType((prev) => (prev + 1) % ticketTypes.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [ticketTypes.length]);
 
   return (
     <>
@@ -20,9 +37,10 @@ const HeroSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="animate-fade-in space-y-6 sm:space-y-8">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                Selling your tickets shouldn't be a hassle.
-                <br />
-                Let the <span className="text-emerald-400 animate-pulse glow-text">experts</span> do it.
+                Can't make the event? We'll sell your{" "}
+                <span className="text-emerald-400 animate-pulse glow-text inline-block min-h-[1.2em]">
+                  {ticketTypes[currentTicketType]}
+                </span>
               </h1>
               <p className="text-lg sm:text-xl text-blue-100 leading-relaxed">
                 Your tickets get maximum exposure on the biggest resale sites - all managed by us, for you.
@@ -70,23 +88,25 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* Demo Modal */}
+      {/* Demo Modal - Embedded Style */}
       {showDemoModal && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[80vh] relative">
+        <div className="fixed inset-0 bg-gradient-to-br from-blue-900/95 via-blue-800/95 to-blue-700/95 backdrop-blur-md flex items-center justify-center z-50 p-4">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl max-w-4xl w-full max-h-[80vh] relative shadow-2xl border border-white/20">
             <button
               onClick={() => setShowDemoModal(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10"
+              className="absolute top-6 right-6 text-gray-600 hover:text-gray-800 z-10 bg-white/80 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-all"
             >
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5" />
             </button>
-            <div className="p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Product Demo</h3>
-              <div className="bg-gray-200 rounded-lg aspect-video flex items-center justify-center">
+            <div className="p-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Product Demo</h3>
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl aspect-video flex items-center justify-center border border-blue-200">
                 <div className="text-center">
-                  <Play className="h-16 w-16 text-gray-500 mx-auto mb-4" />
-                  <p className="text-gray-600 text-lg">Demo video coming soon...</p>
-                  <p className="text-gray-500 text-sm mt-2">Watch how SellMySeats works in action</p>
+                  <div className="bg-blue-500 rounded-full p-6 mx-auto mb-6 w-24 h-24 flex items-center justify-center">
+                    <Play className="h-12 w-12 text-white ml-1" />
+                  </div>
+                  <p className="text-gray-700 text-xl font-semibold mb-2">Demo video coming soon...</p>
+                  <p className="text-gray-500 text-base">Watch how SellMySeats works in action</p>
                 </div>
               </div>
             </div>

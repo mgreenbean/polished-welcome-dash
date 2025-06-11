@@ -37,7 +37,6 @@ const PricingSection = () => {
                   "Real-time visibility",
                   "24/7 customer support",
                   "Multi-platform distribution",
-                  "Instant payment processing",
                   "Zero monthly fees"
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">
@@ -54,10 +53,6 @@ const PricingSection = () => {
                   </Button>
                 </Link>
               </div>
-              
-              <p className="text-center text-sm text-blue-200">
-                No setup fees • Cancel anytime • 30-day money-back guarantee
-              </p>
             </CardContent>
           </Card>
         </div>
