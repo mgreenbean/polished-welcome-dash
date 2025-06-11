@@ -1,32 +1,19 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import InteractivePortfolio from "./InteractivePortfolio";
-
 const HeroSection = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [currentTicketType, setCurrentTicketType] = useState(0);
-
-  const ticketTypes = [
-    "Yankees tickets",
-    "Concert tickets", 
-    "MSG tickets",
-    "US Open tickets",
-    "extra tickets"
-  ];
-
+  const ticketTypes = ["Yankees tickets", "Concert tickets", "MSG tickets", "US Open tickets", "extra tickets"];
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTicketType((prev) => (prev + 1) % ticketTypes.length);
+      setCurrentTicketType(prev => (prev + 1) % ticketTypes.length);
     }, 2500);
-
     return () => clearInterval(interval);
   }, [ticketTypes.length]);
-
-  return (
-    <>
+  return <>
       <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 min-h-screen flex items-center bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 text-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
@@ -39,10 +26,7 @@ const HeroSection = () => {
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Can't make the event? We'll sell your{" "}
                 <span className="text-emerald-400 glow-text relative inline-block whitespace-nowrap min-w-[280px] sm:min-w-[320px] lg:min-w-[380px]">
-                  <span 
-                    key={currentTicketType}
-                    className="absolute inset-0 animate-slide-fade-in"
-                  >
+                  <span key={currentTicketType} className="absolute inset-0 animate-slide-fade-inclass=\"absolute inset-0 animate-slide-fade-in -translate-y-11\"">
                     {ticketTypes[currentTicketType]}
                   </span>
                 </span>
@@ -57,12 +41,7 @@ const HeroSection = () => {
                     <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                 </Link>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-all duration-200 font-semibold"
-                  onClick={() => setShowDemoModal(true)}
-                >
+                <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-all duration-200 font-semibold" onClick={() => setShowDemoModal(true)}>
                   Show Demo
                   <Play className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
@@ -94,14 +73,10 @@ const HeroSection = () => {
       </section>
 
       {/* Demo Modal - More embedded design */}
-      {showDemoModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 p-4">
+      {showDemoModal && <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[80vh] relative shadow-2xl border border-gray-200 overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-500 via-emerald-500 to-blue-500"></div>
-            <button
-              onClick={() => setShowDemoModal(false)}
-              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 z-10 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-all"
-            >
+            <button onClick={() => setShowDemoModal(false)} className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 z-10 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-all">
               <X className="h-5 w-5" />
             </button>
             <div className="p-8 pt-12">
@@ -118,10 +93,7 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-        </div>
-      )}
-    </>
-  );
+        </div>}
+    </>;
 };
-
 export default HeroSection;
