@@ -14,7 +14,7 @@ const HeroSection = () => {
     "Concert tickets", 
     "MSG tickets",
     "US Open tickets",
-    "and everything in between"
+    "extra tickets"
   ];
 
   useEffect(() => {
@@ -38,8 +38,13 @@ const HeroSection = () => {
             <div className="animate-fade-in space-y-6 sm:space-y-8">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Can't make the event? We'll sell your{" "}
-                <span className="text-emerald-400 animate-pulse glow-text inline-block min-h-[1.2em]">
-                  {ticketTypes[currentTicketType]}
+                <span className="text-emerald-400 glow-text inline-block min-h-[1.2em] relative">
+                  <span 
+                    key={currentTicketType}
+                    className="absolute inset-0 animate-slide-fade-in"
+                  >
+                    {ticketTypes[currentTicketType]}
+                  </span>
                 </span>
               </h1>
               <p className="text-lg sm:text-xl text-blue-100 leading-relaxed">
@@ -88,21 +93,23 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* Demo Modal - Embedded Style */}
+      {/* Demo Modal - More embedded design */}
       {showDemoModal && (
-        <div className="fixed inset-0 bg-gradient-to-br from-blue-900/95 via-blue-800/95 to-blue-700/95 backdrop-blur-md flex items-center justify-center z-50 p-4">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl max-w-4xl w-full max-h-[80vh] relative shadow-2xl border border-white/20">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[80vh] relative shadow-2xl border border-gray-200 overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-500 via-emerald-500 to-blue-500"></div>
             <button
               onClick={() => setShowDemoModal(false)}
-              className="absolute top-6 right-6 text-gray-600 hover:text-gray-800 z-10 bg-white/80 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-all"
+              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 z-10 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-all"
             >
               <X className="h-5 w-5" />
             </button>
-            <div className="p-8">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Product Demo</h3>
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl aspect-video flex items-center justify-center border border-blue-200">
+            <div className="p-8 pt-12">
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">Product Demo</h3>
+              <p className="text-gray-600 mb-8">See how SellMySeats works for you</p>
+              <div className="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-2xl aspect-video flex items-center justify-center border border-blue-100">
                 <div className="text-center">
-                  <div className="bg-blue-500 rounded-full p-6 mx-auto mb-6 w-24 h-24 flex items-center justify-center">
+                  <div className="bg-gradient-to-br from-blue-500 to-emerald-500 rounded-full p-6 mx-auto mb-6 w-24 h-24 flex items-center justify-center shadow-lg">
                     <Play className="h-12 w-12 text-white ml-1" />
                   </div>
                   <p className="text-gray-700 text-xl font-semibold mb-2">Demo video coming soon...</p>

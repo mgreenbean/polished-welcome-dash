@@ -80,23 +80,6 @@
   perspective: 1000px;
 }
 
-.transform-gpu {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-.rotate-y-5 {
-  transform: rotateY(5deg);
-}
-
-.rotate-x-1 {
-  transform: rotateX(1deg);
-}
-
-.rotate-x-2 {
-  transform: rotateX(2deg);
-}
-
 .shadow-3xl {
   box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
@@ -117,4 +100,53 @@
 .scroll-fade.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Smooth text transition for rotating hero text */
+@keyframes slide-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-fade-in {
+  animation: slide-fade-in 0.5s ease-out;
+}
+
+/* Smooth fade-in animations for sections */
+@keyframes smooth-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes smooth-scale-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-smooth-fade-in {
+  animation: smooth-fade-in 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.animate-smooth-scale-in {
+  animation: smooth-scale-in 0.8s ease-out forwards;
+  animation-delay: 0.4s;
 }

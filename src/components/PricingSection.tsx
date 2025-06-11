@@ -13,7 +13,7 @@ const PricingSection = () => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-700/20 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-16 opacity-0 animate-smooth-fade-in">
           <h2 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
             Pay-per-sale: 10% commission fee on successful sales only.
@@ -21,7 +21,7 @@ const PricingSection = () => {
         </div>
 
         <div className="max-w-lg mx-auto">
-          <Card className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-scale-in bg-white/10 backdrop-blur-sm border-white/20 relative overflow-hidden">
+          <Card className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 opacity-0 animate-smooth-scale-in bg-slate-800/90 backdrop-blur-sm border-slate-700/50 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-blue-400"></div>
             <CardHeader className="text-center pb-8">
               <CardTitle className="text-3xl font-bold text-white mb-2">Pay Per Sale</CardTitle>
