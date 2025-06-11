@@ -71,7 +71,7 @@ const TestimonialsCarousel = () => {
         >
           {testimonials.map((testimonial, index) => (
             <div key={index} className="w-full flex-shrink-0 px-4">
-              <Card className="hover:shadow-xl transition-all duration-300 border-blue-100 bg-white/80 backdrop-blur-sm">
+              <Card className="hover:shadow-2xl transition-all duration-300 border-blue-100 bg-white/90 backdrop-blur-sm shadow-xl hover:shadow-blue-200/50">
                 <CardContent className="p-8">
                   <div className="flex items-center mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -80,7 +80,7 @@ const TestimonialsCarousel = () => {
                   </div>
                   <p className="text-slate-600 mb-6 leading-relaxed text-lg">"{testimonial.content}"</p>
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
                       <span className="text-white font-semibold">{testimonial.avatar}</span>
                     </div>
                     <div>
@@ -99,7 +99,7 @@ const TestimonialsCarousel = () => {
       <Button
         variant="ghost"
         size="sm"
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/80 hover:bg-white shadow-lg"
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/90 hover:bg-white shadow-xl hover:shadow-2xl"
         onClick={prevTestimonial}
       >
         <ChevronLeft className="h-4 w-4" />
@@ -108,7 +108,7 @@ const TestimonialsCarousel = () => {
       <Button
         variant="ghost"
         size="sm"
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/80 hover:bg-white shadow-lg"
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/90 hover:bg-white shadow-xl hover:shadow-2xl"
         onClick={nextTestimonial}
       >
         <ChevronRight className="h-4 w-4" />
@@ -120,7 +120,7 @@ const TestimonialsCarousel = () => {
           <button
             key={index}
             className={`w-3 h-3 rounded-full transition-all duration-200 ${
-              index === currentIndex ? 'bg-blue-600' : 'bg-blue-200 hover:bg-blue-300'
+              index === currentIndex ? 'bg-blue-600 shadow-lg' : 'bg-blue-200 hover:bg-blue-300'
             }`}
             onClick={() => setCurrentIndex(index)}
           />
