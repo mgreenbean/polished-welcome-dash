@@ -38,7 +38,7 @@ const HeroSection = () => {
             <div className="animate-fade-in space-y-6 sm:space-y-8">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Can't make the event? We'll sell your{" "}
-                <span className="text-emerald-400 glow-text inline-block min-h-[1.2em] relative">
+                <span className="text-emerald-400 glow-text relative inline-block whitespace-nowrap min-w-[280px] sm:min-w-[320px] lg:min-w-[380px]">
                   <span 
                     key={currentTicketType}
                     className="absolute inset-0 animate-slide-fade-in"
