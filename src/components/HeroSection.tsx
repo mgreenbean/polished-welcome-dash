@@ -35,13 +35,13 @@ const HeroSection = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="animate-fade-in space-y-6 sm:space-y-8 text-center lg:text-left">
+            <div className="animate-fade-in space-y-6 sm:space-y-8">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Can't make the event? We'll sell your{" "}
-                <span className="text-emerald-400 glow-text relative inline-block whitespace-nowrap min-w-[280px] sm:min-w-[320px] lg:min-w-[380px] h-[1.2em]">
+                <span className="text-emerald-400 glow-text inline-block min-h-[1.2em] relative">
                   <span 
                     key={currentTicketType}
-                    className="absolute inset-0 animate-slide-fade-in flex items-center justify-center lg:justify-start"
+                    className="absolute inset-0 animate-slide-fade-in"
                   >
                     {ticketTypes[currentTicketType]}
                   </span>
@@ -50,7 +50,7 @@ const HeroSection = () => {
               <p className="text-lg sm:text-xl text-blue-100 leading-relaxed">
                 Your tickets get maximum exposure on the biggest resale sites - all managed by us, for you.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+              <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4">
                 <Link to="/register">
                   <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-all duration-200 text-white font-semibold">
                     Start Selling Now
@@ -72,7 +72,7 @@ const HeroSection = () => {
                   Already a user? Login
                 </Link>
               </div>
-              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-6 text-sm text-blue-100">
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-6 text-sm text-blue-100">
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center space-x-1">
                     <span className="text-emerald-400">✓</span>
