@@ -6,7 +6,7 @@ import InteractivePortfolio from "./InteractivePortfolio";
 const HeroSection = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [currentTicketType, setCurrentTicketType] = useState(0);
-  const ticketTypes = ["Yankees tickets", "Concert tickets", "MSG tickets", "US Open tickets", "extra tickets"];
+  const ticketTypes = ["Yankees Tickets", "Concert Tickets", "MSG Tickets", "US Open Tickets", "Extra Tickets"];
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTicketType(prev => (prev + 1) % ticketTypes.length);
