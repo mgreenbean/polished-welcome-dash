@@ -21,7 +21,7 @@ const PricingSection = () => {
         </div>
 
         <div className="max-w-lg mx-auto">
-          <Card className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 opacity-0 animate-smooth-scale-in bg-slate-800/90 backdrop-blur-sm border-slate-700/50 relative overflow-hidden">
+          <Card className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 opacity-0 animate-fade-in bg-slate-800/90 backdrop-blur-sm border-slate-700/50 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-blue-400"></div>
             <CardHeader className="text-center pb-8">
               <CardTitle className="text-3xl font-bold text-white mb-2">Pay Per Sale</CardTitle>
