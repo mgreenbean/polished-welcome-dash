@@ -1,18 +1,29 @@
+
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, X } from "lucide-react";
+import { ArrowRight, Play, X, ArrowDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import InteractivePortfolio from "./InteractivePortfolio";
+
 const HeroSection = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [currentTicketType, setCurrentTicketType] = useState(0);
   const ticketTypes = ["Yankees Tickets", "Concert Tickets", "MSG Tickets", "US Open Tickets", "Extra Tickets"];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTicketType(prev => (prev + 1) % ticketTypes.length);
     }, 2500);
     return () => clearInterval(interval);
   }, [ticketTypes.length]);
+
+  const scrollToHowItWorks = () => {
+    const element = document.getElementById('how-it-works');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return <>
       <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 min-h-screen flex items-center bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 text-white relative overflow-hidden">
         {/* Background decorative elements */}
@@ -20,7 +31,7 @@ const HeroSection = () => {
         <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-800/10 rounded-full blur-3xl"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full transform scale-110">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="animate-fade-in space-y-6 sm:space-y-8">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
@@ -70,6 +81,19 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
+
+        {/* Scroll indicator button */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+          <Button
+            variant="ghost"
+            size="lg"
+            onClick={scrollToHowItWorks}
+            className="bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg"
+          >
+            Our Simple Process
+            <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />
+          </Button>
+        </div>
       </section>
 
       {/* Demo Modal - More embedded design */}
@@ -96,4 +120,5 @@ const HeroSection = () => {
         </div>}
     </>;
 };
+
 export default HeroSection;
