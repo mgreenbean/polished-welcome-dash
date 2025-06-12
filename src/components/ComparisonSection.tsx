@@ -1,5 +1,7 @@
+
 import { Check, X, ArrowDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+
 const ComparisonSection = () => {
   const comparisons = [{
     feature: "Listing complexity",
@@ -26,6 +28,7 @@ const ComparisonSection = () => {
     sellMySeats: "Full protection included",
     traditional: "Limited or paid add-on"
   }];
+
   const scrollToHowItWorks = () => {
     const element = document.getElementById('how-it-works');
     if (element) {
@@ -34,9 +37,10 @@ const ComparisonSection = () => {
       });
     }
   };
-  return <section id="comparison" className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
+
+  return <section id="comparison" className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
             Why Choose SellMySeats?
           </h2>
@@ -49,32 +53,32 @@ const ComparisonSection = () => {
           <CardContent className="p-0">
             {/* Header */}
             <div className="grid grid-cols-1 md:grid-cols-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
-              <div className="p-6 text-center">
-                <h3 className="text-lg font-semibold opacity-90">Feature</h3>
+              <div className="p-4 sm:p-6 text-center">
+                <h3 className="text-base sm:text-lg font-semibold opacity-90">Feature</h3>
               </div>
-              <div className="p-6 text-center bg-emerald-500/20 border-l border-emerald-400/30">
-                <h3 className="text-lg font-bold">SellMySeats</h3>
+              <div className="p-4 sm:p-6 text-center bg-emerald-500/20 border-l border-emerald-400/30">
+                <h3 className="text-base sm:text-lg font-bold">SellMySeats</h3>
               </div>
-              <div className="p-6 text-center border-l border-blue-400/30">
-                <h3 className="text-lg font-semibold opacity-90">Traditional Platforms</h3>
+              <div className="p-4 sm:p-6 text-center border-l border-blue-400/30">
+                <h3 className="text-base sm:text-lg font-semibold opacity-90">Traditional Platforms</h3>
               </div>
             </div>
 
             {/* Comparison rows */}
             {comparisons.map((comparison, index) => <div key={index} className={`grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 transition-all duration-300 hover:bg-slate-100/50 ${index % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'}`}>
-                <div className="p-4 sm:p-6 font-medium text-slate-700 border-b md:border-b-0 md:border-r border-slate-200">
+                <div className="p-3 sm:p-4 font-medium text-slate-700 border-b md:border-b-0 md:border-r border-slate-200 text-sm sm:text-base">
                   {comparison.feature}
                 </div>
-                <div className="p-4 sm:p-6 bg-emerald-50/50 border-b md:border-b-0 md:border-r border-slate-200">
-                  <div className="flex items-center space-x-3">
-                    <Check className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                    <span className="text-slate-800 font-medium">{comparison.sellMySeats}</span>
+                <div className="p-3 sm:p-4 bg-emerald-50/50 border-b md:border-b-0 md:border-r border-slate-200">
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 flex-shrink-0" />
+                    <span className="text-slate-800 font-medium text-sm sm:text-base">{comparison.sellMySeats}</span>
                   </div>
                 </div>
-                <div className="p-4 sm:p-6">
-                  <div className="flex items-center space-x-3">
-                    <X className="h-5 w-5 text-red-500 flex-shrink-0" />
-                    <span className="text-slate-600">{comparison.traditional}</span>
+                <div className="p-3 sm:p-4">
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <X className="h-4 w-4 sm:h-5 sm:w-5 text-red-500 flex-shrink-0" />
+                    <span className="text-slate-600 text-sm sm:text-base">{comparison.traditional}</span>
                   </div>
                 </div>
               </div>)}
@@ -82,7 +86,7 @@ const ComparisonSection = () => {
         </Card>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-6 sm:mt-8">
           <p className="text-slate-600 mb-4">Ready to sell your tickets the easy way?</p>
           <a href="/register" className="inline-flex items-center px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg">
             Get Started Now
@@ -90,13 +94,14 @@ const ComparisonSection = () => {
         </div>
 
         {/* Continue scrolling indicator */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 sm:mt-10">
           <button onClick={scrollToHowItWorks} className="inline-flex items-center text-slate-500 hover:text-slate-700 transition-colors duration-200">
-            <span className="text-sm font-medium mt-[-12px] mb-0 py-0 px-0 mx-0\n">Continue to see how it works</span>
+            <span className="text-sm font-medium">Continue to see how it works</span>
             <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />
           </button>
         </div>
       </div>
     </section>;
 };
+
 export default ComparisonSection;

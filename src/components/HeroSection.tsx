@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, X, ArrowDown } from "lucide-react";
+import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import InteractivePortfolio from "./InteractivePortfolio";
@@ -82,19 +82,20 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Scroll indicator button - enhanced visibility */}
+        {/* Scroll indicator button - improved styling */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
           <Button
             variant="ghost"
             size="lg"
             onClick={scrollToComparison}
-            className="bg-white/20 border-2 border-emerald-400/60 text-white hover:bg-white/30 transition-all duration-300 hover:scale-110 backdrop-blur-sm px-8 py-4 rounded-full shadow-2xl shadow-emerald-500/50 hover:shadow-emerald-400/70 ring-4 ring-emerald-400/40 hover:ring-emerald-300/60 animate-pulse hover:animate-none font-bold text-lg"
+            className="bg-white/20 border-2 border-emerald-400/60 text-white hover:bg-white/30 transition-all duration-300 hover:scale-105 backdrop-blur-sm px-8 py-4 rounded-full shadow-lg font-bold text-lg"
             style={{
-              boxShadow: '0 0 30px rgba(52, 211, 153, 0.6), 0 0 60px rgba(52, 211, 153, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 0 20px rgba(52, 211, 153, 0.4), 0 0 40px rgba(52, 211, 153, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.1)',
             }}
           >
-            Learn More
-            <ArrowDown className="ml-3 h-5 w-5 animate-bounce" />
+            <span className="flex items-center justify-center">
+              Learn More
+            </span>
           </Button>
         </div>
       </section>
