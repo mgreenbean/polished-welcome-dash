@@ -88,7 +88,7 @@ const HeroSection = () => {
             variant="ghost"
             size="lg"
             onClick={scrollToHowItWorks}
-            className="bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg"
+            className="bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 ring-2 ring-emerald-400/30 hover:ring-emerald-400/50"
           >
             Our Simple Process
             <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />

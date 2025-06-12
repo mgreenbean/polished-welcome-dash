@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import SplashHeader from "@/components/SplashHeader";
 import HeroSection from "@/components/HeroSection";
+import ComparisonSection from "@/components/ComparisonSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import PricingSection from "@/components/PricingSection";
@@ -36,6 +37,9 @@ const Splash = () => {
     <div className="min-h-screen">
       <SplashHeader />
       <HeroSection />
+      <div className="scroll-fade">
+        <ComparisonSection />
+      </div>
       <div className="scroll-fade">
         <HowItWorksSection />
       </div>
