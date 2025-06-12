@@ -1,5 +1,5 @@
 
-import { Check, X } from "lucide-react";
+import { Check, X, ArrowDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const ComparisonSection = () => {
@@ -36,8 +36,15 @@ const ComparisonSection = () => {
     }
   ];
 
+  const scrollToHowItWorks = () => {
+    const element = document.getElementById('how-it-works');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
+    <section id="comparison" className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
@@ -48,7 +55,7 @@ const ComparisonSection = () => {
           </p>
         </div>
 
-        <Card className="max-w-5xl mx-auto bg-white/80 backdrop-blur-sm shadow-xl border-slate-200">
+        <Card className="max-w-5xl mx-auto bg-white/80 backdrop-blur-sm shadow-xl border-slate-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] group">
           <CardContent className="p-0">
             {/* Header */}
             <div className="grid grid-cols-1 md:grid-cols-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
@@ -67,7 +74,7 @@ const ComparisonSection = () => {
             {comparisons.map((comparison, index) => (
               <div 
                 key={index} 
-                className={`grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 ${
+                className={`grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 transition-all duration-300 hover:bg-slate-100/50 ${
                   index % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'
                 }`}
               >
@@ -100,6 +107,17 @@ const ComparisonSection = () => {
           >
             Get Started Now
           </a>
+        </div>
+
+        {/* Continue scrolling indicator */}
+        <div className="text-center mt-12">
+          <button
+            onClick={scrollToHowItWorks}
+            className="inline-flex items-center text-slate-500 hover:text-slate-700 transition-colors duration-200"
+          >
+            <span className="text-sm font-medium">Continue to see how it works</span>
+            <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />
+          </button>
         </div>
       </div>
     </section>

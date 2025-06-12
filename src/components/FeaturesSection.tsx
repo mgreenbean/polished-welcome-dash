@@ -39,7 +39,7 @@ const FeaturesSection = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Why Choose SellMySeats?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Features</h2>
           <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             Powerful features designed to maximize your ticket selling success.
           </p>

@@ -17,8 +17,8 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [ticketTypes.length]);
 
-  const scrollToHowItWorks = () => {
-    const element = document.getElementById('how-it-works');
+  const scrollToComparison = () => {
+    const element = document.getElementById('comparison');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -82,16 +82,19 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Scroll indicator button */}
+        {/* Scroll indicator button - enhanced visibility */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
           <Button
             variant="ghost"
             size="lg"
-            onClick={scrollToHowItWorks}
-            className="bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 ring-2 ring-emerald-400/30 hover:ring-emerald-400/50"
+            onClick={scrollToComparison}
+            className="bg-white/20 border-2 border-emerald-400/60 text-white hover:bg-white/30 transition-all duration-300 hover:scale-110 backdrop-blur-sm px-8 py-4 rounded-full shadow-2xl shadow-emerald-500/50 hover:shadow-emerald-400/70 ring-4 ring-emerald-400/40 hover:ring-emerald-300/60 animate-pulse hover:animate-none font-bold text-lg"
+            style={{
+              boxShadow: '0 0 30px rgba(52, 211, 153, 0.6), 0 0 60px rgba(52, 211, 153, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.1)',
+            }}
           >
-            Our Simple Process
-            <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />
+            Learn More
+            <ArrowDown className="ml-3 h-5 w-5 animate-bounce" />
           </Button>
         </div>
       </section>
