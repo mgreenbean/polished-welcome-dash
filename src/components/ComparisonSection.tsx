@@ -1,8 +1,6 @@
-
 import { Check, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
 const ComparisonSection = () => {
   const comparisons = [{
     feature: "Listing complexity",
@@ -29,7 +27,6 @@ const ComparisonSection = () => {
     sellMySeats: "Full protection included",
     traditional: "Limited or paid add-on"
   }];
-
   const scrollToHowItWorks = () => {
     const element = document.getElementById('how-it-works');
     if (element) {
@@ -38,13 +35,10 @@ const ComparisonSection = () => {
       });
     }
   };
-
   return <section id="comparison" className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-            Features
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Why Choose SellMySeats?</h2>
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
             Skip the hassle of managing multiple platforms. We make ticket selling simple and stress-free.
           </p>
@@ -96,17 +90,11 @@ const ComparisonSection = () => {
 
         {/* Learn More button */}
         <div className="flex justify-center mt-16">
-          <Button
-            variant="ghost"
-            size="lg"
-            onClick={scrollToHowItWorks}
-            className="bg-white/60 backdrop-blur-md border-2 border-blue-400/50 text-slate-700 hover:bg-white/80 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg"
-          >
+          <Button variant="ghost" size="lg" onClick={scrollToHowItWorks} className="bg-white/60 backdrop-blur-md border-2 border-blue-400/50 text-slate-700 hover:bg-white/80 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg">
             How It Works
           </Button>
         </div>
       </div>
     </section>;
 };
-
 export default ComparisonSection;
