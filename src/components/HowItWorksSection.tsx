@@ -1,6 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, CheckCircle, DollarSign, ChevronDown } from "lucide-react";
+import { Mail, CheckCircle, DollarSign } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const HowItWorksSection = () => {
   const steps = [
@@ -68,12 +69,16 @@ const HowItWorksSection = () => {
           ))}
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-          <button onClick={scrollToFeatures} className="text-slate-500 hover:text-slate-700 transition-colors">
-            <ChevronDown className="h-6 w-6" />
-          </button>
-          <span className="text-slate-400 text-xs mt-1">Next</span>
+        {/* Learn More button */}
+        <div className="flex justify-center mt-16">
+          <Button
+            variant="ghost"
+            size="lg"
+            onClick={scrollToFeatures}
+            className="bg-white/60 backdrop-blur-md border-2 border-emerald-400/50 text-slate-700 hover:bg-white/80 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg"
+          >
+            Our Features
+          </Button>
         </div>
       </div>
     </section>

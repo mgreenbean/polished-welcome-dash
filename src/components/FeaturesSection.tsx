@@ -1,6 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Zap, Shield, TrendingUp, Clock, ChevronDown } from "lucide-react";
+import { Zap, Shield, TrendingUp, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const FeaturesSection = () => {
   const features = [
@@ -68,12 +69,19 @@ const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-          <button onClick={scrollToPricing} className="text-white/70 hover:text-white transition-colors">
-            <ChevronDown className="h-6 w-6" />
-          </button>
-          <span className="text-white/50 text-xs mt-1">Next</span>
+        {/* Learn More button */}
+        <div className="flex justify-center mt-16">
+          <Button
+            variant="ghost"
+            size="lg"
+            onClick={scrollToPricing}
+            className="bg-white/10 backdrop-blur-md border-2 border-emerald-400/50 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg"
+            style={{
+              boxShadow: '0 0 20px rgba(52, 211, 153, 0.4), 0 0 40px rgba(52, 211, 153, 0.2)',
+            }}
+          >
+            View Pricing
+          </Button>
         </div>
       </div>
     </section>

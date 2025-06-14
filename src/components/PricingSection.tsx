@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, ChevronDown } from "lucide-react";
+import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const PricingSection = () => {
@@ -66,12 +66,16 @@ const PricingSection = () => {
           </Card>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-          <button onClick={scrollToTestimonials} className="text-white/70 hover:text-white transition-colors">
-            <ChevronDown className="h-6 w-6" />
-          </button>
-          <span className="text-white/50 text-xs mt-1">Next</span>
+        {/* Learn More button */}
+        <div className="flex justify-center mt-16">
+          <Button
+            variant="ghost"
+            size="lg"
+            onClick={scrollToTestimonials}
+            className="bg-white/10 backdrop-blur-md border-2 border-blue-400/50 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg"
+          >
+            Success Stories
+          </Button>
         </div>
       </div>
     </section>

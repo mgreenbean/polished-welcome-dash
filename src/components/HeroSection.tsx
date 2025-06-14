@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, X, ChevronDown } from "lucide-react";
+import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import InteractivePortfolio from "./InteractivePortfolio";
@@ -82,14 +82,6 @@ const HeroSection = () => {
               <InteractivePortfolio />
             </div>
           </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-          <button onClick={scrollToComparison} className="text-white/70 hover:text-white transition-colors">
-            <ChevronDown className="h-8 w-8" />
-          </button>
-          <span className="text-white/50 text-sm mt-1">Scroll</span>
         </div>
 
         {/* Learn More button */}

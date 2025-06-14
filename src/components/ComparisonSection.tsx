@@ -1,6 +1,7 @@
 
-import { Check, X, ChevronDown } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const ComparisonSection = () => {
   const comparisons = [{
@@ -93,12 +94,16 @@ const ComparisonSection = () => {
           </a>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-          <button onClick={scrollToHowItWorks} className="text-slate-500 hover:text-slate-700 transition-colors">
-            <ChevronDown className="h-6 w-6" />
-          </button>
-          <span className="text-slate-400 text-xs mt-1">Next</span>
+        {/* Learn More button */}
+        <div className="flex justify-center mt-16">
+          <Button
+            variant="ghost"
+            size="lg"
+            onClick={scrollToHowItWorks}
+            className="bg-white/60 backdrop-blur-md border-2 border-blue-400/50 text-slate-700 hover:bg-white/80 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg"
+          >
+            How It Works
+          </Button>
         </div>
       </div>
     </section>;
