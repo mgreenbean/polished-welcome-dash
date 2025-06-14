@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -25,7 +24,7 @@ const HeroSection = () => {
   };
 
   return <>
-      <section className="pt-20 sm:pt-24 pb-16 sm:pb-20 min-h-screen flex items-center bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 text-white relative overflow-hidden">
+      <section className="pt-20 sm:pt-24 pb-16 sm:pb-20 min-h-screen flex items-center bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 text-white relative overflow-hidden transform scale-110 origin-center">
         {/* Background decorative elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
         <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
