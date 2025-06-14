@@ -41,18 +41,18 @@ const ComparisonSection = () => {
   };
 
   return (
-    <section id="comparison" className="py-10 sm:py-12 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
+    <section id="comparison" className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-10">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Why Choose SellMySeats?</h2>
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Why Choose SellMySeats?</h2>
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
               Skip the hassle of managing multiple platforms. We make ticket selling simple and stress-free.
             </p>
           </div>
         </div>
 
-        <Card className="max-w-5xl mx-auto bg-white/90 backdrop-blur-sm shadow-xl border-slate-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] group">
+        <Card className="max-w-4xl mx-auto bg-white/90 backdrop-blur-sm shadow-xl border-slate-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] group">
           <CardContent className="p-0">
             {/* Header */}
             <div className="grid grid-cols-1 md:grid-cols-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
@@ -69,11 +69,11 @@ const ComparisonSection = () => {
 
             {/* Comparison rows */}
             {comparisons.map((comparison, index) => (
-              <div key={index} className={`grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 last:border-b-0 ${index % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'}`}>
+              <div key={index} className={`grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 last:border-b-0 ${index % 2 === 0 ? 'bg-slate-50/30' : 'bg-white'}`}>
                 <div className="p-6 font-medium text-slate-700 border-b md:border-b-0 md:border-r border-slate-200 text-left leading-relaxed">
                   {comparison.feature}
                 </div>
-                <div className="p-6 bg-blue-50/60 border-b md:border-b-0 md:border-r border-slate-200 text-left leading-relaxed">
+                <div className="p-6 bg-blue-50/40 border-b md:border-b-0 md:border-r border-slate-200 text-left leading-relaxed">
                   <span className="text-slate-800 font-semibold">{comparison.sellMySeats}</span>
                 </div>
                 <div className="p-6 text-left leading-relaxed">
@@ -85,7 +85,7 @@ const ComparisonSection = () => {
         </Card>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12 mb-20">
+        <div className="text-center mt-12">
           <Button 
             size="lg" 
             className="bg-emerald-500 hover:bg-emerald-600 text-lg px-8 py-4 hover:scale-105 transition-all duration-200 text-white font-semibold shadow-lg"
@@ -96,7 +96,7 @@ const ComparisonSection = () => {
         </div>
 
         {/* Learn More button */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-16">
           <Button variant="ghost" size="lg" onClick={scrollToHowItWorks} className="bg-white/60 backdrop-blur-md border-2 border-blue-400/50 text-slate-700 hover:bg-white/80 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg">
             How It Works
           </Button>
