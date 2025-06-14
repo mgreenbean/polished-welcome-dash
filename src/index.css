@@ -118,6 +118,22 @@
   animation: slide-fade-in 0.5s ease-out;
 }
 
+/* Enhanced smooth word transitions */
+@keyframes word-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-word-fade-in {
+  animation: word-fade-in 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Smooth fade-in animations for sections */
 @keyframes smooth-fade-in {
   0% {
