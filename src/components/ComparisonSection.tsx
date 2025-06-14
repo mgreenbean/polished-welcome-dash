@@ -1,32 +1,37 @@
+
 import { Check, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
 const ComparisonSection = () => {
-  const comparisons = [{
-    feature: "Listing complexity",
-    sellMySeats: "One simple form",
-    traditional: "Multiple platforms, multiple listings"
-  }, {
-    feature: "Platform management",
-    sellMySeats: "We handle everything",
-    traditional: "You manage each site separately"
-  }, {
-    feature: "Listing fees",
-    sellMySeats: "No upfront costs",
-    traditional: "Pay to list on each platform"
-  }, {
-    feature: "Commission",
-    sellMySeats: "10% only when sold",
-    traditional: "10-15% + listing fees"
-  }, {
-    feature: "Customer support",
-    sellMySeats: "24/7 dedicated support",
-    traditional: "Limited or no support"
-  }, {
-    feature: "Fraud protection",
-    sellMySeats: "Full protection included",
-    traditional: "Limited or paid add-on"
-  }];
+  const comparisons = [
+    {
+      feature: "Listing complexity",
+      sellMySeats: "Three simple steps to list on all major markets",
+      traditional: "Multiple platforms, multiple listings"
+    },
+    {
+      feature: "Platform management",
+      sellMySeats: "We handle everything",
+      traditional: "You manage each site separately"
+    },
+    {
+      feature: "Listing fees",
+      sellMySeats: "No upfront costs, lowest fee among sites",
+      traditional: "High fees on each platform"
+    },
+    {
+      feature: "Commission",
+      sellMySeats: "10% only when sold",
+      traditional: "10-15% + listing fees"
+    },
+    {
+      feature: "Customer support",
+      sellMySeats: "24/7 United States based dedicated support",
+      traditional: "Limited or no support"
+    }
+  ];
+
   const scrollToHowItWorks = () => {
     const element = document.getElementById('how-it-works');
     if (element) {
@@ -35,7 +40,9 @@ const ComparisonSection = () => {
       });
     }
   };
-  return <section id="comparison" className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
+
+  return (
+    <section id="comparison" className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Why Choose SellMySeats?</h2>
@@ -60,7 +67,8 @@ const ComparisonSection = () => {
             </div>
 
             {/* Comparison rows */}
-            {comparisons.map((comparison, index) => <div key={index} className={`grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 transition-all duration-300 hover:bg-slate-100/50 ${index % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'}`}>
+            {comparisons.map((comparison, index) => (
+              <div key={index} className={`grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 transition-all duration-300 hover:bg-slate-100/50 ${index % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'}`}>
                 <div className="p-3 sm:p-4 font-medium text-slate-700 border-b md:border-b-0 md:border-r border-slate-200 text-sm sm:text-base">
                   {comparison.feature}
                 </div>
@@ -76,7 +84,8 @@ const ComparisonSection = () => {
                     <span className="text-slate-600 text-sm sm:text-base">{comparison.traditional}</span>
                   </div>
                 </div>
-              </div>)}
+              </div>
+            ))}
           </CardContent>
         </Card>
 
@@ -92,9 +101,11 @@ const ComparisonSection = () => {
         <div className="flex justify-center mt-16">
           <Button variant="ghost" size="lg" onClick={scrollToHowItWorks} className="bg-white/60 backdrop-blur-md border-2 border-blue-400/50 text-slate-700 hover:bg-white/80 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg">
             How It Works
-          </Button>
+          </a>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ComparisonSection;
