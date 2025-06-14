@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ import InteractivePortfolio from "./InteractivePortfolio";
 const HeroSection = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [currentTicketType, setCurrentTicketType] = useState(0);
-  const ticketTypes = ["Concert", "Sports", "Festival", "Theater", "Event"];
+  const ticketTypes = ["Concert", "Sports", "Festival", "Theater"];
 
   useEffect(() => {
     const interval = setInterval(() => {
