@@ -4,6 +4,9 @@ import { Zap, Shield, TrendingUp, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FeaturesSection = () => {
+  // Debug log to ensure component is rendering
+  console.log("FeaturesSection is rendering");
+
   const features = [
     {
       icon: Zap,
@@ -51,10 +54,18 @@ const FeaturesSection = () => {
       <div className="absolute top-1/3 left-1/4 w-32 h-32 sm:w-48 sm:h-48 bg-white/5 rounded-full blur-2xl"></div>
       <div className="absolute bottom-1/4 right-1/3 w-40 h-40 sm:w-56 sm:h-56 bg-emerald-400/10 rounded-full blur-2xl"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 sm:mb-20 scroll-reveal">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-10 sm:mb-12">More Features</h2>
-          <p className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
+          <h2 
+            className="text-3xl sm:text-4xl font-bold text-white mb-10 sm:mb-12 relative z-20" 
+            style={{ 
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              color: '#ffffff'
+            }}
+          >
+            More Features
+          </h2>
+          <p className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed relative z-20">
             Powerful features designed to maximize your ticket selling success.
           </p>
         </div>
