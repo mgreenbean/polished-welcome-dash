@@ -85,7 +85,7 @@ const ComparisonSection = () => {
         {/* Bottom CTA */}
         <div className="text-center mt-6 sm:mt-8">
           <a href="/register" className="inline-flex items-center px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg">
-            Get Started
+            Start Selling Your Tickets Today
           </a>
         </div>
 
