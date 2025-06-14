@@ -24,8 +24,9 @@ const PricingSection = () => {
           </p>
         </div>
 
+        {/* Centered pricing card with proper mobile/tablet spacing */}
         <div className="max-w-md mx-auto">
-          <Card className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] scroll-reveal bg-gradient-to-br from-slate-800 to-slate-900 backdrop-blur-sm border border-slate-700/50 relative overflow-hidden group">
+          <Card className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] scroll-reveal bg-gradient-to-br from-slate-800 to-slate-900 backdrop-blur-sm border border-slate-700/50 relative overflow-hidden group opacity-0 translate-y-8 animate-fade-up">
             {/* Animated gradient border */}
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-blue-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg blur-sm"></div>
             <div className="absolute inset-[1px] bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg"></div>
@@ -34,16 +35,17 @@ const PricingSection = () => {
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-blue-500 opacity-80"></div>
             
             <div className="relative z-10">
-              <CardHeader className="text-center pb-6 pt-8">
+              <CardHeader className="text-center pb-6 pt-8 px-6 sm:px-8">
                 <CardTitle className="text-2xl font-bold text-white mb-4">Pay Per Sale</CardTitle>
-                <div className="text-6xl font-bold text-transparent bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text mb-2">
+                <div className="text-6xl sm:text-7xl font-bold text-transparent bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text mb-2">
                   10%
                 </div>
                 <p className="text-slate-300 text-lg">Commission on successful sales only</p>
               </CardHeader>
               
-              <CardContent className="px-8 pb-8">
-                <div className="space-y-4 mb-8">
+              <CardContent className="px-6 sm:px-8 pb-8">
+                {/* Feature list with consistent spacing and check icons */}
+                <div className="space-y-3 mb-8">
                   {[
                     "Unlimited listing capabilities",
                     "Sales analytics",
@@ -53,17 +55,18 @@ const PricingSection = () => {
                     "Multi-platform distribution",
                     "Zero monthly fees"
                   ].map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-4">
+                    <div key={index} className="flex items-center space-x-4 py-1">
                       <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 flex items-center justify-center shadow-lg">
-                        <Check className="h-3 w-3 text-white" />
+                        <Check className="h-3 w-3 text-white stroke-[2.5]" />
                       </div>
-                      <span className="text-slate-200 text-base font-medium">{feature}</span>
+                      <span className="text-slate-200 text-base font-medium leading-relaxed">{feature}</span>
                     </div>
                   ))}
                 </div>
                 
+                {/* Enhanced Start Selling Now button with hero section styling */}
                 <Link to="/register" className="block">
-                  <Button className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white text-lg py-4 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border-0">
+                  <Button className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white text-lg py-4 font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 border-0 glow-button">
                     Start Selling Now
                   </Button>
                 </Link>
@@ -72,8 +75,8 @@ const PricingSection = () => {
           </Card>
         </div>
 
-        {/* Learn More button - moved up more */}
-        <div className="flex justify-center mt-8">
+        {/* Success Stories button with increased spacing (40px minimum) */}
+        <div className="flex justify-center mt-10 sm:mt-12">
           <Button
             variant="ghost"
             size="lg"
