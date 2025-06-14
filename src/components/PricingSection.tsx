@@ -72,8 +72,8 @@ const PricingSection = () => {
           </Card>
         </div>
 
-        {/* Learn More button */}
-        <div className="flex justify-center mt-16">
+        {/* Learn More button - moved up */}
+        <div className="flex justify-center mt-10">
           <Button
             variant="ghost"
             size="lg"
