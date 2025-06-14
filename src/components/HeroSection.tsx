@@ -36,7 +36,7 @@ const HeroSection = () => {
             {/* Hero Content */}
             <div className="animate-fade-in space-y-8 max-w-4xl mx-auto">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
-                <span className="block mb-4">Can't make the event?</span>
+                <span className="block mb-6">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
                   <span className="text-emerald-400 glow-text inline-block">
@@ -44,6 +44,7 @@ const HeroSection = () => {
                       {ticketTypes[currentTicketType]}
                     </span>
                   </span>
+                  .
                 </span>
               </h1>
               
