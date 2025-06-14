@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -6,7 +5,7 @@ const ComparisonSection = () => {
   const comparisons = [
     {
       feature: "Ticket Listing Process",
-      sellMySeats: "One simple form. We do the rest.",
+      sellMySeats: "Three easy steps to list on all sites.",
       traditional: "Separate listings on each site"
     },
     {
