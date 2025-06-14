@@ -41,7 +41,7 @@ const ComparisonSection = () => {
   };
 
   return (
-    <section id="comparison" className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
+    <section id="comparison" className="py-10 sm:py-12 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <div className="max-w-4xl mx-auto">
@@ -84,8 +84,8 @@ const ComparisonSection = () => {
           </CardContent>
         </Card>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-12">
+        {/* Bottom CTA with proper spacing */}
+        <div className="text-center mt-12 mb-20">
           <Button 
             size="lg" 
             className="bg-emerald-500 hover:bg-emerald-600 text-lg px-8 py-4 hover:scale-105 transition-all duration-200 text-white font-semibold shadow-lg"
@@ -96,7 +96,7 @@ const ComparisonSection = () => {
         </div>
 
         {/* Learn More button */}
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center">
           <Button variant="ghost" size="lg" onClick={scrollToHowItWorks} className="bg-white/60 backdrop-blur-md border-2 border-blue-400/50 text-slate-700 hover:bg-white/80 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg">
             How It Works
           </Button>
