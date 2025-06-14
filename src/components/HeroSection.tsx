@@ -1,4 +1,5 @@
 
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -44,19 +45,16 @@ const HeroSection = () => {
                 <span className="block">
                   We'll sell your{" "}
                   <span 
-                    className={`text-emerald-300 font-medium transition-all duration-300 ease-in-out ${
+                    className={`text-emerald-300 font-semibold inline-block transition-all duration-300 ease-in-out ${
                       isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
                     }`}
                     style={{
-                      textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
-                      display: 'inline-block',
-                      minWidth: '140px',
-                      textAlign: 'left'
+                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
                     }}
                   >
                     {ticketTypes[currentTicketType]}
                   </span>
-                  <span className="text-white"> Tickets.</span>
+                  {" "}Tickets.
                 </span>
               </h1>
               <p className="text-xl sm:text-2xl text-blue-100 leading-relaxed max-w-2xl mt-8 sm:mt-10">
@@ -129,3 +127,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
