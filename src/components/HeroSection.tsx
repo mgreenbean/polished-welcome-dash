@@ -1,5 +1,4 @@
 
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -45,7 +44,7 @@ const HeroSection = () => {
                 <span className="block">
                   We'll sell your{" "}
                   <span 
-                    className={`text-emerald-300 font-semibold inline-block transition-all duration-300 ease-in-out ${
+                    className={`text-emerald-300 font-semibold inline-block transition-all duration-300 ease-in-out w-32 text-left ${
                       isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
                     }`}
                     style={{
@@ -127,4 +126,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
