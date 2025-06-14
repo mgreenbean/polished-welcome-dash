@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -33,17 +34,17 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-fade-in space-y-8 sm:space-y-10">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.2] tracking-tight">
-                <span className="block mb-2">Can't make the event?</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.3] tracking-tight">
+                <span className="block mb-4">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
-                  <span className="text-emerald-300 font-bold inline-block transition-all duration-700 ease-in-out opacity-100 transform translate-y-0">
+                  <span className="text-emerald-300 font-bold inline-block transition-all duration-700 ease-in-out opacity-100 transform translate-y-0 animate-smooth-word-transition">
                     {ticketTypes[currentTicketType]}
                   </span>
                   {" "}Tickets.
                 </span>
               </h1>
-              <p className="text-xl sm:text-2xl text-blue-100 leading-relaxed max-w-2xl mt-6 sm:mt-8">
+              <p className="text-xl sm:text-2xl text-blue-100 leading-relaxed max-w-2xl mt-8 sm:mt-10">
                 Your tickets get maximum exposure on the biggest resale sites - all managed by us, for you.
               </p>
               <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
