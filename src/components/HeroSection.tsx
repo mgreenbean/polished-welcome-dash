@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -31,23 +32,27 @@ const HeroSection = () => {
         <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-800/10 rounded-full blur-3xl"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="animate-fade-in space-y-8 sm:space-y-10">
+          <div className="text-center space-y-12">
+            {/* Hero Content */}
+            <div className="animate-fade-in space-y-8 max-w-4xl mx-auto">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
-                <span className="block mb-2">Can't make the event?</span>
+                <span className="block mb-4">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
-                  <span className="text-emerald-400 glow-text inline-block min-w-[280px] text-left">
+                  <span className="text-emerald-400 glow-text inline-block">
                     <span key={currentTicketType} className="animate-slide-fade-in">
                       {ticketTypes[currentTicketType]}
                     </span>
                   </span>
                 </span>
               </h1>
-              <p className="text-xl sm:text-2xl text-blue-100 leading-relaxed max-w-2xl">
+              
+              <p className="text-xl sm:text-2xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
                 Your tickets get maximum exposure on the biggest resale sites - all managed by us, for you.
               </p>
-              <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
                 <Link to="/register">
                   <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-lg px-8 py-4 hover:scale-105 transition-all duration-200 text-white font-semibold shadow-lg">
                     Start Selling Now
@@ -59,26 +64,29 @@ const HeroSection = () => {
                   <Play className="ml-2 h-5 w-5" />
                 </Button>
               </div>
-              <div className="mt-8">
+              
+              {/* Login Link */}
+              <div className="mt-6">
                 <Link to="/login" className="text-white/90 hover:text-white underline text-base font-medium">
                   Already a user? Login
                 </Link>
               </div>
-              <div className="mt-8 flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-8 text-base text-blue-100">
-                <div className="flex items-center space-x-6">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-emerald-400 text-lg">✓</span>
-                    <span className="font-medium">No listing fees</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-emerald-400 text-lg">✓</span>
-                    <span className="font-medium">24/7 support</span>
-                  </div>
+              
+              {/* Features */}
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-base text-blue-100">
+                <div className="flex items-center space-x-2">
+                  <span className="text-emerald-400 text-lg">✓</span>
+                  <span className="font-medium">No listing fees</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-emerald-400 text-lg">✓</span>
+                  <span className="font-medium">24/7 support</span>
                 </div>
               </div>
             </div>
             
-            <div className="relative mt-12 lg:mt-0 flex justify-center">
+            {/* Interactive Portfolio */}
+            <div className="flex justify-center mt-16">
               <InteractivePortfolio />
             </div>
           </div>
