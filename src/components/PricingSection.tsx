@@ -1,10 +1,19 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const PricingSection = () => {
+  const scrollToTestimonials = () => {
+    const element = document.getElementById('testimonials');
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="pricing" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white relative overflow-hidden">
       {/* Background decorative elements */}
@@ -55,6 +64,14 @@ const PricingSection = () => {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+          <button onClick={scrollToTestimonials} className="text-white/70 hover:text-white transition-colors">
+            <ChevronDown className="h-6 w-6" />
+          </button>
+          <span className="text-white/50 text-xs mt-1">Next</span>
         </div>
       </div>
     </section>

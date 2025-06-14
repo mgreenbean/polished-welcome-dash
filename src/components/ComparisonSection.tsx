@@ -1,5 +1,5 @@
 
-import { Check, X, ArrowDown } from "lucide-react";
+import { Check, X, ChevronDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const ComparisonSection = () => {
@@ -42,7 +42,7 @@ const ComparisonSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-            Why Choose SellMySeats?
+            Features
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
             Skip the hassle of managing multiple platforms. We make ticket selling simple and stress-free.
@@ -93,12 +93,12 @@ const ComparisonSection = () => {
           </a>
         </div>
 
-        {/* Continue scrolling indicator */}
-        <div className="text-center mt-8 sm:mt-10">
-          <button onClick={scrollToHowItWorks} className="inline-flex items-center text-slate-500 hover:text-slate-700 transition-colors duration-200">
-            <span className="text-sm font-medium">Continue to see how it works</span>
-            <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+          <button onClick={scrollToHowItWorks} className="text-slate-500 hover:text-slate-700 transition-colors">
+            <ChevronDown className="h-6 w-6" />
           </button>
+          <span className="text-slate-400 text-xs mt-1">Next</span>
         </div>
       </div>
     </section>;

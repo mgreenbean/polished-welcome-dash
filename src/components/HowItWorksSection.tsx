@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, CheckCircle, DollarSign, ArrowDown } from "lucide-react";
+import { Mail, CheckCircle, DollarSign, ChevronDown } from "lucide-react";
 
 const HowItWorksSection = () => {
   const steps = [
@@ -34,7 +34,7 @@ const HowItWorksSection = () => {
   };
 
   return (
-    <section id="how-it-works" className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 via-emerald-50 to-slate-100">
+    <section id="how-it-works" className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 via-emerald-50 to-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16 scroll-reveal">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-slate-900">How It Works</h2>
@@ -68,12 +68,12 @@ const HowItWorksSection = () => {
           ))}
         </div>
 
-        {/* Continue scrolling indicator */}
-        <div className="text-center mt-12">
-          <button onClick={scrollToFeatures} className="inline-flex items-center text-slate-500 hover:text-slate-700 transition-colors duration-200">
-            <span className="text-sm font-medium">Explore our features</span>
-            <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+          <button onClick={scrollToFeatures} className="text-slate-500 hover:text-slate-700 transition-colors">
+            <ChevronDown className="h-6 w-6" />
           </button>
+          <span className="text-slate-400 text-xs mt-1">Next</span>
         </div>
       </div>
     </section>

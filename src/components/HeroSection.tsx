@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, X } from "lucide-react";
+import { ArrowRight, Play, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import InteractivePortfolio from "./InteractivePortfolio";
@@ -35,9 +35,7 @@ const HeroSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-fade-in space-y-8 sm:space-y-10">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
-                <span className="block mb-2 sm:mb-3">Can't make the</span>
-                <span className="block mb-2 sm:mb-3">event? We'll sell</span>
-                <span className="block">your{" "}
+                <span className="inline">Can't make the event? We'll sell your{" "}
                   <span className="text-emerald-400 glow-text inline-block relative">
                     <span key={currentTicketType} className="animate-slide-fade-in">
                       {ticketTypes[currentTicketType]}
@@ -85,7 +83,15 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Scroll indicator button */}
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+          <button onClick={scrollToComparison} className="text-white/70 hover:text-white transition-colors">
+            <ChevronDown className="h-8 w-8" />
+          </button>
+          <span className="text-white/50 text-sm mt-1">Scroll</span>
+        </div>
+
+        {/* Learn More button */}
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
           <Button
             variant="ghost"
@@ -93,7 +99,7 @@ const HeroSection = () => {
             onClick={scrollToComparison}
             className="bg-white/10 backdrop-blur-md border-2 border-emerald-400/50 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg"
             style={{
-              boxShadow: '0 0 30px rgba(52, 211, 153, 0.3), 0 0 60px rgba(52, 211, 153, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 0 20px rgba(52, 211, 153, 0.4), 0 0 40px rgba(52, 211, 153, 0.2)',
             }}
           >
             Learn More

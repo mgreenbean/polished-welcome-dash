@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Zap, Shield, TrendingUp, Clock } from "lucide-react";
+import { Zap, Shield, TrendingUp, Clock, ChevronDown } from "lucide-react";
 
 const FeaturesSection = () => {
   const features = [
@@ -30,6 +30,15 @@ const FeaturesSection = () => {
     }
   ];
 
+  const scrollToPricing = () => {
+    const element = document.getElementById('pricing');
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="features" className="py-16 sm:py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
       {/* Background decorative elements */}
@@ -39,7 +48,7 @@ const FeaturesSection = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Features</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Why Choose SellMySeats</h2>
           <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             Powerful features designed to maximize your ticket selling success.
           </p>
@@ -57,6 +66,14 @@ const FeaturesSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+          <button onClick={scrollToPricing} className="text-white/70 hover:text-white transition-colors">
+            <ChevronDown className="h-6 w-6" />
+          </button>
+          <span className="text-white/50 text-xs mt-1">Next</span>
         </div>
       </div>
     </section>
