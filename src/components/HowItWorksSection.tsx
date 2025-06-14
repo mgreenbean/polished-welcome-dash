@@ -48,17 +48,18 @@ const HowItWorksSection = () => {
           {steps.map((step, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border-emerald-100 bg-white/90 backdrop-blur-sm scroll-reveal hover:bg-emerald-50/30 shadow-lg"
+              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-emerald-100 bg-white/90 backdrop-blur-sm scroll-reveal hover:bg-emerald-50/30 shadow-lg opacity-0 translate-y-8 animate-fade-up"
               style={{
-                transitionDelay: `${index * 0.1}s`
+                animationDelay: `${0.2 + index * 0.15}s`,
+                animationFillMode: 'forwards'
               }}
             >
               <CardContent className="p-8 sm:p-10 text-center">
                 <div className="relative mb-8">
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:shadow-2xl transition-all duration-300">
-                    <step.icon className="h-8 w-8 sm:h-9 sm:w-9 text-white" />
+                  <div className="w-16 h-16 sm:w-18 sm:h-18 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300">
+                    <step.icon className="h-8 w-8 sm:h-9 sm:w-9 text-white group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <div className="absolute -top-3 -right-3 w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 rounded-full flex items-center justify-center shadow-lg border-2 border-white/20">
+                  <div className="absolute -top-3 -right-3 w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 rounded-full flex items-center justify-center shadow-lg border-2 border-white/20 group-hover:shadow-xl transition-shadow duration-300">
                     <span className="text-white font-bold text-base sm:text-lg">{step.step}</span>
                   </div>
                 </div>
