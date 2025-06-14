@@ -79,18 +79,16 @@ const TestimonialsCarousel = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index} 
-              className={`w-full flex-shrink-0 px-2 sm:px-4 transition-opacity duration-700 ${
-                index === currentIndex ? 'opacity-100' : 'opacity-90'
-              }`}
+              className="w-full flex-shrink-0 px-2 sm:px-4"
             >
-              <Card className="hover:shadow-xl transition-all duration-300 border border-blue-100 bg-white/90 backdrop-blur-sm shadow-lg hover:shadow-2xl hover:-translate-y-1 animate-fade-in">
+              <Card className="hover:shadow-xl transition-all duration-300 border border-blue-100 bg-white shadow-lg hover:shadow-2xl hover:-translate-y-1">
                 <CardContent className="p-6 sm:p-8">
                   <div className="flex items-center mb-4 sm:mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 text-amber-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-slate-700 mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg font-medium">
+                  <p className="text-gray-800 mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg font-medium">
                     "{testimonial.content}"
                   </p>
                   <div className="flex items-center space-x-4">
@@ -98,8 +96,8 @@ const TestimonialsCarousel = () => {
                       <span className="text-white font-bold text-sm sm:text-base">{testimonial.avatar}</span>
                     </div>
                     <div>
-                      <div className="font-bold text-blue-900 text-base sm:text-lg">{testimonial.name}</div>
-                      <div className="text-slate-500 text-sm sm:text-base">{testimonial.role}</div>
+                      <div className="font-bold text-gray-900 text-base sm:text-lg">{testimonial.name}</div>
+                      <div className="text-gray-600 text-sm sm:text-base">{testimonial.role}</div>
                     </div>
                   </div>
                 </CardContent>
@@ -109,26 +107,26 @@ const TestimonialsCarousel = () => {
         </div>
       </div>
 
-      {/* Navigation arrows with fade on hover */}
+      {/* Navigation arrows */}
       <Button
         variant="ghost"
         size="sm"
-        className="absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 bg-white/90 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-70 hover:opacity-100 w-10 h-10 sm:w-12 sm:h-12"
+        className="absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 bg-white/95 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-80 hover:opacity-100 w-10 h-10 sm:w-12 sm:h-12"
         onClick={prevTestimonial}
       >
-        <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+        <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700" />
       </Button>
       
       <Button
         variant="ghost"
         size="sm"
-        className="absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 bg-white/90 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-70 hover:opacity-100 w-10 h-10 sm:w-12 sm:h-12"
+        className="absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 bg-white/95 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-80 hover:opacity-100 w-10 h-10 sm:w-12 sm:h-12"
         onClick={nextTestimonial}
       >
-        <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+        <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700" />
       </Button>
 
-      {/* Dots indicator with enhanced styling */}
+      {/* Dots indicator */}
       <div className="flex justify-center mt-6 sm:mt-8 space-x-2">
         {testimonials.map((_, index) => (
           <button
