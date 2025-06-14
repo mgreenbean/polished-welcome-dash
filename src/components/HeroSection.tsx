@@ -37,8 +37,8 @@ const HeroSection = () => {
                 <span className="block mb-2">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
-                  <span className="text-emerald-400 glow-text inline-block w-64 text-center">
-                    <span key={currentTicketType} className="animate-slide-fade-in">
+                  <span className="text-emerald-400 glow-text relative inline-block min-w-[16rem]">
+                    <span key={currentTicketType} className="animate-slide-fade-in absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">
                       {ticketTypes[currentTicketType]}
                     </span>
                   </span>
