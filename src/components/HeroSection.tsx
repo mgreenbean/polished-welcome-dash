@@ -1,4 +1,5 @@
 
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -8,11 +9,16 @@ import InteractivePortfolio from "./InteractivePortfolio";
 const HeroSection = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [currentTicketType, setCurrentTicketType] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const ticketTypes = ["Concert", "Sports", "Festival", "Theater"];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTicketType(prev => (prev + 1) % ticketTypes.length);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentTicketType(prev => (prev + 1) % ticketTypes.length);
+        setIsTransitioning(false);
+      }, 300);
     }, 2500);
     return () => clearInterval(interval);
   }, [ticketTypes.length]);
@@ -38,7 +44,14 @@ const HeroSection = () => {
                 <span className="block mb-4">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
-                  <span className="text-emerald-300 font-bold inline-block transition-all duration-700 ease-in-out opacity-100 transform translate-y-0 animate-smooth-word-transition">
+                  <span 
+                    className={`text-emerald-300 font-semibold inline-block transition-all duration-300 ease-in-out ${
+                      isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
+                    }`}
+                    style={{
+                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
+                    }}
+                  >
                     {ticketTypes[currentTicketType]}
                   </span>
                   {" "}Tickets.
@@ -114,3 +127,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
