@@ -6,12 +6,21 @@ const useScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    console.log('Route changed to:', pathname, 'Scrolling to top');
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
   }, [pathname]);
 
   useEffect(() => {
-    // Scroll to top on page refresh
-    window.scrollTo(0, 0);
+    console.log('Component mounted, scrolling to top');
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
   }, []);
 };
 
