@@ -39,8 +39,8 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-fade-in space-y-8 sm:space-y-10">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.3] tracking-tight">
-                <span className="block mb-4">Can't make the event?</span>
+              <h1 className="text-[clamp(2rem,5.5vw,4.25rem)] sm:text-[clamp(2.5rem,6vw,4.75rem)] lg:text-[clamp(3rem,6.5vw,5.5rem)] xl:text-[clamp(3.5rem,7vw,6.75rem)] font-bold leading-[1.2] tracking-tight">
+                <span className="block mb-3">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
                   <span 
