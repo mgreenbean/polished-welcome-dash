@@ -1,5 +1,4 @@
 
-import { Check, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -73,16 +72,10 @@ const ComparisonSection = () => {
                   {comparison.feature}
                 </div>
                 <div className="p-3 sm:p-4 bg-emerald-50/50 border-b md:border-b-0 md:border-r border-slate-200">
-                  <div className="flex items-center space-x-2 sm:space-x-3">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 flex-shrink-0" />
-                    <span className="text-slate-800 font-medium text-sm sm:text-base">{comparison.sellMySeats}</span>
-                  </div>
+                  <span className="text-slate-800 font-medium text-sm sm:text-base">{comparison.sellMySeats}</span>
                 </div>
                 <div className="p-3 sm:p-4">
-                  <div className="flex items-center space-x-2 sm:space-x-3">
-                    <X className="h-4 w-4 sm:h-5 sm:w-5 text-red-500 flex-shrink-0" />
-                    <span className="text-slate-600 text-sm sm:text-base">{comparison.traditional}</span>
-                  </div>
+                  <span className="text-slate-600 text-sm sm:text-base">{comparison.traditional}</span>
                 </div>
               </div>
             ))}
