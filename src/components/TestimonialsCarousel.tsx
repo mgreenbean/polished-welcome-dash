@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const testimonials = [
     {
@@ -45,14 +46,16 @@ const TestimonialsCarousel = () => {
     }
   ];
 
-  // Auto-advance every 20 seconds
+  // Auto-advance every 7 seconds, pause on hover
   useEffect(() => {
+    if (isHovered) return;
+    
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 20000);
+    }, 7000);
 
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [testimonials.length, isHovered]);
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -63,29 +66,40 @@ const TestimonialsCarousel = () => {
   };
 
   return (
-    <div className="relative max-w-4xl mx-auto">
-      <div className="overflow-hidden">
+    <div 
+      className="relative max-w-4xl mx-auto"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="overflow-hidden px-4 sm:px-0">
         <div 
-          className="flex transition-transform duration-500 ease-in-out"
+          className="flex transition-all duration-700 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="w-full flex-shrink-0 px-4">
-              <Card className="hover:shadow-xl transition-all duration-300 border-blue-100 bg-white/80 backdrop-blur-sm">
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-4">
+            <div 
+              key={index} 
+              className={`w-full flex-shrink-0 px-2 sm:px-4 transition-opacity duration-700 ${
+                index === currentIndex ? 'opacity-100' : 'opacity-90'
+              }`}
+            >
+              <Card className="hover:shadow-xl transition-all duration-300 border border-blue-100 bg-white/90 backdrop-blur-sm shadow-lg hover:shadow-2xl hover:-translate-y-1 animate-fade-in">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-center mb-4 sm:mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 text-amber-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-slate-600 mb-6 leading-relaxed text-lg">"{testimonial.content}"</p>
+                  <p className="text-slate-700 mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg font-medium">
+                    "{testimonial.content}"
+                  </p>
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                      <span className="text-white font-semibold">{testimonial.avatar}</span>
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-white font-bold text-sm sm:text-base">{testimonial.avatar}</span>
                     </div>
                     <div>
-                      <div className="font-semibold text-blue-900 text-lg">{testimonial.name}</div>
-                      <div className="text-slate-500">{testimonial.role}</div>
+                      <div className="font-bold text-blue-900 text-base sm:text-lg">{testimonial.name}</div>
+                      <div className="text-slate-500 text-sm sm:text-base">{testimonial.role}</div>
                     </div>
                   </div>
                 </CardContent>
@@ -95,32 +109,34 @@ const TestimonialsCarousel = () => {
         </div>
       </div>
 
-      {/* Navigation arrows */}
+      {/* Navigation arrows with fade on hover */}
       <Button
         variant="ghost"
         size="sm"
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/80 hover:bg-white shadow-lg"
+        className="absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 bg-white/90 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-70 hover:opacity-100 w-10 h-10 sm:w-12 sm:h-12"
         onClick={prevTestimonial}
       >
-        <ChevronLeft className="h-4 w-4" />
+        <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
       </Button>
       
       <Button
         variant="ghost"
         size="sm"
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/80 hover:bg-white shadow-lg"
+        className="absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 bg-white/90 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-70 hover:opacity-100 w-10 h-10 sm:w-12 sm:h-12"
         onClick={nextTestimonial}
       >
-        <ChevronRight className="h-4 w-4" />
+        <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
       </Button>
 
-      {/* Dots indicator */}
-      <div className="flex justify-center mt-8 space-x-2">
+      {/* Dots indicator with enhanced styling */}
+      <div className="flex justify-center mt-6 sm:mt-8 space-x-2">
         {testimonials.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-200 ${
-              index === currentIndex ? 'bg-blue-600' : 'bg-blue-200 hover:bg-blue-300'
+            className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? 'bg-blue-600 scale-125 shadow-lg' 
+                : 'bg-blue-200 hover:bg-blue-300 hover:scale-110'
             }`}
             onClick={() => setCurrentIndex(index)}
           />
