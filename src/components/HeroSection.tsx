@@ -7,7 +7,7 @@ import InteractivePortfolio from "./InteractivePortfolio";
 const HeroSection = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [currentTicketType, setCurrentTicketType] = useState(0);
-  const ticketTypes = ["Concert Tickets", "Sports Tickets", "Extra Tickets", "Yankees Tickets", "MSG Tickets", "US Open Tickets"];
+  const ticketTypes = ["Concert", "Sports", "Extra", "Yankees", "MSG", "US Open"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,11 +37,12 @@ const HeroSection = () => {
                 <span className="block mb-2">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
-                  <span className="text-emerald-400 glow-text inline-block min-w-[280px] text-left">
+                  <span className="text-emerald-400 glow-text inline-block min-w-[200px] text-left">
                     <span key={currentTicketType} className="animate-slide-fade-in">
                       {ticketTypes[currentTicketType]}
                     </span>
                   </span>
+                  {" "}Tickets
                 </span>
               </h1>
               <p className="text-xl sm:text-2xl text-blue-100 leading-relaxed max-w-2xl">
