@@ -84,10 +84,8 @@ const ComparisonSection = () => {
 
         {/* Updated CTA Section */}
         <div className="text-center mt-8 sm:mt-10">
-          <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3">Ready to stop stressing over ticket sales?</h3>
-          <p className="text-slate-600 mb-6 text-lg">We'll get your tickets listed, priced, and sold — no work required.</p>
           <a href="/register" className="inline-flex items-center px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg">
-            Get Started — It's Free
+            Get Started
           </a>
         </div>
 
