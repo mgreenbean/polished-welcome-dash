@@ -84,8 +84,8 @@ const ComparisonSection = () => {
           </CardContent>
         </Card>
 
-        {/* Bottom CTA with proper spacing */}
-        <div className="text-center mt-12 mb-20">
+        {/* CTA Buttons - positioned together */}
+        <div className="text-center mt-12 space-y-6">
           <Button 
             size="lg" 
             className="bg-emerald-500 hover:bg-emerald-600 text-lg px-8 py-4 hover:scale-105 transition-all duration-200 text-white font-semibold shadow-lg"
@@ -93,13 +93,12 @@ const ComparisonSection = () => {
           >
             Start Selling Your Tickets Today
           </Button>
-        </div>
-
-        {/* Learn More button */}
-        <div className="flex justify-center">
-          <Button variant="ghost" size="lg" onClick={scrollToHowItWorks} className="bg-white/60 backdrop-blur-md border-2 border-blue-400/50 text-slate-700 hover:bg-white/80 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg">
-            How It Works
-          </Button>
+          
+          <div>
+            <Button variant="ghost" size="lg" onClick={scrollToHowItWorks} className="bg-white/60 backdrop-blur-md border-2 border-blue-400/50 text-slate-700 hover:bg-white/80 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg">
+              How It Works
+            </Button>
+          </div>
         </div>
       </div>
     </section>
