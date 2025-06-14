@@ -7,7 +7,7 @@ import InteractivePortfolio from "./InteractivePortfolio";
 const HeroSection = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [currentTicketType, setCurrentTicketType] = useState(0);
-  const ticketTypes = ["Concert", "Sports", "Extra", "Yankees", "MSG", "US Open"];
+  const ticketTypes = ["Concert", "Sports", "Event", "Yankees", "Theater", "Festival"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -42,7 +42,7 @@ const HeroSection = () => {
                       {ticketTypes[currentTicketType]}
                     </span>
                   </span>
-                  {" "}Tickets
+                  {" "}Tickets.
                 </span>
               </h1>
               <p className="text-xl sm:text-2xl text-blue-100 leading-relaxed max-w-2xl">
