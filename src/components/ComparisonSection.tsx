@@ -6,29 +6,29 @@ import { Button } from "@/components/ui/button";
 const ComparisonSection = () => {
   const comparisons = [
     {
-      feature: "Listing complexity",
-      sellMySeats: "Three simple steps to list on all major markets",
-      traditional: "Multiple platforms, multiple listings"
+      feature: "Ticket Listing Process",
+      sellMySeats: "One simple form. We do the rest.",
+      traditional: "Separate listings on each site"
     },
     {
-      feature: "Platform management",
-      sellMySeats: "We handle everything",
-      traditional: "You manage each site separately"
+      feature: "Account Management",
+      sellMySeats: "We handle pricing, platforms, transfers, and support.",
+      traditional: "You handle pricing, delivery, and support"
     },
     {
-      feature: "Listing fees",
-      sellMySeats: "No upfront costs, lowest fee among sites",
-      traditional: "High fees on each platform"
+      feature: "Upfront Costs",
+      sellMySeats: "Free to list. No hidden fees.",
+      traditional: "Upfront or hidden listing fees"
     },
     {
-      feature: "Commission",
-      sellMySeats: "10% only when sold",
-      traditional: "10-15% + listing fees"
+      feature: "Sales Commission",
+      sellMySeats: "10% only after your ticket sells.",
+      traditional: "10–15% plus fees"
     },
     {
-      feature: "Customer support",
-      sellMySeats: "24/7 United States based dedicated support",
-      traditional: "Limited or no support"
+      feature: "Customer Support",
+      sellMySeats: "Real support, 24/7. No bots. No runaround.",
+      traditional: "Slow or no help when you need it"
     }
   ];
 
@@ -91,9 +91,8 @@ const ComparisonSection = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-6 sm:mt-8">
-          <p className="text-slate-600 mb-4">Ready to sell your tickets the easy way?</p>
           <a href="/register" className="inline-flex items-center px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg">
-            Get Started Now
+            Get Started
           </a>
         </div>
 
