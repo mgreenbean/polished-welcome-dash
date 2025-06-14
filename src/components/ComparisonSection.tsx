@@ -101,7 +101,7 @@ const ComparisonSection = () => {
         <div className="flex justify-center mt-16">
           <Button variant="ghost" size="lg" onClick={scrollToHowItWorks} className="bg-white/60 backdrop-blur-md border-2 border-blue-400/50 text-slate-700 hover:bg-white/80 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg">
             How It Works
-          </a>
+          </Button>
         </div>
       </div>
     </section>
