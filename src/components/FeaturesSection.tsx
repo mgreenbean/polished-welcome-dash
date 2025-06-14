@@ -76,12 +76,12 @@ const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* View Pricing button with proper spacing and consistent styling */}
+        {/* View Pricing button with updated styling */}
         <div className="flex justify-center mt-16 sm:mt-20">
           <Button 
             size="lg" 
             onClick={scrollToPricing} 
-            className="bg-emerald-500 hover:bg-emerald-600 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 text-white font-semibold shadow-lg hover:shadow-2xl rounded-full glow-button"
+            className="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white hover:bg-white/20 text-lg px-12 py-4 hover:scale-105 transition-all duration-300 font-semibold shadow-lg hover:shadow-2xl rounded-full"
           >
             View Pricing
           </Button>
