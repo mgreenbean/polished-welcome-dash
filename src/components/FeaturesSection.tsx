@@ -42,14 +42,18 @@ const FeaturesSection = () => {
 
   return (
     <section id="features" className="py-16 sm:py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
-      {/* Background decorative elements */}
+      {/* Enhanced background decorative elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
       <div className="absolute top-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-900/20 rounded-full blur-3xl"></div>
       
+      {/* Additional spotlight effects for modern layering */}
+      <div className="absolute top-1/3 left-1/4 w-32 h-32 sm:w-48 sm:h-48 bg-white/5 rounded-full blur-2xl"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-40 h-40 sm:w-56 sm:h-56 bg-emerald-400/10 rounded-full blur-2xl"></div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16 sm:mb-20 scroll-reveal">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8 sm:mb-10">More Features</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-10 sm:mb-12">More Features</h2>
           <p className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
             Powerful features designed to maximize your ticket selling success.
           </p>
@@ -59,25 +63,26 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-white/10 backdrop-blur-sm border-white/20 shadow-lg hover:bg-white/15 opacity-0 translate-y-8 animate-fade-up"
+              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white/10 backdrop-blur-sm border-white/20 shadow-xl hover:bg-white/15 opacity-0 translate-y-8 animate-fade-up hover:scale-[1.02]"
               style={{
-                animationDelay: `${0.2 + index * 0.1}s`,
+                animationDelay: `${0.2 + index * 0.15}s`,
                 animationFillMode: 'forwards'
               }}
             >
-              <CardContent className="p-8 text-center">
-                <div className={`w-14 h-14 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300`}>
-                  <feature.icon className="h-7 w-7 text-white group-hover:scale-110 transition-transform duration-300" />
+              <CardContent className="p-8 sm:p-10 text-center">
+                {/* Enhanced icon container with depth and glow */}
+                <div className={`w-16 h-16 sm:w-18 sm:h-18 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:shadow-3xl group-hover:scale-110 transition-all duration-300 border-2 border-white/10`}>
+                  <feature.icon className="h-8 w-8 sm:h-9 sm:w-9 text-white group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-white mb-4">{feature.title}</h3>
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-5 sm:mb-6">{feature.title}</h3>
                 <p className="text-blue-100 leading-relaxed text-sm sm:text-base">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* View Pricing button with updated styling */}
-        <div className="flex justify-center mt-16 sm:mt-20">
+        {/* View Pricing button with increased spacing */}
+        <div className="flex justify-center mt-20 sm:mt-24">
           <Button 
             size="lg" 
             onClick={scrollToPricing} 
