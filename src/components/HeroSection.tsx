@@ -34,12 +34,12 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-fade-in space-y-8 sm:space-y-10">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
-                <span className="block mb-2">Can't make the event?</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.2] tracking-tight">
+                <span className="block mb-4">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
-                  <span className="text-emerald-400 glow-text inline relative">
-                    <span key={currentTicketType} className="animate-slide-fade-in">
+                  <span className="text-emerald-400 glow-text relative inline-block min-w-[280px] sm:min-w-[320px] lg:min-w-[380px]">
+                    <span key={currentTicketType} className="animate-slide-fade-in absolute left-0 top-0 whitespace-nowrap">
                       {ticketTypes[currentTicketType]}
                     </span>
                   </span>
