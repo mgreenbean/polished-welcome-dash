@@ -64,18 +64,6 @@ const HeroSection = () => {
                   Already a user? Login
                 </Link>
               </div>
-              <div className="mt-8 flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-8 text-base text-blue-100">
-                <div className="flex items-center space-x-6">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-emerald-400 text-lg">✓</span>
-                    <span className="font-medium">No listing fees</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-emerald-400 text-lg">✓</span>
-                    <span className="font-medium">24/7 support</span>
-                  </div>
-                </div>
-              </div>
             </div>
             
             <div className="relative mt-12 lg:mt-0 flex justify-center">
