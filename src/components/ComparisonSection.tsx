@@ -1,33 +1,34 @@
 
+import { Check, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const ComparisonSection = () => {
   const comparisons = [
     {
-      feature: "Listing",
-      sellMySeats: "One simple form. We do the rest.",
-      traditional: "Separate listings on each site"
+      feature: "Listing complexity",
+      sellMySeats: "Three simple steps to list on all major markets",
+      traditional: "Multiple platforms, multiple listings"
     },
     {
-      feature: "Management",
-      sellMySeats: "We handle pricing, platforms, transfers, and support.",
-      traditional: "You handle pricing, delivery, and support"
+      feature: "Platform management",
+      sellMySeats: "We handle everything",
+      traditional: "You manage each site separately"
     },
     {
-      feature: "Cost to List",
-      sellMySeats: "Free to list. No hidden fees.",
-      traditional: "Upfront or hidden listing fees"
+      feature: "Listing fees",
+      sellMySeats: "No upfront costs, lowest fee among sites",
+      traditional: "High fees on each platform"
     },
     {
       feature: "Commission",
-      sellMySeats: "10% only after your ticket sells.",
-      traditional: "10–15% plus fees"
+      sellMySeats: "10% only when sold",
+      traditional: "10-15% + listing fees"
     },
     {
       feature: "Customer support",
-      sellMySeats: "Real support, 24/7. No bots. No runaround.",
-      traditional: "Slow or no help when you need it"
+      sellMySeats: "24/7 United States based dedicated support",
+      traditional: "Limited or no support"
     }
   ];
 
@@ -57,7 +58,7 @@ const ComparisonSection = () => {
               <div className="p-4 sm:p-6 text-center">
                 <h3 className="text-base sm:text-lg font-semibold opacity-90">Feature</h3>
               </div>
-              <div className="p-4 sm:p-6 text-center bg-gradient-to-r from-emerald-500/30 to-blue-500/20 border-l border-emerald-400/30">
+              <div className="p-4 sm:p-6 text-center bg-emerald-500/20 border-l border-emerald-400/30">
                 <h3 className="text-base sm:text-lg font-bold">SellMySeats</h3>
               </div>
               <div className="p-4 sm:p-6 text-center border-l border-blue-400/30">
@@ -67,25 +68,32 @@ const ComparisonSection = () => {
 
             {/* Comparison rows */}
             {comparisons.map((comparison, index) => (
-              <div key={index} className={`grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 transition-all duration-300 hover:bg-slate-100/70 ${index % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'}`}>
-                <div className="p-4 sm:p-5 font-semibold text-slate-800 border-b md:border-b-0 md:border-r border-slate-200 text-base sm:text-lg">
+              <div key={index} className={`grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 transition-all duration-300 hover:bg-slate-100/50 ${index % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'}`}>
+                <div className="p-3 sm:p-4 font-medium text-slate-700 border-b md:border-b-0 md:border-r border-slate-200 text-sm sm:text-base">
                   {comparison.feature}
                 </div>
-                <div className="p-4 sm:p-5 bg-gradient-to-r from-emerald-50/80 to-blue-50/40 border-b md:border-b-0 md:border-r border-slate-200">
-                  <span className="text-slate-800 font-medium text-sm sm:text-base">{comparison.sellMySeats}</span>
+                <div className="p-3 sm:p-4 bg-emerald-50/50 border-b md:border-b-0 md:border-r border-slate-200">
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 flex-shrink-0" />
+                    <span className="text-slate-800 font-medium text-sm sm:text-base">{comparison.sellMySeats}</span>
+                  </div>
                 </div>
-                <div className="p-4 sm:p-5">
-                  <span className="text-slate-600 text-sm sm:text-base">{comparison.traditional}</span>
+                <div className="p-3 sm:p-4">
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <X className="h-4 w-4 sm:h-5 sm:w-5 text-red-500 flex-shrink-0" />
+                    <span className="text-slate-600 text-sm sm:text-base">{comparison.traditional}</span>
+                  </div>
                 </div>
               </div>
             ))}
           </CardContent>
         </Card>
 
-        {/* Updated CTA Section */}
-        <div className="text-center mt-8 sm:mt-10">
+        {/* Bottom CTA */}
+        <div className="text-center mt-6 sm:mt-8">
+          <p className="text-slate-600 mb-4">Ready to sell your tickets the easy way?</p>
           <a href="/register" className="inline-flex items-center px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 shadow-lg">
-            Get Started
+            Get Started Now
           </a>
         </div>
 
