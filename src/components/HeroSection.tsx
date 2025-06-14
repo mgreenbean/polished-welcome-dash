@@ -38,11 +38,11 @@ const HeroSection = () => {
                 <span className="block mb-2">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
-                  <span className="text-emerald-400 glow-text inline-block transition-all duration-500 ease-in-out text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+                  <span className="text-emerald-400 glow-text inline-block transition-all duration-500 ease-in-out">
                     {ticketTypes[currentTicketType]}
                   </span>
+                  {" "}Tickets.
                 </span>
-                <span className="block mt-2">Tickets.</span>
               </h1>
               <p className="text-xl sm:text-2xl text-blue-100 leading-relaxed max-w-2xl">
                 Your tickets get maximum exposure on the biggest resale sites - all managed by us, for you.
