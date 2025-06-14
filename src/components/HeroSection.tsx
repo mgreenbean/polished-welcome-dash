@@ -54,7 +54,7 @@ const HeroSection = () => {
                   >
                     {ticketTypes[currentTicketType]}
                   </span>
-                  {" "}Tickets.
+                  <span className="text-white"> Tickets.</span>
                 </span>
               </h1>
               <p className="text-xl sm:text-2xl text-blue-100 leading-relaxed max-w-2xl mt-8 sm:mt-10">
