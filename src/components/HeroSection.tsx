@@ -35,9 +35,10 @@ const HeroSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-fade-in space-y-8 sm:space-y-10">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
-                <span className="block">Can't make the event?</span>
-                <span className="block">We'll sell your{" "}
-                  <span className="text-emerald-400 glow-text inline-block relative">
+                <span className="block mb-2">Can't make the event?</span>
+                <span className="block">
+                  We'll sell your{" "}
+                  <span className="text-emerald-400 glow-text inline relative">
                     <span key={currentTicketType} className="animate-slide-fade-in">
                       {ticketTypes[currentTicketType]}
                     </span>
