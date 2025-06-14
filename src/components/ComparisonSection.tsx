@@ -84,19 +84,15 @@ const ComparisonSection = () => {
           </CardContent>
         </Card>
 
-        {/* Bottom CTA with enhanced visibility */}
-        <div className="text-center mt-12 mb-20 relative z-10">
+        {/* Bottom CTA with proper spacing */}
+        <div className="text-center mt-12 mb-20">
           <Button 
             size="lg" 
-            className="bg-emerald-500 hover:bg-emerald-600 text-lg px-8 py-4 hover:scale-105 transition-all duration-200 text-white font-semibold shadow-lg relative z-20"
+            className="bg-emerald-500 hover:bg-emerald-600 text-lg px-8 py-4 hover:scale-105 transition-all duration-200 text-white font-semibold shadow-lg"
             onClick={() => window.location.href = '/register'}
           >
             Start Selling Your Tickets Today
           </Button>
-          {/* Debug indicator */}
-          <div className="mt-4 text-sm text-slate-500">
-            CTA Button should be visible above this text
-          </div>
         </div>
 
         {/* Learn More button */}
