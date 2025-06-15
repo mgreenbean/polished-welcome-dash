@@ -71,11 +71,6 @@ const HeroSection = () => {
                   <Play className="ml-2 h-5 w-5" />
                 </Button>
               </div>
-              <div className="mt-8">
-                <Link to="/login" className="text-white/90 hover:text-white underline text-base font-medium">
-                  Already a user? Login
-                </Link>
-              </div>
             </div>
             
             <div className="relative mt-12 lg:mt-0 flex justify-center">
