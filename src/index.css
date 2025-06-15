@@ -332,3 +332,8 @@
   transform: none !important;
   animation: splash-footer-in 1.05s cubic-bezier(0.4,0,0.2,1.1) 0s 1 both;
 }
+
+/* Force in-section-view to at least show (fallback for accidental hiding) */
+.in-section-view {
+  opacity: 1 !important;
+}
