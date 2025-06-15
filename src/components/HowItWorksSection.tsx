@@ -47,13 +47,6 @@ const HowItWorksSection = () => {
         <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-10 lg:gap-12">
           {steps.map((step, index) => (
             <div key={index} className="flex items-center w-full">
-              {/* Step Number on the left */}
-              <div className="flex-shrink-0 mr-6 md:mr-8">
-                <div className="w-16 h-16 sm:w-18 sm:h-18 bg-emerald-500 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300">
-                  <span className="text-white font-bold text-2xl sm:text-3xl">{step.step}</span>
-                </div>
-              </div>
-
               {/* Card */}
               <Card 
                 className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-emerald-100 bg-white/90 backdrop-blur-sm scroll-reveal hover:bg-emerald-50/30 shadow-lg opacity-0 translate-y-8 animate-fade-up flex-1"
@@ -64,8 +57,11 @@ const HowItWorksSection = () => {
               >
                 <CardContent className="p-8 sm:p-10 text-center">
                   <div className="mb-8">
-                    <div className="w-16 h-16 sm:w-18 sm:h-18 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300">
+                    <div className="w-16 h-16 sm:w-18 sm:h-18 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300 relative">
                       <step.icon className="h-8 w-8 sm:h-9 sm:w-9 text-white group-hover:scale-110 transition-transform duration-300" />
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+                        <span className="text-emerald-500 font-bold text-lg">{step.step}</span>
+                      </div>
                     </div>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-5 text-slate-900">{step.title}</h3>
