@@ -49,9 +49,7 @@ const Register = () => {
             </div>
           </div>
           <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-900 to-emerald-700 bg-clip-text text-transparent mb-2">Get Started</CardTitle>
-          <p className="text-slate-600 text-lg">Create your account to start selling</p>
-          {/* Added promo sentence */}
-          <p className="mt-6 mb-0 text-base font-semibold text-emerald-700 bg-gradient-to-r from-blue-400/10 to-emerald-300/10 rounded px-2 py-2">
+          <p className="text-lg font-semibold bg-gradient-to-r from-blue-700 via-emerald-600 to-blue-400 bg-clip-text text-transparent mt-2 mb-6">
             Join thousands of customers who trust us to sell their tickets quickly and securely.
           </p>
         </CardHeader>
