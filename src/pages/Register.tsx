@@ -42,8 +42,8 @@ const Register = () => {
         <div className="absolute -bottom-40 -left-32 w-60 h-60 bg-gradient-to-tr from-blue-400/25 to-emerald-400/25 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-gradient-to-r from-blue-300/30 to-emerald-300/30 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
-      <Card className="w-full max-w-md shadow-2xl backdrop-blur-sm bg-white/95 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500">
-        <CardHeader className="text-center pb-4 pt-4">
+      <Card className="w-full max-w-xl shadow-2xl backdrop-blur-sm bg-white/95 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500">
+        <CardHeader className="text-center pb-4 pt-6">
           <div className="flex items-center justify-center space-x-2 mb-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-emerald-500 rounded-xl flex items-center justify-center shadow-md relative">
               <span className="text-white font-bold text-sm">SMS</span>
@@ -61,9 +61,9 @@ const Register = () => {
             Join thousands of customers who trust us to sell their tickets quickly and securely.
           </p>
         </CardHeader>
-        <CardContent className="space-y-4 px-4 pb-4">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-2 gap-2">
+        <CardContent className="space-y-6 px-6 pb-4 pt-2">
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1">
                 <Label htmlFor="firstName" className="text-slate-700 font-medium">First Name</Label>
                 <Input
@@ -113,29 +113,31 @@ const Register = () => {
                 className="h-10 px-3 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 text-sm"
               />
             </div>
-            <div className="space-y-1">
-              <Label htmlFor="password" className="text-slate-700 font-medium">Password</Label>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Create a strong password"
-                required
-                className="h-10 px-3 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 text-sm"
-              />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="confirmPassword" className="text-slate-700 font-medium">Confirm Password</Label>
-              <Input
-                id="confirmPassword"
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Confirm your password"
-                required
-                className="h-10 px-3 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 text-sm"
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-1">
+                <Label htmlFor="password" className="text-slate-700 font-medium">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Create a strong password"
+                  required
+                  className="h-10 px-3 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 text-sm"
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="confirmPassword" className="text-slate-700 font-medium">Confirm Password</Label>
+                <Input
+                  id="confirmPassword"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="Confirm your password"
+                  required
+                  className="h-10 px-3 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 text-sm"
+                />
+              </div>
             </div>
             {error && (
               <Alert variant="destructive" className="bg-red-50 border-red-200 py-2">
