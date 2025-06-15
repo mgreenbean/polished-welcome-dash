@@ -2,8 +2,29 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, CheckCircle, DollarSign, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import React, { useEffect, useRef } from "react";
 
 const HowItWorksSection = () => {
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const node = cardsRef.current;
+    if (!node) return;
+
+    const onIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          node.classList.add("slide-in-ltr-active");
+        }
+      });
+    };
+
+    const observer = new window.IntersectionObserver(onIntersect, { threshold: 0.25 });
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
+
   const steps = [
     {
       icon: Mail,
@@ -43,8 +64,11 @@ const HowItWorksSection = () => {
             Three simple steps to get your tickets listed and get paid.
           </p>
         </div>
-
-        <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-10 lg:gap-12">
+        {/* Slide-in animation wrapper */}
+        <div
+          ref={cardsRef}
+          className="flex flex-col md:flex-row items-center gap-8 sm:gap-10 lg:gap-12 opacity-0 -translate-x-16 slide-in-ltr"
+        >
           {steps.map((step, index) => (
             <div key={index} className="flex items-center w-full">
               {/* Card - Square aspect, step number badge top-left */}
@@ -55,7 +79,6 @@ const HowItWorksSection = () => {
                   animationFillMode: 'forwards'
                 }}
               >
-                {/* Top-left step number, above icon */}
                 <div className="absolute top-3 left-3 z-10">
                   <div className="bg-emerald-500 text-white rounded-full w-9 h-9 flex items-center justify-center font-bold text-lg shadow shadow-emerald-200 border-2 border-white">
                     {step.step}
@@ -71,16 +94,15 @@ const HowItWorksSection = () => {
                   <p className="text-slate-600 leading-relaxed text-base sm:text-lg">{step.description}</p>
                 </CardContent>
               </Card>
-              {/* Arrow between cards (except after last one) */}
+              {/* Thicker and blue Arrow between cards (except after last one) */}
               {index < steps.length - 1 && (
                 <div className="hidden md:flex flex-shrink-0 ml-6 lg:ml-8">
-                  <ArrowRight className="h-10 w-10 text-emerald-400 opacity-80" />
+                  <ArrowRight className="h-12 w-12 text-blue-500 opacity-90" strokeWidth={3.5} />
                 </div>
               )}
             </div>
           ))}
         </div>
-
         {/* Our Features button with proper spacing */}
         <div className="flex justify-center mt-16 sm:mt-20">
           <Button
@@ -98,4 +120,3 @@ const HowItWorksSection = () => {
 };
 
 export default HowItWorksSection;
-
