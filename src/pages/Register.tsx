@@ -81,7 +81,7 @@ const Register = () => {
         </div>
         {/* SIGN UP FORM (RIGHT) */}
         <div className="w-full md:w-1/2 flex items-center justify-center">
-          <Card className="w-full max-w-[480px] shadow-2xl backdrop-blur-sm bg-white/95 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500 rounded-none md:rounded-r-xl md:rounded-l-none">
+          <Card className="w-full max-w-[480px] bg-white/95 border-0 animate-fade-in transition-all duration-500 rounded-none md:rounded-r-xl md:rounded-l-none">
             <CardHeader className="text-center pb-4 pt-6">
               <div className="flex items-center justify-center space-x-2 mb-3">
                 <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-md relative">
