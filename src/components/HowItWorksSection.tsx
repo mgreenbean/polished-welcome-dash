@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, CheckCircle, DollarSign, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -94,10 +93,10 @@ const HowItWorksSection = () => {
                   <p className="text-slate-600 leading-relaxed text-base sm:text-lg">{step.description}</p>
                 </CardContent>
               </Card>
-              {/* Thicker and blue Arrow between cards (except after last one) */}
+              {/* Thicker and green Arrow between cards (except after last one) */}
               {index < steps.length - 1 && (
                 <div className="hidden md:flex flex-shrink-0 ml-6 lg:ml-8">
-                  <ArrowRight className="h-12 w-12 text-blue-500 opacity-90" strokeWidth={3.5} />
+                  <ArrowRight className="h-12 w-12 text-emerald-500 opacity-90" strokeWidth={3.5} />
                 </div>
               )}
             </div>
