@@ -5,8 +5,8 @@ import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const PricingSection = () => {
-  const scrollToTestimonials = () => {
-    const element = document.getElementById('testimonials');
+  const scrollToComparison = () => {
+    const element = document.getElementById('comparison');
     if (element) {
       element.scrollIntoView({
         behavior: 'smooth'
@@ -75,15 +75,15 @@ const PricingSection = () => {
           </Card>
         </div>
 
-        {/* Success Stories button with proper spacing */}
+        {/* Why Choose Us button with proper spacing */}
         <div className="flex justify-center">
           <Button
             variant="ghost"
             size="lg"
-            onClick={scrollToTestimonials}
-            className="bg-slate-800/60 backdrop-blur-md border-2 border-slate-600/50 text-slate-200 hover:bg-slate-700/80 transition-all duration-300 hover:scale-105 px-8 py-3 rounded-full shadow-lg font-bold text-base"
+            onClick={scrollToComparison}
+            className="bg-slate-800/60 backdrop-blur-md border-2 border-emerald-500/50 text-slate-200 hover:bg-slate-700/80 transition-all duration-300 hover:scale-105 px-8 py-3 rounded-full shadow-lg font-bold text-base"
           >
-            Success Stories
+            Why Choose Us?
           </Button>
         </div>
       </div>

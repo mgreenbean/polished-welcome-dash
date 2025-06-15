@@ -22,8 +22,8 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [ticketTypes.length]);
 
-  const scrollToComparison = () => {
-    const element = document.getElementById('comparison');
+  const scrollToHowItWorks = () => {
+    const element = document.getElementById('how-it-works');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -84,7 +84,7 @@ const HeroSection = () => {
           <Button
             variant="ghost"
             size="lg"
-            onClick={scrollToComparison}
+            onClick={scrollToHowItWorks}
             className="bg-white/10 backdrop-blur-md border-2 border-emerald-400/50 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg"
             style={{
               boxShadow: '0 0 20px rgba(52, 211, 153, 0.4), 0 0 40px rgba(52, 211, 153, 0.2)',

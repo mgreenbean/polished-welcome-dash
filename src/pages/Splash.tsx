@@ -2,10 +2,10 @@
 import { useEffect } from "react";
 import SplashHeader from "@/components/SplashHeader";
 import HeroSection from "@/components/HeroSection";
-import ComparisonSection from "@/components/ComparisonSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import PricingSection from "@/components/PricingSection";
+import ComparisonSection from "@/components/ComparisonSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import SplashFooter from "@/components/SplashFooter";
 
@@ -38,9 +38,6 @@ const Splash = () => {
       <SplashHeader />
       <HeroSection />
       <div className="scroll-fade">
-        <ComparisonSection />
-      </div>
-      <div className="scroll-fade">
         <HowItWorksSection />
       </div>
       <div className="scroll-reveal">
@@ -48,6 +45,9 @@ const Splash = () => {
       </div>
       <div className="scroll-reveal">
         <PricingSection />
+      </div>
+      <div className="scroll-fade">
+        <ComparisonSection />
       </div>
       <div className="scroll-fade">
         <TestimonialsSection />
