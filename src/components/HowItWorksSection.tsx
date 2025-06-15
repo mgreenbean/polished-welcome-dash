@@ -96,7 +96,7 @@ const HowItWorksSection = () => {
               {/* Thicker and green Arrow between cards (except after last one) */}
               {index < steps.length - 1 && (
                 <div className="hidden md:flex flex-shrink-0 ml-6 lg:ml-8">
-                  <ArrowRight className="h-12 w-12 text-emerald-500 opacity-90" strokeWidth={3.5} />
+                  <ArrowRight className="h-12 w-12 text-slate-400 opacity-80" strokeWidth={2} />
                 </div>
               )}
             </div>
