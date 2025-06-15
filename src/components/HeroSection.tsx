@@ -29,8 +29,7 @@ const HeroSection = () => {
     }
   };
 
-  return (
-    <>
+  return <>
       <section className="pt-20 sm:pt-24 pb-16 sm:pb-20 min-h-screen flex items-center bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 text-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
@@ -39,14 +38,13 @@ const HeroSection = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="animate-fade-in space-y-10 sm:space-y-12">{/* increased space 10% */}
-              <h1 className="text-[2.2rem] sm:text-[2.9rem] lg:text-[3.6rem] xl:text-[4.2rem] font-bold leading-[1.22] tracking-tight">{/* +10% on sizes */}
-                <span className="block mb-6">{/* +10% mb */}{/* Can't make the event? */}</span>
-                <span className="block mb-2 text-[1.25em] sm:text-[1.35em] font-extrabold">Can't make the event?</span>
+            <div className="animate-fade-in space-y-8 sm:space-y-10">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.3] tracking-tight">
+                <span className="block mb-4">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
                   <span 
-                    className={`text-emerald-300 font-semibold inline-block transition-all duration-300 ease-in-out w-36 text-left ${
+                    className={`text-emerald-300 font-semibold inline-block transition-all duration-300 ease-in-out w-32 text-left ${
                       isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
                     }`}
                     style={{
@@ -58,27 +56,25 @@ const HeroSection = () => {
                   {" "}Tickets.
                 </span>
               </h1>
-              <p className="text-[1.32rem] sm:text-[1.6rem] text-blue-100 leading-relaxed max-w-2xl mt-10 sm:mt-12">{/* +10% size/margin */}
+              <p className="text-xl sm:text-2xl text-blue-100 leading-relaxed max-w-2xl mt-8 sm:mt-10">
                 Your tickets get maximum exposure on the biggest resale sites - all managed by us, for you.
               </p>
-              <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-7">{/* more space */}
+              <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
                 <Link to="/register">
-                  <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-xl px-10 py-5 hover:scale-105 transition-all duration-200 text-white font-semibold shadow-lg">
+                  <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-lg px-8 py-4 hover:scale-105 transition-all duration-200 text-white font-semibold shadow-lg">
                     Start Selling Now
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-xl px-10 py-5 hover:scale-105 transition-all duration-200 font-semibold" onClick={() => setShowDemoModal(true)}>
+                <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8 py-4 hover:scale-105 transition-all duration-200 font-semibold" onClick={() => setShowDemoModal(true)}>
                   Show Demo
                   <Play className="ml-2 h-5 w-5" />
                 </Button>
               </div>
             </div>
             
-            <div className="relative mt-16 lg:mt-0 flex justify-center">
-              <div style={{ transform: "scale(1.1)", transformOrigin: "center" }}>
-                <InteractivePortfolio />
-              </div>
+            <div className="relative mt-12 lg:mt-0 flex justify-center">
+              <InteractivePortfolio />
             </div>
           </div>
         </div>
@@ -89,7 +85,7 @@ const HeroSection = () => {
             variant="ghost"
             size="lg"
             onClick={scrollToHowItWorks}
-            className="bg-white/10 backdrop-blur-md border-2 border-emerald-400/50 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-xl"
+            className="bg-white/10 backdrop-blur-md border-2 border-emerald-400/50 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 px-10 py-4 rounded-full shadow-lg font-bold text-lg"
             style={{
               boxShadow: '0 0 20px rgba(52, 211, 153, 0.4), 0 0 40px rgba(52, 211, 153, 0.2)',
             }}
@@ -121,8 +117,7 @@ const HeroSection = () => {
             </div>
           </div>
         </div>}
-    </>
-  );
+    </>;
 };
 
 export default HeroSection;
