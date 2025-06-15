@@ -11,6 +11,7 @@ import SplashFooter from "@/components/SplashFooter";
 
 const Splash = () => {
   useEffect(() => {
+    // Add section-based observers for improved animation control
     const observerOptions = {
       threshold: 0.15,
       rootMargin: '0px 0px -20px 0px'
@@ -19,42 +20,49 @@ const Splash = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          entry.target.classList.add('in-section-view');
         }
       });
     }, observerOptions);
 
-    // Observe scroll-reveal elements
-    const scrollElements = document.querySelectorAll('.scroll-reveal, .scroll-fade');
-    scrollElements.forEach((el) => observer.observe(el));
+    // Collect all animated splash section wrappers EXCEPT hero
+    const splashSections = document.querySelectorAll(
+      // target the custom classes below
+      ".animate-how, .animate-features, .animate-pricing, .animate-comparison, .animate-testimonials, .animate-footer"
+    );
+    splashSections.forEach((el) => observer.observe(el));
 
     return () => {
-      scrollElements.forEach((el) => observer.unobserve(el));
+      splashSections.forEach((el) => observer.unobserve(el));
     };
   }, []);
 
   return (
     <div className="min-h-screen">
       <SplashHeader />
+      {/* HeroSection is intentionally not wrapped to remain unaffected */}
       <HeroSection />
-      <div className="scroll-fade">
+      <div className="animate-how opacity-0 transform" style={{transition: 'all 0.7s cubic-bezier(0.4,0,0.2,1)'}}>
         <HowItWorksSection />
       </div>
-      <div className="scroll-reveal">
+      <div className="animate-features opacity-0 transform" style={{transition: 'all 0.8s cubic-bezier(0.4,0,0.2,1)'}}>
         <FeaturesSection />
       </div>
-      <div className="scroll-reveal">
+      <div className="animate-pricing opacity-0 transform" style={{transition: 'all 0.8s cubic-bezier(0.4,0,0.2,1)'}}>
         <PricingSection />
       </div>
-      <div className="scroll-fade">
+      <div className="animate-comparison opacity-0 transform" style={{transition: 'all 0.8s cubic-bezier(0.4,0,0.2,1)'}}>
         <ComparisonSection />
       </div>
-      <div className="scroll-fade">
+      <div className="animate-testimonials opacity-0 transform" style={{transition: 'all 0.8s cubic-bezier(0.4,0,0.2,1)'}}>
         <TestimonialsSection />
       </div>
-      <SplashFooter />
+      <div className="animate-footer opacity-0 transform" style={{transition: 'all 0.8s cubic-bezier(0.4,0,0.2,1)'}}>
+        <SplashFooter />
+      </div>
     </div>
   );
 };
 
 export default Splash;
+
