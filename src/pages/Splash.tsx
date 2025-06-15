@@ -11,7 +11,6 @@ import SplashFooter from "@/components/SplashFooter";
 
 const Splash = () => {
   useEffect(() => {
-    // Add section-based observers for improved animation control
     const observerOptions = {
       threshold: 0.15,
       rootMargin: '0px 0px -20px 0px'
@@ -20,46 +19,57 @@ const Splash = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-section-view');
+          entry.target.classList.add('in-view');
         }
       });
     }, observerOptions);
 
-    // Collect all animated splash section wrappers EXCEPT hero
-    const splashSections = document.querySelectorAll(
-      // target the custom classes below
-      ".animate-how, .animate-features, .animate-pricing, .animate-comparison, .animate-testimonials, .animate-footer"
+    // Observe all .anim-sleek, .anim-up, .anim-scale, .anim-fade and .scroll-fade for new effects
+    const animationElements = document.querySelectorAll(
+      '.anim-sleek, .anim-up, .anim-scale, .anim-fade, .scroll-fade'
     );
-    splashSections.forEach((el) => observer.observe(el));
+    animationElements.forEach((el) => observer.observe(el));
 
     return () => {
-      splashSections.forEach((el) => observer.unobserve(el));
+      animationElements.forEach((el) => observer.unobserve(el));
     };
   }, []);
 
   return (
     <div className="min-h-screen">
       <SplashHeader />
-      {/* HeroSection is intentionally not wrapped to remain unaffected */}
-      <HeroSection />
-      <div className="animate-how opacity-0 transform" style={{transition: 'all 0.7s cubic-bezier(0.4,0,0.2,1)'}}>
+
+      {/* Hero: Fade up & scale for big impact */}
+      <section className="anim-scale">
+        <HeroSection />
+      </section>
+
+      {/* How it Works: Slide-in left to right, already has animation inside HowItWorksSection, so just fade and stagger wrapper */}
+      <section className="anim-sleek">
         <HowItWorksSection />
-      </div>
-      <div className="animate-features opacity-0 transform" style={{transition: 'all 0.8s cubic-bezier(0.4,0,0.2,1)'}}>
+      </section>
+
+      {/* Features: Animate up and scale */}
+      <section className="anim-up">
         <FeaturesSection />
-      </div>
-      <div className="animate-pricing opacity-0 transform" style={{transition: 'all 0.8s cubic-bezier(0.4,0,0.2,1)'}}>
+      </section>
+
+      {/* Pricing: Fade in gently */}
+      <section className="anim-fade">
         <PricingSection />
-      </div>
-      <div className="animate-comparison opacity-0 transform" style={{transition: 'all 0.8s cubic-bezier(0.4,0,0.2,1)'}}>
+      </section>
+
+      {/* Comparison: Fade in */}
+      <section className="scroll-fade">
         <ComparisonSection />
-      </div>
-      <div className="animate-testimonials opacity-0 transform" style={{transition: 'all 0.8s cubic-bezier(0.4,0,0.2,1)'}}>
+      </section>
+
+      {/* Testimonials: Animate up */}
+      <section className="anim-up">
         <TestimonialsSection />
-      </div>
-      <div className="animate-footer opacity-0 transform" style={{transition: 'all 0.8s cubic-bezier(0.4,0,0.2,1)'}}>
-        <SplashFooter />
-      </div>
+      </section>
+
+      <SplashFooter />
     </div>
   );
 };
