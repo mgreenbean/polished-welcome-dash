@@ -93,10 +93,10 @@ const HowItWorksSection = () => {
                   <p className="text-slate-600 leading-relaxed text-base sm:text-lg">{step.description}</p>
                 </CardContent>
               </Card>
-              {/* Thicker and green Arrow between cards (except after last one) */}
+              {/* Thinner and smaller green Arrow between cards (except after last one) */}
               {index < steps.length - 1 && (
                 <div className="hidden md:flex flex-shrink-0 ml-6 lg:ml-8">
-                  <ArrowRight className="h-12 w-12 text-emerald-500 opacity-90" strokeWidth={3.5} />
+                  <ArrowRight className="h-8 w-8 text-emerald-500 opacity-90" strokeWidth={2.5} />
                 </div>
               )}
             </div>
