@@ -42,7 +42,7 @@ const Register = () => {
         <div className="absolute -bottom-40 -left-32 w-60 h-60 bg-gradient-to-tr from-blue-400/25 to-emerald-400/25 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-gradient-to-r from-blue-300/30 to-emerald-300/30 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
-      <Card className="w-full max-w-xl shadow-2xl backdrop-blur-sm bg-white/95 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500">
+      <Card className="w-full max-w-[480px] shadow-2xl backdrop-blur-sm bg-white/95 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500">
         <CardHeader className="text-center pb-4 pt-6">
           <div className="flex items-center justify-center space-x-2 mb-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-emerald-500 rounded-xl flex items-center justify-center shadow-md relative">
@@ -57,7 +57,7 @@ const Register = () => {
           <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-900 to-emerald-700 bg-clip-text text-transparent mb-1">
             Get Started
           </CardTitle>
-          <p className="text-base font-semibold bg-gradient-to-r from-blue-700 via-emerald-600 to-blue-400 bg-clip-text text-transparent mt-1 mb-3">
+          <p className="text-base font-semibold text-slate-600 mt-1 mb-3">
             Join thousands of customers who trust us to sell their tickets quickly and securely.
           </p>
         </CardHeader>
