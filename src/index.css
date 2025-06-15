@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @tailwind base;
 @tailwind components;
@@ -63,10 +62,10 @@
 
 @layer base {
   * {
-    @apply border-border transition-colors duration-200;
+    @apply border-border;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-background text-foreground;
     font-family: "Inter", sans-serif;
   }
 }
@@ -190,17 +189,4 @@
 .animate-smooth-scale-in {
   animation: smooth-scale-in 0.8s ease-out forwards;
   animation-delay: 0.4s;
-}
-
-/* Dark mode specific enhancements */
-.dark .glow-text {
-  text-shadow: 0 0 10px rgba(96, 165, 250, 0.5), 0 0 20px rgba(96, 165, 250, 0.3), 0 0 30px rgba(96, 165, 250, 0.2);
-}
-
-.dark .glow-button {
-  box-shadow: 0 0 20px rgba(96, 165, 250, 0.4), 0 0 40px rgba(96, 165, 250, 0.2), 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-}
-
-.dark .glow-button:hover {
-  box-shadow: 0 0 30px rgba(96, 165, 250, 0.6), 0 0 60px rgba(96, 165, 250, 0.3), 0 15px 35px -5px rgba(0, 0, 0, 0.6);
 }
