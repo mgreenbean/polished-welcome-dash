@@ -6,6 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { CheckSquare } from "lucide-react";
+
+const infoPoints = [
+  "No fees or commission – you get paid the full price.",
+  "Fast Venmo, Zelle, or PayPal payouts.",
+  "White-glove transfer handled end-to-end by our team.",
+  "24/7 support and SMS updates for peace of mind.",
+];
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -20,7 +28,14 @@ const Register = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!firstName || !lastName || !email || !phone || !password || !confirmPassword) {
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !phone ||
+      !password ||
+      !confirmPassword
+    ) {
       setError("Please fill in all fields.");
       return;
     }
@@ -37,41 +52,39 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-2 relative overflow-hidden bg-gradient-to-br from-blue-200 via-white to-emerald-200">
-      {/* Animated splash-style blobs - ensure exactly as splash and login for full match */}
+      {/* Animated splash-style blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-32 w-60 h-60 bg-gradient-to-br from-emerald-400/30 to-blue-400/30 rounded-full blur-2xl animate-pulse"></div>
         <div className="absolute -bottom-40 -left-32 w-60 h-60 bg-gradient-to-tr from-blue-400/25 to-emerald-400/25 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-gradient-to-r from-blue-300/30 to-emerald-300/30 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
-      <div className="relative z-10 w-full max-w-6xl flex bg-white/0 items-stretch rounded-xl shadow-none md:shadow-2xl backdrop-blur-none md:backdrop-blur-sm border-0 animate-fade-in transition-all duration-500
-        flex-col md:flex-row
-      ">
-        {/* LEFT SECTION */}
-        <div className="hidden md:flex flex-col justify-center items-start w-1/2 p-10 bg-white/80 rounded-l-xl shadow-none">
-          <div className="max-w-md mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-700 mb-4 leading-tight">
-              Sell your tickets quick, easy, and safe.
-            </h2>
-            <p className="text-lg md:text-xl text-slate-700 font-semibold mb-6">
-              Let us handle the transfers, payouts, and customer support for you.
-            </p>
-            <ul className="space-y-3 text-base md:text-lg text-slate-600 mb-6">
-              <li>✅ No fees or commission – you get paid the full price.</li>
-              <li>✅ Fast Venmo, Zelle, or PayPal payouts.</li>
-              <li>✅ White-glove transfer handled end-to-end by our team.</li>
-              <li>✅ 24/7 support and SMS updates for peace of mind.</li>
-            </ul>
-            <div className="text-xs text-slate-400">
-              See why thousands trust SellMySeats for worry-free selling.
-            </div>
+      <div className="relative z-10 w-full max-w-6xl flex items-stretch rounded-xl shadow-none md:shadow-2xl backdrop-blur-none md:backdrop-blur-sm border-0 animate-fade-in transition-all duration-500 flex-col md:flex-row">
+        {/* LEFT INFO SECTION - transparent, no container */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-start p-6 md:p-14 lg:p-16 gap-7">
+          <h2 className="text-3xl md:text-5xl font-bold text-emerald-700 mb-4 leading-tight" style={{lineHeight: "1.1"}}>
+            Sell your tickets quick, easy, and safe.
+          </h2>
+          <p className="text-lg md:text-xl text-slate-700 font-semibold mb-2">
+            Let us handle the transfers, payouts, and customer support for you.
+          </p>
+          <ul className="space-y-4 text-base md:text-lg text-slate-700 mb-2">
+            {infoPoints.map((pt, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <CheckSquare className="min-w-6 min-h-6 text-emerald-600 mt-[3px]" strokeWidth={3} fill="#34d399" />
+                <span>{pt}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="text-xs text-slate-400 mt-2">
+            See why thousands trust SellMySeats for worry-free selling.
           </div>
         </div>
-        {/* FORM SECTION (RIGHT) */}
+        {/* SIGN UP FORM (RIGHT) */}
         <div className="w-full md:w-1/2 flex items-center justify-center">
           <Card className="w-full max-w-[480px] shadow-2xl backdrop-blur-sm bg-white/95 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500 rounded-none md:rounded-r-xl md:rounded-l-none">
             <CardHeader className="text-center pb-4 pt-6">
               <div className="flex items-center justify-center space-x-2 mb-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-emerald-500 rounded-xl flex items-center justify-center shadow-md relative">
+                <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-md relative">
                   <span className="text-white font-bold text-sm">SMS</span>
                   <div className="absolute -top-1 -right-1 w-3 h-2 bg-gradient-to-r from-amber-400 to-orange-400 rounded-sm transform rotate-12 shadow-sm"></div>
                 </div>
