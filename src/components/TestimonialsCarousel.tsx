@@ -2,13 +2,6 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-
-// Website-matching colors & card design tweaks
-const CARD_STYLE =
-  "rounded-2xl border-2 border-blue-100 bg-gradient-to-br from-white to-blue-50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1";
 
 // Testimonials data
 const testimonials = [
@@ -74,7 +67,6 @@ const TestimonialsCarousel = () => {
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  // Only store/display "First Name + Last Initial"
   function firstNameAndLastInitial(name: string) {
     const parts = name.trim().split(" ");
     if (parts.length === 1) return parts[0];
@@ -83,36 +75,41 @@ const TestimonialsCarousel = () => {
 
   return (
     <div
-      className="relative max-w-4xl mx-auto"
+      className="relative flex flex-col items-center justify-center max-w-3xl mx-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="overflow-hidden px-4 sm:px-0">
+      <div className="overflow-visible w-full px-2 sm:px-0">
         <div
           className="flex transition-all duration-700 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="w-full flex-shrink-0 px-2 sm:px-4">
-              <Card className={CARD_STYLE}>
-                <CardContent className="p-6 sm:p-8 flex flex-col h-full">
-                  <div className="flex items-center mb-3 sm:mb-4">
+            <div
+              key={index}
+              className="w-full flex-shrink-0 flex items-center px-2 sm:px-4"
+            >
+              <Card className="rounded-xl border border-blue-200 bg-white/90 shadow-lg mx-auto max-w-2xl w-full transition-all duration-300">
+                <CardContent className="p-8 flex flex-col h-full">
+                  <div className="flex items-center mb-3">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-amber-400 fill-current" />
+                      <Star key={i} className="h-5 w-5 text-amber-400 mr-1" strokeWidth={2} />
                     ))}
                   </div>
-                  <p className="text-gray-800 mb-5 sm:mb-6 leading-relaxed text-base sm:text-lg font-medium">
+                  <p className="text-slate-800 mb-7 leading-relaxed text-lg font-normal">
                     "{testimonial.content}"
                   </p>
-                  <div className="flex items-center mt-auto space-x-4">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg font-bold text-white text-sm sm:text-base">
+                  <div className="flex items-center gap-3 mt-auto">
+                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-md">
                       {testimonial.avatar}
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900 text-base sm:text-lg">
+                      <div className="font-bold text-black text-base leading-tight">
                         {firstNameAndLastInitial(testimonial.name)}
                       </div>
-                      <div className="text-gray-500 text-sm">{testimonial.location}</div>
+                      <div className="text-slate-500 text-sm leading-tight">
+                        {testimonial.location}
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -121,19 +118,19 @@ const TestimonialsCarousel = () => {
           ))}
         </div>
       </div>
-
       {/* Dots indicator only */}
-      <div className="flex justify-center mt-6 sm:mt-8 space-x-2">
+      <div className="flex justify-center mt-8 space-x-2">
         {testimonials.map((_, index) => (
           <button
             key={index}
-            className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? "bg-blue-600 scale-125 shadow-lg"
-                : "bg-blue-200 hover:bg-blue-300 hover:scale-110"
+                ? "bg-blue-500 scale-110"
+                : "bg-blue-200 hover:bg-blue-400"
             }`}
             onClick={() => setCurrentIndex(index)}
             aria-label={`Show testimonial ${index + 1}`}
+            style={{ outline: "none", border: "none" }}
           />
         ))}
       </div>
