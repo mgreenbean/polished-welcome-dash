@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 
-// Testimonials data
+// Testimonials data with varied star ratings
 const testimonials = [
   {
     name: "Sarah J.",
@@ -20,7 +20,7 @@ const testimonials = [
     role: "Sports Fan",
     content:
       "Sold my Lakers season tickets in hours, not days. The pricing suggestions helped me maximize profit while staying competitive.",
-    rating: 5,
+    rating: 4.5,
     avatar: "MC",
   },
   {
@@ -38,7 +38,7 @@ const testimonials = [
     role: "Event Reseller",
     content:
       "The platform pays for itself. I've doubled my ticket sales revenue since joining. The analytics help me price perfectly every time.",
-    rating: 5,
+    rating: 4.5,
     avatar: "DT",
   },
   {
@@ -54,18 +54,15 @@ const testimonials = [
 
 const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
-  // Auto-advance every 7 seconds, pause on hover
+  // Auto-advance every 7 seconds continuously (removed hover pause)
   useEffect(() => {
-    if (isHovered) return;
-
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 7000);
 
     return () => clearInterval(interval);
-  }, [isHovered]);
+  }, []);
 
   function firstNameAndLastInitial(name: string) {
     const parts = name.trim().split(" ");
@@ -73,12 +70,44 @@ const TestimonialsCarousel = () => {
     return `${parts[0]} ${parts[1][0]}.`;
   }
 
+  // Render stars with support for half stars
+  const renderStars = (rating: number) => {
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+
+    // Full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <Star key={i} className="h-4 w-4 text-amber-400 mr-1 fill-current" strokeWidth={2} />
+      );
+    }
+
+    // Half star
+    if (hasHalfStar) {
+      stars.push(
+        <div key="half" className="relative mr-1">
+          <Star className="h-4 w-4 text-gray-300 fill-current" strokeWidth={2} />
+          <div className="absolute inset-0 overflow-hidden w-1/2">
+            <Star className="h-4 w-4 text-amber-400 fill-current" strokeWidth={2} />
+          </div>
+        </div>
+      );
+    }
+
+    // Empty stars to make 5 total
+    const remainingStars = 5 - Math.ceil(rating);
+    for (let i = 0; i < remainingStars; i++) {
+      stars.push(
+        <Star key={`empty-${i}`} className="h-4 w-4 text-gray-300 mr-1" strokeWidth={2} />
+      );
+    }
+
+    return stars;
+  };
+
   return (
-    <div
-      className="relative flex flex-col items-center justify-center max-w-3xl mx-auto"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="relative flex flex-col items-center justify-center max-w-2xl mx-auto">
       <div className="overflow-visible w-full px-2 sm:px-0">
         <div
           className="flex transition-all duration-700 ease-in-out"
@@ -89,25 +118,23 @@ const TestimonialsCarousel = () => {
               key={index}
               className="w-full flex-shrink-0 flex items-center px-2 sm:px-4"
             >
-              <Card className="rounded-xl border border-blue-200 bg-white/90 shadow-lg mx-auto max-w-2xl w-full transition-all duration-300">
-                <CardContent className="p-8 flex flex-col h-full">
+              <Card className="rounded-xl border border-slate-200 bg-slate-50/70 shadow-sm mx-auto max-w-xl w-full transition-all duration-300">
+                <CardContent className="p-6 flex flex-col h-full">
                   <div className="flex items-center mb-3">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-amber-400 mr-1" strokeWidth={2} />
-                    ))}
+                    {renderStars(testimonial.rating)}
                   </div>
-                  <p className="text-slate-800 mb-7 leading-relaxed text-lg font-normal">
+                  <p className="text-slate-700 mb-6 leading-relaxed text-base font-normal">
                     "{testimonial.content}"
                   </p>
                   <div className="flex items-center gap-3 mt-auto">
-                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-md">
+                    <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-sm">
                       {testimonial.avatar}
                     </div>
                     <div>
-                      <div className="font-bold text-black text-base leading-tight">
+                      <div className="font-semibold text-slate-900 text-sm leading-tight">
                         {firstNameAndLastInitial(testimonial.name)}
                       </div>
-                      <div className="text-slate-500 text-sm leading-tight">
+                      <div className="text-slate-500 text-xs leading-tight">
                         {testimonial.location}
                       </div>
                     </div>
@@ -118,15 +145,15 @@ const TestimonialsCarousel = () => {
           ))}
         </div>
       </div>
-      {/* Dots indicator only */}
-      <div className="flex justify-center mt-8 space-x-2">
+      {/* Dots indicator */}
+      <div className="flex justify-center mt-6 space-x-2">
         {testimonials.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? "bg-blue-500 scale-110"
-                : "bg-blue-200 hover:bg-blue-400"
+                ? "bg-slate-400 scale-110"
+                : "bg-slate-300 hover:bg-slate-400"
             }`}
             onClick={() => setCurrentIndex(index)}
             aria-label={`Show testimonial ${index + 1}`}
@@ -139,4 +166,3 @@ const TestimonialsCarousel = () => {
 };
 
 export default TestimonialsCarousel;
-
