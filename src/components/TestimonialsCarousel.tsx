@@ -59,23 +59,9 @@ const testimonials = [
   },
 ];
 
-type Comment = {
-  name: string;
-  initials: string;
-  location: string;
-  message: string;
-};
-
 const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-
-  // Comments state
-  const [comments, setComments] = useState<Comment[]>([]);
-  const [nameInput, setNameInput] = useState("");
-  const [locationInput, setLocationInput] = useState("");
-  const [messageInput, setMessageInput] = useState("");
-  const [error, setError] = useState<string | null>(null);
 
   // Auto-advance every 7 seconds, pause on hover
   useEffect(() => {
@@ -88,50 +74,12 @@ const TestimonialsCarousel = () => {
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  // Generate initials for display
-  function getInitials(name: string) {
-    return name
-      .split(" ")
-      .map((word) => word[0]?.toUpperCase())
-      .join("")
-      .slice(0, 2);
-  }
-
   // Only store/display "First Name + Last Initial"
   function firstNameAndLastInitial(name: string) {
     const parts = name.trim().split(" ");
     if (parts.length === 1) return parts[0];
     return `${parts[0]} ${parts[1][0]}.`;
   }
-
-  // Handle comment submission
-  const handleCommentSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null);
-
-    if (!nameInput.trim() || !messageInput.trim() || !locationInput.trim()) {
-      setError("Please fill out all fields.");
-      return;
-    }
-
-    if (nameInput.length > 40 || locationInput.length > 60 || messageInput.length > 400) {
-      setError("One or more fields exceed the maximum allowed length.");
-      return;
-    }
-
-    setComments([
-      ...comments,
-      {
-        name: nameInput.trim(),
-        initials: getInitials(nameInput.trim()),
-        location: locationInput.trim(),
-        message: messageInput.trim(),
-      },
-    ]);
-    setNameInput("");
-    setLocationInput("");
-    setMessageInput("");
-  };
 
   return (
     <div
@@ -165,7 +113,6 @@ const TestimonialsCarousel = () => {
                         {firstNameAndLastInitial(testimonial.name)}
                       </div>
                       <div className="text-gray-500 text-sm">{testimonial.location}</div>
-                      {/* Role intentionally removed */}
                     </div>
                   </div>
                 </CardContent>
@@ -189,77 +136,6 @@ const TestimonialsCarousel = () => {
             aria-label={`Show testimonial ${index + 1}`}
           />
         ))}
-      </div>
-
-      {/* Comments Section */}
-      <div className="mt-14 max-w-2xl mx-auto">
-        <h3 className="text-xl sm:text-2xl font-bold text-blue-800 mb-6 text-center">Share Your Experience</h3>
-        <form
-          onSubmit={handleCommentSubmit}
-          className="bg-white/95 rounded-xl shadow-lg border border-blue-100 px-5 py-6 sm:px-8 sm:py-8 mb-8 space-y-5"
-        >
-          {error && (
-            <div className="text-red-600 text-sm font-medium mb-2 text-center">{error}</div>
-          )}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Input
-              className="sm:flex-1"
-              placeholder="Your first & last name"
-              maxLength={40}
-              value={nameInput}
-              onChange={(e) => setNameInput(e.target.value)}
-              required
-            />
-            <Input
-              className="sm:flex-1"
-              placeholder="Your city, state (e.g., Austin, TX)"
-              maxLength={60}
-              value={locationInput}
-              onChange={(e) => setLocationInput(e.target.value)}
-              required
-            />
-          </div>
-          <Textarea
-            className="min-h-[80px] text-base"
-            placeholder="What do you love about SellMySeats?"
-            maxLength={400}
-            value={messageInput}
-            onChange={(e) => setMessageInput(e.target.value)}
-            required
-          />
-          <div className="flex justify-end">
-            <Button
-              type="submit"
-              className="bg-gradient-to-r from-blue-600 to-emerald-500 hover:from-emerald-500 hover:to-blue-600 text-white px-6 py-2 rounded-lg shadow font-semibold transition-all duration-200"
-            >
-              Post Comment
-            </Button>
-          </div>
-        </form>
-
-        {/* Comments List */}
-        <div className="space-y-5">
-          {comments.length === 0 && (
-            <div className="text-center text-slate-500">No comments yet. Be the first to share your story!</div>
-          )}
-          {comments.map((comment, idx) => (
-            <div
-              key={idx}
-              className="flex gap-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-5 border border-blue-100 shadow"
-            >
-              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center font-bold text-white text-base shadow-lg flex-shrink-0">
-                {comment.initials}
-              </div>
-              <div>
-                <div className="font-semibold text-gray-900">
-                  {firstNameAndLastInitial(comment.name)}
-                  <span className="ml-2 text-slate-400 text-xs font-normal">{comment.location}</span>
-                </div>
-                <div className="text-gray-700 text-base mt-1 break-words">{comment.message}</div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
