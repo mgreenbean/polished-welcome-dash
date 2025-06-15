@@ -47,32 +47,34 @@ const HowItWorksSection = () => {
         <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-10 lg:gap-12">
           {steps.map((step, index) => (
             <div key={index} className="flex items-center w-full">
-              {/* Card */}
-              <Card 
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-emerald-100 bg-white/90 backdrop-blur-sm scroll-reveal hover:bg-emerald-50/30 shadow-lg opacity-0 translate-y-8 animate-fade-up flex-1"
+              {/* Card - Square aspect, step number badge top-left */}
+              <Card
+                className="relative group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-emerald-100 bg-white/90 backdrop-blur-sm scroll-reveal hover:bg-emerald-50/30 shadow-lg opacity-0 translate-y-8 animate-fade-up flex-1 aspect-square min-h-[330px] min-w-[230px] max-w-xs mx-auto"
                 style={{
                   animationDelay: `${0.2 + index * 0.15}s`,
                   animationFillMode: 'forwards'
                 }}
               >
-                <CardContent className="p-8 sm:p-10 text-center">
-                  <div className="mb-8">
-                    <div className="w-16 h-16 sm:w-18 sm:h-18 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300 relative">
+                {/* Top-left step number, above icon */}
+                <div className="absolute top-3 left-3 z-10">
+                  <div className="bg-emerald-500 text-white rounded-full w-9 h-9 flex items-center justify-center font-bold text-lg shadow shadow-emerald-200 border-2 border-white">
+                    {step.step}
+                  </div>
+                </div>
+                <CardContent className="p-6 sm:p-8 text-center flex flex-col items-center justify-center h-full">
+                  <div className="mb-6">
+                    <div className="w-16 h-16 sm:w-18 sm:h-18 bg-emerald-500 rounded-full flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300 relative">
                       <step.icon className="h-8 w-8 sm:h-9 sm:w-9 text-white group-hover:scale-110 transition-transform duration-300" />
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
-                        <span className="text-emerald-500 font-bold text-lg">{step.step}</span>
-                      </div>
                     </div>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-5 text-slate-900">{step.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-slate-900">{step.title}</h3>
                   <p className="text-slate-600 leading-relaxed text-base sm:text-lg">{step.description}</p>
                 </CardContent>
               </Card>
-
-              {/* Arrow between cards (except after the last one) */}
+              {/* Arrow between cards (except after last one) */}
               {index < steps.length - 1 && (
                 <div className="hidden md:flex flex-shrink-0 ml-6 lg:ml-8">
-                  <ArrowRight className="h-8 w-8 text-emerald-500 opacity-70" />
+                  <ArrowRight className="h-10 w-10 text-emerald-400 opacity-80" />
                 </div>
               )}
             </div>
@@ -96,3 +98,4 @@ const HowItWorksSection = () => {
 };
 
 export default HowItWorksSection;
+
