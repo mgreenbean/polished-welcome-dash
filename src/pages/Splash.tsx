@@ -24,55 +24,37 @@ const Splash = () => {
       });
     }, observerOptions);
 
-    // Observe all .anim-sleek, .anim-up, .anim-scale, .anim-fade and .scroll-fade for new effects
-    const animationElements = document.querySelectorAll(
-      '.anim-sleek, .anim-up, .anim-scale, .anim-fade, .scroll-fade'
-    );
-    animationElements.forEach((el) => observer.observe(el));
+    // Observe scroll-reveal elements
+    const scrollElements = document.querySelectorAll('.scroll-reveal, .scroll-fade');
+    scrollElements.forEach((el) => observer.observe(el));
 
     return () => {
-      animationElements.forEach((el) => observer.unobserve(el));
+      scrollElements.forEach((el) => observer.unobserve(el));
     };
   }, []);
 
   return (
     <div className="min-h-screen">
       <SplashHeader />
-
-      {/* Hero: Fade up & scale for big impact */}
-      <section className="anim-scale">
-        <HeroSection />
-      </section>
-
-      {/* How it Works: Slide-in left to right, already has animation inside HowItWorksSection, so just fade and stagger wrapper */}
-      <section className="anim-sleek">
+      <HeroSection />
+      <div className="scroll-fade">
         <HowItWorksSection />
-      </section>
-
-      {/* Features: Animate up and scale */}
-      <section className="anim-up">
+      </div>
+      <div className="scroll-reveal">
         <FeaturesSection />
-      </section>
-
-      {/* Pricing: Fade in gently */}
-      <section className="anim-fade">
+      </div>
+      <div className="scroll-reveal">
         <PricingSection />
-      </section>
-
-      {/* Comparison: Fade in */}
-      <section className="scroll-fade">
+      </div>
+      <div className="scroll-fade">
         <ComparisonSection />
-      </section>
-
-      {/* Testimonials: Animate up */}
-      <section className="anim-up">
+      </div>
+      <div className="scroll-fade">
         <TestimonialsSection />
-      </section>
-
+      </div>
       <SplashFooter />
     </div>
   );
 };
 
 export default Splash;
-
