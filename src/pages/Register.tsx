@@ -54,9 +54,6 @@ const Register = () => {
               <span className="text-[10px] text-blue-500 -mt-1 font-medium tracking-wider">SELL YOUR TICKETS</span>
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-900 to-emerald-700 bg-clip-text text-transparent mb-1">
-            Get Started
-          </CardTitle>
           <p className="text-base font-semibold text-slate-600 mt-1 mb-3">
             Join thousands of customers who trust us to sell their tickets quickly and securely.
           </p>
