@@ -29,7 +29,8 @@ const HeroSection = () => {
     }
   };
 
-  return <>
+  return (
+    <>
       <section className="pt-20 sm:pt-24 pb-16 sm:pb-20 min-h-screen flex items-center bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 text-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
@@ -38,9 +39,9 @@ const HeroSection = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="animate-fade-in space-y-10 sm:space-y-12"><!-- increased space 10%-->
-              <h1 className="text-[2.2rem] sm:text-[2.9rem] lg:text-[3.6rem] xl:text-[4.2rem] font-bold leading-[1.22] tracking-tight"><!-- +10% on sizes -->
-                <span className="block mb-6"><!-- +10% mb --><!-- Can't make the event? --></span>
+            <div className="animate-fade-in space-y-10 sm:space-y-12">{/* increased space 10% */}
+              <h1 className="text-[2.2rem] sm:text-[2.9rem] lg:text-[3.6rem] xl:text-[4.2rem] font-bold leading-[1.22] tracking-tight">{/* +10% on sizes */}
+                <span className="block mb-6">{/* +10% mb */}{/* Can't make the event? */}</span>
                 <span className="block mb-2 text-[1.25em] sm:text-[1.35em] font-extrabold">Can't make the event?</span>
                 <span className="block">
                   We'll sell your{" "}
@@ -57,10 +58,10 @@ const HeroSection = () => {
                   {" "}Tickets.
                 </span>
               </h1>
-              <p className="text-[1.32rem] sm:text-[1.6rem] text-blue-100 leading-relaxed max-w-2xl mt-10 sm:mt-12"><!-- +10% size/margin -->
+              <p className="text-[1.32rem] sm:text-[1.6rem] text-blue-100 leading-relaxed max-w-2xl mt-10 sm:mt-12">{/* +10% size/margin */}
                 Your tickets get maximum exposure on the biggest resale sites - all managed by us, for you.
               </p>
-              <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-7"><!-- more space -->
+              <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-7">{/* more space */}
                 <Link to="/register">
                   <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-xl px-10 py-5 hover:scale-105 transition-all duration-200 text-white font-semibold shadow-lg">
                     Start Selling Now
@@ -120,7 +121,8 @@ const HeroSection = () => {
             </div>
           </div>
         </div>}
-    </>;
+    </>
+  );
 };
 
 export default HeroSection;
