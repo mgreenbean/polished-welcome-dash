@@ -97,7 +97,7 @@ const Login = () => {
             )}
             <Button 
               type="submit" 
-              className="w-full h-10 bg-gradient-to-r from-blue-600 to-emerald-500 hover:from-blue-700 hover:to-emerald-600 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] text-base"
+              className="w-full h-10 bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] text-base"
             >
               Sign In
             </Button>
