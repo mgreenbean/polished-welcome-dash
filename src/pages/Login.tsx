@@ -28,8 +28,14 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-emerald-100 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md shadow-2xl backdrop-blur-sm bg-white/90 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500">
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-gradient-to-br from-blue-200 via-white to-emerald-200">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-32 w-96 h-96 bg-gradient-to-br from-emerald-400/30 to-blue-400/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-32 w-96 h-96 bg-gradient-to-tr from-blue-400/25 to-emerald-400/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/3 right-1/4 w-60 h-60 bg-gradient-to-r from-blue-300/30 to-emerald-300/30 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      </div>
+      <Card className="w-full max-w-lg shadow-2xl backdrop-blur-sm bg-white/95 border-0 animate-fade-in hover:shadow-3xl transition-all duration-500">
         <CardHeader className="text-center pb-8">
           <div className="flex items-center justify-center space-x-3 mb-6">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg relative animate-bounce-once group-hover:scale-110 transition-transform duration-300">
