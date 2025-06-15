@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,14 +11,16 @@ const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!firstName || !lastName || !email || !password) {
+    if (!firstName || !lastName || !email || !phone || !password || !confirmPassword) {
       setError("Please fill in all fields.");
       return;
     }
@@ -25,12 +28,15 @@ const Register = () => {
       setError("Password must be at least 6 characters long.");
       return;
     }
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
     navigate("/dashboard");
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-gradient-to-br from-blue-200 via-white to-emerald-200">
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-32 w-96 h-96 bg-gradient-to-br from-emerald-400/30 to-blue-400/30 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute -bottom-40 -left-32 w-96 h-96 bg-gradient-to-tr from-blue-400/25 to-emerald-400/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
@@ -48,7 +54,9 @@ const Register = () => {
               <span className="text-xs text-blue-500 -mt-1 font-medium tracking-wider">SELL YOUR TICKETS</span>
             </div>
           </div>
-          <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-900 to-emerald-700 bg-clip-text text-transparent mb-2">Get Started</CardTitle>
+          <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-900 to-emerald-700 bg-clip-text text-transparent mb-2">
+            Get Started
+          </CardTitle>
           <p className="text-lg font-semibold bg-gradient-to-r from-blue-700 via-emerald-600 to-blue-400 bg-clip-text text-transparent mt-2 mb-6">
             Join thousands of customers who trust us to sell their tickets quickly and securely.
           </p>
@@ -60,6 +68,7 @@ const Register = () => {
                 <Label htmlFor="firstName" className="text-slate-700 font-medium">First Name</Label>
                 <Input
                   id="firstName"
+                  type="text"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="John"
@@ -71,6 +80,7 @@ const Register = () => {
                 <Label htmlFor="lastName" className="text-slate-700 font-medium">Last Name</Label>
                 <Input
                   id="lastName"
+                  type="text"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Doe"
@@ -83,10 +93,22 @@ const Register = () => {
               <Label htmlFor="email" className="text-slate-700 font-medium">Email</Label>
               <Input
                 id="email"
-                type="email"
+                type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="john@example.com"
+                required
+                className="h-12 px-4 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 hover:bg-white"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-slate-700 font-medium">Phone</Label>
+              <Input
+                id="phone"
+                type="text"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="(555) 123-4567"
                 required
                 className="h-12 px-4 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 hover:bg-white"
               />
@@ -99,6 +121,18 @@ const Register = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Create a strong password"
+                required
+                className="h-12 px-4 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 hover:bg-white"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword" className="text-slate-700 font-medium">Confirm Password</Label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Confirm your password"
                 required
                 className="h-12 px-4 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 hover:bg-white"
               />
