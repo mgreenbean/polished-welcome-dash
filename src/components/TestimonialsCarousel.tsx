@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 
@@ -52,17 +52,68 @@ const testimonials = [
   },
 ];
 
+// Add a clone of the first testimonial at the end for seamless looping
+const carouselTestimonials = [...testimonials, testimonials[0]];
+
+const TRANSITION_SPEED = 700; // ms, for smooth animation
+const INTERVAL_TIME = 7000;   // ms, for auto-slide
+
 const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-advance every 7 seconds continuously (removed hover pause)
+  // Auto-advance every INTERVAL_TIME seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 7000);
-
-    return () => clearInterval(interval);
+    startAutoSlide();
+    return stopAutoSlide;
   }, []);
+
+  const startAutoSlide = () => {
+    stopAutoSlide();
+
+    intervalRef.current = setInterval(() => {
+      goToNext();
+    }, INTERVAL_TIME);
+  };
+
+  const stopAutoSlide = () => {
+    if (intervalRef.current !== null) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
+  // Infinite loop logic
+  const goToNext = () => {
+    setCurrentIndex((prev) => prev + 1);
+    setIsTransitioning(true);
+  };
+
+  const goToIndex = (index: number) => {
+    setCurrentIndex(index);
+    setIsTransitioning(true);
+    startAutoSlide();
+  };
+
+  // When the carousel transitions to the cloned slide (at end), snap back to real first slide instantly
+  useEffect(() => {
+    if (!isTransitioning && currentIndex === testimonials.length) {
+      // Remove transition, go to real first (index 0)
+      setTimeout(() => {
+        setCurrentIndex(0);
+        setIsTransitioning(false);
+      }, 0);
+    }
+  }, [isTransitioning, currentIndex]);
+
+  // Listen for transitionend (for snapping instantly)
+  const handleTransitionEnd = () => {
+    if (currentIndex === testimonials.length) {
+      // End of carousel (fake slide) - disable transition & reset to real first
+      setIsTransitioning(false);
+    }
+  };
 
   function firstNameAndLastInitial(name: string) {
     const parts = name.trim().split(" ");
@@ -106,14 +157,25 @@ const TestimonialsCarousel = () => {
     return stars;
   };
 
+  // Calculate the transformX value for moving the carousel
+  const getTransformValue = () => {
+    return `translateX(-${currentIndex * 100}%)`;
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center max-w-2xl mx-auto">
       <div className="overflow-visible w-full px-2 sm:px-0">
         <div
-          className="flex transition-all duration-700 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          className="flex transition-all"
+          style={{
+            transition: isTransitioning
+              ? `transform ${TRANSITION_SPEED}ms cubic-bezier(0.5, 0, 0.5, 1)`
+              : "none",
+            transform: getTransformValue(),
+          }}
+          onTransitionEnd={handleTransitionEnd}
         >
-          {testimonials.map((testimonial, index) => (
+          {carouselTestimonials.map((testimonial, index) => (
             <div
               key={index}
               className="w-full flex-shrink-0 flex items-center px-2 sm:px-4"
@@ -151,11 +213,11 @@ const TestimonialsCarousel = () => {
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex
+              (currentIndex % testimonials.length) === index
                 ? "bg-slate-400 scale-110"
                 : "bg-slate-300 hover:bg-slate-400"
             }`}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => goToIndex(index)}
             aria-label={`Show testimonial ${index + 1}`}
             style={{ outline: "none", border: "none" }}
           />
