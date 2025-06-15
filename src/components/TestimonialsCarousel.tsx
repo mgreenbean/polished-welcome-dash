@@ -1,14 +1,14 @@
 
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Website-matching colors & card design tweaks
 const CARD_STYLE =
   "rounded-2xl border-2 border-blue-100 bg-gradient-to-br from-white to-blue-50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1";
 
-// Updated testimonials
+// Updated testimonials with role removed (roles are still in object for potential future use, but not shown)
 const testimonials = [
   {
     name: "Sarah J.",
@@ -72,14 +72,6 @@ const TestimonialsCarousel = () => {
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
     <div
       className="relative max-w-4xl mx-auto"
@@ -110,7 +102,7 @@ const TestimonialsCarousel = () => {
                     <div>
                       <div className="font-bold text-gray-900 text-base sm:text-lg">{testimonial.name}</div>
                       <div className="text-gray-500 text-sm">{testimonial.location}</div>
-                      <div className="text-gray-600 text-xs sm:text-sm">{testimonial.role}</div>
+                      {/* Role intentionally removed */}
                     </div>
                   </div>
                 </CardContent>
@@ -120,28 +112,7 @@ const TestimonialsCarousel = () => {
         </div>
       </div>
 
-      {/* Navigation arrows */}
-      <Button
-        variant="ghost"
-        size="sm"
-        className="absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 bg-white/95 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-80 hover:opacity-100 w-10 h-10 sm:w-12 sm:h-12"
-        onClick={prevTestimonial}
-        aria-label="Previous testimonial"
-      >
-        <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700" />
-      </Button>
-
-      <Button
-        variant="ghost"
-        size="sm"
-        className="absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 bg-white/95 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-80 hover:opacity-100 w-10 h-10 sm:w-12 sm:h-12"
-        onClick={nextTestimonial}
-        aria-label="Next testimonial"
-      >
-        <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700" />
-      </Button>
-
-      {/* Dots indicator */}
+      {/* Dots indicator only (arrows removed) */}
       <div className="flex justify-center mt-6 sm:mt-8 space-x-2">
         {testimonials.map((_, index) => (
           <button
