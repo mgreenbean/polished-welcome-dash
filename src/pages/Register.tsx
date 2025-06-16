@@ -69,7 +69,6 @@ const Register = () => {
           <ul className="space-y-4 text-base md:text-lg text-slate-700 mb-2">
             {infoPoints.map((pt, i) => (
               <li key={i} className="flex items-start gap-3">
-                <CheckSquare className="min-w-6 min-h-6 text-emerald-600 mt-[3px] bg-transparent" strokeWidth={2} fill="transparent" stroke="#059669" />
                 <span>{pt}</span>
               </li>
             ))}
