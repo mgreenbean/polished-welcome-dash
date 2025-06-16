@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -5,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { CheckSquare } from "lucide-react";
 
 const infoPoints = [
   "No fees or commission – you get paid the full price.",
@@ -69,6 +69,7 @@ const Register = () => {
           <ul className="space-y-4 text-base md:text-lg text-slate-700 mb-2">
             {infoPoints.map((pt, i) => (
               <li key={i} className="flex items-start gap-3">
+                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
                 <span>{pt}</span>
               </li>
             ))}
@@ -79,7 +80,7 @@ const Register = () => {
         </div>
         {/* SIGN UP FORM (RIGHT) */}
         <div className="w-full md:w-1/2 flex items-center justify-center">
-          <Card className="w-full max-w-[480px] bg-white/95 border-0 animate-fade-in transition-all duration-500 rounded-none md:rounded-r-xl md:rounded-l-none">
+          <Card className="w-full max-w-[480px] bg-transparent border-2 border-emerald-200 animate-fade-in transition-all duration-500 rounded-none md:rounded-r-xl md:rounded-l-none backdrop-blur-sm">
             <CardHeader className="text-center pb-4 pt-6">
               <div className="flex items-center justify-center space-x-2 mb-3">
                 <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-md relative">
