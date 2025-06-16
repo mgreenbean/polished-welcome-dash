@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { CheckCircle } from "lucide-react";
 
 const infoPoints = [
   "No fees or commission – you get paid the full price.",
@@ -60,7 +59,7 @@ const Register = () => {
       </div>
       
       <div className="relative z-10 w-full max-w-6xl">
-        <Card className="flex flex-col md:flex-row items-stretch rounded-xl bg-white/95 border-2 border-gray-200/80 shadow-[0_-10px_50px_-12px_rgba(0,0,0,0.2),0_10px_50px_-12px_rgba(0,0,0,0.2),0_0_0_1px_rgba(255,255,255,0.1)] backdrop-blur-sm animate-fade-in transition-all duration-500">
+        <Card className="flex flex-col md:flex-row items-stretch rounded-xl bg-white/95 border-4 border-blue-200/60 shadow-[0_0_60px_-12px_rgba(59,130,246,0.4),0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-sm animate-fade-in transition-all duration-500">
           {/* LEFT INFO SECTION */}
           <div className="w-full md:w-1/2 flex flex-col justify-center items-start p-6 md:p-14 lg:p-16 gap-7">
             <h2 className="text-3xl md:text-5xl font-bold text-blue-700 mb-4 leading-tight" style={{lineHeight: "1.1"}}>
@@ -72,7 +71,7 @@ const Register = () => {
             <ul className="space-y-4 text-base md:text-lg text-slate-700 mb-2">
               {infoPoints.map((pt, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-blue-600 font-bold mt-0.5 flex-shrink-0">−</span>
                   <span>{pt}</span>
                 </li>
               ))}
@@ -81,6 +80,10 @@ const Register = () => {
               See why thousands trust SellMySeats for worry-free selling.
             </div>
           </div>
+          
+          {/* GRADIENT SEPARATOR */}
+          <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-blue-300/60 to-transparent my-8"></div>
+          <div className="md:hidden h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent mx-8"></div>
           
           {/* SIGN UP FORM (RIGHT) */}
           <div className="w-full md:w-1/2 flex items-center justify-center p-6 md:p-8">
