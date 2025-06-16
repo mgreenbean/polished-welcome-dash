@@ -80,16 +80,16 @@ const Register = () => {
             </div>
           </div>
           
-          {/* REFINED GRADIENT SEPARATOR */}
+          {/* REFINED GRADIENT SEPARATOR - MORE VISIBLE */}
           <div className="hidden md:block relative self-stretch flex items-center justify-center px-3">
-            <div className="w-px h-full bg-gradient-to-b from-transparent via-blue-400/60 to-transparent"></div>
-            <div className="absolute w-[3px] h-full bg-gradient-to-b from-transparent via-blue-300/25 to-transparent"></div>
-            <div className="absolute w-[5px] h-full bg-gradient-to-b from-transparent via-emerald-300/15 to-transparent"></div>
+            <div className="w-0.5 h-full bg-gradient-to-b from-transparent via-blue-400/70 to-transparent"></div>
+            <div className="absolute w-[4px] h-full bg-gradient-to-b from-transparent via-blue-300/30 to-transparent"></div>
+            <div className="absolute w-[6px] h-full bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent"></div>
           </div>
           <div className="md:hidden relative w-full flex items-center justify-center py-3">
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"></div>
-            <div className="absolute h-[3px] w-full bg-gradient-to-r from-transparent via-blue-300/25 to-transparent"></div>
-            <div className="absolute h-[5px] w-full bg-gradient-to-r from-transparent via-emerald-300/15 to-transparent"></div>
+            <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
+            <div className="absolute h-[4px] w-full bg-gradient-to-r from-transparent via-blue-300/30 to-transparent"></div>
+            <div className="absolute h-[6px] w-full bg-gradient-to-r from-transparent via-emerald-300/20 to-transparent"></div>
           </div>
           
           {/* SIGN UP FORM (RIGHT) */}
