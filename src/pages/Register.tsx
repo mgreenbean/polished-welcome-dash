@@ -100,13 +100,13 @@ const Register = () => {
           
           {/* SIGN UP FORM (RIGHT) */}
           <div className="w-full md:w-1/2 flex items-center justify-center p-6 md:p-8 opacity-0 animate-slide-fade-in" style={{
-            animationDelay: '0.4s',
+            animationDelay: '0.1s',
             animationFillMode: 'forwards'
           }}>
             <div className="w-full max-w-[480px]">
               <CardHeader className="text-center pb-4 pt-6 px-0">
                 <div className="flex items-center justify-center space-x-2 mb-3 opacity-0 animate-scale-in" style={{
-                  animationDelay: '0.6s',
+                  animationDelay: '0.1s',
                   animationFillMode: 'forwards'
                 }}>
                   <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-md relative hover:scale-110 transition-transform duration-300">
@@ -119,7 +119,7 @@ const Register = () => {
                   </div>
                 </div>
                 <p className="text-base font-semibold text-slate-600 mt-1 mb-3 opacity-0 animate-fade-in" style={{
-                  animationDelay: '0.8s',
+                  animationDelay: '0.1s',
                   animationFillMode: 'forwards'
                 }}>
                   Join thousands of customers who trust us to sell their tickets quickly and securely.
@@ -129,14 +129,14 @@ const Register = () => {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1 opacity-0 animate-slide-fade-in" style={{
-                      animationDelay: '1.0s',
+                      animationDelay: '0.2s',
                       animationFillMode: 'forwards'
                     }}>
                       <Label htmlFor="firstName" className="text-slate-700 font-medium">First Name</Label>
                       <Input id="firstName" type="text" value={firstName} onChange={e => setFirstName(e.target.value)} placeholder="John" required className="h-10 px-3 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 text-sm hover:bg-white focus:scale-[1.02]" />
                     </div>
                     <div className="space-y-1 opacity-0 animate-slide-fade-in" style={{
-                      animationDelay: '1.1s',
+                      animationDelay: '0.25s',
                       animationFillMode: 'forwards'
                     }}>
                       <Label htmlFor="lastName" className="text-slate-700 font-medium">Last Name</Label>
@@ -144,14 +144,14 @@ const Register = () => {
                     </div>
                   </div>
                   <div className="space-y-1 opacity-0 animate-slide-fade-in" style={{
-                    animationDelay: '1.2s',
+                    animationDelay: '0.3s',
                     animationFillMode: 'forwards'
                   }}>
                     <Label htmlFor="email" className="text-slate-700 font-medium">Email</Label>
                     <Input id="email" type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder="john@example.com" required className="h-10 px-3 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 text-sm hover:bg-white focus:scale-[1.02]" />
                   </div>
                   <div className="space-y-1 opacity-0 animate-slide-fade-in" style={{
-                    animationDelay: '1.3s',
+                    animationDelay: '0.35s',
                     animationFillMode: 'forwards'
                   }}>
                     <Label htmlFor="phone" className="text-slate-700 font-medium">Phone</Label>
@@ -159,14 +159,14 @@ const Register = () => {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1 opacity-0 animate-slide-fade-in" style={{
-                      animationDelay: '1.4s',
+                      animationDelay: '0.4s',
                       animationFillMode: 'forwards'
                     }}>
                       <Label htmlFor="password" className="text-slate-700 font-medium">Password</Label>
                       <Input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Create a strong password" required className="h-10 px-3 bg-white/80 border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-300 text-sm hover:bg-white focus:scale-[1.02]" />
                     </div>
                     <div className="space-y-1 opacity-0 animate-slide-fade-in" style={{
-                      animationDelay: '1.5s',
+                      animationDelay: '0.45s',
                       animationFillMode: 'forwards'
                     }}>
                       <Label htmlFor="confirmPassword" className="text-slate-700 font-medium">Confirm Password</Label>
@@ -181,14 +181,14 @@ const Register = () => {
                     </Alert>
                   )}
                   <Button type="submit" className="w-full h-10 bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] text-base opacity-0 animate-fade-in hover:shadow-blue-500/25" style={{
-                    animationDelay: '1.6s',
+                    animationDelay: '0.5s',
                     animationFillMode: 'forwards'
                   }}>
                     Create Account
                   </Button>
                 </form>
                 <div className="text-center text-xs text-slate-500 mt-1 mb-2 opacity-0 animate-fade-in" style={{
-                  animationDelay: '1.7s',
+                  animationDelay: '0.55s',
                   animationFillMode: 'forwards'
                 }}>
                   Already have an account?{" "}
@@ -197,7 +197,7 @@ const Register = () => {
                   </Link>
                 </div>
                 <div className="text-center pt-1 opacity-0 animate-fade-in" style={{
-                  animationDelay: '1.8s',
+                  animationDelay: '0.6s',
                   animationFillMode: 'forwards'
                 }}>
                   <Link to="/" className="text-slate-400 hover:text-slate-700 text-xs font-medium transition-colors duration-200 inline-flex items-center hover:translate-x-1">

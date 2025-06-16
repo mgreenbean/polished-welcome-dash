@@ -38,12 +38,12 @@ const Login = () => {
       
       <Card className="w-full max-w-xl shadow-2xl backdrop-blur-sm bg-white/95 border-0 transition-all duration-700 hover:shadow-3xl hover:scale-[1.02] animate-fade-in" style={{ 
         boxShadow: '0 -4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.15)',
-        animationDelay: '0.2s',
+        animationDelay: '0.1s',
         animationFillMode: 'forwards'
       }}>
         <CardHeader className="text-center pb-4 pt-6">
           <div className="flex items-center justify-center space-x-2 mb-3 opacity-0 animate-scale-in" style={{
-            animationDelay: '0.4s',
+            animationDelay: '0.1s',
             animationFillMode: 'forwards'
           }}>
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-md relative hover:scale-110 transition-transform duration-300">
@@ -56,11 +56,11 @@ const Login = () => {
             </div>
           </div>
           <CardTitle className="text-2xl font-bold text-blue-700 mb-1 opacity-0 animate-fade-in" style={{
-            animationDelay: '0.6s',
+            animationDelay: '0.1s',
             animationFillMode: 'forwards'
           }}>Welcome Back</CardTitle>
           <p className="text-base font-semibold text-slate-600 mt-1 mb-3 opacity-0 animate-fade-in" style={{
-            animationDelay: '0.8s',
+            animationDelay: '0.1s',
             animationFillMode: 'forwards'
           }}>
             Sign in to your account
@@ -69,7 +69,7 @@ const Login = () => {
         <CardContent className="space-y-6 px-6 pb-4 pt-2">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-1 opacity-0 animate-slide-fade-in" style={{
-              animationDelay: '1.0s',
+              animationDelay: '0.2s',
               animationFillMode: 'forwards'
             }}>
               <Label htmlFor="email" className="text-slate-700 font-medium">Email</Label>
@@ -84,7 +84,7 @@ const Login = () => {
               />
             </div>
             <div className="space-y-1 opacity-0 animate-slide-fade-in" style={{
-              animationDelay: '1.2s',
+              animationDelay: '0.25s',
               animationFillMode: 'forwards'
             }}>
               <Label htmlFor="password" className="text-slate-700 font-medium">Password</Label>
@@ -118,7 +118,7 @@ const Login = () => {
             <Button 
               type="submit" 
               className="w-full h-10 bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] text-base opacity-0 animate-fade-in hover:shadow-blue-500/25" style={{
-                animationDelay: '1.4s',
+                animationDelay: '0.3s',
                 animationFillMode: 'forwards'
               }}
             >
@@ -126,7 +126,7 @@ const Login = () => {
             </Button>
           </form>
           <div className="relative my-4 opacity-0 animate-fade-in" style={{
-            animationDelay: '1.5s',
+            animationDelay: '0.35s',
             animationFillMode: 'forwards'
           }}>
             <div className="absolute inset-0 flex items-center">
@@ -137,7 +137,7 @@ const Login = () => {
             </div>
           </div>
           <div className="text-center opacity-0 animate-slide-fade-in" style={{
-            animationDelay: '1.6s',
+            animationDelay: '0.4s',
             animationFillMode: 'forwards'
           }}>
             <Link 
@@ -148,7 +148,7 @@ const Login = () => {
             </Link>
           </div>
           <div className="text-center pt-1 opacity-0 animate-fade-in" style={{
-            animationDelay: '1.7s',
+            animationDelay: '0.45s',
             animationFillMode: 'forwards'
           }}>
             <Link 
