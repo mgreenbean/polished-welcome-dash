@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -81,16 +80,16 @@ const Register = () => {
             </div>
           </div>
           
-          {/* ENHANCED GRADIENT SEPARATOR WITH MORE GIRTH */}
-          <div className="hidden md:block relative">
-            <div className="w-1 bg-gradient-to-b from-transparent via-blue-400/70 to-transparent my-8 mx-2"></div>
-            <div className="absolute inset-0 w-3 bg-gradient-to-b from-transparent via-blue-300/30 to-transparent my-8 -mx-1"></div>
-            <div className="absolute inset-0 w-5 bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent my-8 -mx-2"></div>
+          {/* REFINED GRADIENT SEPARATOR */}
+          <div className="hidden md:block relative self-stretch flex items-center justify-center px-3">
+            <div className="w-px h-full bg-gradient-to-b from-transparent via-blue-400/60 to-transparent"></div>
+            <div className="absolute w-[3px] h-full bg-gradient-to-b from-transparent via-blue-300/25 to-transparent"></div>
+            <div className="absolute w-[5px] h-full bg-gradient-to-b from-transparent via-emerald-300/15 to-transparent"></div>
           </div>
-          <div className="md:hidden relative">
-            <div className="h-1 bg-gradient-to-r from-transparent via-blue-400/70 to-transparent mx-8 my-2"></div>
-            <div className="absolute inset-0 h-3 bg-gradient-to-r from-transparent via-blue-300/30 to-transparent mx-8 -my-1"></div>
-            <div className="absolute inset-0 h-5 bg-gradient-to-r from-transparent via-emerald-300/20 to-transparent mx-8 -my-2"></div>
+          <div className="md:hidden relative w-full flex items-center justify-center py-3">
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"></div>
+            <div className="absolute h-[3px] w-full bg-gradient-to-r from-transparent via-blue-300/25 to-transparent"></div>
+            <div className="absolute h-[5px] w-full bg-gradient-to-r from-transparent via-emerald-300/15 to-transparent"></div>
           </div>
           
           {/* SIGN UP FORM (RIGHT) */}
