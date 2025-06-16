@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -43,7 +42,7 @@ const Login = () => {
               <div className="absolute -top-1 -right-1 w-3 h-2 bg-gradient-to-r from-amber-400 to-orange-400 rounded-sm transform rotate-12 shadow-sm"></div>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-900 to-emerald-700 bg-clip-text text-transparent">SellMySeats</span>
+              <span className="text-xl font-bold text-blue-900">SellMySeats</span>
               <span className="text-[10px] text-blue-500 -mt-1 font-medium tracking-wider">SELL YOUR TICKETS</span>
             </div>
           </div>
@@ -133,4 +132,3 @@ const Login = () => {
 };
 
 export default Login;
-

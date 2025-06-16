@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -61,7 +60,7 @@ const Register = () => {
       <div className="relative z-10 w-full max-w-6xl flex items-stretch rounded-xl shadow-none md:shadow-2xl backdrop-blur-none md:backdrop-blur-sm border-0 animate-fade-in transition-all duration-500 flex-col md:flex-row">
         {/* LEFT INFO SECTION - transparent, no container */}
         <div className="w-full md:w-1/2 flex flex-col justify-center items-start p-6 md:p-14 lg:p-16 gap-7">
-          <h2 className="text-3xl md:text-5xl font-bold text-emerald-700 mb-4 leading-tight" style={{lineHeight: "1.1"}}>
+          <h2 className="text-3xl md:text-5xl font-bold text-blue-700 mb-4 leading-tight" style={{lineHeight: "1.1"}}>
             Sell your tickets quick, easy, and safe.
           </h2>
           <p className="text-lg md:text-xl text-slate-700 font-semibold mb-2">
@@ -70,7 +69,7 @@ const Register = () => {
           <ul className="space-y-4 text-base md:text-lg text-slate-700 mb-2">
             {infoPoints.map((pt, i) => (
               <li key={i} className="flex items-start gap-3">
-                <CheckSquare className="min-w-6 min-h-6 text-emerald-600 mt-[3px]" strokeWidth={3} fill="#34d399" />
+                <CheckSquare className="min-w-6 min-h-6 text-emerald-600 mt-[3px] bg-transparent" strokeWidth={2} fill="transparent" stroke="#059669" />
                 <span>{pt}</span>
               </li>
             ))}
@@ -89,7 +88,7 @@ const Register = () => {
                   <div className="absolute -top-1 -right-1 w-3 h-2 bg-gradient-to-r from-amber-400 to-orange-400 rounded-sm transform rotate-12 shadow-sm"></div>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold bg-gradient-to-r from-blue-900 to-emerald-700 bg-clip-text text-transparent">SellMySeats</span>
+                  <span className="text-xl font-bold text-blue-900">SellMySeats</span>
                   <span className="text-[10px] text-blue-500 -mt-1 font-medium tracking-wider">SELL YOUR TICKETS</span>
                 </div>
               </div>
@@ -215,4 +214,3 @@ const Register = () => {
 };
 
 export default Register;
-
