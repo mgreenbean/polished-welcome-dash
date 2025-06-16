@@ -59,7 +59,10 @@ const Register = () => {
       </div>
       
       <div className="relative z-10 w-full max-w-6xl">
-        <Card className="flex flex-col md:flex-row items-stretch rounded-xl bg-white/95 border-4 border-blue-200/60 shadow-[0_0_60px_-12px_rgba(59,130,246,0.4),0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-sm animate-fade-in transition-all duration-500">
+        <Card className="flex flex-col md:flex-row items-stretch rounded-xl bg-white/95 border-4 border-gradient-to-r from-blue-400/70 via-emerald-400/70 to-blue-400/70 shadow-[0_0_60px_-12px_rgba(59,130,246,0.4),0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-sm animate-fade-in transition-all duration-500" style={{
+          background: 'linear-gradient(white, white) padding-box, linear-gradient(145deg, #60a5fa, #34d399, #60a5fa) border-box',
+          border: '4px solid transparent'
+        }}>
           {/* LEFT INFO SECTION */}
           <div className="w-full md:w-1/2 flex flex-col justify-center items-start p-6 md:p-14 lg:p-16 gap-7">
             <h2 className="text-3xl md:text-5xl font-bold text-blue-700 mb-4 leading-tight" style={{lineHeight: "1.1"}}>
@@ -81,9 +84,15 @@ const Register = () => {
             </div>
           </div>
           
-          {/* GRADIENT SEPARATOR */}
-          <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-blue-300/60 to-transparent my-8"></div>
-          <div className="md:hidden h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent mx-8"></div>
+          {/* Enhanced GRADIENT SEPARATOR */}
+          <div className="hidden md:block relative">
+            <div className="w-1 h-full bg-gradient-to-b from-blue-400/80 via-emerald-400/80 to-blue-400/80 my-8 rounded-full shadow-lg"></div>
+            <div className="absolute inset-0 w-1 bg-gradient-to-b from-blue-300/40 via-emerald-300/40 to-blue-300/40 blur-sm rounded-full"></div>
+          </div>
+          <div className="md:hidden relative mx-8">
+            <div className="h-1 bg-gradient-to-r from-blue-400/80 via-emerald-400/80 to-blue-400/80 rounded-full shadow-lg"></div>
+            <div className="absolute inset-0 h-1 bg-gradient-to-r from-blue-300/40 via-emerald-300/40 to-blue-300/40 blur-sm rounded-full"></div>
+          </div>
           
           {/* SIGN UP FORM (RIGHT) */}
           <div className="w-full md:w-1/2 flex items-center justify-center p-6 md:p-8">
