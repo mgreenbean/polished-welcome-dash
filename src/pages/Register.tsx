@@ -81,9 +81,17 @@ const Register = () => {
             </div>
           </div>
           
-          {/* GRADIENT SEPARATOR */}
-          <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-blue-300/60 to-transparent my-8"></div>
-          <div className="md:hidden h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent mx-8"></div>
+          {/* ENHANCED GRADIENT SEPARATOR WITH MORE GIRTH */}
+          <div className="hidden md:block relative">
+            <div className="w-1 bg-gradient-to-b from-transparent via-blue-400/70 to-transparent my-8 mx-2"></div>
+            <div className="absolute inset-0 w-3 bg-gradient-to-b from-transparent via-blue-300/30 to-transparent my-8 -mx-1"></div>
+            <div className="absolute inset-0 w-5 bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent my-8 -mx-2"></div>
+          </div>
+          <div className="md:hidden relative">
+            <div className="h-1 bg-gradient-to-r from-transparent via-blue-400/70 to-transparent mx-8 my-2"></div>
+            <div className="absolute inset-0 h-3 bg-gradient-to-r from-transparent via-blue-300/30 to-transparent mx-8 -my-1"></div>
+            <div className="absolute inset-0 h-5 bg-gradient-to-r from-transparent via-emerald-300/20 to-transparent mx-8 -my-2"></div>
+          </div>
           
           {/* SIGN UP FORM (RIGHT) */}
           <div className="w-full md:w-1/2 flex items-center justify-center p-6 md:p-8">
