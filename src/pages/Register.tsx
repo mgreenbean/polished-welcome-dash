@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -58,9 +57,8 @@ const Register = () => {
         <div className="absolute -bottom-40 -left-32 w-60 h-60 bg-gradient-to-tr from-blue-400/25 to-emerald-400/25 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-gradient-to-r from-blue-300/30 to-emerald-300/30 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
-      
-      <Card className="relative z-10 w-full max-w-6xl bg-white/95 border-0 animate-fade-in transition-all duration-500 rounded-xl flex flex-col md:flex-row" style={{ boxShadow: '0 -8px 24px rgba(0, 0, 0, 0.15), 0 12px 32px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1)' }}>
-        {/* LEFT INFO SECTION */}
+      <div className="relative z-10 w-full max-w-6xl flex items-stretch rounded-xl shadow-none md:shadow-2xl backdrop-blur-none md:backdrop-blur-sm border-0 animate-fade-in transition-all duration-500 flex-col md:flex-row">
+        {/* LEFT INFO SECTION - transparent, no container */}
         <div className="w-full md:w-1/2 flex flex-col justify-center items-start p-6 md:p-14 lg:p-16 gap-7">
           <h2 className="text-3xl md:text-5xl font-bold text-blue-700 mb-4 leading-tight" style={{lineHeight: "1.1"}}>
             Sell your tickets quick, easy, and safe.
@@ -71,7 +69,6 @@ const Register = () => {
           <ul className="space-y-4 text-base md:text-lg text-slate-700 mb-2">
             {infoPoints.map((pt, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2.5 flex-shrink-0"></span>
                 <span>{pt}</span>
               </li>
             ))}
@@ -80,10 +77,9 @@ const Register = () => {
             See why thousands trust SellMySeats for worry-free selling.
           </div>
         </div>
-        
         {/* SIGN UP FORM (RIGHT) */}
-        <div className="w-full md:w-1/2 flex items-center justify-center p-6">
-          <div className="w-full max-w-[480px]">
+        <div className="w-full md:w-1/2 flex items-center justify-center">
+          <Card className="w-full max-w-[480px] bg-white/95 border-0 animate-fade-in transition-all duration-500 rounded-none md:rounded-r-xl md:rounded-l-none">
             <CardHeader className="text-center pb-4 pt-6">
               <div className="flex items-center justify-center space-x-2 mb-3">
                 <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-md relative">
@@ -209,9 +205,9 @@ const Register = () => {
                 </Link>
               </div>
             </CardContent>
-          </div>
+          </Card>
         </div>
-      </Card>
+      </div>
     </div>
   );
 };
