@@ -59,7 +59,7 @@ const Register = () => {
       </div>
       
       <div className="relative z-10 w-full max-w-6xl">
-        <Card className="flex flex-col md:flex-row items-stretch rounded-xl bg-white/95 border-[6px] border-transparent bg-clip-padding shadow-[0_0_60px_-12px_rgba(59,130,246,0.4),0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-sm animate-fade-in transition-all duration-500 relative before:absolute before:inset-0 before:rounded-xl before:p-[6px] before:bg-gradient-to-r before:from-blue-500 before:via-blue-400 before:to-emerald-400 before:-z-10 before:content-['']">
+        <Card className="flex flex-col md:flex-row items-stretch rounded-xl bg-white/95 border-4 border-blue-200/60 shadow-[0_0_60px_-12px_rgba(59,130,246,0.4),0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-sm animate-fade-in transition-all duration-500">
           {/* LEFT INFO SECTION */}
           <div className="w-full md:w-1/2 flex flex-col justify-center items-start p-6 md:p-14 lg:p-16 gap-7">
             <h2 className="text-3xl md:text-5xl font-bold text-blue-700 mb-4 leading-tight" style={{lineHeight: "1.1"}}>
