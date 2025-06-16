@@ -68,7 +68,7 @@ const Dashboard = () => {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {stats.map((stat, index) => (
-            <Card key={index} className="bg-white/80 backdrop-blur-sm border-blue-200/50 shadow-lg hover:shadow-xl transition-all duration-200">
+            <Card key={index} className="bg-white/90 backdrop-blur-sm border-blue-200/50 shadow-lg hover:shadow-xl transition-all duration-200">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -88,7 +88,7 @@ const Dashboard = () => {
         {/* Recent Activity */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           <div className="lg:col-span-2">
-            <Card className="bg-white/80 backdrop-blur-sm border-blue-200/50 shadow-lg">
+            <Card className="bg-white/90 backdrop-blur-sm border-blue-200/50 shadow-lg">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl font-bold text-blue-900">Your Ticket Portfolio</CardTitle>
@@ -121,7 +121,7 @@ const Dashboard = () => {
             </Card>
           </div>
 
-          <Card className="bg-white/80 backdrop-blur-sm border-blue-200/50 shadow-lg">
+          <Card className="bg-white/90 backdrop-blur-sm border-blue-200/50 shadow-lg">
             <CardHeader>
               <CardTitle className="text-lg font-bold text-blue-900">Recent Activity</CardTitle>
             </CardHeader>

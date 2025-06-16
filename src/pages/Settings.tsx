@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -464,7 +463,7 @@ const Settings = () => {
             
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <Card className="bg-white/80 backdrop-blur-sm shadow-xl border-blue-200">
+              <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-blue-200/50">
                 <CardContent className="p-0">
                   {/* User Profile Section */}
                   <div className="p-6 border-b border-slate-200">
@@ -502,7 +501,7 @@ const Settings = () => {
 
             {/* Main Content */}
             <div className="lg:col-span-3">
-              <Card className="bg-white/80 backdrop-blur-sm shadow-xl border-blue-200">
+              <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-blue-200/50">
                 <CardContent className="p-8">
                   {message && (
                     <Alert className="mb-6 bg-green-50 border-green-200">
