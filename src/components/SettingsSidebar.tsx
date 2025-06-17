@@ -18,16 +18,16 @@ const SettingsSidebar = ({ activeTab, setActiveTab }: SettingsSidebarProps) => {
   ];
 
   return (
-    <div className="w-72 bg-white border-r border-gray-200 min-h-screen">
+    <div className="w-80 bg-white border-r border-gray-200 min-h-screen">
       {/* User Profile Section */}
       <div className="p-6 border-b border-gray-100">
         <div className="flex items-center space-x-4">
-          <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+          <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
             <span className="text-white font-bold text-lg">MG</span>
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-gray-900 text-lg">Michael Greenbaum</h3>
-            <p className="text-sm text-gray-600 break-all">greenbaumichael@gmail.com</p>
+            <h3 className="font-semibold text-gray-900 text-base truncate">Michael Greenbaum</h3>
+            <p className="text-xs text-gray-600 truncate">greenbaumichael@gmail.com</p>
           </div>
         </div>
       </div>
