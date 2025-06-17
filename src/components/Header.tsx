@@ -43,7 +43,10 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-3 hover:bg-slate-100 transition-all duration-200 bg-white border-2 border-slate-300 px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:scale-105">
+                <Button 
+                  variant="ghost" 
+                  className="flex items-center space-x-3 hover:bg-slate-100 transition-all duration-200 bg-white border-2 border-slate-300 px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:scale-105"
+                >
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
                     <User className="h-4 w-4 text-white" />
                   </div>
@@ -51,42 +54,49 @@ const Header = () => {
                   <ChevronDown className="h-4 w-4 text-slate-600" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-white shadow-xl border-2 border-slate-200 z-50">
+              <DropdownMenuContent 
+                align="end" 
+                className="w-56 bg-white shadow-xl border-2 border-slate-200 z-[9999]"
+                sideOffset={5}
+              >
                 <DropdownMenuLabel className="text-slate-700">My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50">
-                  <Link to="/dashboard" className="flex items-center">
+                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
+                  <Link to="/dashboard" className="flex items-center w-full">
                     <Settings className="mr-2 h-4 w-4" />
                     <span>Dashboard</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50">
-                  <Link to="/analytics" className="flex items-center">
+                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
+                  <Link to="/analytics" className="flex items-center w-full">
                     <Settings className="mr-2 h-4 w-4" />
                     <span>Analytics</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50">
-                  <Link to="/support" className="flex items-center">
+                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
+                  <Link to="/support" className="flex items-center w-full">
                     <Settings className="mr-2 h-4 w-4" />
                     <span>Support</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50">
-                  <Link to="/settings">
+                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
+                  <Link to="/settings" className="flex items-center w-full">
                     <Settings className="mr-2 h-4 w-4" />
                     <span>Profile Settings</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50">
-                  <Link to="/payout-settings">
+                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
+                  <Link to="/payout-settings" className="flex items-center w-full">
                     <CreditCard className="mr-2 h-4 w-4" />
                     <span>Payout Settings</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600 hover:bg-red-50">
+                <DropdownMenuItem 
+                  onClick={handleLogout} 
+                  className="cursor-pointer text-red-600 hover:bg-red-50 focus:bg-red-50"
+                >
                   <LogOut className="mr-2 h-4 w-4" />
                   <span>Log out</span>
                 </DropdownMenuItem>

@@ -35,49 +35,46 @@ const TicketPortfolioSection = () => {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
             <Input 
               placeholder="Search tickets, venues, locations..." 
-              className="pl-10 bg-gradient-to-r from-slate-50 to-blue-50 border-slate-300 focus:bg-white text-slate-800 placeholder-slate-400"
+              className="pl-10 bg-white border-slate-300 focus:bg-white text-slate-800 placeholder-slate-400"
             />
           </div>
         </div>
         <div className="grid grid-cols-3 gap-0 mt-4">
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-slate-800 px-4 py-3 rounded-l-lg flex items-center justify-center space-x-2">
+          <div className="bg-amber-50 border-2 border-amber-300 text-slate-800 px-4 py-3 rounded-l-lg flex items-center justify-center space-x-2">
             <span className="font-medium">Pending Review</span>
             <Badge className="bg-amber-100 text-amber-800 border-amber-300">1</Badge>
           </div>
-          <div className="bg-gradient-to-r from-slate-50 to-blue-50 border border-slate-300 text-slate-800 px-4 py-3 border-l-0 flex items-center justify-center space-x-2 hover:bg-slate-100 transition-all cursor-pointer">
+          <div className="bg-slate-50 border border-slate-300 text-slate-800 px-4 py-3 border-l-0 flex items-center justify-center space-x-2 hover:bg-slate-100 transition-all cursor-pointer">
             <span className="font-medium">Live Listings</span>
             <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">8</Badge>
           </div>
-          <div className="bg-gradient-to-r from-slate-50 to-blue-50 border border-slate-300 text-slate-800 px-4 py-3 rounded-r-lg border-l-0 flex items-center justify-center space-x-2 hover:bg-slate-100 transition-all cursor-pointer">
+          <div className="bg-slate-50 border border-slate-300 text-slate-800 px-4 py-3 rounded-r-lg border-l-0 flex items-center justify-center space-x-2 hover:bg-slate-100 transition-all cursor-pointer">
             <span className="font-medium">Sold Tickets</span>
             <Badge className="bg-blue-100 text-blue-800 border-blue-300">2</Badge>
           </div>
         </div>
       </CardHeader>
       <CardContent>
-        {/* Ticket styled like a real ticket with perforated edges */}
-        <div className="relative bg-white border-2 border-dashed border-amber-300 rounded-lg shadow-lg overflow-hidden">
-          {/* Perforated left edge */}
-          <div className="absolute left-0 top-0 bottom-0 w-6 bg-white">
-            <div className="flex flex-col justify-evenly h-full items-center">
-              <div className="w-3 h-3 bg-gray-200 rounded-full border border-amber-300"></div>
-              <div className="w-3 h-3 bg-gray-200 rounded-full border border-amber-300"></div>
-              <div className="w-3 h-3 bg-gray-200 rounded-full border border-amber-300"></div>
-              <div className="w-3 h-3 bg-gray-200 rounded-full border border-amber-300"></div>
-              <div className="w-3 h-3 bg-gray-200 rounded-full border border-amber-300"></div>
-            </div>
+        {/* Clean, sleek ticket design */}
+        <div className="relative bg-white border-2 border-dashed border-slate-300 rounded-lg shadow-sm overflow-hidden">
+          {/* Minimal perforated left edge */}
+          <div className="absolute left-0 top-0 bottom-0 w-4 bg-white flex flex-col justify-evenly items-center">
+            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
+            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
+            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
+            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
           </div>
           
-          <div className="ml-6 p-6">
+          <div className="ml-4 px-6 py-4">
             <div className="flex items-center justify-between">
               <div className="flex-1">
-                <div className="mb-3">
-                  <Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0 mb-3 px-3 py-1 text-xs font-bold">PENDING REVIEW</Badge>
+                <div className="mb-2">
+                  <Badge className="bg-amber-500 text-white border-0 mb-2 px-2 py-1 text-xs font-medium">PENDING REVIEW</Badge>
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">Coldplay: Music Of The Spheres World Tour</h3>
-                <div className="flex items-center space-x-1 text-emerald-600 font-medium mb-2">
+                <h3 className="text-lg font-bold text-slate-800 mb-1">Coldplay: Music Of The Spheres World Tour</h3>
+                <div className="flex items-center space-x-1 text-blue-600 font-medium mb-1">
                   <MapPin className="h-4 w-4" />
-                  <span>Rogers Stadium, Toronto, ON</span>
+                  <span className="text-sm">Rogers Stadium, Toronto, ON</span>
                 </div>
                 <div className="flex items-center space-x-1 text-sm text-slate-600">
                   <Calendar className="h-4 w-4" />
@@ -86,34 +83,34 @@ const TicketPortfolioSection = () => {
               </div>
               
               {/* Right side with ticket details */}
-              <div className="text-center border-l-2 border-dashed border-amber-300 pl-6 ml-6">
-                <div className="grid grid-cols-4 gap-6 text-center text-sm mb-6">
+              <div className="text-center border-l-2 border-dashed border-slate-300 pl-6 ml-6">
+                <div className="grid grid-cols-4 gap-4 text-center text-sm mb-4">
                   <div>
-                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide">SECTION:</p>
-                    <div className="bg-gradient-to-r from-blue-100 to-blue-200 px-2 py-1 rounded">
-                      <p className="font-bold text-slate-800 text-lg">GA21</p>
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-1">SECTION</p>
+                    <div className="bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                      <p className="font-bold text-slate-800">GA21</p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide">ROW:</p>
-                    <div className="bg-gradient-to-r from-blue-100 to-blue-200 px-2 py-1 rounded">
-                      <p className="font-bold text-slate-800 text-lg">20</p>
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-1">ROW</p>
+                    <div className="bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                      <p className="font-bold text-slate-800">20</p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide">SEATS:</p>
-                    <div className="bg-gradient-to-r from-blue-100 to-blue-200 px-2 py-1 rounded">
-                      <p className="font-bold text-slate-800 text-sm">General Admission</p>
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-1">SEATS</p>
+                    <div className="bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                      <p className="font-bold text-slate-800 text-xs">General</p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide">QUANTITY:</p>
-                    <div className="bg-gradient-to-r from-blue-100 to-blue-200 px-2 py-1 rounded">
-                      <p className="font-bold text-slate-800 text-lg">1</p>
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-1">QTY</p>
+                    <div className="bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                      <p className="font-bold text-slate-800">1</p>
                     </div>
                   </div>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 py-3">
+                <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white font-medium shadow-sm hover:shadow-md transition-all duration-200 py-2">
                   APPROVE & LIST
                 </Button>
               </div>
