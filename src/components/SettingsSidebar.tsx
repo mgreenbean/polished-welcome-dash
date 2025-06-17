@@ -9,8 +9,8 @@ interface SettingsSidebarProps {
 
 const SettingsSidebar = ({ activeTab, setActiveTab }: SettingsSidebarProps) => {
   const sidebarItems = [
-    { id: "payment", label: "Payment Portal", icon: CreditCard },
     { id: "personal", label: "Personal Information", icon: User },
+    { id: "payment", label: "Payment Portal", icon: CreditCard },
     { id: "support", label: "Support & Feedback", icon: MessageSquare },
     { id: "security", label: "Security", icon: Shield },
     { id: "notifications", label: "Notifications", icon: Bell },

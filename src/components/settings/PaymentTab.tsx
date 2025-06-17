@@ -1,9 +1,12 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Plus, Trash2, DollarSign, TrendingUp, Calendar, Award } from "lucide-react";
+
 const PaymentTab = () => {
-  return <div className="space-y-6">
+  return (
+    <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-semibold text-gray-900 mb-2">Payment Portal</h2>
         <p className="text-gray-600">Overview of your account, earnings, and payout methods</p>
@@ -72,6 +75,47 @@ const PaymentTab = () => {
         </Card>
       </div>
 
+      {/* Recent Transactions - Moved above Payout Methods */}
+      <Card>
+        <CardHeader className="pb-4">
+          <CardTitle className="flex items-center gap-2">
+            <Calendar className="h-5 w-5" />
+            Recent Transactions
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <div className="grid grid-cols-6 gap-4 text-sm font-medium text-gray-500 border-b pb-2">
+              <span>Date</span>
+              <span>Event</span>
+              <span>Sale Amount</span>
+              <span>Commission</span>
+              <span>Net Payout</span>
+              <span>Status</span>
+            </div>
+            
+            <div className="grid grid-cols-6 gap-4 text-sm py-3 border-b">
+              <span className="text-gray-900">6/16/2025</span>
+              <span className="text-gray-900">Sample Concert B</span>
+              <span className="text-gray-900">$0.00</span>
+              <span className="text-red-600">-$0.00</span>
+              <span className="text-green-600">$0.00</span>
+              <Badge className="bg-green-100 text-green-800 text-xs">sold</Badge>
+            </div>
+            
+            <div className="grid grid-cols-6 gap-4 text-sm py-3">
+              <span className="text-gray-900">6/16/2025</span>
+              <span className="text-gray-900">Sample Concert A</span>
+              <span className="text-gray-900">$0.00</span>
+              <span className="text-red-600">-$0.00</span>
+              <span className="text-green-600">$0.00</span>
+              <Badge className="bg-green-100 text-green-800 text-xs">sold</Badge>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Payout Methods - Moved below Recent Transactions */}
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-xl font-semibold text-gray-900 mb-1">Payout Methods</h3>
@@ -134,46 +178,8 @@ const PaymentTab = () => {
         
         
       </Card>
-
-      {/* Recent Transactions */}
-      <Card>
-        <CardHeader className="pb-4">
-          <CardTitle className="flex items-center gap-2">
-            <Calendar className="h-5 w-5" />
-            Recent Transactions
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="grid grid-cols-6 gap-4 text-sm font-medium text-gray-500 border-b pb-2">
-              <span>Date</span>
-              <span>Event</span>
-              <span>Sale Amount</span>
-              <span>Commission</span>
-              <span>Net Payout</span>
-              <span>Status</span>
-            </div>
-            
-            <div className="grid grid-cols-6 gap-4 text-sm py-3 border-b">
-              <span className="text-gray-900">6/16/2025</span>
-              <span className="text-gray-900">Sample Concert B</span>
-              <span className="text-gray-900">$0.00</span>
-              <span className="text-red-600">-$0.00</span>
-              <span className="text-green-600">$0.00</span>
-              <Badge className="bg-green-100 text-green-800 text-xs">sold</Badge>
-            </div>
-            
-            <div className="grid grid-cols-6 gap-4 text-sm py-3">
-              <span className="text-gray-900">6/16/2025</span>
-              <span className="text-gray-900">Sample Concert A</span>
-              <span className="text-gray-900">$0.00</span>
-              <span className="text-red-600">-$0.00</span>
-              <span className="text-green-600">$0.00</span>
-              <Badge className="bg-green-100 text-green-800 text-xs">sold</Badge>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </div>;
+    </div>
+  );
 };
+
 export default PaymentTab;
