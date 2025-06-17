@@ -4,9 +4,9 @@ import { DollarSign, Activity } from "lucide-react";
 
 const RecentActivitySection = () => {
   return (
-    <Card className="bg-white/95 backdrop-blur-sm border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-300">
+    <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0">
       <CardHeader>
-        <CardTitle className="text-lg font-bold text-slate-900">Recent Activity</CardTitle>
+        <CardTitle className="text-lg font-bold text-slate-800">Recent Activity</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -15,7 +15,7 @@ const RecentActivitySection = () => {
               <DollarSign className="text-white h-3 w-3" />
             </div>
             <div className="flex-1">
-              <p className="font-medium text-slate-900">Ticket Sold</p>
+              <p className="font-medium text-slate-800">Ticket Sold</p>
               <p className="text-sm text-slate-600">Sample Concert B - $80</p>
               <p className="text-xs text-slate-500">Jun 16, 6:16 PM</p>
             </div>
@@ -25,7 +25,7 @@ const RecentActivitySection = () => {
               <DollarSign className="text-white h-3 w-3" />
             </div>
             <div className="flex-1">
-              <p className="font-medium text-slate-900">Ticket Sold</p>
+              <p className="font-medium text-slate-800">Ticket Sold</p>
               <p className="text-sm text-slate-600">Sample Concert A - $120</p>
               <p className="text-xs text-slate-500">Jun 16, 4:16 PM</p>
             </div>
@@ -35,7 +35,7 @@ const RecentActivitySection = () => {
               <Activity className="text-white h-3 w-3" />
             </div>
             <div className="flex-1">
-              <p className="font-medium text-slate-900">Ticket Listed</p>
+              <p className="font-medium text-slate-800">Ticket Listed</p>
               <p className="text-sm text-slate-600">Real Example is now live</p>
               <p className="text-xs text-slate-500">Jun 16, 3:46 PM</p>
             </div>
