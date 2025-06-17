@@ -26,8 +26,8 @@ const SettingsSidebar = ({ activeTab, setActiveTab }: SettingsSidebarProps) => {
             <span className="text-white font-bold text-lg">MG</span>
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-gray-900 text-lg truncate">Michael Greenbaum</h3>
-            <p className="text-sm text-gray-600 truncate">greenbaumichael@gmail.com</p>
+            <h3 className="font-semibold text-gray-900 text-lg">Michael Greenbaum</h3>
+            <p className="text-sm text-gray-600 break-all">greenbaumichael@gmail.com</p>
           </div>
         </div>
       </div>
