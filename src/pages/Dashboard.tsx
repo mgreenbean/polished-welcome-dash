@@ -10,7 +10,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 const Dashboard = () => {
   return (
     <TooltipProvider>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50">
         <Header />
         
         <div className="fixed top-4 right-4 z-40">
