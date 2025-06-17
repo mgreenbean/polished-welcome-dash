@@ -35,11 +35,11 @@ const NewSettings = () => {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <div className="flex">
+      <div className="flex max-w-7xl mx-auto">
         <SettingsSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
         
-        <main className="flex-1 p-8">
-          <div className="max-w-4xl">
+        <main className="flex-1 p-6 lg:p-8">
+          <div className="max-w-5xl mx-auto">
             {renderContent()}
           </div>
         </main>

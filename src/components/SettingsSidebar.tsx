@@ -18,37 +18,39 @@ const SettingsSidebar = ({ activeTab, setActiveTab }: SettingsSidebarProps) => {
   ];
 
   return (
-    <div className="w-64 bg-white border-r border-gray-200">
+    <div className="w-72 bg-white border-r border-gray-200 min-h-screen">
       {/* User Profile Section */}
-      <div className="p-6 border-b border-gray-200">
-        <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-gray-400 rounded-full flex items-center justify-center">
-            <span className="text-white font-semibold text-sm">MG</span>
+      <div className="p-6 border-b border-gray-100">
+        <div className="flex items-center space-x-4">
+          <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+            <span className="text-white font-bold text-lg">MG</span>
           </div>
-          <div>
-            <h3 className="font-semibold text-gray-900">Michael Greenbaum</h3>
-            <p className="text-sm text-gray-600">greenbaumichael@gmail.com</p>
+          <div className="flex-1 min-w-0">
+            <h3 className="font-semibold text-gray-900 text-lg truncate">Michael Greenbaum</h3>
+            <p className="text-sm text-gray-600 truncate">greenbaumichael@gmail.com</p>
           </div>
         </div>
       </div>
 
       {/* Navigation */}
       <nav className="p-4">
-        {sidebarItems.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => setActiveTab(item.id)}
-            className={cn(
-              "w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors mb-1",
-              activeTab === item.id
-                ? 'bg-blue-50 text-blue-700 font-medium'
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-            )}
-          >
-            <item.icon className="h-5 w-5" />
-            <span className="text-sm">{item.label}</span>
-          </button>
-        ))}
+        <div className="space-y-1">
+          {sidebarItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveTab(item.id)}
+              className={cn(
+                "w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200",
+                activeTab === item.id
+                  ? 'bg-blue-50 text-blue-700 font-medium border-l-4 border-blue-500'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+              )}
+            >
+              <item.icon className="h-5 w-5 flex-shrink-0" />
+              <span className="text-sm font-medium">{item.label}</span>
+            </button>
+          ))}
+        </div>
       </nav>
     </div>
   );
