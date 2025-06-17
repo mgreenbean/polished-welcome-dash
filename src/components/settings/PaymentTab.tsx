@@ -1,12 +1,9 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Plus, Trash2, DollarSign, TrendingUp, Calendar, Award } from "lucide-react";
-
 const PaymentTab = () => {
-  return (
-    <div className="space-y-6">
+  return <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-semibold text-gray-900 mb-2">Payment Portal</h2>
         <p className="text-gray-600">Overview of your account, earnings, and payout methods</p>
@@ -134,34 +131,8 @@ const PaymentTab = () => {
 
       {/* Payout Settings */}
       <Card>
-        <CardHeader>
-          <CardTitle>Payout Settings</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="p-4 bg-gray-50 rounded-lg">
-            <h4 className="font-medium text-gray-900 mb-2">Automatic Payouts</h4>
-            <p className="text-sm text-gray-600 mb-3">Get paid automatically when your tickets sell</p>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-700">Enable automatic payouts</span>
-              <div className="w-12 h-6 bg-blue-600 rounded-full relative">
-                <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5"></div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="p-4 bg-gray-50 rounded-lg">
-            <h4 className="font-medium text-gray-900 mb-2">Minimum Payout Amount</h4>
-            <p className="text-sm text-gray-600">Set the minimum amount before a payout is processed</p>
-            <div className="mt-3">
-              <select className="w-full p-2 border border-gray-300 rounded-md text-sm">
-                <option>$10</option>
-                <option>$25</option>
-                <option>$50</option>
-                <option>$100</option>
-              </select>
-            </div>
-          </div>
-        </CardContent>
+        
+        
       </Card>
 
       {/* Recent Transactions */}
@@ -203,8 +174,6 @@ const PaymentTab = () => {
           </div>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
-
 export default PaymentTab;
