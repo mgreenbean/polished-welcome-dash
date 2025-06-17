@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-lg border-b border-slate-200">
+    <header className="bg-white shadow-lg border-b border-slate-200 relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
@@ -40,12 +40,12 @@ const Header = () => {
             </Link>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 relative z-50">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button 
                   variant="ghost" 
-                  className="flex items-center space-x-3 hover:bg-slate-100 transition-all duration-200 bg-white border-2 border-slate-300 px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className="flex items-center space-x-3 hover:bg-slate-100 transition-all duration-200 bg-white border-2 border-slate-300 px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:outline-none relative z-50"
                 >
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
                     <User className="h-4 w-4 text-white" />
@@ -56,7 +56,7 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent 
                 align="end" 
-                className="w-56 bg-white shadow-xl border-2 border-slate-200 z-[9999]"
+                className="w-56 bg-white shadow-xl border-2 border-slate-200 relative z-[100]"
                 sideOffset={5}
               >
                 <DropdownMenuLabel className="text-slate-700">My Account</DropdownMenuLabel>
