@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import SettingsSidebar from "@/components/SettingsSidebar";
-import ProfileTab from "@/components/settings/ProfileTab";
 import PaymentTab from "@/components/settings/PaymentTab";
 import PersonalInfoTab from "@/components/settings/PersonalInfoTab";
 import SupportTab from "@/components/settings/SupportTab";
@@ -11,12 +10,10 @@ import NotificationsTab from "@/components/settings/NotificationsTab";
 import LegalTab from "@/components/settings/LegalTab";
 
 const NewSettings = () => {
-  const [activeTab, setActiveTab] = useState("profile");
+  const [activeTab, setActiveTab] = useState("payment");
 
   const renderContent = () => {
     switch (activeTab) {
-      case "profile":
-        return <ProfileTab />;
       case "payment":
         return <PaymentTab />;
       case "personal":
@@ -30,7 +27,7 @@ const NewSettings = () => {
       case "legal":
         return <LegalTab />;
       default:
-        return <ProfileTab />;
+        return <PaymentTab />;
     }
   };
 

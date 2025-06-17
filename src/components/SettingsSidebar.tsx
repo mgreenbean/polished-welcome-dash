@@ -1,5 +1,5 @@
 
-import { User, CreditCard, MessageSquare, Shield, Bell, FileText } from "lucide-react";
+import { CreditCard, MessageSquare, Shield, Bell, FileText, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SettingsSidebarProps {
@@ -9,7 +9,6 @@ interface SettingsSidebarProps {
 
 const SettingsSidebar = ({ activeTab, setActiveTab }: SettingsSidebarProps) => {
   const sidebarItems = [
-    { id: "profile", label: "Profile", icon: User },
     { id: "payment", label: "Payment Portal", icon: CreditCard },
     { id: "personal", label: "Personal Information", icon: User },
     { id: "support", label: "Support & Feedback", icon: MessageSquare },
