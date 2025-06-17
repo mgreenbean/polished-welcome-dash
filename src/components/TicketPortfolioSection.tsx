@@ -5,8 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Input } from "@/components/ui/input";
 import { Clock, RefreshCw, Search, HelpCircle, Calendar, MapPin } from "lucide-react";
+import { useState } from "react";
 
 const TicketPortfolioSection = () => {
+  const [activeFilter, setActiveFilter] = useState("pending");
+
   return (
     <Card className="bg-white shadow-2xl hover:shadow-3xl transition-all duration-300 animate-fade-in border border-slate-200">
       <CardHeader className="pb-4">
@@ -40,29 +43,50 @@ const TicketPortfolioSection = () => {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-0 mt-4">
-          <div className="bg-amber-50 border-2 border-amber-300 text-slate-800 px-4 py-3 rounded-l-lg flex items-center justify-center space-x-2">
+          <button
+            onClick={() => setActiveFilter("pending")}
+            className={`px-4 py-3 rounded-l-lg flex items-center justify-center space-x-2 transition-all cursor-pointer ${
+              activeFilter === "pending" 
+                ? "bg-amber-50 border-2 border-amber-300 text-slate-800" 
+                : "bg-slate-50 border border-slate-300 text-slate-600 hover:bg-slate-100"
+            }`}
+          >
             <span className="font-medium">Pending Review</span>
             <Badge className="bg-amber-100 text-amber-800 border-amber-300">1</Badge>
-          </div>
-          <div className="bg-slate-50 border border-slate-300 text-slate-800 px-4 py-3 border-l-0 flex items-center justify-center space-x-2 hover:bg-slate-100 transition-all cursor-pointer">
+          </button>
+          <button
+            onClick={() => setActiveFilter("live")}
+            className={`px-4 py-3 border-l-0 flex items-center justify-center space-x-2 transition-all cursor-pointer ${
+              activeFilter === "live" 
+                ? "bg-emerald-50 border-2 border-emerald-300 text-slate-800" 
+                : "bg-slate-50 border border-slate-300 text-slate-600 hover:bg-slate-100"
+            }`}
+          >
             <span className="font-medium">Live Listings</span>
             <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">8</Badge>
-          </div>
-          <div className="bg-slate-50 border border-slate-300 text-slate-800 px-4 py-3 rounded-r-lg border-l-0 flex items-center justify-center space-x-2 hover:bg-slate-100 transition-all cursor-pointer">
+          </button>
+          <button
+            onClick={() => setActiveFilter("sold")}
+            className={`px-4 py-3 rounded-r-lg border-l-0 flex items-center justify-center space-x-2 transition-all cursor-pointer ${
+              activeFilter === "sold" 
+                ? "bg-blue-50 border-2 border-blue-300 text-slate-800" 
+                : "bg-slate-50 border border-slate-300 text-slate-600 hover:bg-slate-100"
+            }`}
+          >
             <span className="font-medium">Sold Tickets</span>
             <Badge className="bg-blue-100 text-blue-800 border-blue-300">2</Badge>
-          </div>
+          </button>
         </div>
       </CardHeader>
       <CardContent>
         {/* Clean, sleek ticket design */}
-        <div className="relative bg-white border-2 border-dashed border-slate-300 rounded-lg shadow-sm overflow-hidden">
+        <div className="relative bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden">
           {/* Minimal perforated left edge */}
-          <div className="absolute left-0 top-0 bottom-0 w-4 bg-white flex flex-col justify-evenly items-center">
-            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
-            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
-            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
-            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-4 bg-slate-50 flex flex-col justify-evenly items-center">
+            <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+            <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+            <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+            <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
           </div>
           
           <div className="ml-4 px-6 py-4">
@@ -83,29 +107,29 @@ const TicketPortfolioSection = () => {
               </div>
               
               {/* Right side with ticket details */}
-              <div className="text-center border-l-2 border-dashed border-slate-300 pl-6 ml-6">
-                <div className="grid grid-cols-4 gap-4 text-center text-sm mb-4">
+              <div className="text-center border-l border-slate-200 pl-6 ml-6">
+                <div className="grid grid-cols-4 gap-3 text-center text-sm mb-4">
                   <div>
-                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-1">SECTION</p>
-                    <div className="bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-2">SECTION</p>
+                    <div className="bg-slate-50 border border-slate-200 px-3 py-2 rounded h-10 flex items-center justify-center">
                       <p className="font-bold text-slate-800">GA21</p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-1">ROW</p>
-                    <div className="bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-2">ROW</p>
+                    <div className="bg-slate-50 border border-slate-200 px-3 py-2 rounded h-10 flex items-center justify-center">
                       <p className="font-bold text-slate-800">20</p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-1">SEATS</p>
-                    <div className="bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-2">SEATS</p>
+                    <div className="bg-slate-50 border border-slate-200 px-3 py-2 rounded h-10 flex items-center justify-center">
                       <p className="font-bold text-slate-800 text-xs">General</p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-1">QTY</p>
-                    <div className="bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide mb-2">QTY</p>
+                    <div className="bg-slate-50 border border-slate-200 px-3 py-2 rounded h-10 flex items-center justify-center">
                       <p className="font-bold text-slate-800">1</p>
                     </div>
                   </div>

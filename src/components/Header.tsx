@@ -1,5 +1,5 @@
 
-import { User, Settings, CreditCard, LogOut, ChevronDown } from "lucide-react";
+import { User, Settings, CreditCard, LogOut, ChevronDown, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useUser } from "@/contexts/UserContext";
@@ -29,9 +29,9 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
             <Link to="/dashboard" className="flex items-center space-x-3">
-              <div className={`w-12 h-12 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-lg flex items-center justify-center shadow-xl relative ${isHomePage ? 'animate-bounce-once' : ''}`}>
+              <div className={`w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center shadow-xl relative ${isHomePage ? 'animate-bounce-once' : ''}`}>
                 <span className="text-white font-bold text-base">SMS</span>
-                <div className="absolute -top-1 -right-1 w-4 h-3 bg-gradient-to-r from-amber-400 to-orange-400 rounded-sm transform rotate-12 shadow-sm"></div>
+                <div className="absolute -top-1 -right-1 w-4 h-3 bg-blue-500 rounded-sm transform rotate-12 shadow-sm"></div>
               </div>
               <div className={`flex flex-col ${isHomePage ? 'animate-bounce-once' : ''}`}>
                 <span className="text-xl font-bold text-slate-800">SellMySeats</span>
@@ -45,7 +45,7 @@ const Header = () => {
               <DropdownMenuTrigger asChild>
                 <Button 
                   variant="ghost" 
-                  className="flex items-center space-x-3 hover:bg-slate-100 transition-all duration-200 bg-white border-2 border-slate-300 px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:scale-105"
+                  className="flex items-center space-x-3 hover:bg-slate-100 transition-all duration-200 bg-white border-2 border-slate-300 px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 >
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
                     <User className="h-4 w-4 text-white" />
@@ -62,34 +62,21 @@ const Header = () => {
                 <DropdownMenuLabel className="text-slate-700">My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
-                  <Link to="/dashboard" className="flex items-center w-full">
-                    <Settings className="mr-2 h-4 w-4" />
-                    <span>Dashboard</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
-                  <Link to="/analytics" className="flex items-center w-full">
-                    <Settings className="mr-2 h-4 w-4" />
-                    <span>Analytics</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
-                  <Link to="/support" className="flex items-center w-full">
-                    <Settings className="mr-2 h-4 w-4" />
-                    <span>Support</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
                   <Link to="/settings" className="flex items-center w-full">
                     <Settings className="mr-2 h-4 w-4" />
-                    <span>Profile Settings</span>
+                    <span>Settings</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
                   <Link to="/payout-settings" className="flex items-center w-full">
                     <CreditCard className="mr-2 h-4 w-4" />
-                    <span>Payout Settings</span>
+                    <span>Payment Portal</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
+                  <Link to="/support" className="flex items-center w-full">
+                    <HelpCircle className="mr-2 h-4 w-4" />
+                    <span>Support</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
