@@ -10,11 +10,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 const Dashboard = () => {
   return (
     <TooltipProvider>
-      <div className="min-h-screen bg-gradient-to-br from-blue-600 via-blue-500 to-emerald-500">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50">
         {/* Background decorative elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
-        <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-emerald-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 to-transparent"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-emerald-200/20 rounded-full blur-3xl"></div>
         
         <Header />
         

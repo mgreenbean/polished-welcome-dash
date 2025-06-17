@@ -6,10 +6,10 @@ import { Mail } from "lucide-react";
 const TransferEmailSection = () => {
   return (
     <div className="mb-8 animate-fade-in">
-      <Card className="bg-white shadow-2xl hover:shadow-3xl transition-all duration-300 border-0">
+      <Card className="bg-white shadow-2xl hover:shadow-3xl transition-all duration-300 border border-slate-200">
         <CardContent className="p-8">
           <div className="flex items-start space-x-4 mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-xl">
+            <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
               <Mail className="text-white h-6 w-6" />
             </div>
             <div className="flex-1">
@@ -25,7 +25,7 @@ const TransferEmailSection = () => {
                 type="email" 
                 value="greenbay31@bestfan.com"
                 readOnly
-                className="flex-1 px-4 py-3 border border-slate-300 rounded-lg bg-slate-50 text-slate-800 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400/50"
+                className="flex-1 px-4 py-3 border border-slate-300 rounded-lg bg-slate-50 text-slate-800 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:border-blue-400/50"
               />
               <Button 
                 variant="outline" 
@@ -40,21 +40,21 @@ const TransferEmailSection = () => {
             <h3 className="text-lg font-semibold text-slate-800 mb-4">How It Works</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm shadow-lg">1</div>
+                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm shadow-lg">1</div>
                 <div>
                   <h4 className="font-semibold text-slate-800 mb-1">Forward your ticket confirmation email</h4>
                   <p className="text-sm text-slate-600">Send your ticket email to the address above</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm shadow-lg">2</div>
+                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm shadow-lg">2</div>
                 <div>
                   <h4 className="font-semibold text-slate-800 mb-1">Our system automatically extracts the ticket details</h4>
                   <p className="text-sm text-slate-600">AI processes your tickets instantly</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm shadow-lg">3</div>
+                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm shadow-lg">3</div>
                 <div>
                   <h4 className="font-semibold text-slate-800 mb-1">Your tickets appear in your dashboard for review and go live instantly</h4>
                   <p className="text-sm text-slate-600">Review and approve for instant listing</p>

@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white/10 backdrop-blur-md shadow-2xl border-b border-white/20">
+    <header className="bg-white shadow-lg border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
@@ -34,8 +34,8 @@ const Header = () => {
                 <div className="absolute -top-1 -right-1 w-4 h-3 bg-gradient-to-r from-amber-400 to-orange-400 rounded-sm transform rotate-12 shadow-sm"></div>
               </div>
               <div className={`flex flex-col ${isHomePage ? 'animate-bounce-once' : ''}`}>
-                <span className="text-xl font-bold text-white drop-shadow-lg">SellMySeats</span>
-                <span className="text-xs text-blue-200 -mt-1 font-medium">SELL YOUR TICKETS</span>
+                <span className="text-xl font-bold text-slate-800">SellMySeats</span>
+                <span className="text-xs text-blue-600 -mt-1 font-medium">SELL YOUR TICKETS</span>
               </div>
             </Link>
           </div>
@@ -43,15 +43,15 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-3 hover:bg-white/20 transition-all duration-200 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:scale-105">
+                <Button variant="ghost" className="flex items-center space-x-3 hover:bg-slate-100 transition-all duration-200 bg-slate-50 border border-slate-200 px-4 py-2 rounded-lg shadow-sm hover:shadow-md hover:scale-105">
                   <div className="w-8 h-8 bg-gradient-to-br from-emerald-300 to-blue-400 rounded-full flex items-center justify-center shadow-lg">
                     <User className="h-4 w-4 text-white" />
                   </div>
-                  <span className="text-sm font-medium text-white hidden sm:block drop-shadow-sm">{userName}</span>
-                  <ChevronDown className="h-4 w-4 text-white" />
+                  <span className="text-sm font-medium text-slate-800 hidden sm:block">{userName}</span>
+                  <ChevronDown className="h-4 w-4 text-slate-600" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-white/95 backdrop-blur-md border border-white/20 shadow-2xl">
+              <DropdownMenuContent align="end" className="w-56 bg-white shadow-xl border border-slate-200">
                 <DropdownMenuLabel className="text-slate-700">My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50">

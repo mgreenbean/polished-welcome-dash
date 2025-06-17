@@ -4,19 +4,19 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Input } from "@/components/ui/input";
-import { Clock, RefreshCw, Search, HelpCircle, Calendar } from "lucide-react";
+import { Clock, RefreshCw, Search, HelpCircle, Calendar, MapPin } from "lucide-react";
 
 const TicketPortfolioSection = () => {
   return (
-    <Card className="bg-white shadow-2xl hover:shadow-3xl transition-all duration-300 animate-fade-in border-0">
+    <Card className="bg-white shadow-2xl hover:shadow-3xl transition-all duration-300 animate-fade-in border border-slate-200">
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between mb-4">
           <CardTitle className="text-xl font-bold text-slate-800 flex items-center space-x-2">
-            <Clock className="h-5 w-5 text-emerald-500" />
+            <Clock className="h-5 w-5 text-blue-500" />
             <span>Your Ticket Portfolio</span>
             <Tooltip>
               <TooltipTrigger>
-                <HelpCircle className="h-4 w-4 text-emerald-500 hover:text-emerald-600" />
+                <HelpCircle className="h-4 w-4 text-blue-500 hover:text-blue-600" />
               </TooltipTrigger>
               <TooltipContent>
                 <p className="text-sm">Manage and track all your ticket listings in one place</p>
@@ -55,39 +55,60 @@ const TicketPortfolioSection = () => {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-lg p-6 shadow-lg">
-          <div className="flex items-center justify-between">
-            <div className="flex-1">
-              <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 border-amber-300 mb-3">PENDING REVIEW</Badge>
-              <h3 className="text-lg font-semibold text-slate-800 mb-1">Coldplay: Music Of The Spheres World Tour</h3>
-              <p className="text-emerald-600 font-medium mb-1">Rogers Stadium, Toronto, ON</p>
-              <div className="flex items-center space-x-1 text-sm text-slate-600">
-                <Calendar className="h-4 w-4" />
-                <span>7/12/2025</span>
-              </div>
+        {/* Ticket styled like a real ticket with perforated edges */}
+        <div className="relative bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-dashed border-amber-300 rounded-lg shadow-lg overflow-hidden">
+          {/* Perforated left edge */}
+          <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-b from-white via-amber-100 to-white">
+            <div className="flex flex-col justify-evenly h-full items-center">
+              <div className="w-3 h-3 bg-white rounded-full border border-amber-300"></div>
+              <div className="w-3 h-3 bg-white rounded-full border border-amber-300"></div>
+              <div className="w-3 h-3 bg-white rounded-full border border-amber-300"></div>
+              <div className="w-3 h-3 bg-white rounded-full border border-amber-300"></div>
+              <div className="w-3 h-3 bg-white rounded-full border border-amber-300"></div>
             </div>
-            <div className="text-center border-l border-dashed border-slate-300 pl-6 ml-6">
-              <div className="grid grid-cols-4 gap-4 text-center text-sm mb-4">
-                <div>
-                  <p className="text-slate-500 font-medium">SECTION</p>
-                  <p className="font-semibold text-slate-800">GA21</p>
+          </div>
+          
+          <div className="ml-6 p-6">
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <div className="mb-3">
+                  <Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0 mb-3 px-3 py-1 text-xs font-bold">PENDING REVIEW</Badge>
                 </div>
-                <div>
-                  <p className="text-slate-500 font-medium">ROW</p>
-                  <p className="font-semibold text-slate-800">20</p>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Coldplay: Music Of The Spheres World Tour</h3>
+                <div className="flex items-center space-x-1 text-emerald-600 font-medium mb-2">
+                  <MapPin className="h-4 w-4" />
+                  <span>Rogers Stadium, Toronto, ON</span>
                 </div>
-                <div>
-                  <p className="text-slate-500 font-medium">SEATS</p>
-                  <p className="font-semibold text-slate-800">General Admission</p>
-                </div>
-                <div>
-                  <p className="text-slate-500 font-medium">QTY</p>
-                  <p className="font-semibold text-slate-800">1</p>
+                <div className="flex items-center space-x-1 text-sm text-slate-600">
+                  <Calendar className="h-4 w-4" />
+                  <span>7/12/2025</span>
                 </div>
               </div>
-              <Button className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105">
-                APPROVE & LIST
-              </Button>
+              
+              {/* Right side with ticket details */}
+              <div className="text-center border-l-2 border-dashed border-amber-300 pl-6 ml-6">
+                <div className="grid grid-cols-4 gap-6 text-center text-sm mb-6">
+                  <div>
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide">SECTION:</p>
+                    <p className="font-bold text-slate-800 text-lg">GA21</p>
+                  </div>
+                  <div>
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide">ROW:</p>
+                    <p className="font-bold text-slate-800 text-lg">20</p>
+                  </div>
+                  <div>
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide">SEATS:</p>
+                    <p className="font-bold text-slate-800 text-sm">General Admission</p>
+                  </div>
+                  <div>
+                    <p className="text-slate-500 font-medium text-xs uppercase tracking-wide">QUANTITY:</p>
+                    <p className="font-bold text-slate-800 text-lg">1</p>
+                  </div>
+                </div>
+                <Button className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 py-3">
+                  APPROVE & LIST
+                </Button>
+              </div>
             </div>
           </div>
         </div>
