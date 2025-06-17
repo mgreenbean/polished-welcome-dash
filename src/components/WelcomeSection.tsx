@@ -5,9 +5,9 @@ const WelcomeSection = () => {
   const { userName } = useUser();
 
   return (
-    <div className="mb-8">
-      <h1 className="text-3xl font-bold text-slate-900 mb-2">Welcome, {userName}!</h1>
-      <p className="text-blue-600 font-medium">Here's your ticket selling dashboard overview</p>
+    <div className="mb-8 animate-fade-in">
+      <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">Welcome, {userName}!</h1>
+      <p className="text-blue-100 font-medium text-lg">Here's your ticket selling dashboard overview</p>
     </div>
   );
 };
