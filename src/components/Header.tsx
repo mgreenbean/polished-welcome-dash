@@ -43,15 +43,15 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-3 hover:bg-slate-100 transition-all duration-200 bg-slate-50 border border-slate-200 px-4 py-2 rounded-lg shadow-sm hover:shadow-md hover:scale-105">
-                  <div className="w-8 h-8 bg-gradient-to-br from-emerald-300 to-blue-400 rounded-full flex items-center justify-center shadow-lg">
+                <Button variant="ghost" className="flex items-center space-x-3 hover:bg-slate-100 transition-all duration-200 bg-white border-2 border-slate-300 px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:scale-105">
+                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
                     <User className="h-4 w-4 text-white" />
                   </div>
                   <span className="text-sm font-medium text-slate-800 hidden sm:block">{userName}</span>
                   <ChevronDown className="h-4 w-4 text-slate-600" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-white shadow-xl border border-slate-200">
+              <DropdownMenuContent align="end" className="w-56 bg-white shadow-xl border-2 border-slate-200 z-50">
                 <DropdownMenuLabel className="text-slate-700">My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50">
