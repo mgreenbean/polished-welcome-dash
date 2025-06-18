@@ -1,5 +1,5 @@
 
-import { User, Settings, CreditCard, LogOut, ChevronDown, HelpCircle } from "lucide-react";
+import { User, Settings, LogOut, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useUser } from "@/contexts/UserContext";
@@ -65,18 +65,6 @@ const Header = () => {
                   <Link to="/settings" className="flex items-center w-full">
                     <Settings className="mr-2 h-4 w-4" />
                     <span>Settings</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
-                  <Link to="/payout-settings" className="flex items-center w-full">
-                    <CreditCard className="mr-2 h-4 w-4" />
-                    <span>Payment Portal</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-blue-50 focus:bg-blue-50">
-                  <Link to="/support" className="flex items-center w-full">
-                    <HelpCircle className="mr-2 h-4 w-4" />
-                    <span>Support</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
