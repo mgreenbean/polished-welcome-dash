@@ -18,11 +18,11 @@ const SettingsSidebar = ({ activeTab, setActiveTab }: SettingsSidebarProps) => {
   ];
 
   return (
-    <div className="w-80 bg-white/90 backdrop-blur-sm border-r border-blue-200/50 min-h-screen shadow-lg">
+    <div className="w-80 bg-white/95 backdrop-blur-sm min-h-screen">
       {/* User Profile Section */}
-      <div className="p-6 border-b border-blue-100/50">
+      <div className="p-6 border-b border-blue-100/60">
         <div className="flex items-center space-x-4">
-          <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+          <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 border-2 border-white">
             <span className="text-white font-bold text-lg">MG</span>
           </div>
           <div className="flex-1 min-w-0">
@@ -34,16 +34,16 @@ const SettingsSidebar = ({ activeTab, setActiveTab }: SettingsSidebarProps) => {
 
       {/* Navigation */}
       <nav className="p-4">
-        <div className="space-y-1">
+        <div className="space-y-2">
           {sidebarItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
               className={cn(
-                "w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200 hover:shadow-md",
+                "w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200 hover:shadow-md border",
                 activeTab === item.id
-                  ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium shadow-lg'
-                  : 'text-gray-600 hover:bg-blue-50/70 hover:text-blue-700 hover:shadow-sm'
+                  ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium shadow-lg border-blue-600'
+                  : 'text-gray-600 hover:bg-blue-50/70 hover:text-blue-700 hover:shadow-sm bg-white/60 border-blue-100/40 hover:border-blue-200/60'
               )}
             >
               <item.icon className="h-5 w-5 flex-shrink-0" />

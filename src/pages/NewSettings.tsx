@@ -40,12 +40,14 @@ const NewSettings = () => {
       
       <Header />
       
-      <div className="flex max-w-7xl mx-auto relative">
+      <div className="flex max-w-7xl mx-auto relative border border-blue-200/30 rounded-xl overflow-hidden mt-4 mx-4 bg-white/60 backdrop-blur-sm shadow-lg">
         <SettingsSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
         
-        <main className="flex-1 p-6 lg:p-8">
+        <main className="flex-1 p-6 lg:p-8 border-l border-blue-100/50">
           <div className="max-w-5xl mx-auto">
-            {renderContent()}
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl border border-blue-100/50 shadow-sm p-6">
+              {renderContent()}
+            </div>
           </div>
         </main>
       </div>
