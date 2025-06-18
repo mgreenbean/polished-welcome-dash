@@ -1,3 +1,4 @@
+
 import { User, Settings, LogOut, ChevronDown, CreditCard, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -20,6 +21,17 @@ const Header = () => {
 
   const handleLogout = () => {
     navigate("/");
+  };
+
+  const handleSupportClick = () => {
+    navigate("/settings");
+    // Small delay to ensure navigation completes before setting tab
+    setTimeout(() => {
+      const supportTab = document.querySelector('[data-tab="support"]') as HTMLButtonElement;
+      if (supportTab) {
+        supportTab.click();
+      }
+    }, 100);
   };
 
   return (
@@ -70,11 +82,12 @@ const Header = () => {
                   <CreditCard className="mr-2 h-4 w-4" />
                   <span>Payment Portal</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer hover:bg-purple-50 focus:bg-purple-50">
-                  <Link to="/help-center" className="flex items-center w-full">
-                    <MessageSquare className="mr-2 h-4 w-4" />
-                    <span>Support</span>
-                  </Link>
+                <DropdownMenuItem 
+                  onClick={handleSupportClick}
+                  className="cursor-pointer hover:bg-purple-50 focus:bg-purple-50"
+                >
+                  <MessageSquare className="mr-2 h-4 w-4" />
+                  <span>Support</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem 

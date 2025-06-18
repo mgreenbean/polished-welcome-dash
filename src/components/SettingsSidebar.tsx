@@ -1,4 +1,3 @@
-
 import { CreditCard, MessageSquare, Shield, Bell, FileText, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -38,6 +37,7 @@ const SettingsSidebar = ({ activeTab, setActiveTab }: SettingsSidebarProps) => {
           {sidebarItems.map((item) => (
             <button
               key={item.id}
+              data-tab={item.id}
               onClick={() => setActiveTab(item.id)}
               className={cn(
                 "w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200 hover:shadow-md border",
