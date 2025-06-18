@@ -5,6 +5,23 @@ import { Badge } from "@/components/ui/badge";
 import { Plus, Trash2, DollarSign, TrendingUp, Calendar, Award } from "lucide-react";
 
 const PaymentTab = () => {
+  const handleAddMethod = () => {
+    // In a real app, this would open a modal or navigate to add payment method
+    alert("Add payment method functionality would be implemented here");
+  };
+
+  const handleDeleteMethod = (methodName: string) => {
+    // In a real app, this would delete the payment method
+    if (confirm(`Are you sure you want to delete ${methodName}?`)) {
+      alert(`${methodName} would be deleted`);
+    }
+  };
+
+  const handleSetDefault = (methodName: string) => {
+    // In a real app, this would set the method as default
+    alert(`${methodName} would be set as default payment method`);
+  };
+
   return (
     <div className="space-y-6">
       <div>
@@ -75,7 +92,7 @@ const PaymentTab = () => {
         </Card>
       </div>
 
-      {/* Recent Transactions - Moved above Payout Methods */}
+      {/* Recent Transactions */}
       <Card>
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2">
@@ -119,13 +136,13 @@ const PaymentTab = () => {
         </CardContent>
       </Card>
 
-      {/* Payout Methods - Moved below Recent Transactions */}
+      {/* Payout Methods */}
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-xl font-semibold text-gray-900 mb-1">Payout Methods</h3>
           <p className="text-gray-600">Manage your payout methods and preferences</p>
         </div>
-        <Button className="bg-blue-600 hover:bg-blue-700">
+        <Button onClick={handleAddMethod} className="bg-blue-600 hover:bg-blue-700">
           <Plus className="h-4 w-4 mr-2" />
           Add Method
         </Button>
@@ -152,7 +169,12 @@ const PaymentTab = () => {
               <Badge className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-3 py-1 rounded-full shadow-sm">
                 Default
               </Badge>
-              <Button variant="ghost" size="sm">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => handleDeleteMethod("Zelle")}
+                className="hover:bg-red-50 hover:text-red-600"
+              >
                 <Trash2 className="h-4 w-4" />
               </Button>
             </div>
@@ -170,19 +192,24 @@ const PaymentTab = () => {
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <Button variant="outline" size="sm">Set as Default</Button>
-              <Button variant="ghost" size="sm">
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => handleSetDefault("PayPal")}
+              >
+                Set as Default
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => handleDeleteMethod("PayPal")}
+                className="hover:bg-red-50 hover:text-red-600"
+              >
                 <Trash2 className="h-4 w-4" />
               </Button>
             </div>
           </div>
         </CardContent>
-      </Card>
-
-      {/* Payout Settings */}
-      <Card>
-        
-        
       </Card>
     </div>
   );
