@@ -1,7 +1,9 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Phone, Mail, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SupportTab = () => {
   return (
@@ -18,10 +20,12 @@ const SupportTab = () => {
           <p className="text-sm text-gray-600">Need help? Our support team is here to assist you.</p>
         </CardHeader>
         <CardContent className="space-y-4">
-          <Button className="w-full bg-blue-600 hover:bg-blue-700 justify-start">
-            <MessageCircle className="h-4 w-4 mr-2" />
-            Visit Help Center
-            <ExternalLink className="h-4 w-4 ml-auto" />
+          <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 justify-start">
+            <Link to="/help-center" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-4 w-4 mr-2" />
+              Visit Help Center
+              <ExternalLink className="h-4 w-4 ml-auto" />
+            </Link>
           </Button>
           
           <Button variant="outline" className="w-full justify-start">
