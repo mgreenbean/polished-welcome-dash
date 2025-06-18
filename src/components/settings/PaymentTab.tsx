@@ -100,7 +100,9 @@ const PaymentTab = () => {
               <span className="text-gray-900">$0.00</span>
               <span className="text-red-600">-$0.00</span>
               <span className="text-green-600">$0.00</span>
-              <Badge className="bg-green-100 text-green-800 text-xs">sold</Badge>
+              <Badge className="bg-gradient-to-r from-green-500 to-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm hover:shadow-md transition-all">
+                Sold
+              </Badge>
             </div>
             
             <div className="grid grid-cols-6 gap-4 text-sm py-3">
@@ -109,7 +111,9 @@ const PaymentTab = () => {
               <span className="text-gray-900">$0.00</span>
               <span className="text-red-600">-$0.00</span>
               <span className="text-green-600">$0.00</span>
-              <Badge className="bg-green-100 text-green-800 text-xs">sold</Badge>
+              <Badge className="bg-gradient-to-r from-green-500 to-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm hover:shadow-md transition-all">
+                Sold
+              </Badge>
             </div>
           </div>
         </CardContent>
@@ -145,7 +149,9 @@ const PaymentTab = () => {
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <Badge className="bg-blue-100 text-blue-800">Default</Badge>
+              <Badge className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-3 py-1 rounded-full shadow-sm">
+                Default
+              </Badge>
               <Button variant="ghost" size="sm">
                 <Trash2 className="h-4 w-4" />
               </Button>

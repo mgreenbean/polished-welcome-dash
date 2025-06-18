@@ -34,6 +34,17 @@ const Header = () => {
     }, 100);
   };
 
+  const handlePaymentClick = () => {
+    navigate("/settings");
+    // Small delay to ensure navigation completes before setting tab
+    setTimeout(() => {
+      const paymentTab = document.querySelector('[data-tab="payment"]') as HTMLButtonElement;
+      if (paymentTab) {
+        paymentTab.click();
+      }
+    }, 100);
+  };
+
   return (
     <header className="bg-white shadow-lg border-b border-slate-200 relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,7 +89,10 @@ const Header = () => {
                     <span>All Settings</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer hover:bg-green-50 focus:bg-green-50">
+                <DropdownMenuItem 
+                  onClick={handlePaymentClick}
+                  className="cursor-pointer hover:bg-green-50 focus:bg-green-50"
+                >
                   <CreditCard className="mr-2 h-4 w-4" />
                   <span>Payment Portal</span>
                 </DropdownMenuItem>
