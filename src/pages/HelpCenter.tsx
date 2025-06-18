@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Search, MessageCircle, Phone, Mail, Clock, ChevronRight, ChevronDown, User, FileText, CreditCard, Shield, Bell } from "lucide-react";
 import Header from "@/components/Header";
@@ -12,6 +11,14 @@ const HelpCenter = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+  const [chatMessage, setChatMessage] = useState("");
 
   const faqData = [
     {
@@ -67,6 +74,26 @@ const HelpCenter = () => {
       time: "2:33 PM"
     }
   ];
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.firstName || !formData.email || !formData.subject || !formData.message) {
+      alert("Please fill in all required fields");
+      return;
+    }
+    alert("Message sent successfully! We'll get back to you within 24 hours.");
+    setFormData({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+  };
+
+  const handleChatSend = () => {
+    if (!chatMessage.trim()) return;
+    alert("Message sent to support team!");
+    setChatMessage("");
+  };
+
+  const handleQuickAction = (action: string) => {
+    alert(`Opening ${action} assistance...`);
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -178,30 +205,56 @@ const HelpCenter = () => {
 
             <Card>
               <CardContent className="p-6">
-                <form className="space-y-4">
+                <form onSubmit={handleFormSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                      <Input placeholder="Enter your first name" />
+                      <label className="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                      <Input 
+                        placeholder="Enter your first name" 
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                        required
+                      />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                      <Input placeholder="Enter your last name" />
+                      <Input 
+                        placeholder="Enter your last name" 
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                      />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <Input type="email" placeholder="Enter your email address" />
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                    <Input 
+                      type="email" 
+                      placeholder="Enter your email address" 
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      required
+                    />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                    <Input placeholder="What's this about?" />
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Subject *</label>
+                    <Input 
+                      placeholder="What's this about?" 
+                      value={formData.subject}
+                      onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                      required
+                    />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                    <Textarea placeholder="Describe your issue or question..." rows={5} />
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                    <Textarea 
+                      placeholder="Describe your issue or question..." 
+                      rows={5} 
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      required
+                    />
                   </div>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
                     Send Message
                   </Button>
                 </form>
@@ -273,8 +326,14 @@ const HelpCenter = () => {
                       ))}
                     </div>
                     <div className="flex space-x-2">
-                      <Input placeholder="Type your message..." className="flex-1" />
-                      <Button className="bg-blue-600 hover:bg-blue-700">Send</Button>
+                      <Input 
+                        placeholder="Type your message..." 
+                        className="flex-1" 
+                        value={chatMessage}
+                        onChange={(e) => setChatMessage(e.target.value)}
+                        onKeyPress={(e) => e.key === 'Enter' && handleChatSend()}
+                      />
+                      <Button onClick={handleChatSend} className="bg-blue-600 hover:bg-blue-700">Send</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -286,19 +345,35 @@ const HelpCenter = () => {
                     <CardTitle className="text-lg">Quick Actions</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2">
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-start"
+                      onClick={() => handleQuickAction("Payment Issue")}
+                    >
                       <CreditCard className="h-4 w-4 mr-2" />
                       Payment Issue
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-start"
+                      onClick={() => handleQuickAction("Listing Help")}
+                    >
                       <FileText className="h-4 w-4 mr-2" />
                       Listing Help
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-start"
+                      onClick={() => handleQuickAction("Account Security")}
+                    >
                       <Shield className="h-4 w-4 mr-2" />
                       Account Security
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-start"
+                      onClick={() => handleQuickAction("Notifications")}
+                    >
                       <Bell className="h-4 w-4 mr-2" />
                       Notifications
                     </Button>
