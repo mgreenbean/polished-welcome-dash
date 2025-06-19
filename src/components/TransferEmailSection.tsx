@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
@@ -8,11 +7,11 @@ const TransferEmailSection = () => {
     <div className="mb-6 animate-fade-in relative">
       {/* Floating bubbles background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="bubble bubble-1"></div>
-        <div className="bubble bubble-2"></div>
-        <div className="bubble bubble-3"></div>
-        <div className="bubble bubble-4"></div>
-        <div className="bubble bubble-5"></div>
+        <div className="absolute w-10 h-10 rounded-full bg-gradient-to-br from-blue-400/10 to-blue-300/15 top-[10%] left-[10%] animate-[float_6s_ease-in-out_infinite]"></div>
+        <div className="absolute w-5 h-5 rounded-full bg-gradient-to-br from-blue-400/10 to-blue-300/15 top-[20%] right-[20%] animate-[float_6s_ease-in-out_infinite] [animation-delay:2s]"></div>
+        <div className="absolute w-15 h-15 rounded-full bg-gradient-to-br from-blue-400/10 to-blue-300/15 bottom-[30%] left-[15%] animate-[float_6s_ease-in-out_infinite] [animation-delay:4s]"></div>
+        <div className="absolute w-7.5 h-7.5 rounded-full bg-gradient-to-br from-blue-400/10 to-blue-300/15 top-[60%] right-[10%] animate-[float_6s_ease-in-out_infinite] [animation-delay:1s]"></div>
+        <div className="absolute w-6 h-6 rounded-full bg-gradient-to-br from-blue-400/10 to-blue-300/15 bottom-[10%] right-[30%] animate-[float_6s_ease-in-out_infinite] [animation-delay:3s]"></div>
       </div>
       
       <Card className="bg-gradient-to-br from-blue-50 to-white shadow-2xl hover:shadow-3xl transition-all duration-300 border border-blue-200 relative overflow-hidden">
@@ -74,55 +73,7 @@ const TransferEmailSection = () => {
         </CardContent>
       </Card>
       
-      <style jsx>{`
-        .bubble {
-          position: absolute;
-          border-radius: 50%;
-          background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.15));
-          animation: float 6s ease-in-out infinite;
-          pointer-events: none;
-        }
-        
-        .bubble-1 {
-          width: 40px;
-          height: 40px;
-          top: 10%;
-          left: 10%;
-          animation-delay: 0s;
-        }
-        
-        .bubble-2 {
-          width: 20px;
-          height: 20px;
-          top: 20%;
-          right: 20%;
-          animation-delay: 2s;
-        }
-        
-        .bubble-3 {
-          width: 60px;
-          height: 60px;
-          bottom: 30%;
-          left: 15%;
-          animation-delay: 4s;
-        }
-        
-        .bubble-4 {
-          width: 30px;
-          height: 30px;
-          top: 60%;
-          right: 10%;
-          animation-delay: 1s;
-        }
-        
-        .bubble-5 {
-          width: 25px;
-          height: 25px;
-          bottom: 10%;
-          right: 30%;
-          animation-delay: 3s;
-        }
-        
+      <style>{`
         @keyframes float {
           0%, 100% {
             transform: translateY(0px) scale(1);
