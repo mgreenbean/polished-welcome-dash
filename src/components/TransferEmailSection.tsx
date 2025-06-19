@@ -5,8 +5,17 @@ import { Mail } from "lucide-react";
 
 const TransferEmailSection = () => {
   return (
-    <div className="mb-6 animate-fade-in">
-      <Card className="bg-gradient-to-br from-blue-50 to-white shadow-2xl hover:shadow-3xl transition-all duration-300 border border-blue-200">
+    <div className="mb-6 animate-fade-in relative">
+      {/* Floating bubbles background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="bubble bubble-1"></div>
+        <div className="bubble bubble-2"></div>
+        <div className="bubble bubble-3"></div>
+        <div className="bubble bubble-4"></div>
+        <div className="bubble bubble-5"></div>
+      </div>
+      
+      <Card className="bg-gradient-to-br from-blue-50 to-white shadow-2xl hover:shadow-3xl transition-all duration-300 border border-blue-200 relative overflow-hidden">
         <CardContent className="p-6">
           <div className="flex items-start space-x-4 mb-5">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
@@ -64,6 +73,67 @@ const TransferEmailSection = () => {
           </div>
         </CardContent>
       </Card>
+      
+      <style jsx>{`
+        .bubble {
+          position: absolute;
+          border-radius: 50%;
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.15));
+          animation: float 6s ease-in-out infinite;
+          pointer-events: none;
+        }
+        
+        .bubble-1 {
+          width: 40px;
+          height: 40px;
+          top: 10%;
+          left: 10%;
+          animation-delay: 0s;
+        }
+        
+        .bubble-2 {
+          width: 20px;
+          height: 20px;
+          top: 20%;
+          right: 20%;
+          animation-delay: 2s;
+        }
+        
+        .bubble-3 {
+          width: 60px;
+          height: 60px;
+          bottom: 30%;
+          left: 15%;
+          animation-delay: 4s;
+        }
+        
+        .bubble-4 {
+          width: 30px;
+          height: 30px;
+          top: 60%;
+          right: 10%;
+          animation-delay: 1s;
+        }
+        
+        .bubble-5 {
+          width: 25px;
+          height: 25px;
+          bottom: 10%;
+          right: 30%;
+          animation-delay: 3s;
+        }
+        
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) scale(1);
+            opacity: 0.7;
+          }
+          50% {
+            transform: translateY(-20px) scale(1.1);
+            opacity: 0.9;
+          }
+        }
+      `}</style>
     </div>
   );
 };
