@@ -5,10 +5,10 @@ import { Mail } from "lucide-react";
 
 const TransferEmailSection = () => {
   return (
-    <div className="mb-8 animate-fade-in">
+    <div className="mb-6 animate-fade-in">
       <Card className="bg-white shadow-2xl hover:shadow-3xl transition-all duration-300 border border-slate-200">
-        <CardContent className="p-8">
-          <div className="flex items-start space-x-4 mb-6">
+        <CardContent className="p-6">
+          <div className="flex items-start space-x-4 mb-5">
             <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
               <Mail className="text-white h-6 w-6" />
             </div>
@@ -18,8 +18,8 @@ const TransferEmailSection = () => {
             </div>
           </div>
 
-          <div className="mb-6">
-            <label className="block text-sm font-semibold text-slate-700 mb-3">Transfer Email Address</label>
+          <div className="mb-5">
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Transfer Email Address</label>
             <div className="flex space-x-3">
               <input 
                 type="email" 
@@ -36,9 +36,9 @@ const TransferEmailSection = () => {
             </div>
           </div>
 
-          <div className="border-t border-slate-200 pt-6">
+          <div className="border-t border-slate-200 pt-5">
             <h3 className="text-lg font-semibold text-slate-800 mb-4">How It Works</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               <div className="flex items-start space-x-3">
                 <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm shadow-lg">1</div>
                 <div>
